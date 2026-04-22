@@ -1,0 +1,228 @@
+@layer reset, base, components, utilities;
+
+:root {
+  --bg-main: #FFFFFF;
+  --bg-alt: #FAFAFC;
+  --purple-primary: #9333EA;
+  --purple-hover: #7E22CE;
+  --purple-light: #F3E8FF;
+  --purple-electric: #A855F7;
+  --text-main: #1F1B2E;
+  --text-muted: #6B7280;
+  
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  line-height: 1.5;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.text-center { text-align: center; }
+.text-purple { color: var(--purple-primary); }
+.bg-alt { background-color: var(--bg-alt); }
+.bg-light-purple { background-color: var(--purple-light); }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--purple-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--purple-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(107, 63, 232, 0.3);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--purple-primary);
+}
+
+.btn-secondary:hover {
+  color: var(--purple-hover);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: var(--purple-primary);
+}
+
+.btn-white:hover {
+  color: var(--purple-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Grids */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--purple-primary);
+  color: white;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Accordion */
+.accordion-item {
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.accordion-header {
+  width: 100%;
+  text-align: left;
+  padding: 1.5rem 0;
+  background: none;
+  border: none;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-content {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Input & Form */
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--purple-primary);
+  box-shadow: 0 0 0 3px var(--purple-light);
+}
+
+/* Animations Utils */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 10px rgba(147, 51, 234, 0.4); border-color: rgba(147, 51, 234, 0.6); }
+  50% { box-shadow: 0 0 30px rgba(147, 51, 234, 0.8); border-color: rgba(147, 51, 234, 1); }
+  100% { box-shadow: 0 0 10px rgba(147, 51, 234, 0.4); border-color: rgba(147, 51, 234, 0.6); }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
