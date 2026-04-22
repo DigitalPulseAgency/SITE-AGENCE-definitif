@@ -45,11 +45,9 @@ export default function Hero() {
           </FadeIn>
         </div>
 
-        <FadeIn delay={0.3} className="hero-visual" style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+{/* <FadeIn delay={0.3} className="hero-visual" style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
           
-          {/* Photo Placeholder Container */}
           <div style={{ position: 'relative' }}>
-            {/* Contained soft blob behind the photo */}
             <div style={{
               position: 'absolute',
               top: '10%',
@@ -63,7 +61,6 @@ export default function Hero() {
               zIndex: 0
             }} />
 
-            {/* Photo Card */}
             <div className="animate-float" style={{
             position: 'relative',
             width: '100%',
@@ -90,7 +87,7 @@ export default function Hero() {
 
 
           </div>
-        </FadeIn>
+        </FadeIn> */}
       </div>
 
       <style>{`
