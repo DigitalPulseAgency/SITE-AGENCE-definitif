@@ -28,14 +28,15 @@ export default function Header() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: '4.5rem'
+        padding: '1rem 0'
       }}>
-        <a href="#top" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#1F1B2E', borderRadius: '12px', padding: '0.5rem 1rem', transition: 'opacity 0.2s ease' }} onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'} onMouseOut={(e) => e.currentTarget.style.opacity = '1'}>
-          <img src="/logo.png" alt="DigitalPulse Agency" className="hq-logo" />
+        <a href="#top" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', transition: 'opacity 0.2s ease' }} onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'} onMouseOut={(e) => e.currentTarget.style.opacity = '1'}>
+          <img src="/logo/logo_icon.png" alt="Digital Pulse Agency" className="hq-logo logo-mobile" loading="eager" />
+          <img src="/logo/logo_light_bg.png" alt="Digital Pulse Agency" className="hq-logo logo-desktop" loading="eager" />
         </a>
 
         {/* Nav Links - Desktop */}
-        <nav style={{ display: 'none', gap: '2rem', fontWeight: 500 }} className="desktop-nav">
+        <nav style={{ display: 'none', gap: '2.5rem', fontWeight: 600, fontSize: '1.1rem' }} className="desktop-nav">
           <a href="#offres" style={{ color: 'var(--text-main)' }}>Offres</a>
           <a href="#sites" style={{ color: 'var(--text-main)' }}>Sites</a>
           <a href="#a-propos" style={{ color: 'var(--text-main)' }}>À propos</a>
@@ -43,15 +44,19 @@ export default function Header() {
         </nav>
 
         {/* CTA */}
-        <a href="https://cal.com/digitalpulse-agency/diagnostic-gratuit" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.625rem 1.25rem', fontSize: '0.875rem' }}>
+        <a href="https://cal.com/digitalpulse-agency/diagnostic-gratuit" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.75rem 1.75rem', fontSize: '1rem' }}>
           Diagnostic gratuit
         </a>
       </div>
       <style>{`
-        .hq-logo { height: 36px; object-fit: contain; }
+        .hq-logo { object-fit: contain; }
+        .logo-mobile { display: block; height: 75px; width: auto; }
+        .logo-desktop { display: none; height: 120px; width: auto; }
+        
         @media(min-width: 768px) {
           .desktop-nav { display: flex !important; }
-          .hq-logo { height: 48px; }
+          .logo-mobile { display: none; }
+          .logo-desktop { display: block; }
         }
       `}</style>
     </header>

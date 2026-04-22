@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
         
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
-          <img src="/logo.png" alt="DigitalPulse Agency" style={{ height: '72px' }} />
+          <img src="/logo/logo_dark_bg.png" alt="Digital Pulse Agency" loading="lazy" style={{ width: '150px', height: 'auto', objectFit: 'contain' }} />
         </div>
 
         <p style={{ fontSize: '1rem', marginBottom: '2rem', color: 'rgba(255, 255, 255, 0.9)' }}>

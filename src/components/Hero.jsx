@@ -84,9 +84,12 @@ export default function Hero() {
             overflow: 'hidden',
             border: '1px solid rgba(147, 51, 234, 0.1)'
           }}>
-            {/* Image tag will replace this when ready -> <img src="/louis.jpg" ... /> */}
-            <UserCircle2 size={80} color="var(--purple-primary)" style={{ marginBottom: '1rem' }} />
-            <div style={{ color: 'var(--purple-primary)', fontWeight: 500 }}>Photo à venir</div>
+            <img 
+              src="/logo/logo_dark_bg.png" 
+              alt="Digital Pulse Agency" 
+              loading="lazy" 
+              style={{ width: '100%', maxWidth: '250px', height: 'auto', objectFit: 'contain' }} 
+            />
           </div>
 
           {/* Floating Card */}

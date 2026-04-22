@@ -8,23 +8,29 @@ export default function Websites() {
   return (
     <section className="section" id="sites">
       <div className="container">
-        <FadeIn className="text-center" style={{ marginBottom: '5rem' }}>
+        <FadeIn className="text-center websites-intro">
           <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', marginBottom: '1rem' }}>Ton site doit vendre. Pas décorer.</h2>
-          <p className="intro-text" style={{ fontSize: '1.125rem', color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto', lineHeight: 1.6 }}>
+          <p style={{ fontSize: '1.125rem', color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto', lineHeight: 1.6 }}>
             Les réseaux sociaux attirent. Le site convertit et te rend visible sur Google. On active cette brique quand ta vraie douleur, c'est <strong>être trouvé sur Google</strong> par des gens qui cherchent déjà ton service.
           </p>
         </FadeIn>
 
-        <div className="grid-2" style={{ gap: '2rem', marginBottom: '4rem' }}>
+        <div className="grid-2 websites-cards-grid">
           {/* Site Basique */}
           <FadeIn>
-            <div style={{ border: '1px solid #E5E7EB', borderRadius: '1.5rem', padding: '2.5rem', height: '100%', display: 'flex', flexDirection: 'column' }}>
+            <div className="card-basique">
               <div style={{ marginBottom: '2rem', minHeight: '120px' }}>
                 <div style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--text-main)', lineHeight: 1.3 }}>
                   Site BASIQUE
                 </div>
                 <div style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>
                   487€ <span style={{ fontSize: '1rem', color: 'var(--text-muted)', fontWeight: 500 }}>(one-shot)</span>
+                </div>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#f0fdf4', color: '#15803d', padding: '0.5rem 1rem', borderRadius: '9999px', fontSize: '0.875rem', fontWeight: 600, marginBottom: '1rem', border: '1px solid #bbf7d0' }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" style={{width: '1rem', height: '1rem'}} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Paiement en 2 ou 3 fois possible</span>
                 </div>
                 <p style={{ color: 'var(--text-muted)' }}>Pour exister en ligne avec une image pro.</p>
               </div>
@@ -37,31 +43,25 @@ export default function Websites() {
                 <li style={{ display: 'flex', gap: '1rem' }}><Check size={20} color="var(--purple-primary)" style={{ flexShrink: 0 }} /> <span>Livraison rapide</span></li>
               </ul>
 
-              <a href="https://cal.com/digitalpulse-agency/diagnostic-gratuit" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ width: '100%', border: '2px solid var(--purple-light)' }}>
-                Demander un devis <ArrowRight size={20} />
-              </a>
+              <button 
+                onClick={() => window.open('https://cal.com/digitalpulse-agency/diagnostic-gratuit', '_blank')}
+                className="cta-basique">
+                <span>Lancer mon projet</span>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </button>
             </div>
           </FadeIn>
 
-          {/* Site Complet */}
+          {/* Site Complet (Premium) */}
           <FadeIn delay={0.2}>
-            <div style={{ border: '2px solid var(--purple-primary)', borderRadius: '1.5rem', padding: '2.5rem', height: '100%', display: 'flex', flexDirection: 'column', position: 'relative' }}>
-              
-              <div style={{ 
-                position: 'absolute', 
-                top: '0', 
-                left: '2.5rem', 
-                transform: 'translateY(-50%)',
-                backgroundColor: 'var(--purple-primary)', 
-                color: '#fff', 
-                padding: '6px 14px', 
-                borderRadius: '999px', 
-                fontWeight: 700, 
-                fontSize: '11px',
-                letterSpacing: '1.5px',
-                textTransform: 'uppercase'
-              }}>
-                RECOMMANDÉ POUR LE SEO
+            <div className="card-premium">
+              <div className="premium-badge-wrapper">
+                <div className="premium-badge">
+                  <span style={{ position: 'relative', zIndex: 10 }}>RECOMMANDÉ POUR LE SEO</span>
+                  <div className="animate-shine"></div>
+                </div>
               </div>
 
               <div style={{ marginBottom: '2rem', minHeight: '120px' }}>
@@ -71,6 +71,12 @@ export default function Websites() {
                 </div>
                 <div style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>
                   987€ <span style={{ fontSize: '1.25rem', color: 'var(--purple-primary)' }}>+ 49,99€/mois</span>
+                </div>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#f0fdf4', color: '#15803d', padding: '0.5rem 1rem', borderRadius: '9999px', fontSize: '0.875rem', fontWeight: 600, marginBottom: '1rem', border: '1px solid #bbf7d0' }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" style={{width: '1rem', height: '1rem'}} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Paiement en 2 ou 3 fois possible</span>
                 </div>
                 <p style={{ color: 'var(--text-muted)' }}>Pour dominer Google sur ton secteur.</p>
               </div>
@@ -83,9 +89,17 @@ export default function Websites() {
                 <li style={{ display: 'flex', gap: '1rem' }}><Check size={20} color="var(--purple-primary)" style={{ flexShrink: 0 }} /> <span>Hébergement sécurisé inclus</span></li>
               </ul>
 
-              <a href="https://cal.com/digitalpulse-agency/diagnostic-gratuit" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }}>
-                Demander un devis <ArrowRight size={20} />
-              </a>
+              <button 
+                onClick={() => window.open('https://cal.com/digitalpulse-agency/diagnostic-gratuit', '_blank')}
+                className="cta-premium">
+                <span>
+                  Je veux dominer Google
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+                <div className="cta-premium-shine"></div>
+              </button>
             </div>
           </FadeIn>
         </div>
@@ -157,9 +171,12 @@ export default function Websites() {
       </div>
 
       <style>{`
+        .websites-intro {
+          margin-bottom: 80px;
+        }
         @media(max-width: 767px) {
-          .intro-text {
-            margin-bottom: 40px !important;
+          .websites-intro {
+            margin-bottom: 48px;
           }
         }
       `}</style>
