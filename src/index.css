@@ -239,6 +239,66 @@ ul {
   100% { background-position: -200% center; }
 }
 
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Phone Pill Styles */
+.phone-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  background-color: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  color: #15803D;
+  font-weight: 600;
+  padding: 0.625rem 1rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.phone-pill:hover {
+  background-color: #DCFCE7;
+  border-color: #86EFAC;
+  color: #166534;
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(187, 247, 208, 0.5);
+}
+
+.phone-number-text {
+  display: none;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+@media (min-width: 768px) {
+  .phone-number-text {
+    display: inline;
+  }
+}
+
+.hours-text {
+  display: none;
+  font-size: 0.75rem;
+  color: #6B7280;
+  margin-top: 0.25rem;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .hours-text {
+    display: block;
+  }
+}
+
 /* ---------------- Websites Section Refactor ---------------- */
 
 /* Card Basique */
