@@ -59,6 +59,18 @@ ul {
   padding: 5rem 0;
 }
 
+@media (min-width: 768px) {
+  .section {
+    padding: 7rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 8rem 0;
+  }
+}
+
 .text-center { text-align: center; }
 .text-purple { color: var(--purple-primary); }
 .bg-alt { background-color: var(--bg-alt); }

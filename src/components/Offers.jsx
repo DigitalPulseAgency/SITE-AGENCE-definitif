@@ -25,14 +25,14 @@ export default function Offers() {
   const fillPercentage = ((20 - currentConfig.count) / 20) * 100;
 
   return (
-    <section className="section bg-alt" id="offres">
+    <section className="section bg-alt" id="offres" style={{ paddingTop: '6rem' }}>
       <div className="container">
-        <FadeIn className="text-center" style={{ marginBottom: '6rem' }}>
+        <FadeIn className="text-center">
           <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)', marginBottom: '1rem' }}>Choisis ton niveau d'ambition.</h2>
           <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)' }}>Deux offres. Deux objectifs. Zéro blabla.</p>
         </FadeIn>
 
-        <div className="grid-2" style={{ gap: '2rem', alignItems: 'stretch' }}>
+        <div className="grid-2" style={{ gap: '2rem', alignItems: 'stretch', marginTop: '5rem' }}>
           
           {/* Offre Démarrage */}
           <FadeIn delay={0.1} style={{ display: 'flex' }} className="order-basic">

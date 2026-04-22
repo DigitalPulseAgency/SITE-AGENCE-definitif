@@ -60,7 +60,7 @@ export default function Automations() {
           </p>
         </FadeIn>
 
-        <div className="grid-3" style={{ gap: '1.5rem', marginBottom: '4rem' }}>
+        <div className="grid-3" style={{ gap: '1.5rem', marginBottom: '4rem', marginTop: '4rem' }}>
           {cards.map((card, idx) => (
             <FadeIn key={idx} delay={idx * 0.1}>
               <div style={{
@@ -99,7 +99,7 @@ export default function Automations() {
         </FadeIn>
 
         <FadeIn className="text-center" delay={0.3}>
-          <p style={{ fontSize: '1.125rem', marginBottom: '2rem', maxWidth: '800px', margin: '0 auto 2rem auto', lineHeight: 1.6 }}>
+          <p style={{ fontSize: '1.125rem', maxWidth: '800px', margin: '0 auto', marginTop: '4rem', marginBottom: '2rem', lineHeight: 1.6 }}>
             <strong>Comment on procède&nbsp;: Chaque projet est unique.</strong> On commence par comprendre tes vraies galères pendant le diagnostic. Puis on te propose la solution adaptée&nbsp;: du petit workflow en quelques jours à l'application complète construite sur plusieurs semaines. <strong>Tu valides chaque étape, tu maîtrises ton budget.</strong>
           </p>
           <a href="https://cal.com/digitalpulse-agency/diagnostic-gratuit" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.125rem', marginBottom: '1rem' }}>

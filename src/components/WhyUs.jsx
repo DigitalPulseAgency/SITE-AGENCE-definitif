@@ -4,7 +4,7 @@ import FadeIn from './FadeIn';
 
 export default function WhyUs() {
   return (
-    <section className="section" id="methode">
+    <section className="section" id="methode" style={{ paddingBottom: '6rem' }}>
       <div className="container">
         
         {/* Top Part: Text + Badges */}

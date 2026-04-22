@@ -1,6 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, UserCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import FadeIn from './FadeIn';
 
 export default function Hero() {
@@ -9,27 +8,25 @@ export default function Hero() {
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
-      paddingTop: '4.5rem',
+      paddingTop: '8rem',
       position: 'relative',
       overflow: 'hidden'
     }}>
       <div className="container grid-2" style={{ alignItems: 'center', gap: '4rem' }}>
         <div>
-          <FadeIn>
-            <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1.5rem', letterSpacing: '-0.02em', color: 'var(--text-main)', lineHeight: 1.1 }}>
-              Remplis ton agenda. <br />
-              <span className="text-purple">Vide ta to-do list.</span>
+          <div>
+            <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', marginBottom: '1.5rem', letterSpacing: '-0.02em', lineHeight: 1.1, fontWeight: 700 }}>
+              <span style={{ display: 'block', color: '#1F1B2E' }}>Plus de clients qualifiés.</span>
+              <span style={{ display: 'block', color: '#1F1B2E' }}>Plus de soirées libres.</span>
+              <span style={{ display: 'block', color: '#6B3FE8' }}>Moins de stress au quotidien.</span>
             </h1>
-          </FadeIn>
+          </div>
           
-          <FadeIn delay={0.1}>
-            <p style={{ fontSize: '1.125rem', color: 'var(--text-muted)', marginBottom: '1rem', maxWidth: '600px', lineHeight: 1.6 }}>
-              Pendant que les autres agences attendent tes clients, <strong style={{color: 'var(--text-main)'}}>nous, on va les chercher.</strong>
+          <div>
+            <p style={{ fontSize: 'clamp(1.125rem, 2vw, 1.25rem)', color: '#6B7280', marginBottom: '2.5rem', maxWidth: '600px', lineHeight: 1.7, marginTop: '1.5rem' }}>
+              On gère ta visibilité sur Google, Instagram et TikTok. On va chercher des prospects qualifiés chez tes concurrents. On automatise tes tâches chronophages. <strong style={{ color: '#1F1B2E' }}>On te redonne ton temps. Et tu reviens à l'essentiel.</strong>
             </p>
-            <p style={{ fontSize: '1.125rem', color: 'var(--text-muted)', marginBottom: '2.5rem', maxWidth: '600px', lineHeight: 1.6 }}>
-              Prospection active sur les comptes de tes concurrents, contenu qui vend, site qui référence. DigitalPulse Agency fait décoller ton business local.
-            </p>
-          </FadeIn>
+          </div>
 
           <FadeIn delay={0.2}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center', marginBottom: '2rem' }}>
@@ -44,7 +41,6 @@ export default function Hero() {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', fontSize: '0.875rem', color: 'var(--text-muted)', fontWeight: 500 }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}><CheckCircle2 size={16} color="var(--purple-primary)" /> Diagnostic visio 15 min</span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}><CheckCircle2 size={16} color="var(--purple-primary)" /> 100% offert</span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}><CheckCircle2 size={16} color="var(--purple-primary)" /> Sans engagement</span>
             </div>
           </FadeIn>
         </div>
@@ -92,35 +88,7 @@ export default function Hero() {
             />
           </div>
 
-          {/* Floating Card */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            style={{
-              position: 'absolute',
-              bottom: '10%',
-              left: '-10%',
-              background: 'rgba(255, 255, 255, 0.85)',
-              backdropFilter: 'blur(12px)',
-              padding: '1rem 1.5rem',
-              borderRadius: '1rem',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '1rem',
-              border: '1px solid rgba(255,255,255,0.5)',
-              zIndex: 2
-            }}
-          >
-            <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--purple-light)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <CheckCircle2 size={24} color="var(--purple-primary)" />
-            </div>
-            <div>
-              <div style={{ fontSize: '0.875rem', fontWeight: 600 }}>Nouveau client</div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Réservé à l'instant</div>
-            </div>
-          </motion.div>
+
           </div>
         </FadeIn>
       </div>

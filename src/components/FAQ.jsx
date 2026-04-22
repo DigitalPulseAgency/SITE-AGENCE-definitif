@@ -40,11 +40,11 @@ export default function FAQ() {
   return (
     <section className="section bg-alt" id="faq">
       <div className="container" style={{ maxWidth: '800px' }}>
-        <FadeIn className="text-center" style={{ marginBottom: '4rem' }}>
+        <FadeIn className="text-center">
           <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.75rem)' }}>Les questions qu'on nous pose souvent.</h2>
         </FadeIn>
 
-        <div style={{ marginBottom: '4rem' }}>
+        <div style={{ marginBottom: '4rem', marginTop: '4rem' }}>
           {faqs.map((faq, idx) => (
             <FadeIn key={idx} delay={idx * 0.1}>
               <div className="accordion-item" style={{ backgroundColor: '#fff', borderRadius: '0.75rem', marginBottom: '1rem', overflow: 'hidden', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>
