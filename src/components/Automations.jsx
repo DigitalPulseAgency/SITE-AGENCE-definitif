@@ -1,5 +1,6 @@
 import React from 'react';
 import { Receipt, PhoneCall, CalendarCheck, MessageSquare, Star, Settings2, ArrowRight } from 'lucide-react';
+import { CAL_LINK } from '../config/links';
 import FadeIn from './FadeIn';
 
 export default function Automations() {
@@ -102,7 +103,7 @@ export default function Automations() {
           <p style={{ fontSize: '1.125rem', maxWidth: '800px', margin: '0 auto', marginTop: '4rem', marginBottom: '2rem', lineHeight: 1.6 }}>
             <strong>Comment on procède&nbsp;: Chaque projet est unique.</strong> On commence par comprendre tes vraies galères pendant le diagnostic. Puis on te propose la solution adaptée&nbsp;: du petit workflow en quelques jours à l'application complète construite sur plusieurs semaines. <strong>Tu valides chaque étape, tu maîtrises ton budget.</strong>
           </p>
-          <a href="https://cal.com/digitalpulse-agency/diagnostic-gratuit" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.125rem', marginBottom: '1rem' }}>
+          <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.125rem', marginBottom: '1rem' }}>
             Discuter de mon projet d'automatisation <ArrowRight size={20} />
           </a>
           <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>

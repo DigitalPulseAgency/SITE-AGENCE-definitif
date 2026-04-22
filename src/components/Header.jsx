@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Brain } from 'lucide-react';
+import { CAL_LINK } from '../config/links';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,7 +45,7 @@ export default function Header() {
         </nav>
 
         {/* CTA */}
-        <a href="https://cal.com/digitalpulse-agency/diagnostic-gratuit" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.75rem 1.75rem', fontSize: '1rem' }}>
+        <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '0.75rem 1.75rem', fontSize: '1rem' }}>
           Diagnostic gratuit
         </a>
       </div>

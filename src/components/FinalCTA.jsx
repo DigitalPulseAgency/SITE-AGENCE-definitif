@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Clock } from 'lucide-react';
+import { CAL_LINK } from '../config/links';
 import FadeIn from './FadeIn';
 
 export default function FinalCTA() {
@@ -20,7 +21,7 @@ export default function FinalCTA() {
             15 minutes en visio. 100% offert. Zéro blabla.
           </p>
 
-          <a href="https://cal.com/digitalpulse-agency/diagnostic-gratuit" target="_blank" rel="noopener noreferrer" className="btn btn-star" style={{ 
+          <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-star" style={{ 
             backgroundColor: '#fff', 
             color: 'var(--purple-primary)', 
             padding: '1.25rem 3rem', 

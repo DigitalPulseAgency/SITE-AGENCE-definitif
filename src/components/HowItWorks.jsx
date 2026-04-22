@@ -1,4 +1,5 @@
 import React from 'react';
+import { CAL_LINK } from '../config/links';
 import FadeIn from './FadeIn';
 
 export default function HowItWorks() {
@@ -74,7 +75,7 @@ export default function HowItWorks() {
         </div>
 
         <FadeIn className="text-center">
-          <a href="https://cal.com/digitalpulse-agency/diagnostic-gratuit" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.125rem' }}>
+          <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.125rem' }}>
             Commencer par le diagnostic
           </a>
         </FadeIn>

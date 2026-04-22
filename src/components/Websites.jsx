@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Check, Mail, ArrowRight } from 'lucide-react';
+import { CAL_LINK } from '../config/links';
 import FadeIn from './FadeIn';
 
 export default function Websites() {
@@ -43,14 +44,16 @@ export default function Websites() {
                 <li style={{ display: 'flex', gap: '1rem' }}><Check size={20} color="var(--purple-primary)" style={{ flexShrink: 0 }} /> <span>Livraison rapide</span></li>
               </ul>
 
-              <button 
-                onClick={() => window.open('https://cal.com/digitalpulse-agency/diagnostic-gratuit', '_blank')}
+              <a 
+                href={CAL_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-basique">
                 <span>Lancer mon projet</span>
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </button>
+              </a>
             </div>
           </FadeIn>
 
@@ -89,8 +92,10 @@ export default function Websites() {
                 <li style={{ display: 'flex', gap: '1rem' }}><Check size={20} color="var(--purple-primary)" style={{ flexShrink: 0 }} /> <span>Hébergement sécurisé inclus</span></li>
               </ul>
 
-              <button 
-                onClick={() => window.open('https://cal.com/digitalpulse-agency/diagnostic-gratuit', '_blank')}
+              <a 
+                href={CAL_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-premium">
                 <span>
                   Je veux dominer Google
@@ -99,7 +104,7 @@ export default function Websites() {
                   </svg>
                 </span>
                 <div className="cta-premium-shine"></div>
-              </button>
+              </a>
             </div>
           </FadeIn>
         </div>

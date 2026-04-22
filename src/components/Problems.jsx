@@ -1,5 +1,6 @@
 import React from 'react';
 import { Smartphone, TrendingDown, Search, SearchSlash, Clock } from 'lucide-react';
+import { CAL_LINK } from '../config/links';
 import FadeIn from './FadeIn';
 
 export default function Problems() {
@@ -68,7 +69,7 @@ export default function Problems() {
           <p style={{ fontSize: '1.125rem', fontWeight: 600, marginBottom: '1.5rem' }}>
             Si une seule de ces phrases te ressemble, on doit se parler.
           </p>
-          <a href="https://cal.com/digitalpulse-agency/diagnostic-gratuit" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+          <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
             Réserver mon diagnostic gratuit <Search size={20} style={{ marginLeft: '0.25rem' }} />
           </a>
         </FadeIn>

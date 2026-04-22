@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
+import { CAL_LINK } from '../config/links';
 import FadeIn from './FadeIn';
 
 export default function Offers() {
@@ -67,7 +68,7 @@ export default function Offers() {
                 ))}
               </ul>
 
-              <a href="https://cal.com/digitalpulse-agency/diagnostic-gratuit" target="_blank" rel="noopener noreferrer" className="btn btn-basic-hover" style={{ 
+              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-basic-hover" style={{ 
                 width: '100%', 
                 border: '2px solid var(--purple-primary)', 
                 backgroundColor: 'transparent',
@@ -179,7 +180,7 @@ export default function Offers() {
                 <p style={{ fontWeight: 600, color: 'var(--purple-primary)' }}>Les clients fondateurs conservent leur tarif à vie.</p>
               </div>
 
-              <a href="https://cal.com/digitalpulse-agency/diagnostic-gratuit" target="_blank" rel="noopener noreferrer" className="btn btn-star" style={{ 
+              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-star" style={{ 
                 width: '100%', 
                 fontSize: '1.0625rem', 
                 padding: '1rem 2rem',

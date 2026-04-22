@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, KeyRound, UtensilsCrossed, Scissors, Hammer, Car, ArrowRight } from 'lucide-react';
+import { CAL_LINK } from '../config/links';
 import FadeIn from './FadeIn';
 
 export default function ROI() {
@@ -111,7 +112,7 @@ export default function ROI() {
           }}>
              Tu paies <span style={{ color: 'var(--purple-primary)' }}>187€/mois</span>. Un seul nouveau client, et tu es dans le vert.
           </div>
-          <a href="https://cal.com/digitalpulse-agency/diagnostic-gratuit" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.125rem' }}>
+          <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.125rem' }}>
             Réserver mon diagnostic gratuit <ArrowRight size={20} />
           </a>
         </FadeIn>

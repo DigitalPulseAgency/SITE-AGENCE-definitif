@@ -1,5 +1,6 @@
 import React from 'react';
 import { UserCircle2, ArrowRight } from 'lucide-react';
+import { CAL_LINK } from '../config/links';
 import FadeIn from './FadeIn';
 
 export default function Bio() {
@@ -74,7 +75,7 @@ export default function Bio() {
                 Si tu veux qu'on parle de ton business, <strong>je t'offre un diagnostic visio de 15 minutes.</strong> On regarde ensemble ce qui bloque, ce qui peut décoller, et si on est faits pour bosser ensemble.
               </p>
               
-              <a href="https://cal.com/digitalpulse-agency/diagnostic-gratuit" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ display: 'inline-flex' }}>
+              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ display: 'inline-flex' }}>
                 Réserver mon diagnostic gratuit <ArrowRight size={20} />
               </a>
             </div>
