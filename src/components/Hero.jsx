@@ -9,7 +9,7 @@ export default function Hero() {
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
-      padding: '8rem 1.5rem 4rem',
+      padding: '10rem 1.5rem 6rem',
       position: 'relative',
       overflow: 'hidden'
     }}>
@@ -31,11 +31,11 @@ export default function Hero() {
           <FadeIn>
             <h1 style={{ 
               fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', 
-              marginBottom: '1rem', 
+              marginBottom: '1.5rem', 
               letterSpacing: '-0.02em', 
               lineHeight: 1.1, 
               fontWeight: 700 
-            }} className="hero-title">
+            }}>
               <span style={{ display: 'block', color: '#1F1B2E' }}>Plus de clients qualifiés.</span>
               <span style={{ display: 'block', color: '#1F1B2E' }}>Plus de soirées libres.</span>
               <span style={{ display: 'block', color: '#6B3FE8' }}>Moins de stress au quotidien.</span>
@@ -48,11 +48,11 @@ export default function Hero() {
               color: '#6B7280', 
               maxWidth: HERO_HAS_PHOTO ? '600px' : '850px', 
               lineHeight: 1.7, 
-              marginTop: '1.5rem',
+              marginTop: '2rem',
               marginBottom: '2.5rem',
               marginLeft: HERO_HAS_PHOTO ? '0' : 'auto',
               marginRight: HERO_HAS_PHOTO ? '0' : 'auto'
-            }} className="hero-subtitle">
+            }}>
               On gère ta visibilité sur Google, Instagram et TikTok. On va chercher des prospects qualifiés chez tes concurrents. On automatise tes tâches chronophages. <strong style={{ color: '#1F1B2E' }}>On te redonne ton temps. Et tu reviens à l'essentiel.</strong>
             </p>
           </FadeIn>
@@ -61,18 +61,18 @@ export default function Hero() {
             <div style={{ 
               display: 'flex', 
               flexWrap: 'wrap', 
-              gap: '1.25rem', 
+              gap: '1.5rem', 
               alignItems: 'center', 
               justifyContent: HERO_HAS_PHOTO ? 'flex-start' : 'center',
               marginBottom: '3rem' 
-            }} className="hero-ctas">
-              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-primary hero-main-cta" style={{ padding: '1.125rem 2.5rem', fontSize: '1.125rem', boxShadow: '0 20px 40px rgba(107, 63, 232, 0.2)', border: 'none' }}>
+            }}>
+              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1.125rem 2.5rem', fontSize: '1.125rem', boxShadow: '0 20px 40px rgba(107, 63, 232, 0.2)' }}>
                 Réserver mon diagnostic gratuit
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '0.75rem' }}>
                   <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
-              <a href="#offres" className="btn btn-secondary hero-secondary-cta" style={{ padding: '1rem 1.5rem', fontSize: '1.125rem', fontWeight: 600 }}>
+              <a href="#offres" className="btn btn-secondary" style={{ padding: '1rem 1.5rem', fontSize: '1.125rem', fontWeight: 600 }}>
                 Voir nos offres
               </a>
             </div>
@@ -126,16 +126,6 @@ export default function Hero() {
         )}
         
       </div>
-
-      <style>{`
-        @media(max-width: 767px) {
-          .hero-main-cta { width: 100% !important; }
-          .hero-secondary-cta { width: 100% !important; }
-          .hero-ctas { gap: 1rem !important; }
-          .hero-title { margin-bottom: 1.5rem !important; }
-          .hero-subtitle { margin-top: 1.5rem !important; }
-        }
-      `}</style>
     </section>
   );
 }
