@@ -28,7 +28,7 @@ export default function Bio() {
               border: '1px solid rgba(147, 51, 234, 0.1)',
               overflow: 'hidden'
             }}>
-              <img src="/images/louis.jpg" alt="Louis - DigitalPulse Agency" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/louis.jpg" alt="Louis - DigitalPulse Agency" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               
               {/* Blurred background shape */}
               <div style={{
