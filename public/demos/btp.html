@@ -1,0 +1,3143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#185FA5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Lista">
+<title>Lista — gestion simple pour artisans</title>
+
+<link rel="manifest" href='data:application/manifest+json;charset=utf-8,{"name"%3A"Lista"%2C"short_name"%3A"Lista"%2C"description"%3A"Gestion%20simple%20pour%20artisans%20du%20b%C3%A2timent"%2C"start_url"%3A".%2F"%2C"display"%3A"standalone"%2C"orientation"%3A"portrait"%2C"background_color"%3A"%23F5F3EE"%2C"theme_color"%3A"%23185FA5"%2C"icons"%3A%5B%7B"src"%3A"data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgZmlsbD0iIzE4NUZBNSIgcng9IjQwIi8+PHRleHQgeD0iOTYiIHk9IjEyOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sQXJpYWwiIGZvbnQtc2l6ZT0iMTAwIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI%2BTDwvdGV4dD48L3N2Zz4%3D"%2C"sizes"%3A"192x192"%2C"type"%3A"image%2Fsvg%2Bxml"%7D%5D%7D'>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgZmlsbD0iIzE4NUZBNSIgcng9IjQwIi8+PHRleHQgeD0iOTYiIHk9IjEyOCIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sQXJpYWwiIGZvbnQtc2l6ZT0iMTAwIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TDwvdGV4dD48L3N2Zz4=">
+
+<style>
+:root {
+  --primary: #185FA5;
+  --primary-dark: #114A82;
+  --primary-light: #E8F1FA;
+  --accent: #BA7517;
+  --accent-light: #FBEFD9;
+  --success: #0F6E56;
+  --success-light: #DAF0E8;
+  --danger: #C04040;
+  --danger-light: #FAE3E3;
+  --bg: #F5F3EE;
+  --card: #FFFFFF;
+  --card-alt: #FBFAF6;
+  --border: #ECE9E1;
+  --border-strong: #D9D4C5;
+  --text: #1F2933;
+  --text-soft: #52606D;
+  --text-mute: #8A94A6;
+  --secondary: #185FA5;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.06);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-lg: 22px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, textarea, select { font-family: inherit; font-size: 16px; }
+a { color: inherit; text-decoration: none; }
+
+/* LOGIN */
+.login-screen {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  background: linear-gradient(180deg, #F5F3EE 0%, #ECE6D6 100%);
+}
+.login-card {
+  width: 100%; max-width: 420px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  box-shadow: var(--shadow-md);
+}
+.login-logo { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 8px; }
+.login-logo-mark {
+  width: 48px; height: 48px;
+  background: var(--secondary);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-weight: 700; font-size: 26px; letter-spacing: -1px;
+}
+.login-logo-text { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+.login-tagline { text-align: center; color: var(--text-soft); margin-bottom: 28px; font-size: 15px; }
+.login-metier-wrap { text-align: center; margin-bottom: 20px; }
+.login-metier {
+  background: var(--primary-light); color: var(--secondary);
+  padding: 8px 14px; border-radius: 999px;
+  font-size: 13px; font-weight: 600; display: inline-block;
+}
+.demo-accounts { display: flex; flex-direction: column; gap: 10px; }
+.demo-account-btn {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px;
+  background: var(--card-alt); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); text-align: left;
+  transition: all 0.15s;
+}
+.demo-account-btn:hover { border-color: var(--secondary); background: var(--primary-light); transform: translateY(-1px); }
+.demo-account-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--secondary); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 17px; flex-shrink: 0;
+}
+.demo-account-avatar.employe { background: var(--accent); }
+.demo-account-info { flex: 1; min-width: 0; }
+.demo-account-name { font-weight: 600; font-size: 15px; }
+.demo-account-role { color: var(--text-soft); font-size: 13px; }
+.login-divider { display: flex; align-items: center; gap: 12px; margin: 22px 0; color: var(--text-mute); font-size: 13px; }
+.login-divider::before, .login-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.login-form { display: flex; flex-direction: column; gap: 12px; }
+.login-input {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card); outline: none;
+  transition: border-color 0.15s;
+}
+.login-input:focus { border-color: var(--secondary); }
+.login-submit {
+  padding: 14px;
+  background: var(--secondary); color: white;
+  border-radius: var(--radius-sm);
+  font-weight: 600; font-size: 16px;
+  transition: background 0.15s;
+}
+.login-submit:hover { background: var(--primary-dark); }
+.metier-switcher { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; }
+.metier-switcher-label { font-size: 12px; color: var(--text-mute); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+.metier-pills { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.metier-pill {
+  padding: 6px 11px; font-size: 12px; border-radius: 999px;
+  background: var(--card-alt); border: 1px solid var(--border);
+  color: var(--text-soft); transition: all 0.15s;
+}
+.metier-pill:hover { border-color: var(--secondary); color: var(--secondary); }
+.metier-pill.active { background: var(--secondary); color: white; border-color: var(--secondary); }
+
+/* APP */
+.app { display: none; min-height: 100vh; }
+.app.visible { display: flex; }
+.app { flex-direction: column; }
+.sidebar { display: none; }
+.mobile-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.mobile-header-left { display: flex; align-items: center; gap: 10px; }
+.mobile-logo {
+  width: 32px; height: 32px;
+  background: var(--secondary);
+  border-radius: 8px;
+  color: white; font-weight: 700; font-size: 17px;
+  display: flex; align-items: center; justify-content: center;
+}
+.mobile-logo-text { font-weight: 700; font-size: 18px; }
+/* ================ MÉTIER SELECTOR (écran d'accueil prospection) ================ */
+.metier-selector {
+  position: fixed; inset: 0; z-index: 1000;
+  background: linear-gradient(180deg, var(--bg) 0%, #EFEDE6 100%);
+  overflow-y: auto;
+  display: none;
+}
+.metier-selector.visible { display: block; }
+.metier-selector-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 60px 24px 80px;
+}
+.metier-selector-header {
+  text-align: center; margin-bottom: 50px;
+}
+.metier-selector-logo {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-bottom: 32px;
+}
+.metier-selector-logo .mark {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--primary); color: white;
+  display: grid; place-items: center;
+  font-weight: 800; font-size: 22px;
+  box-shadow: var(--shadow-md);
+}
+.metier-selector-logo .text { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; }
+.metier-selector-title {
+  font-size: 38px; line-height: 1.1; font-weight: 800;
+  letter-spacing: -0.02em; margin-bottom: 14px;
+  color: var(--text);
+}
+.metier-selector-sub {
+  font-size: 17px; color: var(--text-soft);
+  max-width: 580px; margin: 0 auto;
+}
+.metier-selector-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.metier-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 18px; padding: 28px 22px 24px;
+  cursor: pointer; transition: all .25s ease;
+  text-align: left;
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+  min-height: 200px;
+}
+.metier-card::before {
+  content: ""; position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: var(--metier-accent, var(--primary));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .3s ease;
+}
+.metier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+  border-color: var(--metier-accent, var(--primary));
+}
+.metier-card:hover::before { transform: scaleX(1); }
+.metier-card.selected {
+  border-color: var(--metier-accent, var(--primary));
+  border-width: 2px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+.metier-card.selected::before { transform: scaleX(1); }
+.metier-card-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: var(--metier-accent-light, var(--primary-light));
+  display: grid; place-items: center;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+.metier-card-icon svg {
+  width: 28px; height: 28px;
+  color: var(--metier-accent, var(--primary));
+}
+.metier-card-name {
+  font-size: 20px; font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.metier-card-tagline {
+  font-size: 14px; color: var(--text-soft);
+  line-height: 1.45;
+  margin-bottom: 16px;
+  flex: 1;
+}
+.metier-card-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600;
+  color: var(--metier-accent, var(--primary));
+}
+.metier-selector-footer {
+  margin-top: 40px; text-align: center;
+  font-size: 13px; color: var(--text-mute);
+}
+.btn-back-selector {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 14px; border-radius: 10px;
+  background: var(--bg); border: 1px solid var(--border);
+  font-size: 13px; font-weight: 600; color: var(--text-soft);
+  cursor: pointer; transition: all .15s;
+  margin-bottom: 24px;
+}
+.btn-back-selector:hover { background: var(--card); border-color: var(--text-mute); color: var(--text); }
+
+/* Bouton "Changer de métier" dans la sidebar */
+.sidebar-metier-switch {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px; margin: 8px 16px 16px;
+  border-radius: 10px;
+  background: var(--bg); border: 1px solid var(--border);
+  cursor: pointer; transition: all .15s;
+  font-size: 12px; font-weight: 500;
+  color: var(--text-soft);
+}
+.sidebar-metier-switch:hover {
+  background: var(--card); color: var(--secondary);
+  border-color: var(--secondary);
+}
+.sidebar-metier-switch svg { width: 14px; height: 14px; }
+
+@media (max-width: 920px) {
+  .metier-selector-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .metier-selector-title { font-size: 28px; }
+  .metier-selector-inner { padding: 40px 16px 60px; }
+  .metier-card { padding: 22px 18px 20px; min-height: 170px; }
+  .metier-card-icon { width: 48px; height: 48px; margin-bottom: 14px; }
+  .metier-card-icon svg { width: 24px; height: 24px; }
+  .metier-card-name { font-size: 17px; }
+  .metier-card-tagline { font-size: 13px; }
+}
+@media (max-width: 480px) {
+  .metier-selector-grid { grid-template-columns: 1fr; }
+  .metier-card { min-height: auto; }
+}
+
+.mobile-metier-badge {
+  font-size: 11px;
+  background: var(--primary-light); color: var(--secondary);
+  padding: 3px 8px; border-radius: 999px;
+  font-weight: 600; margin-left: 4px;
+}
+.mobile-header-actions { display: flex; gap: 4px; }
+.icon-btn {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-soft);
+  transition: all 0.15s;
+  position: relative;
+}
+.icon-btn:hover { background: var(--card-alt); color: var(--text); }
+.icon-btn .notif-dot {
+  position: absolute; top: 8px; right: 9px;
+  width: 9px; height: 9px;
+  background: var(--danger);
+  border: 2px solid var(--card);
+  border-radius: 50%;
+}
+.main { flex: 1; padding-bottom: 80px; }
+.page { display: none; padding: 16px; max-width: 100%; }
+.page.active { display: block; animation: fadeIn 0.2s; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+.bottom-nav {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--card); border-top: 1px solid var(--border);
+  display: flex;
+  padding: 6px 4px calc(6px + env(safe-area-inset-bottom)) 4px;
+  z-index: 50;
+}
+.nav-item {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+  gap: 3px; padding: 8px 4px;
+  color: var(--text-mute); font-size: 11px;
+  border-radius: 10px;
+  transition: color 0.15s;
+}
+.nav-item.active { color: var(--secondary); }
+.nav-item svg { width: 22px; height: 22px; }
+.nav-item-fab {
+  background: var(--secondary); color: white !important;
+  border-radius: 50%;
+  width: 52px; height: 52px;
+  margin: -16px 4px 0;
+  align-self: flex-start;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(24, 95, 165, 0.35);
+  flex: 0 0 auto;
+  flex-direction: row;
+  padding: 0;
+  font-size: 0;
+}
+.nav-item-fab svg { width: 26px; height: 26px; }
+.nav-item-fab:active { transform: scale(0.96); }
+
+/* TYPO */
+.page-header { margin-bottom: 16px; }
+.page-title { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px; }
+.page-subtitle { color: var(--text-soft); font-size: 14px; }
+.section-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  letter-spacing: 0.6px;
+  font-weight: 600;
+  margin: 24px 0 10px;
+}
+
+/* CARDS */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: all 0.15s;
+}
+.card-clickable:hover { border-color: var(--border-strong); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+
+.kpi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px; }
+.kpi-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; }
+.kpi-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 10px;
+}
+.kpi-icon svg { width: 18px; height: 18px; }
+.kpi-icon.blue { background: var(--primary-light); color: var(--secondary); }
+.kpi-icon.amber { background: var(--accent-light); color: var(--accent); }
+.kpi-icon.green { background: var(--success-light); color: var(--success); }
+.kpi-icon.red { background: var(--danger-light); color: var(--danger); }
+.kpi-value { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+.kpi-label { font-size: 12px; color: var(--text-soft); }
+.kpi-change { font-size: 11px; font-weight: 600; margin-top: 4px; }
+.kpi-change.up { color: var(--success); }
+.kpi-change.down { color: var(--danger); }
+
+.chantier-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px; margin-bottom: 10px;
+  display: flex; gap: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.chantier-card:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+.chantier-thumb {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-weight: 600; font-size: 18px;
+  background: var(--secondary);
+}
+.chantier-info { flex: 1; min-width: 0; }
+.chantier-title { font-weight: 600; font-size: 15px; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chantier-client { font-size: 13px; color: var(--text-soft); margin-bottom: 6px; }
+.chantier-meta { display: flex; gap: 10px; font-size: 12px; color: var(--text-mute); align-items: center; flex-wrap: wrap; }
+.chantier-meta-item { display: flex; align-items: center; gap: 4px; }
+.chantier-meta svg { width: 12px; height: 12px; }
+.chantier-progress { margin-top: 8px; height: 5px; background: var(--border); border-radius: 999px; overflow: hidden; }
+.chantier-progress-bar { height: 100%; background: var(--secondary); border-radius: 999px; transition: width 0.3s; }
+
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 9px; font-size: 11px; border-radius: 999px; font-weight: 600;
+}
+.badge-blue { background: var(--primary-light); color: var(--secondary); }
+.badge-amber { background: var(--accent-light); color: var(--accent); }
+.badge-green { background: var(--success-light); color: var(--success); }
+.badge-red { background: var(--danger-light); color: var(--danger); }
+.badge-gray { background: var(--border); color: var(--text-soft); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 600; font-size: 15px;
+  transition: all 0.15s;
+  border: 1px solid transparent;
+}
+.btn svg { width: 18px; height: 18px; }
+.btn-primary { background: var(--secondary); color: white; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-secondary { background: var(--card); border-color: var(--border); color: var(--text); }
+.btn-secondary:hover { border-color: var(--border-strong); }
+.btn-danger { background: var(--danger); color: white; }
+.btn-block { width: 100%; }
+
+.checklist { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.checklist-header {
+  padding: 14px 16px;
+  background: var(--card-alt);
+  border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.checklist-title { font-weight: 600; font-size: 15px; }
+.checklist-progress-text { font-size: 13px; color: var(--text-soft); font-variant-numeric: tabular-nums; }
+.checklist-progress-bar { height: 4px; background: var(--border); }
+.checklist-progress-bar > div { height: 100%; background: var(--success); transition: width 0.3s; }
+.checklist-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer; transition: background 0.1s;
+}
+.checklist-item:last-child { border-bottom: none; }
+.checklist-item:hover { background: var(--card-alt); }
+.checklist-item.done .checklist-text { text-decoration: line-through; color: var(--text-mute); }
+.checklist-checkbox {
+  width: 24px; height: 24px;
+  border: 2px solid var(--border-strong);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+  transition: all 0.15s;
+}
+.checklist-item.done .checklist-checkbox { background: var(--success); border-color: var(--success); }
+.checklist-checkbox svg { width: 14px; height: 14px; color: white; opacity: 0; transform: scale(0.5); transition: all 0.15s; }
+.checklist-item.done .checklist-checkbox svg { opacity: 1; transform: scale(1); }
+.checklist-text { flex: 1; font-size: 14px; line-height: 1.45; padding-top: 2px; }
+
+.list-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+  cursor: pointer; transition: all 0.15s;
+}
+.list-row:hover { border-color: var(--border-strong); }
+.list-row-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  background: var(--primary-light); color: var(--secondary);
+}
+.list-row-icon svg { width: 18px; height: 18px; }
+.list-row-info { flex: 1; min-width: 0; }
+.list-row-title { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+.list-row-subtitle { font-size: 12px; color: var(--text-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.list-row-amount { font-weight: 700; font-size: 15px; font-variant-numeric: tabular-nums; }
+
+.agenda-day {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px; margin-bottom: 12px;
+}
+.agenda-day-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.agenda-day-num {
+  width: 44px; height: 44px;
+  background: var(--primary-light);
+  border-radius: 12px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: var(--secondary);
+  font-weight: 700; line-height: 1;
+}
+.agenda-day-num span:first-child { font-size: 20px; }
+.agenda-day-num span:last-child { font-size: 10px; text-transform: uppercase; margin-top: 2px; }
+.agenda-day-title { font-weight: 600; font-size: 16px; }
+.agenda-day-count { font-size: 12px; color: var(--text-soft); }
+.agenda-event { display: flex; gap: 12px; padding: 10px 0; border-top: 1px solid var(--border); }
+.agenda-time { width: 56px; flex-shrink: 0; font-size: 13px; font-weight: 600; color: var(--secondary); font-variant-numeric: tabular-nums; }
+.agenda-event-info { flex: 1; }
+.agenda-event-title { font-weight: 600; font-size: 14px; }
+.agenda-event-meta { font-size: 12px; color: var(--text-soft); margin-top: 2px; }
+
+/* VOCAL */
+.vocal-screen {
+  display: none; position: fixed; inset: 0;
+  background: rgba(15, 23, 42, 0.78);
+  z-index: 100;
+  align-items: center; justify-content: center;
+  padding: 24px; backdrop-filter: blur(6px);
+}
+.vocal-screen.active { display: flex; }
+.vocal-card {
+  background: var(--card); border-radius: 24px;
+  padding: 32px 28px;
+  width: 100%; max-width: 380px;
+  text-align: center;
+  position: relative;
+}
+.vocal-orb {
+  width: 140px; height: 140px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #4A90E2 0%, var(--secondary) 60%, #114A82 100%);
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(24, 95, 165, 0.35);
+}
+.vocal-orb::before {
+  content: ''; position: absolute; inset: -12px;
+  border: 2px solid var(--secondary);
+  border-radius: 50%; opacity: 0.4;
+  animation: pulse 2s ease-out infinite;
+}
+.vocal-orb::after {
+  content: ''; position: absolute; inset: -24px;
+  border: 2px solid var(--secondary);
+  border-radius: 50%; opacity: 0.25;
+  animation: pulse 2s ease-out infinite 0.6s;
+}
+@keyframes pulse {
+  0% { transform: scale(0.92); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
+.vocal-orb svg { width: 52px; height: 52px; color: white; }
+.vocal-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.vocal-status { color: var(--text-soft); font-size: 14px; min-height: 21px; margin-bottom: 18px; }
+.vocal-transcript {
+  background: var(--card-alt); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px;
+  font-size: 14px; text-align: left; min-height: 70px;
+  margin-bottom: 16px;
+  color: var(--text-soft); font-style: italic;
+}
+.vocal-transcript.has-content { color: var(--text); font-style: normal; }
+.vocal-actions { display: flex; gap: 10px; }
+.vocal-actions .btn { flex: 1; }
+.vocal-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--card-alt);
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* PHOTO GRID */
+.photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
+.photo-item {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background-size: cover; background-position: center;
+  position: relative; overflow: hidden;
+}
+.photo-item-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: white; font-size: 11px; font-weight: 600;
+  padding: 14px 6px 5px;
+}
+
+/* TOAST */
+.toast-container {
+  position: fixed; top: 16px; left: 16px; right: 16px;
+  z-index: 200;
+  display: flex; flex-direction: column; gap: 8px;
+  pointer-events: none;
+}
+.toast {
+  background: var(--text); color: white;
+  padding: 12px 16px; border-radius: 12px;
+  font-size: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  display: flex; align-items: center; gap: 10px;
+  animation: slideIn 0.25s ease-out;
+  pointer-events: auto;
+}
+.toast.success { background: var(--success); }
+.toast.warning { background: var(--accent); }
+.toast.error { background: var(--danger); }
+.toast svg { width: 18px; height: 18px; flex-shrink: 0; }
+@keyframes slideIn { from { transform: translateY(-12px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* MODAL */
+.modal-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  z-index: 90;
+  padding: 16px;
+  align-items: center; justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.active { display: flex; }
+.modal {
+  background: var(--card);
+  border-radius: 18px;
+  width: 100%; max-width: 520px;
+  max-height: 92vh;
+  overflow-y: auto;
+  animation: modalIn 0.2s ease-out;
+}
+@keyframes modalIn { from { transform: scale(0.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.modal-header {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.modal-title { font-size: 17px; font-weight: 700; }
+.modal-body { padding: 20px; }
+.modal-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  display: flex; gap: 10px; justify-content: flex-end;
+  background: var(--card-alt);
+  border-radius: 0 0 18px 18px;
+}
+.field-group { margin-bottom: 14px; }
+.field-label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--text-soft); }
+.field-input {
+  width: 100%; padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px; background: var(--card); outline: none;
+}
+.field-input:focus { border-color: var(--secondary); }
+
+/* DETAIL */
+.detail-hero {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px; margin-bottom: 16px;
+}
+.detail-hero-row { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
+.detail-hero .chantier-thumb { width: 56px; height: 56px; }
+.detail-hero-info { flex: 1; }
+.detail-hero-title { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+.detail-hero-client { font-size: 14px; color: var(--text-soft); }
+.detail-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+.detail-stat { background: var(--card-alt); padding: 10px; border-radius: 10px; text-align: center; }
+.detail-stat-value { font-weight: 700; font-size: 16px; }
+.detail-stat-label { font-size: 11px; color: var(--text-mute); margin-top: 2px; }
+.action-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 14px 0; }
+.action-btn {
+  background: var(--card-alt);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 6px;
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 600;
+  color: var(--text); text-align: center;
+}
+.action-btn svg { width: 20px; height: 20px; color: var(--secondary); }
+.action-btn:hover { border-color: var(--secondary); background: var(--primary-light); }
+
+/* FILTERS */
+.filter-bar {
+  display: flex; gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  margin-bottom: 14px;
+  scrollbar-width: none;
+}
+.filter-bar::-webkit-scrollbar { display: none; }
+.filter-chip {
+  padding: 7px 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 13px; font-weight: 500;
+  white-space: nowrap; flex-shrink: 0;
+}
+.filter-chip.active { background: var(--secondary); color: white; border-color: var(--secondary); }
+.search-bar {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+}
+.search-bar svg { width: 18px; height: 18px; color: var(--text-mute); }
+.search-bar input { flex: 1; border: none; outline: none; background: transparent; }
+
+/* DESKTOP */
+@media (min-width: 768px) {
+  .app { flex-direction: row; }
+  .mobile-header { display: none; }
+  .bottom-nav { display: none; }
+  .main { padding: 0; }
+  .sidebar {
+    display: flex; flex-direction: column;
+    width: 240px; flex-shrink: 0;
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    height: 100vh;
+    position: sticky; top: 0;
+    padding: 20px 14px;
+  }
+  .sidebar-logo { display: flex; align-items: center; gap: 10px; padding: 0 8px; margin-bottom: 24px; }
+  .sidebar-logo-mark {
+    width: 36px; height: 36px;
+    background: var(--secondary);
+    border-radius: 10px;
+    color: white; font-weight: 700; font-size: 19px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .sidebar-logo-text { font-size: 19px; font-weight: 700; letter-spacing: -0.3px; }
+  .sidebar-metier {
+    background: var(--primary-light); color: var(--secondary);
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px; font-weight: 600;
+    margin: 0 8px 18px; text-align: center;
+  }
+  .sidebar-section {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    letter-spacing: 0.6px;
+    font-weight: 600;
+    padding: 0 12px;
+    margin: 18px 0 6px;
+  }
+  .sidebar-link {
+    display: flex; align-items: center; gap: 11px;
+    padding: 9px 12px;
+    border-radius: 9px;
+    color: var(--text-soft);
+    font-size: 14px; font-weight: 500;
+    margin-bottom: 1px;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+  .sidebar-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .sidebar-link:hover { background: var(--card-alt); color: var(--text); }
+  .sidebar-link.active { background: var(--primary-light); color: var(--secondary); font-weight: 600; }
+  .sidebar-link .badge-count {
+    margin-left: auto;
+    background: var(--secondary); color: white;
+    font-size: 11px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    font-weight: 700;
+  }
+  .sidebar-user {
+    margin-top: auto;
+    padding: 12px;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .sidebar-user-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--secondary);
+    color: white; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .sidebar-user-info { flex: 1; min-width: 0; }
+  .sidebar-user-name { font-weight: 600; font-size: 13px; }
+  .sidebar-user-role { font-size: 11px; color: var(--text-soft); }
+  .desktop-content {
+    flex: 1;
+    padding: 28px 36px;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .page { padding: 0; max-width: 100%; }
+  .page-title { font-size: 28px; }
+  .kpi-grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .kpi-card { padding: 18px; }
+  .kpi-value { font-size: 26px; }
+  .dash-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 18px; margin-bottom: 20px; }
+  .panel { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+  .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+  .panel-title { font-size: 15px; font-weight: 600; }
+  .panel-link { color: var(--secondary); font-size: 13px; font-weight: 600; }
+  .table-wrap { overflow-x: auto; }
+  table.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.data-table th {
+    text-align: left; padding: 10px 12px;
+    background: var(--card-alt);
+    font-size: 12px; text-transform: uppercase; color: var(--text-mute);
+    letter-spacing: 0.4px; font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  table.data-table td { padding: 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  table.data-table tr:hover td { background: var(--card-alt); }
+  table.data-table tr:last-child td { border-bottom: none; }
+  .calendar { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+  .calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+  .calendar-month { font-size: 17px; font-weight: 700; }
+  .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .calendar-dow {
+    text-align: center;
+    font-size: 11px; color: var(--text-mute);
+    text-transform: uppercase; letter-spacing: 0.5px;
+    padding: 6px 0; font-weight: 600;
+  }
+  .calendar-cell {
+    aspect-ratio: 1.1;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px;
+    font-size: 12px; overflow: hidden;
+    cursor: pointer; transition: all 0.15s;
+    background: var(--card);
+    display: flex; flex-direction: column;
+  }
+  .calendar-cell:hover { border-color: var(--secondary); }
+  .calendar-cell.other { color: var(--text-mute); background: var(--card-alt); }
+  .calendar-cell.today { background: var(--primary-light); border-color: var(--secondary); }
+  .calendar-cell.today .cal-num { color: var(--secondary); font-weight: 700; }
+  .cal-num { font-weight: 600; margin-bottom: 3px; font-size: 13px; }
+  .cal-event {
+    font-size: 10px;
+    background: var(--secondary); color: white;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-bottom: 2px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .cal-event.amber { background: var(--accent); }
+  .cal-event.green { background: var(--success); }
+  .chart-wrap { height: 220px; position: relative; }
+  .photo-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 1024px) { .desktop-content { padding: 32px 44px; } }
+@media (min-width: 768px) { .mobile-only { display: none !important; } }
+@media (max-width: 767px) { .desktop-only { display: none !important; } }
+
+.empty { text-align: center; padding: 40px 20px; color: var(--text-soft); }
+.empty svg { width: 48px; height: 48px; opacity: 0.3; margin-bottom: 12px; }
+
+.switch {
+  position: relative;
+  width: 44px; height: 26px;
+  background: var(--border-strong);
+  border-radius: 999px;
+  cursor: pointer; transition: background 0.2s;
+}
+.switch::after {
+  content: '';
+  position: absolute; top: 3px; left: 3px;
+  width: 20px; height: 20px;
+  background: white; border-radius: 50%;
+  transition: transform 0.2s;
+}
+.switch.active { background: var(--success); }
+.switch.active::after { transform: translateX(18px); }
+
+.settings-row { display: flex; align-items: center; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+.settings-row:last-child { border-bottom: none; }
+.settings-row-label { flex: 1; font-size: 14px; }
+.settings-group {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+</style>
+</head>
+<body>
+
+<div class="toast-container" id="toasts"></div>
+
+<!-- MÉTIER SELECTOR -->
+<div class="metier-selector visible" id="metierSelector">
+  <div class="metier-selector-inner">
+    <div class="metier-selector-header">
+      <div class="metier-selector-logo">
+        <span class="mark">L</span>
+        <span class="text">Lista</span>
+      </div>
+      <h1 class="metier-selector-title">Choisissez votre métier pour démarrer</h1>
+      <p class="metier-selector-sub">Lista s'adapte à votre activité : vocabulaire, checklists, calculateurs, fournisseurs, données — tout est pensé pour les spécificités de votre métier.</p>
+    </div>
+
+    <div class="metier-selector-grid" id="metierSelectorGrid"></div>
+
+    <div class="metier-selector-footer">
+      Vous pourrez changer de métier à tout moment depuis l'application.
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <button class="btn-back-selector" onclick="showMetierSelector()">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      Changer de métier
+    </button>
+    <div class="login-logo">
+      <div class="login-logo-mark">L</div>
+      <div class="login-logo-text">Lista</div>
+    </div>
+    <p class="login-tagline">La gestion simple pour les artisans</p>
+    <div class="login-metier-wrap">
+      <span class="login-metier" id="loginMetierBadge">Démo Pisciniste</span>
+    </div>
+    <div class="demo-accounts" id="demoAccounts"></div>
+    <div class="login-divider">ou</div>
+    <form class="login-form" onsubmit="event.preventDefault(); doLogin('admin');">
+      <input class="login-input" placeholder="Email" type="email" value="patron@demo.fr">
+      <input class="login-input" placeholder="Mot de passe" type="password" value="••••••">
+      <button type="submit" class="login-submit">Se connecter</button>
+    </form>
+    <div class="metier-switcher">
+      <div class="metier-switcher-label">Choisir un métier de démo</div>
+      <div class="metier-pills" id="metierPills"></div>
+    </div>
+  </div>
+</div>
+
+<!-- APP -->
+<div class="app" id="app">
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-mark">L</div>
+      <div class="sidebar-logo-text">Lista</div>
+    </div>
+    <div class="sidebar-metier" id="sidebarMetier">Pisciniste</div>
+    <button class="sidebar-metier-switch" onclick="showMetierSelector()" title="Changer de métier">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 3l4 4-4 4M20 7H4M8 21l-4-4 4-4M4 17h16"/></svg>
+      Changer de métier
+    </button>
+    <div class="sidebar-section">Pilotage</div>
+    <a class="sidebar-link active" data-page="dashboard" onclick="goPage('dashboard')">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l2-2 7-7 7 7 2 2v9a2 2 0 01-2 2h-4v-7H10v7H6a2 2 0 01-2-2v-9z"/></svg>
+      Tableau de bord
+    </a>
+    <a class="sidebar-link" data-page="chantiers" onclick="goPage('chantiers')">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 9h2M13 9h2M9 13h2M13 13h2M9 17h2M13 17h2"/></svg>
+      <span id="navChantiersLabel">Chantiers</span>
+      <span class="badge-count" id="navChantiersCount">12</span>
+    </a>
+    <a class="sidebar-link" data-page="agenda" onclick="goPage('agenda')">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+      Agenda
+    </a>
+    <a class="sidebar-link" data-page="clients" onclick="goPage('clients')">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+      Clients
+    </a>
+    <div class="sidebar-section admin-only">Finances</div>
+    <a class="sidebar-link admin-only" data-page="finances" onclick="goPage('finances')">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7H14a3.5 3.5 0 110 7H6"/></svg>
+      Devis & Factures
+    </a>
+    <a class="sidebar-link admin-only" data-page="impayes" onclick="goPage('impayes')">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      Impayés
+      <span class="badge-count" style="background: var(--danger);" id="navImpayesCount">3</span>
+    </a>
+    <div class="sidebar-section">Contacts</div>
+    <a class="sidebar-link" data-page="fournisseurs" onclick="goPage('fournisseurs')">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4 9-4M12 11v10"/></svg>
+      Fournisseurs
+    </a>
+    <div class="sidebar-section">Outils</div>
+    <a class="sidebar-link" onclick="openVocal()">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/></svg>
+      Agent vocal IA
+    </a>
+    <a class="sidebar-link" data-page="settings" onclick="goPage('settings')">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33h0a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09c0 .66.39 1.26 1 1.51h0a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82v0c.25.61.85 1 1.51 1H21a2 2 0 110 4h-.09c-.66 0-1.26.39-1.51 1z"/></svg>
+      Paramètres
+    </a>
+    <div class="sidebar-user">
+      <div class="sidebar-user-avatar" id="sidebarUserAvatar">P</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-name" id="sidebarUserName">—</div>
+        <div class="sidebar-user-role" id="sidebarUserRole">—</div>
+      </div>
+      <button class="icon-btn" onclick="logout()" title="Se déconnecter">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="mobile-header">
+      <div class="mobile-header-left">
+        <div class="mobile-logo">L</div>
+        <div class="mobile-logo-text">Lista</div>
+        <span class="mobile-metier-badge" id="mobileMetierBadge">Pisciniste</span>
+      </div>
+      <div class="mobile-header-actions">
+        <button class="icon-btn" onclick="showToast('3 notifications', 'success')">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg>
+          <span class="notif-dot"></span>
+        </button>
+        <button class="icon-btn" onclick="logout()">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="desktop-content">
+      <!-- DASHBOARD -->
+      <div class="page active" id="page-dashboard">
+        <div class="page-header">
+          <h1 class="page-title" id="dashGreeting">Bonjour</h1>
+          <p class="page-subtitle" id="dashSubtitle">Voici votre journée</p>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-icon blue"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg></div>
+            <div class="kpi-value" id="kpiChantiers">12</div>
+            <div class="kpi-label" id="kpiChantiersLabel">Chantiers en cours</div>
+            <div class="kpi-change up">+2 ce mois</div>
+          </div>
+          <div class="kpi-card admin-only">
+            <div class="kpi-icon green"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7H14a3.5 3.5 0 110 7H6"/></svg></div>
+            <div class="kpi-value" id="kpiCA">28 450 €</div>
+            <div class="kpi-label">CA du mois</div>
+            <div class="kpi-change up">+12 % vs mois dernier</div>
+          </div>
+          <div class="kpi-card admin-only">
+            <div class="kpi-icon amber"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+            <div class="kpi-value">7</div>
+            <div class="kpi-label">Devis en attente</div>
+            <div class="kpi-change">3 à relancer</div>
+          </div>
+          <div class="kpi-card admin-only">
+            <div class="kpi-icon red"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></div>
+            <div class="kpi-value" id="kpiImpayes">3</div>
+            <div class="kpi-label">Factures impayées</div>
+            <div class="kpi-change down">4 320 € en retard</div>
+          </div>
+          <div class="kpi-card mobile-only">
+            <div class="kpi-icon green"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
+            <div class="kpi-value">4</div>
+            <div class="kpi-label">Aujourd'hui</div>
+            <div class="kpi-change">2 le matin, 2 l'aprèm</div>
+          </div>
+        </div>
+        <!-- LISTA IA INSIGHTS -->
+        <div id="iaInsights" class="ia-insights" style="background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%); border-radius: 18px; padding: 22px 24px; color: white; margin-bottom: 24px; box-shadow: 0 14px 40px rgba(24, 95, 165, 0.18); position: relative; overflow: hidden;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(255,255,255,0.2); display: grid; place-items: center; backdrop-filter: blur(10px);">
+                <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <div>
+                <div style="font-size: 15px; font-weight: 700;">Lista IA · Recommandations du jour</div>
+                <div style="font-size: 12px; opacity: 0.85;">Mise à jour il y a 3 minutes</div>
+              </div>
+            </div>
+            <button onclick="refreshIA()" style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 8px 14px; border-radius: 10px; font-size: 13px; font-weight: 500; cursor: pointer;">🔄 Actualiser</button>
+          </div>
+          <div id="iaInsightsList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px;"></div>
+        </div>
+        <div class="dash-grid desktop-only">
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">Évolution du chiffre d'affaires</div>
+              <a class="panel-link" href="#">12 mois →</a>
+            </div>
+            <div class="chart-wrap">
+              <svg id="caChart" viewBox="0 0 600 220" width="100%" height="100%" preserveAspectRatio="none"></svg>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">À faire aujourd'hui</div>
+              <a class="panel-link" href="#" onclick="goPage('agenda'); return false;">Agenda →</a>
+            </div>
+            <div id="todayList"></div>
+          </div>
+        </div>
+        <h2 class="section-title" id="recentChantiersTitle">Chantiers récents</h2>
+        <div id="recentChantiers"></div>
+      </div>
+
+      <!-- CHANTIERS -->
+      <div class="page" id="page-chantiers">
+        <div class="page-header">
+          <h1 class="page-title" id="pageChantiersTitle">Chantiers</h1>
+          <p class="page-subtitle" id="pageChantiersSubtitle">Tous vos chantiers en cours et à venir</p>
+        </div>
+        <div class="search-bar">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+          <input type="text" placeholder="Rechercher un chantier, un client...">
+        </div>
+        <div class="filter-bar">
+          <button class="filter-chip active" onclick="filterChantiers('all', this)">Tous</button>
+          <button class="filter-chip" onclick="filterChantiers('en_cours', this)">En cours</button>
+          <button class="filter-chip" onclick="filterChantiers('devis', this)">En devis</button>
+          <button class="filter-chip" onclick="filterChantiers('termine', this)">Terminés</button>
+          <button class="filter-chip" onclick="filterChantiers('sav', this)">SAV</button>
+        </div>
+        <button class="btn btn-primary btn-block" onclick="openModal('newChantierModal')" style="margin-bottom: 16px;">
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          Nouveau chantier
+        </button>
+        <div id="chantiersList"></div>
+      </div>
+
+      <!-- DETAIL -->
+      <div class="page" id="page-chantier-detail">
+        <button class="btn btn-secondary" onclick="goPage('chantiers')" style="margin-bottom: 14px;">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+          Retour
+        </button>
+        <div id="chantierDetail"></div>
+      </div>
+
+      <!-- AGENDA -->
+      <div class="page" id="page-agenda">
+        <div class="page-header">
+          <h1 class="page-title">Agenda</h1>
+          <p class="page-subtitle">Vos rendez-vous et interventions</p>
+        </div>
+        <div class="mobile-only">
+          <div class="filter-bar">
+            <button class="filter-chip active">Aujourd'hui</button>
+            <button class="filter-chip">Cette semaine</button>
+            <button class="filter-chip">À venir</button>
+          </div>
+          <div id="agendaListMobile"></div>
+        </div>
+        <div class="desktop-only">
+          <div class="calendar">
+            <div class="calendar-header">
+              <div class="calendar-month" id="calendarMonth">Avril 2026</div>
+              <div style="display: flex; gap: 8px;">
+                <button class="btn btn-secondary" onclick="changeMonth(-1)">‹</button>
+                <button class="btn btn-secondary" onclick="changeMonth(0)">Aujourd'hui</button>
+                <button class="btn btn-secondary" onclick="changeMonth(1)">›</button>
+              </div>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLIENTS -->
+      <div class="page" id="page-clients">
+        <div class="page-header">
+          <h1 class="page-title">Clients</h1>
+          <p class="page-subtitle">Votre carnet d'adresses</p>
+        </div>
+        <div class="search-bar">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+          <input type="text" placeholder="Rechercher un client...">
+        </div>
+        <div id="clientsList"></div>
+      </div>
+
+      <!-- FINANCES -->
+      <div class="page admin-only" id="page-finances">
+        <div class="page-header">
+          <h1 class="page-title">Devis & Factures</h1>
+          <p class="page-subtitle">Vos documents financiers</p>
+        </div>
+        <div class="filter-bar">
+          <button class="filter-chip active" onclick="filterFinances('devis', this)">Devis</button>
+          <button class="filter-chip" onclick="filterFinances('factures', this)">Factures</button>
+          <button class="filter-chip" onclick="filterFinances('avoirs', this)">Avoirs</button>
+        </div>
+        <button class="btn btn-primary" onclick="openNewDevis()" style="margin-bottom: 16px;">
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          Nouveau document
+        </button>
+        <div class="desktop-only panel" style="padding: 0; overflow: hidden;">
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>N°</th><th>Client</th><th>Objet</th><th>Date</th><th>Montant</th><th>Statut</th><th></th>
+                </tr>
+              </thead>
+              <tbody id="financesTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="mobile-only" id="financesMobileList"></div>
+      </div>
+
+      <!-- IMPAYES -->
+      <div class="page admin-only" id="page-impayes">
+        <div class="page-header">
+          <h1 class="page-title">Factures impayées</h1>
+          <p class="page-subtitle">Triées par retard de paiement</p>
+        </div>
+        <div id="impayesList"></div>
+      </div>
+
+      <!-- FOURNISSEURS -->
+      <div class="page" id="page-fournisseurs">
+        <div class="page-header">
+          <h1 class="page-title">Fournisseurs</h1>
+          <p class="page-subtitle">Vos contacts et factures fournisseurs</p>
+        </div>
+        <button class="btn btn-primary" onclick="openOCR()" style="margin-bottom: 16px;">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M23 19V5a2 2 0 00-2-2H3a2 2 0 00-2 2v14a2 2 0 002 2h18a2 2 0 002-2zM3 7h18M7 11h.01M11 11h.01M15 11h.01"/></svg>
+          Photographier une facture
+        </button>
+        <div id="fournisseursList"></div>
+      </div>
+
+      <!-- SETTINGS -->
+      <div class="page" id="page-settings">
+        <div class="page-header">
+          <h1 class="page-title">Paramètres</h1>
+          <p class="page-subtitle">Configurer votre Lista</p>
+        </div>
+        <h2 class="section-title">Compte</h2>
+        <div class="settings-group">
+          <div class="settings-row">
+            <div class="settings-row-label">Entreprise</div>
+            <div style="color: var(--text-soft); font-size: 13px;" id="setEntreprise">—</div>
+          </div>
+          <div class="settings-row">
+            <div class="settings-row-label">Métier</div>
+            <div style="color: var(--text-soft); font-size: 13px;" id="setMetier">—</div>
+          </div>
+          <div class="settings-row">
+            <div class="settings-row-label">Email</div>
+            <div style="color: var(--text-soft); font-size: 13px;">patron@demo.fr</div>
+          </div>
+        </div>
+        <h2 class="section-title">Synchronisation</h2>
+        <div class="settings-group">
+          <div class="settings-row">
+            <div class="settings-row-label">Google Calendar</div>
+            <div class="switch active" onclick="this.classList.toggle('active'); showToast('Synchronisation mise à jour','success')"></div>
+          </div>
+          <div class="settings-row">
+            <div class="settings-row-label">Apple Calendar</div>
+            <div class="switch" onclick="this.classList.toggle('active'); showToast('Synchronisation mise à jour','success')"></div>
+          </div>
+          <div class="settings-row">
+            <div class="settings-row-label">Notifications push</div>
+            <div class="switch active" onclick="this.classList.toggle('active')"></div>
+          </div>
+        </div>
+        <h2 class="section-title admin-only">Comptable</h2>
+        <div class="settings-group admin-only">
+          <div class="settings-row">
+            <div class="settings-row-label">Email comptable</div>
+            <div style="color: var(--text-soft); font-size: 13px;">cabinet@compta.fr</div>
+          </div>
+          <div class="settings-row">
+            <div class="settings-row-label">Export auto fin de mois</div>
+            <div class="switch active" onclick="this.classList.toggle('active')"></div>
+          </div>
+          <div class="settings-row" onclick="exportCompta()" style="cursor: pointer;">
+            <div class="settings-row-label" style="color: var(--secondary); font-weight: 600;">📊 Exporter Excel ce mois</div>
+          </div>
+        </div>
+        <h2 class="section-title">Application</h2>
+        <div class="settings-group">
+          <div class="settings-row" onclick="installPWA()" style="cursor:pointer;">
+            <div class="settings-row-label">Installer Lista sur mon téléphone</div>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+          <div class="settings-row" onclick="logout()" style="cursor:pointer;">
+            <div class="settings-row-label" style="color: var(--danger);">Se déconnecter</div>
+          </div>
+        </div>
+        <p style="text-align: center; color: var(--text-mute); font-size: 12px; margin-top: 20px;">Lista v1.0 — Démo</p>
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-page="dashboard" onclick="goPage('dashboard')">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l2-2 7-7 7 7 2 2v9a2 2 0 01-2 2h-4v-7H10v7H6a2 2 0 01-2-2v-9z"/></svg>
+        <span>Accueil</span>
+      </button>
+      <button class="nav-item" data-page="chantiers" onclick="goPage('chantiers')">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg>
+        <span id="navMobileChantiersLabel">Chantiers</span>
+      </button>
+      <button class="nav-item nav-item-fab" onclick="openVocal()" title="Agent vocal">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/></svg>
+      </button>
+      <button class="nav-item" data-page="agenda" onclick="goPage('agenda')">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        <span>Agenda</span>
+      </button>
+      <button class="nav-item" data-page="settings" onclick="goPage('settings')">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+        <span>Profil</span>
+      </button>
+    </nav>
+  </main>
+</div>
+
+<!-- VOCAL -->
+<div class="vocal-screen" id="vocalScreen">
+  <div class="vocal-card">
+    <button class="vocal-close" onclick="closeVocal()">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="vocal-orb" id="vocalOrb" onclick="vocalToggle()">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/></svg>
+    </div>
+    <div class="vocal-title">Agent vocal IA</div>
+    <div class="vocal-status" id="vocalStatus">Touchez l'orbe et parlez</div>
+    <div class="vocal-transcript" id="vocalTranscript">Exemple : « J'ai posé 4m² de carrelage chez Dupont, ça m'a pris 3 heures. »</div>
+    <div class="vocal-actions">
+      <button class="btn btn-secondary" onclick="closeVocal()">Annuler</button>
+      <button class="btn btn-primary" onclick="vocalSubmit()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CRÉATION DEVIS -->
+<div class="modal-overlay" id="devisModal">
+  <div class="modal" style="max-width: 720px;">
+    <div class="modal-header">
+      <div class="modal-title">Nouveau devis</div>
+      <button class="icon-btn" onclick="closeModal('devisModal')">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="field-group">
+        <label class="field-label">Client</label>
+        <select class="field-input" id="devisClient"></select>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Objet du devis</label>
+        <input class="field-input" id="devisObjet" placeholder="Ex : Rénovation terrasse + mise en peinture">
+      </div>
+      <div class="field-label" style="margin-bottom: 8px;">Lignes du devis</div>
+      <div id="devisLignesList" style="margin-bottom: 12px;"></div>
+      <button class="btn btn-secondary btn-block" onclick="addDevisLigne()" style="margin-bottom: 18px;">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        Ajouter une ligne
+      </button>
+      <div style="background: var(--bg); border-radius: 12px; padding: 16px;">
+        <div style="display: flex; justify-content: space-between; padding: 4px 0; font-size: 14px; color: var(--text-soft);">
+          <span>Total HT</span><span id="devisTotalHT">0,00 €</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; padding: 4px 0; font-size: 14px; color: var(--text-soft);">
+          <span>TVA 20%</span><span id="devisTVA">0,00 €</span>
+        </div>
+        <div style="height: 1px; background: var(--border); margin: 8px 0;"></div>
+        <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: 700;">
+          <span>Total TTC</span><span id="devisTotalTTC" style="color: var(--secondary);">0,00 €</span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('devisModal')">Annuler</button>
+      <button class="btn btn-primary" onclick="generateDevis()">Générer le devis</button>
+    </div>
+  </div>
+</div>
+
+<!-- APERÇU DEVIS / FACTURE (le PDF visuel) -->
+<div class="modal-overlay" id="documentPreviewModal">
+  <div class="modal" style="max-width: 760px;">
+    <div class="modal-header">
+      <div class="modal-title" id="docPreviewTitle">Aperçu du devis</div>
+      <button class="icon-btn" onclick="closeModal('documentPreviewModal')">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" style="padding: 0; background: #E8E5DD;">
+      <div id="docPreviewContent"></div>
+    </div>
+    <div class="modal-footer" style="justify-content: space-between;">
+      <button class="btn btn-secondary" onclick="closeModal('documentPreviewModal')">Fermer</button>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn btn-secondary" onclick="showToast('PDF téléchargé : devis_'+currentDocNumber+'.pdf', 'success')">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Télécharger PDF
+        </button>
+        <button class="btn btn-primary" onclick="sendDocument()">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          Envoyer au client
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL OCR FACTURE FOURNISSEUR -->
+<div class="modal-overlay" id="ocrModal">
+  <div class="modal" style="max-width: 520px;">
+    <div class="modal-header">
+      <div class="modal-title">Photographier une facture</div>
+      <button class="icon-btn" onclick="closeModal('ocrModal')">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" id="ocrModalBody"></div>
+    <div class="modal-footer" id="ocrModalFooter"></div>
+  </div>
+</div>
+
+<!-- MODAL RELANCE IMPAYÉ -->
+<div class="modal-overlay" id="relanceModal">
+  <div class="modal" style="max-width: 560px;">
+    <div class="modal-header">
+      <div class="modal-title">Relancer cette facture</div>
+      <button class="icon-btn" onclick="closeModal('relanceModal')">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" id="relanceModalBody"></div>
+    <div class="modal-footer" id="relanceModalFooter"></div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="newChantierModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="newChantierTitle">Nouveau chantier</div>
+      <button class="icon-btn" onclick="closeModal('newChantierModal')">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="field-group"><label class="field-label">Nom du chantier</label><input class="field-input" placeholder="Ex : Rénovation salle de bain Dupont"></div>
+      <div class="field-group"><label class="field-label">Client</label><select class="field-input" id="newChantierClient"></select></div>
+      <div class="field-group"><label class="field-label">Adresse</label><input class="field-input" placeholder="Ex : 12 rue de la République"></div>
+      <div class="field-group"><label class="field-label">Date de début</label><input class="field-input" type="date"></div>
+      <div class="field-group"><label class="field-label">Montant estimé (€)</label><input class="field-input" type="number" placeholder="3500"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('newChantierModal')">Annuler</button>
+      <button class="btn btn-primary" onclick="createChantier()">Créer</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const METIERS = {
+  pisciniste: {
+    label: "Pisciniste", accent: "#2BA8C9", accentLight: "#DBF1F7",
+    chantierWord: "Intervention", chantierWordPlural: "Interventions",
+    company: "Aqua Provence", patron: "Marc Lefèvre", employe: "Yanis Bertrand",
+    greeting: "Voici vos interventions du jour",
+    chantiers: [
+      { name: "Entretien hebdo Villa Provence", client: "Famille Aubert", addr: "Avignon", status: "en_cours", progress: 80, amount: 1800, deadline: "Récurrent", thumb: "AU", color: "#2BA8C9" },
+      { name: "Mise en route printemps", client: "Mme Dubreuil", addr: "Carpentras", status: "en_cours", progress: 60, amount: 480, deadline: "12 mai", thumb: "DU", color: "#2BA8C9" },
+      { name: "Remplacement liner 8x4m", client: "M. Roumieux", addr: "Orange", status: "en_cours", progress: 40, amount: 6200, deadline: "20 mai", thumb: "RO", color: "#2BA8C9" },
+      { name: "Pose électrolyseur sel", client: "Mme Combes", addr: "Monteux", status: "devis", progress: 0, amount: 1450, deadline: "—", thumb: "CB", color: "#185FA5" },
+      { name: "Hivernage piscine", client: "M. Vialatte", addr: "Sorgues", status: "termine", progress: 100, amount: 290, deadline: "Terminé", thumb: "VI", color: "#0F6E56" },
+      { name: "Réparation pompe filtration", client: "Mme Halphen", addr: "L'Isle-sur-la-Sorgue", status: "en_cours", progress: 50, amount: 720, deadline: "8 mai", thumb: "HA", color: "#2BA8C9" },
+      { name: "Diagnostic fuite", client: "M. Pelissier", addr: "Cavaillon", status: "devis", progress: 0, amount: 380, deadline: "—", thumb: "PE", color: "#185FA5" },
+      { name: "Contrat annuel 12 visites", client: "Hôtel Le Mas", addr: "Châteauneuf-de-Gadagne", status: "en_cours", progress: 30, amount: 2850, deadline: "Annuel", thumb: "LM", color: "#2BA8C9" },
+      { name: "Changement filtre à sable", client: "M. Roumieux", addr: "Orange", status: "termine", progress: 100, amount: 850, deadline: "Terminé", thumb: "RO", color: "#0F6E56" },
+      { name: "Couverture automatique", client: "Mme Sarde", addr: "Pernes-les-Fontaines", status: "devis", progress: 0, amount: 4800, deadline: "—", thumb: "SA", color: "#185FA5" },
+      { name: "Traitement choc anti-algues", client: "Famille Aubert", addr: "Avignon", status: "termine", progress: 100, amount: 180, deadline: "Terminé", thumb: "AU", color: "#0F6E56" },
+      { name: "Mise aux normes sécurité", client: "Camping La Garance", addr: "Mazan", status: "sav", progress: 90, amount: 1200, deadline: "SAV", thumb: "CG", color: "#BA7517" }
+    ],
+    checklistTitle: "Checklist intervention pisciniste",
+    checklist: ["Arrivée sur site + horodatage","État visuel du bassin (photo)","Mesure pH (cible 7,0-7,4)","Mesure chlore libre (1-3 mg/L)","Mesure stabilisant / TAC","Nettoyage skimmers et préfiltre","Nettoyage panier robot ou aspiration","Brossage parois et ligne d'eau","Vérification pression filtre","Ajustement traitement","Vérification niveau d'eau","Test équipements (pompe, projos)","Photo finale du bassin","Bon d'intervention signé client","Notes pour prochaine visite","Envoi rapport email au client"]
+  },
+  macon: {
+    label: "Maçon", accent: "#A8835D", accentLight: "#F5EDE0",
+    chantierWord: "Chantier", chantierWordPlural: "Chantiers",
+    company: "BTP Lefèvre", patron: "Jean-Marc Lefèvre", employe: "Karim Boulanger",
+    greeting: "Voici vos chantiers du jour",
+    chantiers: [
+      { name: "Construction maison T5", client: "M. & Mme Renaud", addr: "Monteux", status: "en_cours", progress: 65, amount: 184000, deadline: "Sept 2026", thumb: "RE", color: "#A8835D" },
+      { name: "Mur de soutènement 18m", client: "M. Ferrand", addr: "Carpentras", status: "en_cours", progress: 80, amount: 12400, deadline: "10 mai", thumb: "FE", color: "#A8835D" },
+      { name: "Dalle béton garage 60m²", client: "Mme Granier", addr: "Pernes-les-Fontaines", status: "en_cours", progress: 100, amount: 4800, deadline: "Réception 5/5", thumb: "GR", color: "#0F6E56" },
+      { name: "Extension 25m² + toit plat", client: "M. Pellegrin", addr: "Avignon", status: "devis", progress: 0, amount: 38500, deadline: "—", thumb: "PE", color: "#185FA5" },
+      { name: "Reprise fissures façade", client: "Copro Le Clos", addr: "Cavaillon", status: "en_cours", progress: 40, amount: 8600, deadline: "25 mai", thumb: "CL", color: "#A8835D" },
+      { name: "Démolition reconstruction mur", client: "M. Bouchet", addr: "Sorgues", status: "termine", progress: 100, amount: 5200, deadline: "Terminé", thumb: "BO", color: "#0F6E56" },
+      { name: "Terrassement piscine 10x5", client: "Mme Vidal", addr: "L'Isle-sur-la-Sorgue", status: "en_cours", progress: 30, amount: 9800, deadline: "15 mai", thumb: "VI", color: "#A8835D" },
+      { name: "Pose chape liquide 80m²", client: "M. Marchand", addr: "Orange", status: "devis", progress: 0, amount: 3200, deadline: "—", thumb: "MA", color: "#185FA5" },
+      { name: "Création ouverture mur porteur", client: "Mme Tessier", addr: "Avignon", status: "en_cours", progress: 70, amount: 6800, deadline: "12 mai", thumb: "TE", color: "#A8835D" },
+      { name: "Rénovation façade pierre", client: "Domaine du Mas", addr: "Châteauneuf-du-Pape", status: "en_cours", progress: 25, amount: 28400, deadline: "30 juin", thumb: "DM", color: "#A8835D" },
+      { name: "Fondations dépendance", client: "M. Kestin", addr: "Mazan", status: "termine", progress: 100, amount: 7400, deadline: "Terminé", thumb: "KE", color: "#0F6E56" },
+      { name: "SAV reprise enduit", client: "Mme Aldo", addr: "Carpentras", status: "sav", progress: 60, amount: 0, deadline: "SAV", thumb: "AL", color: "#BA7517" }
+    ],
+    checklistTitle: "Checklist chantier maçon",
+    checklist: ["Visite technique sur site","Métré coté + photos état initial","Devis chiffré avec quantitatifs","Bon de commande signé + acompte 30%","Demande DICT/DT réseaux","Commande matériaux","Planification livraisons (toupie, semi)","Coordination équipe + sous-traitants","Implantation et piquetage","Terrassement / fouilles","Photo fond de fouille","Coulage semelles + ferraillage","Élévation murs (photo quotidienne)","Pointage heures équipe","Réception livraisons (bons signés)","Pose linteaux et chaînages","Coulage dalle / planchers","Photo finale gros œuvre","Nettoyage chantier + évacuation","PV de réception avec client","Photos finales (preuve décennale)","Facture finale + solde","Levée des réserves","Archivage dossier (10 ans)"]
+  },
+  facadier: {
+    label: "Façadier", accent: "#C99A4D", accentLight: "#F8EDD8",
+    chantierWord: "Chantier", chantierWordPlural: "Chantiers",
+    company: "Façades du Comtat", patron: "Pascal Roux", employe: "Tarek Ben Slimane",
+    greeting: "Vos chantiers façade du jour",
+    chantiers: [
+      { name: "Ravalement façade R+1", client: "M. Devaux", addr: "Avignon", status: "en_cours", progress: 75, amount: 14800, deadline: "10 mai", thumb: "DE", color: "#C99A4D" },
+      { name: "Crépi taloché 240m²", client: "Mme Brunet", addr: "Monteux", status: "en_cours", progress: 30, amount: 9200, deadline: "20 mai", thumb: "BR", color: "#C99A4D" },
+      { name: "ITE 180m² + bardage bois", client: "M. Sevennes", addr: "Sorgues", status: "en_cours", progress: 50, amount: 32400, deadline: "5 juin", thumb: "SE", color: "#C99A4D" },
+      { name: "Peinture façade R+2", client: "Copro Mistral", addr: "Carpentras", status: "devis", progress: 0, amount: 18600, deadline: "—", thumb: "MI", color: "#185FA5" },
+      { name: "Reprise enduit + fissures", client: "Mme Hubert", addr: "Pernes", status: "en_cours", progress: 60, amount: 4800, deadline: "8 mai", thumb: "HU", color: "#C99A4D" },
+      { name: "Hydrofuge toiture + façade", client: "M. Renault", addr: "Cavaillon", status: "termine", progress: 100, amount: 3600, deadline: "Terminé", thumb: "RE", color: "#0F6E56" },
+      { name: "Décollement enduit (sinistre)", client: "Mme Aubert", addr: "Orange", status: "sav", progress: 80, amount: 0, deadline: "SAV", thumb: "AU", color: "#BA7517" },
+      { name: "Crépi monocouche neuf", client: "Constructeur Bati", addr: "L'Isle-sur-la-Sorgue", status: "en_cours", progress: 40, amount: 7800, deadline: "30 mai", thumb: "BA", color: "#C99A4D" },
+      { name: "Façade pierre + joint chaux", client: "Domaine Lhuere", addr: "Châteauneuf-du-Pape", status: "devis", progress: 0, amount: 28400, deadline: "—", thumb: "LH", color: "#185FA5" },
+      { name: "Lavage haute pression 180m²", client: "Mme Coppola", addr: "Mazan", status: "termine", progress: 100, amount: 980, deadline: "Terminé", thumb: "CO", color: "#0F6E56" },
+      { name: "Devis ravalement complet", client: "Mairie de Bédoin", addr: "Bédoin", status: "devis", progress: 0, amount: 48600, deadline: "—", thumb: "BE", color: "#185FA5" },
+      { name: "Peinture extérieure villa", client: "Famille Zevaco", addr: "Vedène", status: "en_cours", progress: 20, amount: 12800, deadline: "25 mai", thumb: "ZE", color: "#C99A4D" }
+    ],
+    checklistTitle: "Checklist chantier façade",
+    checklist: ["Visite technique + relevé surfaces","Diagnostic support (fissures, salpêtre)","Devis avec calcul m² + complexité","Validation client + acompte","Vérification météo 7 jours","Déclaration préalable mairie","Commande échafaudage","Commande enduits / peinture","Protection abords (bâches, sol)","Photo AVANT toutes faces (décennale)","Montage échafaudage + sécurisation","Préparation supports (lavage HP)","Réparation fissures","Photo PENDANT supports préparés","Application sous-couche","1ère couche enduit ou peinture","Temps de séchage respecté","Application 2ème couche","Photo PENDANT finition","Démontage échafaudage","Photo APRÈS toutes faces","Nettoyage abords + déchets","PV de réception client","Facture + démarrage décennale"]
+  },
+  climatiseur: {
+    label: "Climatiseur", accent: "#5BAEDB", accentLight: "#E0F0FA",
+    chantierWord: "Intervention", chantierWordPlural: "Interventions",
+    company: "Clim Confort 84", patron: "Antoine Rivera", employe: "Damien Loiseau",
+    greeting: "Vos interventions clim du jour",
+    chantiers: [
+      { name: "Pose multi-split 3 unités", client: "M. Vidal", addr: "Avignon", status: "en_cours", progress: 70, amount: 6800, deadline: "5 mai", thumb: "VI", color: "#5BAEDB" },
+      { name: "Maintenance annuelle PAC", client: "Cabinet médical Provence", addr: "Carpentras", status: "en_cours", progress: 100, amount: 320, deadline: "Récurrent", thumb: "CM", color: "#5BAEDB" },
+      { name: "Pose gainable maison T6", client: "M. Bonnet", addr: "Monteux", status: "devis", progress: 0, amount: 12800, deadline: "—", thumb: "BO", color: "#185FA5" },
+      { name: "Recharge fluide R32 + contrôle", client: "Hôtel Mistral", addr: "Orange", status: "en_cours", progress: 90, amount: 480, deadline: "Auj.", thumb: "MI", color: "#5BAEDB" },
+      { name: "Remplacement UE défectueuse", client: "Mme Heretzin", addr: "Sorgues", status: "en_cours", progress: 50, amount: 1850, deadline: "10 mai", thumb: "HE", color: "#5BAEDB" },
+      { name: "Pose mono-split chambre", client: "M. Pellet", addr: "Cavaillon", status: "termine", progress: 100, amount: 1650, deadline: "Terminé", thumb: "PE", color: "#0F6E56" },
+      { name: "Contrat maintenance 12 unités", client: "Résidence Les Oliviers", addr: "Pernes", status: "en_cours", progress: 30, amount: 2880, deadline: "Annuel", thumb: "LO", color: "#5BAEDB" },
+      { name: "Devis pompe à chaleur 12kW", client: "M. Sevin", addr: "L'Isle-sur-la-Sorgue", status: "devis", progress: 0, amount: 9800, deadline: "—", thumb: "SE", color: "#185FA5" },
+      { name: "Diagnostic UI bruyante", client: "Mme Korda", addr: "Mazan", status: "sav", progress: 50, amount: 0, deadline: "SAV", thumb: "KO", color: "#BA7517" },
+      { name: "Pose PAC piscine 13kW", client: "M. Lebrun", addr: "Châteauneuf-de-Gadagne", status: "termine", progress: 100, amount: 4200, deadline: "Terminé", thumb: "LE", color: "#0F6E56" },
+      { name: "Mise en service 5 splits", client: "Bureau Avignon Tour", addr: "Avignon", status: "en_cours", progress: 60, amount: 8400, deadline: "12 mai", thumb: "AT", color: "#5BAEDB" },
+      { name: "Devis remplacement chaudière", client: "Mme Zarokian", addr: "Bédarrides", status: "devis", progress: 0, amount: 7200, deadline: "—", thumb: "ZA", color: "#185FA5" }
+    ],
+    checklistTitle: "Checklist pose climatisation",
+    checklist: ["Visite technique + relevé volumes","Calcul puissance frigorifique BTU/kW","Devis avec choix gamme","Validation client + acompte","Vérification attestation F-Gas","Déclaration mairie si UE visible","Commande matériel (UI, UE, liaisons)","Photo AVANT (façade, emplacement UE)","Pose unité intérieure","Pose unité extérieure (supports antivib.)","Liaisons frigorifiques","Tirage au vide (traçabilité)","Test étanchéité azote","Charge fluide (pesée kg R32/R410A)","Raccordement électrique + protection","Évacuation des condensats","Mise en service + vérif modes","Photo APRÈS","Démonstration télécommande client","Remise notice + carnet entretien","Attestation F-Gas signée","Facture finale + garantie constructeur"]
+  },
+  plombier: {
+    label: "Plombier", accent: "#C97B4D", accentLight: "#F5E5D8",
+    chantierWord: "Intervention", chantierWordPlural: "Interventions",
+    company: "SOS Plomberie 84", patron: "Gérard Marchetti", employe: "Florent Ribeiro",
+    greeting: "Vos interventions plomberie du jour",
+    chantiers: [
+      { name: "Urgence fuite chauffe-eau", client: "Mme Aubert", addr: "Avignon", status: "en_cours", progress: 30, amount: 380, deadline: "Auj. urgent", thumb: "AU", color: "#C04040" },
+      { name: "Rénovation salle de bain complète", client: "M. & Mme Charpentier", addr: "Carpentras", status: "en_cours", progress: 60, amount: 8400, deadline: "20 mai", thumb: "CH", color: "#C97B4D" },
+      { name: "Remplacement chauffe-eau 200L", client: "M. Devigny", addr: "Sorgues", status: "termine", progress: 100, amount: 1280, deadline: "Terminé", thumb: "DE", color: "#0F6E56" },
+      { name: "Installation lave-vaisselle", client: "Mme Pellet", addr: "Monteux", status: "termine", progress: 100, amount: 220, deadline: "Terminé", thumb: "PE", color: "#0F6E56" },
+      { name: "Débouchage canalisations", client: "Restaurant Le Mistral", addr: "Avignon", status: "en_cours", progress: 70, amount: 480, deadline: "Auj.", thumb: "LM", color: "#C97B4D" },
+      { name: "Pose réseau eau cuisine", client: "M. Brun", addr: "Pernes", status: "en_cours", progress: 50, amount: 1850, deadline: "10 mai", thumb: "BR", color: "#C97B4D" },
+      { name: "Devis remplacement plomberie", client: "Copro Le Mas", addr: "Cavaillon", status: "devis", progress: 0, amount: 14800, deadline: "—", thumb: "LM", color: "#185FA5" },
+      { name: "Recherche fuite + réparation", client: "Mme Halphen", addr: "L'Isle-sur-la-Sorgue", status: "en_cours", progress: 40, amount: 620, deadline: "Auj.", thumb: "HA", color: "#C97B4D" },
+      { name: "Pose adoucisseur d'eau", client: "M. Tessier", addr: "Orange", status: "termine", progress: 100, amount: 1480, deadline: "Terminé", thumb: "TE", color: "#0F6E56" },
+      { name: "SAV mitigeur thermostatique", client: "Mme Korba", addr: "Mazan", status: "sav", progress: 80, amount: 0, deadline: "SAV", thumb: "KO", color: "#BA7517" },
+      { name: "Devis pose WC suspendu", client: "M. Nguyen", addr: "Vedène", status: "devis", progress: 0, amount: 980, deadline: "—", thumb: "NG", color: "#185FA5" },
+      { name: "Dégorgement WC + colonne", client: "Résidence Les Pins", addr: "Bédarrides", status: "en_cours", progress: 90, amount: 720, deadline: "Auj.", thumb: "RP", color: "#C97B4D" }
+    ],
+    checklistTitle: "Checklist intervention plombier",
+    checklist: ["Qualification urgence (fuite, panne)","Devis estimatif téléphone + créneau","Confirmation SMS au client","Arrivée + horodatage (déplacement)","Diagnostic + photo de la panne","Devis sur place (si > 150€)","Coupure générale eau si fuite","Réparation (joint, raccord, mitigeur)","Remplacement pièce ou commande","Remise en eau + test pression","Vérif absence fuite (5 min)","Photo APRÈS","Bon d'intervention signé sur tablette","Plan d'implantation (si chantier)","Pose réseau eau (PER, multicouche)","Pose évacuations PVC","Pose appareils sanitaires","Mise en pression + test 24h","Facture + paiement (CB sur place)","Garantie pièces + main-d'œuvre"]
+  },
+  peintre: {
+    label: "Peintre", accent: "#8B7AC9", accentLight: "#EAE6F5",
+    chantierWord: "Chantier", chantierWordPlural: "Chantiers",
+    company: "Couleurs & Finitions", patron: "Sylvie Marchais", employe: "Loïc Tarrieu",
+    greeting: "Vos chantiers peinture du jour",
+    chantiers: [
+      { name: "Peinture appartement T4", client: "M. & Mme Bouchet", addr: "Avignon", status: "en_cours", progress: 70, amount: 4800, deadline: "8 mai", thumb: "BO", color: "#8B7AC9" },
+      { name: "Mise en peinture villa neuve", client: "Famille Marchand", addr: "Monteux", status: "en_cours", progress: 40, amount: 12400, deadline: "25 mai", thumb: "MA", color: "#8B7AC9" },
+      { name: "Rénovation salon 35m²", client: "Mme Halphen", addr: "Carpentras", status: "termine", progress: 100, amount: 1850, deadline: "Terminé", thumb: "HA", color: "#0F6E56" },
+      { name: "Peinture extérieure 180m²", client: "Domaine Vidal", addr: "Châteauneuf-de-Gadagne", status: "en_cours", progress: 30, amount: 8200, deadline: "20 mai", thumb: "VI", color: "#8B7AC9" },
+      { name: "Pose papier peint design 4 pièces", client: "Mme Cremieux", addr: "Sorgues", status: "devis", progress: 0, amount: 2200, deadline: "—", thumb: "CR", color: "#185FA5" },
+      { name: "Plâtrerie + peinture salle", client: "Mairie Pernes", addr: "Pernes", status: "en_cours", progress: 60, amount: 5600, deadline: "15 mai", thumb: "MP", color: "#8B7AC9" },
+      { name: "Reprise enduit + lessivage", client: "M. Pelissier", addr: "Cavaillon", status: "termine", progress: 100, amount: 980, deadline: "Terminé", thumb: "PE", color: "#0F6E56" },
+      { name: "Devis cage d'escalier R+3", client: "Copro Mistral", addr: "Avignon", status: "devis", progress: 0, amount: 6800, deadline: "—", thumb: "MI", color: "#185FA5" },
+      { name: "Décoration chambre enfant", client: "Famille Korba", addr: "Orange", status: "en_cours", progress: 80, amount: 1200, deadline: "10 mai", thumb: "KO", color: "#8B7AC9" },
+      { name: "Peinture cuisine + crédence", client: "Mme Aubin", addr: "L'Isle-sur-la-Sorgue", status: "termine", progress: 100, amount: 1450, deadline: "Terminé", thumb: "AU", color: "#0F6E56" },
+      { name: "SAV reprise traces", client: "M. Marchand", addr: "Monteux", status: "sav", progress: 60, amount: 0, deadline: "SAV", thumb: "MA", color: "#BA7517" },
+      { name: "Peinture local commercial", client: "Boulangerie Zola", addr: "Vedène", status: "en_cours", progress: 50, amount: 2800, deadline: "12 mai", thumb: "ZO", color: "#8B7AC9" }
+    ],
+    checklistTitle: "Checklist chantier peinture",
+    checklist: ["Visite + relevé surfaces (m²)","Diagnostic supports (humidité)","Choix finitions client (nuancier)","Devis détaillé avec ml plinthes","Photo AVANT (toutes pièces)","Protection sols, meubles, arêtes","Démontage prises et interrupteurs","Préparation supports (rebouchage, ponçage)","Application sous-couche","Plafonds 1ère couche","Plafonds 2ème couche","Murs 1ère couche","Photo PENDANT (1ère couche)","Murs 2ème couche","Boiseries / plinthes / portes","Retouches et finitions","Photo APRÈS","Nettoyage + remise en place","PV de réception client","Facture + garantie biennale"]
+  },
+  paysagiste: {
+    label: "Paysagiste", accent: "#5DA858", accentLight: "#E0F0DD",
+    chantierWord: "Tournée", chantierWordPlural: "Tournées",
+    company: "Jardins du Ventoux", patron: "Bruno Tholozan", employe: "Mathieu Caron",
+    greeting: "Vos tournées du jour",
+    chantiers: [
+      { name: "Entretien hebdo Mas du Comtat", client: "M. Sarraille", addr: "Pernes", status: "en_cours", progress: 80, amount: 3600, deadline: "Récurrent", thumb: "SA", color: "#5DA858" },
+      { name: "Création jardin 800m²", client: "Mme Aubert", addr: "Monteux", status: "en_cours", progress: 50, amount: 18400, deadline: "30 mai", thumb: "AU", color: "#5DA858" },
+      { name: "Taille haies 60ml", client: "Copro Le Clos", addr: "Carpentras", status: "termine", progress: 100, amount: 480, deadline: "Terminé", thumb: "CL", color: "#0F6E56" },
+      { name: "Élagage 4 platanes", client: "Mairie Bédoin", addr: "Bédoin", status: "en_cours", progress: 40, amount: 1200, deadline: "10 mai", thumb: "BE", color: "#5DA858" },
+      { name: "Pose pelouse rouleau 250m²", client: "M. Hubert", addr: "Avignon", status: "en_cours", progress: 70, amount: 3800, deadline: "8 mai", thumb: "HU", color: "#5DA858" },
+      { name: "Système arrosage automatique", client: "Famille Sevennes", addr: "Sorgues", status: "termine", progress: 100, amount: 4200, deadline: "Terminé", thumb: "SE", color: "#0F6E56" },
+      { name: "Devis création terrasse 40m²", client: "Mme Pelissier", addr: "Cavaillon", status: "devis", progress: 0, amount: 8800, deadline: "—", thumb: "PE", color: "#185FA5" },
+      { name: "Contrat entretien 16 visites", client: "Hôtel Le Mas", addr: "Châteauneuf", status: "en_cours", progress: 30, amount: 5600, deadline: "Annuel", thumb: "LM", color: "#5DA858" },
+      { name: "Plantation haie cyprès 40ml", client: "M. Korba", addr: "Orange", status: "termine", progress: 100, amount: 1980, deadline: "Terminé", thumb: "KO", color: "#0F6E56" },
+      { name: "Tonte + désherbage Domaine", client: "Domaine Le Pigeon", addr: "L'Isle-sur-la-Sorgue", status: "en_cours", progress: 90, amount: 850, deadline: "Auj.", thumb: "LP", color: "#5DA858" },
+      { name: "Devis paysagement piscine", client: "Mme Vidal", addr: "Mazan", status: "devis", progress: 0, amount: 12400, deadline: "—", thumb: "VI", color: "#185FA5" },
+      { name: "Reprise gazon brûlé (SAV)", client: "M. Hubert", addr: "Avignon", status: "sav", progress: 50, amount: 0, deadline: "SAV", thumb: "HU", color: "#BA7517" }
+    ],
+    checklistTitle: "Checklist tournée paysagiste",
+    checklist: ["Arrivée + horodatage","Photo état initial du jardin","Tonte pelouse (hauteur saison)","Ramassage déchets verts","Taille haies (dimensions contractuelles)","Désherbage massifs / allées","Arrosage manuel ou vérif système","Soufflage feuilles + nettoyage","Photo finale (preuve travail)","Bon d'intervention signé","Plan paysager (si création)","Préparation sol (apport terre)","Création massifs (plantation)","Pose pelouse (semis ou rouleau)","Programmation arrosage auto","Pose éclairage extérieur","Pose terrasse / allées","Photo APRÈS création","Préparation printemps (mars-avril)","Été : tontes hebdo, arrosage","Automne-hiver : feuilles, élagage","Hivernage système arrosage"]
+  }
+};
+
+let state = { metier: 'pisciniste', user: null, currentPage: 'dashboard', selectedChantier: null, filterStatus: 'all', checked: new Set() };
+
+function init() {
+  const params = new URLSearchParams(window.location.search);
+  const m = params.get('metier');
+  const skipSelector = params.get('demo') === '1' || (m && METIERS[m]);
+  if (m && METIERS[m]) state.metier = m;
+  applyMetierTheme();
+  renderMetierSelector();
+  renderLogin();
+  // Si métier en URL → on saute le sélecteur et on va direct au login
+  if (skipSelector) {
+    document.getElementById('metierSelector').classList.remove('visible');
+  }
+}
+
+// Rendu de l'écran sélecteur de métier (7 cartes pour la prospection)
+function renderMetierSelector() {
+  const icons = {
+    pisciniste: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 20c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M2 16c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M5 12V6a3 3 0 016 0v8M13 12V6a3 3 0 016 0v6"/></svg>',
+    macon: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M3 7h6v6H3zM9 13h6v8H9zM15 7h6v6h-6zM3 13h6v8H3zM15 13h6v8h-6z"/></svg>',
+    facadier: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 21V8l8-5 8 5v13M4 21h16M9 21v-6h6v6M9 12h.01M15 12h.01"/></svg>',
+    climatiseur: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M4.93 4.93l14.14 14.14M2 12h20M4.93 19.07L19.07 4.93"/></svg>',
+    plombier: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h6M9 12V8a3 3 0 016 0v4M15 12h6M9 12v4a3 3 0 006 0v-4M3 9v6M21 9v6"/></svg>',
+    peintre: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 11h-7l-2 2v7a2 2 0 01-2 2 2 2 0 01-2-2 4 4 0 014-4h2"/><path d="M19 11V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8"/></svg>',
+    paysagiste: '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22V12M12 12c-4 0-7-3-7-7 4 0 7 3 7 7zM12 12c4 0 7-3 7-7-4 0-7 3-7 7zM5 22h14"/></svg>'
+  };
+  const taglines = {
+    pisciniste: 'Contrats annuels, paramètres pH/chlore, mises en route et hivernages.',
+    macon: 'Devis au m², gros œuvre, livraisons matériaux, équipes et sous-traitants.',
+    facadier: 'Calculateur m² façade, ITE, échafaudages, photos avant/après obligatoires.',
+    climatiseur: 'Registre F-Gas obligatoire, calculateur BTU, maintenance annuelle.',
+    plombier: 'Mode urgence avec géoloc, stock véhicule, dépannage forfaitaire CB.',
+    peintre: 'Calculateur pots, nuancier RAL, photos par pièce, intérieur/extérieur.',
+    paysagiste: 'Tournées récurrentes, catalogue végétaux, météo intégrée, déchets verts.'
+  };
+  const order = ['pisciniste', 'macon', 'facadier', 'climatiseur', 'plombier', 'peintre', 'paysagiste'];
+  const html = order.map(k => {
+    const m = METIERS[k];
+    return `
+      <button class="metier-card" onclick="selectMetier('${k}')" style="--metier-accent: ${m.accent}; --metier-accent-light: ${m.accentLight};">
+        <div class="metier-card-icon">${icons[k]}</div>
+        <div class="metier-card-name">${m.label}</div>
+        <div class="metier-card-tagline">${taglines[k]}</div>
+        <div class="metier-card-cta">
+          Démarrer la démo
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+      </button>
+    `;
+  }).join('');
+  document.getElementById('metierSelectorGrid').innerHTML = html;
+}
+
+function showMetierSelector() {
+  // Masquer login et app, afficher sélecteur
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('app').classList.remove('visible');
+  document.getElementById('metierSelector').classList.add('visible');
+  // Reset state utilisateur
+  state.user = null;
+}
+
+function selectMetier(key) {
+  state.metier = key;
+  const url = new URL(window.location);
+  url.searchParams.set('metier', key);
+  window.history.replaceState({}, '', url);
+  applyMetierTheme();
+  renderLogin();
+  // Animation : on cache le sélecteur et on montre le login
+  const sel = document.getElementById('metierSelector');
+  sel.style.opacity = '0';
+  sel.style.transition = 'opacity .3s ease';
+  setTimeout(() => {
+    sel.classList.remove('visible');
+    sel.style.opacity = '';
+    sel.style.transition = '';
+    document.getElementById('loginScreen').style.display = 'flex';
+  }, 280);
+}
+
+function applyMetierTheme() {
+  const m = METIERS[state.metier];
+  document.documentElement.style.setProperty('--secondary', m.accent);
+  document.documentElement.style.setProperty('--primary-light', m.accentLight);
+  document.getElementById('loginMetierBadge').textContent = `Démo ${m.label}`;
+  document.getElementById('sidebarMetier').textContent = m.label;
+  document.getElementById('mobileMetierBadge').textContent = m.label;
+  document.getElementById('navChantiersLabel').textContent = m.chantierWordPlural;
+  document.getElementById('navMobileChantiersLabel').textContent = m.chantierWordPlural;
+  document.getElementById('pageChantiersTitle').textContent = m.chantierWordPlural;
+  document.getElementById('pageChantiersSubtitle').textContent = `Toutes vos ${m.chantierWordPlural.toLowerCase()} en cours et à venir`;
+  document.getElementById('newChantierTitle').textContent = `Nouvelle ${m.chantierWord.toLowerCase()}`;
+  document.getElementById('kpiChantiersLabel').textContent = `${m.chantierWordPlural} en cours`;
+  document.getElementById('recentChantiersTitle').textContent = `${m.chantierWordPlural} récents`;
+  document.getElementById('navChantiersCount').textContent = m.chantiers.filter(c => c.status === 'en_cours').length;
+  document.getElementById('setEntreprise').textContent = m.company;
+  document.getElementById('setMetier').textContent = m.label;
+}
+
+function renderLogin() {
+  const m = METIERS[state.metier];
+  const accountsHTML = `
+    <button class="demo-account-btn" onclick="doLogin('admin')">
+      <div class="demo-account-avatar">${m.patron.split(' ').map(s=>s[0]).join('').slice(0,2)}</div>
+      <div class="demo-account-info">
+        <div class="demo-account-name">${m.patron}</div>
+        <div class="demo-account-role">Patron · ${m.company}</div>
+      </div>
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <button class="demo-account-btn" onclick="doLogin('employe')">
+      <div class="demo-account-avatar employe">${m.employe.split(' ').map(s=>s[0]).join('').slice(0,2)}</div>
+      <div class="demo-account-info">
+        <div class="demo-account-name">${m.employe}</div>
+        <div class="demo-account-role">Employé terrain · accès restreint</div>
+      </div>
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  `;
+  document.getElementById('demoAccounts').innerHTML = accountsHTML;
+  const pillsHTML = Object.keys(METIERS).map(k => {
+    const cls = k === state.metier ? 'active' : '';
+    return `<button class="metier-pill ${cls}" onclick="switchMetier('${k}')">${METIERS[k].label}</button>`;
+  }).join('');
+  document.getElementById('metierPills').innerHTML = pillsHTML;
+}
+
+function switchMetier(key) {
+  state.metier = key;
+  const url = new URL(window.location);
+  url.searchParams.set('metier', key);
+  window.history.replaceState({}, '', url);
+  applyMetierTheme();
+  renderLogin();
+}
+
+function doLogin(role) {
+  const m = METIERS[state.metier];
+  state.user = { role, name: role === 'admin' ? m.patron : m.employe, initials: (role === 'admin' ? m.patron : m.employe).split(' ').map(s=>s[0]).join('').slice(0,2) };
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('app').classList.add('visible');
+  document.getElementById('sidebarUserAvatar').textContent = state.user.initials;
+  document.getElementById('sidebarUserName').textContent = state.user.name;
+  document.getElementById('sidebarUserRole').textContent = role === 'admin' ? 'Patron' : 'Employé terrain';
+  document.querySelectorAll('.admin-only').forEach(el => { el.style.display = role === 'admin' ? '' : 'none'; });
+  document.getElementById('dashGreeting').textContent = `Bonjour ${state.user.name.split(' ')[0]}`;
+  document.getElementById('dashSubtitle').textContent = m.greeting;
+  renderDashboard();
+  renderChantiers();
+  renderClients();
+  renderFinances();
+  renderImpayes();
+  renderFournisseurs();
+  renderAgendaMobile();
+  renderCalendar();
+  renderCAChart();
+  showToast(`Bienvenue ${state.user.name.split(' ')[0]}`, 'success');
+}
+
+function logout() {
+  state.user = null;
+  document.getElementById('app').classList.remove('visible');
+  document.getElementById('loginScreen').style.display = 'flex';
+}
+
+function goPage(page) {
+  state.currentPage = page;
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(`page-${page}`).classList.add('active');
+  document.querySelectorAll('.sidebar-link, .nav-item').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll(`[data-page="${page}"]`).forEach(el => el.classList.add('active'));
+  window.scrollTo(0, 0);
+}
+
+function showToast(text, type = '') {
+  const icons = {
+    success: '<svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>',
+    warning: '<svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>',
+    error: '<svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>',
+    '': '<svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>'
+  };
+  const el = document.createElement('div');
+  el.className = `toast ${type}`;
+  el.innerHTML = `${icons[type]||icons['']}<span>${text}</span>`;
+  document.getElementById('toasts').appendChild(el);
+  setTimeout(() => {
+    el.style.transition = 'all 0.3s';
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(-10px)';
+    setTimeout(() => el.remove(), 300);
+  }, 2800);
+}
+
+function openModal(id) {
+  document.getElementById(id).classList.add('active');
+  const m = METIERS[state.metier];
+  const clients = [...new Set(m.chantiers.map(c => c.client))];
+  const sel = document.getElementById('newChantierClient');
+  if (sel && sel.children.length === 0) sel.innerHTML = clients.map(c => `<option>${c}</option>`).join('');
+}
+function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+function createChantier() {
+  closeModal('newChantierModal');
+  const m = METIERS[state.metier];
+  showToast(`${m.chantierWord} créé avec succès`, 'success');
+}
+
+let vocalActive = false;
+function openVocal(mode) {
+  document.getElementById('vocalScreen').classList.add('active');
+  if (mode === 'ocr') {
+    document.getElementById('vocalStatus').textContent = 'Mode OCR — placez la facture devant la caméra';
+    document.getElementById('vocalTranscript').textContent = 'Photographiez le bon de livraison ou la facture, l\'IA extrait montant, date et fournisseur.';
+  }
+}
+function closeVocal() {
+  document.getElementById('vocalScreen').classList.remove('active');
+  vocalActive = false;
+}
+function vocalToggle() {
+  vocalActive = !vocalActive;
+  if (vocalActive) {
+    document.getElementById('vocalStatus').textContent = '🎙️ J\'écoute...';
+    setTimeout(() => {
+      const examples = {
+        pisciniste: "J'ai fait l'entretien chez Aubert ce matin, pH à 7.2, chlore 1.8, j'ai aspiré et brossé. Tout est bon.",
+        macon: "Coulé la dalle de 60m² chez Granier ce matin, 3 toupies de béton. Équipe : moi, Karim, et Hassan.",
+        facadier: "Première couche posée chez Devaux, 80m² de façade. Météo OK demain pour la deuxième couche.",
+        climatiseur: "Pose multi-split terminée chez Vidal, 3 unités, 2.4kg de R32 chargés. Attestation F-Gas signée.",
+        plombier: "Réparé la fuite chauffe-eau chez Aubert, remplacé groupe sécurité. Facture 380€ payée CB.",
+        peintre: "Deuxième couche faite dans le T4 Bouchet, salon et 2 chambres. Demain : couloir et cuisine.",
+        paysagiste: "Tonte + taille haies chez Sarraille terminées. 1.5m³ de déchets verts. Prochaine visite dans 15 jours."
+      };
+      const t = document.getElementById('vocalTranscript');
+      t.classList.add('has-content');
+      t.textContent = examples[state.metier] || examples.pisciniste;
+      document.getElementById('vocalStatus').textContent = 'Transcription terminée — vérifiez puis enregistrez';
+    }, 2200);
+  } else {
+    document.getElementById('vocalStatus').textContent = 'Touchez l\'orbe et parlez';
+  }
+}
+function vocalSubmit() { closeVocal(); showToast('Rapport vocal enregistré dans le chantier', 'success'); }
+
+function renderDashboard() {
+  const m = METIERS[state.metier];
+  const recent = m.chantiers.slice(0, 4);
+  document.getElementById('recentChantiers').innerHTML = recent.map(c => chantierCardHTML(c)).join('');
+  const today = m.chantiers.filter(c => c.status === 'en_cours').slice(0, 5);
+  document.getElementById('todayList').innerHTML = today.map(c => `
+    <div class="chantier-card" onclick="openChantierDetail(${m.chantiers.indexOf(c)})" style="margin-bottom: 8px;">
+      <div class="chantier-thumb" style="background:${c.color}; width:42px; height:42px; font-size:14px;">${c.thumb}</div>
+      <div class="chantier-info">
+        <div class="chantier-title">${c.name}</div>
+        <div class="chantier-client">${c.client} · ${c.addr}</div>
+      </div>
+    </div>
+  `).join('');
+  renderIAInsights();
+}
+
+function renderIAInsights() {
+  const insights = {
+    pisciniste: [
+      { icon: '🌡️', text: 'pH élevé chez Aubert (7.6) : prévoir traitement choc demain matin', priority: 'high' },
+      { icon: '📅', text: 'Hivernage à programmer pour <b>8 piscines</b> avant le 30 octobre', priority: 'medium' },
+      { icon: '💰', text: '3 contrats annuels arrivent à échéance : <b>5 400 €</b> à renouveler', priority: 'medium' }
+    ],
+    macon: [
+      { icon: '☁️', text: 'Pluie jeudi-vendredi : reporter le coulage dalle Dubois à lundi', priority: 'high' },
+      { icon: '📦', text: 'Stock parpaings bas : commander avant chantier Granier', priority: 'medium' },
+      { icon: '👷', text: 'Karim termine son contrat dans 2 semaines : à renouveler ?', priority: 'medium' }
+    ],
+    facadier: [
+      { icon: '☀️', text: '5 jours sans pluie prévus : idéal pour finir Devaux', priority: 'high' },
+      { icon: '🏗️', text: 'Échafaudage Bouchet à démonter avant lundi (location chère)', priority: 'high' },
+      { icon: '📷', text: '3 chantiers terminés sans photos APRÈS : à compléter pour la décennale', priority: 'medium' }
+    ],
+    climatiseur: [
+      { icon: '❄️', text: '<b>5 maintenances annuelles</b> dues ce mois — relancer les clients', priority: 'high' },
+      { icon: '📋', text: 'Registre F-Gas à jour à 92% : vérifier dernière intervention Vidal', priority: 'medium' },
+      { icon: '🌡️', text: 'Pic saisonnier dans 3 semaines : renforcer le stock R32', priority: 'medium' }
+    ],
+    plombier: [
+      { icon: '🚨', text: '<b>2 urgences</b> en attente : Mme Albert (Avignon) et M. Levant (Sorgues)', priority: 'high' },
+      { icon: '💧', text: 'Réfection SDB Mme Lopez : devis envoyé il y a 8 jours, à relancer', priority: 'medium' },
+      { icon: '🛒', text: 'Stock véhicule : 4 mitigeurs et 12 raccords à recommander', priority: 'medium' }
+    ],
+    peintre: [
+      { icon: '🎨', text: 'Chantier Lopez : 2e couche prévue mardi, météo OK', priority: 'high' },
+      { icon: '☔', text: 'Pluie mercredi : reporter peinture extérieure Bouchet', priority: 'high' },
+      { icon: '🏺', text: 'Stock peinture acrylique blanc cassé bas : recommander 30L', priority: 'medium' }
+    ],
+    paysagiste: [
+      { icon: '🌧️', text: 'Pluie demain : tonte Sarraille reportée à mercredi', priority: 'high' },
+      { icon: '🌿', text: '<b>4 contrats annuels</b> à renouveler avant fin de mois', priority: 'high' },
+      { icon: '🍃', text: 'Saison taille des rosiers : programmer 6 visites cette semaine', priority: 'medium' }
+    ]
+  };
+  const list = insights[state.metier] || insights.pisciniste;
+  const wrap = document.getElementById('iaInsightsList');
+  if (!wrap) return;
+  wrap.innerHTML = list.map(i => `
+    <div style="background: rgba(255,255,255,0.13); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 14px; backdrop-filter: blur(10px); display: flex; gap: 12px; align-items: flex-start;">
+      <div style="font-size: 22px; flex-shrink: 0;">${i.icon}</div>
+      <div style="flex: 1; font-size: 13px; line-height: 1.45; color: white;">${i.text}</div>
+    </div>
+  `).join('');
+}
+
+function refreshIA() {
+  const wrap = document.getElementById('iaInsightsList');
+  if (!wrap) return;
+  wrap.style.opacity = '0.4';
+  setTimeout(() => {
+    renderIAInsights();
+    wrap.style.opacity = '1';
+    showToast('🧠 Recommandations Lista IA mises à jour', 'success');
+  }, 600);
+}
+
+function renderCAChart() {
+  const months = ['Mai','Juin','Juil','Août','Sep','Oct','Nov','Déc','Jan','Fév','Mar','Avr'];
+  const data = {
+    pisciniste: [18200, 24800, 32100, 35400, 28900, 19400, 14200, 12800, 11600, 13400, 22800, 28450],
+    macon: [42000, 48000, 52000, 49000, 54000, 51000, 38000, 35000, 32000, 38000, 44000, 47200],
+    facadier: [22000, 32000, 41000, 45000, 38000, 28000, 18000, 14000, 12000, 17000, 28000, 36400],
+    climatiseur: [22000, 38000, 56000, 62000, 38000, 22000, 26000, 24000, 22000, 24000, 28000, 38200],
+    plombier: [28000, 30000, 32000, 28000, 31000, 33000, 35000, 38000, 36000, 34000, 32000, 33800],
+    peintre: [14000, 18000, 16000, 12000, 18000, 22000, 24000, 28000, 26000, 24000, 22000, 24600],
+    paysagiste: [22000, 32000, 28000, 22000, 26000, 28000, 18000, 14000, 12000, 18000, 32000, 36800]
+  };
+  const values = data[state.metier] || data.pisciniste;
+  const max = Math.max(...values) * 1.1;
+  const W = 600, H = 220, P = 36;
+  const stepX = (W - 2*P) / (values.length - 1);
+  const accent = METIERS[state.metier].accent;
+  const points = values.map((v, i) => ({ x: P + i * stepX, y: H - P - v / max * (H - 2*P) }));
+  const path = points.map((p, i) => (i === 0 ? `M${p.x},${p.y}` : `L${p.x},${p.y}`)).join(' ');
+  const areaPath = path + ` L${points[points.length-1].x},${H-P} L${points[0].x},${H-P} Z`;
+  let gridY = '';
+  for (let i = 0; i <= 4; i++) {
+    const y = P + i * (H - 2*P) / 4;
+    const v = max - i * max / 4;
+    gridY += `<line x1="${P}" y1="${y}" x2="${W-P}" y2="${y}" stroke="#ECE9E1" stroke-width="1"/>`;
+    gridY += `<text x="${P-6}" y="${y+4}" text-anchor="end" fill="#8A94A6" font-size="10">${(v/1000).toFixed(0)}k</text>`;
+  }
+  let xLabels = '';
+  values.forEach((_, i) => {
+    if (i % 2 === 0 || i === values.length-1) xLabels += `<text x="${P + i*stepX}" y="${H-12}" text-anchor="middle" fill="#8A94A6" font-size="10">${months[i]}</text>`;
+  });
+  const chart = document.getElementById('caChart');
+  if (chart) chart.innerHTML = `
+    <defs><linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="${accent}" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="${accent}" stop-opacity="0"/>
+    </linearGradient></defs>
+    ${gridY}
+    <path d="${areaPath}" fill="url(#grad)"/>
+    <path d="${path}" stroke="${accent}" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    ${points.map(p => `<circle cx="${p.x}" cy="${p.y}" r="3" fill="white" stroke="${accent}" stroke-width="2"/>`).join('')}
+    ${xLabels}
+  `;
+}
+
+function chantierCardHTML(c) {
+  const m = METIERS[state.metier];
+  const idx = m.chantiers.indexOf(c);
+  const statusBadge = {
+    en_cours: '<span class="badge badge-blue">En cours</span>',
+    devis: '<span class="badge badge-amber">En devis</span>',
+    termine: '<span class="badge badge-green">Terminé</span>',
+    sav: '<span class="badge badge-amber">SAV</span>'
+  }[c.status];
+  const amountDisplay = state.user && state.user.role === 'admin' ? `${c.amount.toLocaleString('fr-FR')} €` : '';
+  return `
+    <div class="chantier-card" onclick="openChantierDetail(${idx})">
+      <div class="chantier-thumb" style="background:${c.color}">${c.thumb}</div>
+      <div class="chantier-info">
+        <div class="chantier-title">${c.name}</div>
+        <div class="chantier-client">${c.client} · ${c.addr}</div>
+        <div class="chantier-meta">
+          ${statusBadge}
+          <span class="chantier-meta-item">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>
+            ${c.deadline}
+          </span>
+          ${amountDisplay ? `<span class="chantier-meta-item" style="margin-left:auto;font-weight:600;color:var(--text);">${amountDisplay}</span>` : ''}
+        </div>
+        ${c.status === 'en_cours' ? `<div class="chantier-progress"><div class="chantier-progress-bar" style="width:${c.progress}%"></div></div>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+function renderChantiers() {
+  const m = METIERS[state.metier];
+  let list = m.chantiers;
+  if (state.filterStatus !== 'all') list = list.filter(c => c.status === state.filterStatus);
+  document.getElementById('chantiersList').innerHTML = list.length 
+    ? list.map(c => chantierCardHTML(c)).join('')
+    : `<div class="empty"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><p>Aucun ${m.chantierWord.toLowerCase()} dans cette catégorie</p></div>`;
+}
+
+function filterChantiers(status, btn) {
+  state.filterStatus = status;
+  document.querySelectorAll('#page-chantiers .filter-chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  renderChantiers();
+}
+
+function openChantierDetail(idx) {
+  const m = METIERS[state.metier];
+  const c = m.chantiers[idx];
+  state.selectedChantier = idx;
+  const isAdmin = state.user.role === 'admin';
+  const amountDisplay = isAdmin ? `<div class="detail-stat"><div class="detail-stat-value">${c.amount.toLocaleString('fr-FR')} €</div><div class="detail-stat-label">Montant</div></div>` : '';
+  const statusFr = {en_cours:'En cours', devis:'En devis', termine:'Terminé', sav:'SAV'}[c.status];
+  const photoSVG = (label, hue) => {
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><defs><linearGradient id='g${hue}' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%23${hue}'/><stop offset='100%25' stop-color='%23${hue}88'/></linearGradient></defs><rect width='200' height='200' fill='url(%23g${hue})'/><text x='100' y='105' text-anchor='middle' fill='white' font-family='-apple-system' font-size='14' font-weight='600' opacity='0.6'>${label}</text></svg>`;
+    return `data:image/svg+xml;utf8,${svg}`;
+  };
+  const accentHex = m.accent.replace('#','');
+  let html = `
+    <div class="detail-hero">
+      <div class="detail-hero-row">
+        <div class="chantier-thumb" style="background:${c.color}">${c.thumb}</div>
+        <div class="detail-hero-info">
+          <div class="detail-hero-title">${c.name}</div>
+          <div class="detail-hero-client">${c.client} · ${c.addr}</div>
+          <div style="margin-top: 8px;"><span class="badge badge-${c.status==='en_cours'?'blue':c.status==='devis'?'amber':c.status==='termine'?'green':'amber'}">${statusFr}</span></div>
+        </div>
+      </div>
+      <div class="detail-stats">
+        <div class="detail-stat"><div class="detail-stat-value">${c.progress}%</div><div class="detail-stat-label">Avancement</div></div>
+        <div class="detail-stat"><div class="detail-stat-value">${c.deadline}</div><div class="detail-stat-label">Échéance</div></div>
+        ${amountDisplay || '<div class="detail-stat"><div class="detail-stat-value">12</div><div class="detail-stat-label">Photos</div></div>'}
+      </div>
+    </div>
+    <div class="action-row">
+      <button class="action-btn" onclick="showToast('Appel ${c.client}','success')">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Appeler
+      </button>
+      <button class="action-btn" onclick="openVocal()">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/></svg>
+        Note vocale
+      </button>
+      <button class="action-btn" onclick="addPhotoToChantier(${idx})">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M23 19V5a2 2 0 00-2-2h-4l-2-3H9L7 3H3a2 2 0 00-2 2v14a2 2 0 002 2h18a2 2 0 002-2z"/><circle cx="12" cy="13" r="4"/></svg>
+        Photo
+      </button>
+      <button class="action-btn" onclick="openNewDevisFromChantier(${idx})">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        Devis
+      </button>
+      <button class="action-btn" onclick="showToast('Itinéraire ouvert','success')">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Itinéraire
+      </button>
+    </div>
+    <h2 class="section-title">Photos du chantier</h2>
+    <div class="photo-grid">
+      <div class="photo-item" style="background-image:url(${photoSVG('AVANT', accentHex)})"><div class="photo-item-label">AVANT · 02/05</div></div>
+      <div class="photo-item" style="background-image:url(${photoSVG('PENDANT', accentHex)})"><div class="photo-item-label">PENDANT · 04/05</div></div>
+      <div class="photo-item" style="background-image:url(${photoSVG('PENDANT 2', accentHex)})"><div class="photo-item-label">PENDANT · 06/05</div></div>
+    </div>
+    <h2 class="section-title">${m.checklistTitle}</h2>
+    <div class="checklist">
+      <div class="checklist-header">
+        <div class="checklist-title">Étapes du chantier</div>
+        <div class="checklist-progress-text" id="checklistProgressText">0 / ${m.checklist.length}</div>
+      </div>
+      <div class="checklist-progress-bar"><div id="checklistProgressBar" style="width: 0%"></div></div>
+      ${m.checklist.map((item, i) => `
+        <div class="checklist-item" onclick="toggleChecklist(${i})" data-idx="${i}">
+          <div class="checklist-checkbox">
+            <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+          </div>
+          <div class="checklist-text">${item}</div>
+        </div>
+      `).join('')}
+    </div>
+    <h2 class="section-title">Historique</h2>
+    <div class="card">
+      <div style="display:flex; gap: 12px;">
+        <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--success-light); color: var(--success); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:600; font-size: 14px;">Photo ajoutée</div>
+          <div style="font-size: 12px; color: var(--text-soft);">${state.user.name} · il y a 2 heures</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div style="display:flex; gap: 12px;">
+        <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--primary-light); color: var(--secondary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:600; font-size: 14px;">Note vocale enregistrée</div>
+          <div style="font-size: 12px; color: var(--text-soft);">${state.user.name} · hier à 16h42</div>
+        </div>
+      </div>
+    </div>
+  `;
+  document.getElementById('chantierDetail').innerHTML = html;
+  state.checked = new Set();
+  const autoCheck = Math.floor(c.progress / 100 * m.checklist.length);
+  for (let i = 0; i < autoCheck; i++) state.checked.add(i);
+  updateChecklistUI();
+  goPage('chantier-detail');
+}
+
+function toggleChecklist(idx) {
+  const wasChecked = state.checked.has(idx);
+  if (wasChecked) state.checked.delete(idx);
+  else state.checked.add(idx);
+  updateChecklistUI();
+  // Feedback positif quand on coche
+  if (!wasChecked) {
+    const m = METIERS[state.metier];
+    const total = m.checklist.length;
+    const done = state.checked.size;
+    const pct = Math.round(done / total * 100);
+    if (done === total) {
+      showToast('🎉 Checklist terminée à 100% ! Bravo.', 'success');
+      setTimeout(() => pushNotif(`✅ <b>${m.chantiers[state.selectedChantier].name}</b> est prêt à être facturé.`, 'success'), 1200);
+    } else if (pct === 50) {
+      showToast('👍 Mi-parcours ! Continuez comme ça.', 'success');
+    } else if (pct === 75) {
+      showToast('🔥 Plus que 25% à faire !', 'success');
+    }
+  }
+}
+
+function updateChecklistUI() {
+  const m = METIERS[state.metier];
+  document.querySelectorAll('.checklist-item').forEach(el => {
+    const idx = parseInt(el.getAttribute('data-idx'));
+    el.classList.toggle('done', state.checked.has(idx));
+  });
+  const total = m.checklist.length;
+  const done = state.checked.size;
+  const text = document.getElementById('checklistProgressText');
+  const bar = document.getElementById('checklistProgressBar');
+  if (text) text.textContent = `${done} / ${total}`;
+  if (bar) bar.style.width = `${done/total*100}%`;
+}
+
+function renderClients() {
+  const m = METIERS[state.metier];
+  const clients = [...new Set(m.chantiers.map(c => c.client))];
+  document.getElementById('clientsList').innerHTML = clients.map(name => {
+    const ch = m.chantiers.filter(c => c.client === name);
+    const initials = name.split(' ').map(s => s[0]).join('').slice(0,2).toUpperCase();
+    return `
+      <div class="list-row" onclick="showToast('Fiche ${name}','success')">
+        <div class="list-row-icon" style="background:${m.accentLight}; color:${m.accent}">${initials}</div>
+        <div class="list-row-info">
+          <div class="list-row-title">${name}</div>
+          <div class="list-row-subtitle">${ch[0].addr} · ${ch.length} ${ch.length>1?'chantiers':'chantier'}</div>
+        </div>
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--text-mute)"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderFinances() {
+  const m = METIERS[state.metier];
+  const docs = [];
+  m.chantiers.forEach((c, i) => {
+    if (c.status === 'devis' || c.status === 'en_cours' || c.status === 'termine') {
+      docs.push({ type: 'Devis', num: `D-2026-${String(i+1).padStart(3,'0')}`, client: c.client, objet: c.name, date: '15/04/2026', amount: c.amount, status: c.status === 'devis' ? 'En attente' : 'Accepté' });
+    }
+    if (c.status === 'en_cours' || c.status === 'termine') {
+      docs.push({ type: 'Facture', num: `F-2026-${String(i+1).padStart(3,'0')}`, client: c.client, objet: c.name, date: '02/05/2026', amount: c.amount, status: c.status === 'termine' ? (i % 4 === 0 ? 'Impayée' : 'Payée') : 'En cours' });
+    }
+  });
+  const statusBadge = (s) => {
+    if (s === 'Payée') return '<span class="badge badge-green">Payée</span>';
+    if (s === 'Impayée') return '<span class="badge badge-red">Impayée</span>';
+    if (s === 'Accepté') return '<span class="badge badge-green">Accepté</span>';
+    if (s === 'En attente') return '<span class="badge badge-amber">En attente</span>';
+    return '<span class="badge badge-blue">En cours</span>';
+  };
+  const tbody = document.getElementById('financesTableBody');
+  if (tbody) tbody.innerHTML = docs.slice(0, 12).map(d => `
+    <tr style="cursor: pointer;" onclick='openExistingDoc(${JSON.stringify(d)})'>
+      <td style="font-weight: 600; font-variant-numeric: tabular-nums;">${d.num}</td>
+      <td>${d.client}</td>
+      <td style="color: var(--text-soft); font-size: 13px;">${d.objet}</td>
+      <td style="font-variant-numeric: tabular-nums; color: var(--text-soft);">${d.date}</td>
+      <td style="font-weight: 700; font-variant-numeric: tabular-nums;">${d.amount.toLocaleString('fr-FR')} €</td>
+      <td>${statusBadge(d.status)}</td>
+      <td><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--text-mute)"><path d="M9 18l6-6-6-6"/></svg></td>
+    </tr>
+  `).join('');
+  const mob = document.getElementById('financesMobileList');
+  if (mob) mob.innerHTML = docs.slice(0, 12).map(d => `
+    <div class="list-row" onclick='openExistingDoc(${JSON.stringify(d)})'>
+      <div class="list-row-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg></div>
+      <div class="list-row-info">
+        <div class="list-row-title">${d.type} ${d.num}</div>
+        <div class="list-row-subtitle">${d.client} · ${d.date}</div>
+        <div style="margin-top: 4px;">${statusBadge(d.status)}</div>
+      </div>
+      <div class="list-row-amount">${d.amount.toLocaleString('fr-FR')} €</div>
+    </div>
+  `).join('');
+}
+
+function filterFinances(type, btn) {
+  document.querySelectorAll('#page-finances .filter-chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  showToast(`Filtre : ${type}`,'success');
+}
+
+function renderImpayes() {
+  const m = METIERS[state.metier];
+  const impayes = m.chantiers.filter(c => c.status === 'termine').slice(0, 3).map((c, i) => ({
+    ...c,
+    daysLate: [12, 27, 43][i] || 7,
+    factureNum: `F-2026-${String(m.chantiers.indexOf(c)+1).padStart(3,'0')}`
+  }));
+  document.getElementById('navImpayesCount').textContent = impayes.length;
+  document.getElementById('kpiImpayes').textContent = impayes.length;
+  document.getElementById('impayesList').innerHTML = impayes.map(c => `
+    <div class="card card-clickable">
+      <div style="display: flex; gap: 12px; align-items: flex-start;">
+        <div class="chantier-thumb" style="background: var(--danger);">${c.thumb}</div>
+        <div style="flex: 1;">
+          <div style="font-weight: 600; font-size: 15px;">${c.client}</div>
+          <div style="font-size: 13px; color: var(--text-soft); margin: 2px 0 6px;">${c.factureNum} · ${c.name}</div>
+          <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+            <span class="badge badge-red">${c.daysLate} jours de retard</span>
+            <span style="font-weight: 700; font-size: 17px; margin-left: auto;">${c.amount.toLocaleString('fr-FR')} €</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px;">
+            <button class="btn btn-secondary" style="padding: 8px 10px; font-size: 13px;" onclick='event.stopPropagation(); openRelance(${JSON.stringify(c.client)}, "${c.amount.toLocaleString('fr-FR')}", ${c.daysLate}, "${c.factureNum}")'>📱 Relancer SMS</button>
+            <button class="btn btn-primary" style="padding: 8px 10px; font-size: 13px;" onclick='event.stopPropagation(); openRelance(${JSON.stringify(c.client)}, "${c.amount.toLocaleString('fr-FR')}", ${c.daysLate}, "${c.factureNum}")'>📧 Relancer Email</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderFournisseurs() {
+  const lists = {
+    pisciniste: [{ name: 'Aqua Concept', cat: 'Produits traitement', last: '350 €', date: '02/05' },{ name: 'Pool Service Avignon', cat: 'Pièces détachées', last: '128 €', date: '28/04' },{ name: 'Hydro Sud', cat: 'Pompes et filtration', last: '890 €', date: '20/04' },{ name: 'Cifec Distribution', cat: 'Produits chimiques', last: '420 €', date: '15/04' },{ name: 'Solenoid Pro', cat: 'Électrolyseurs', last: '680 €', date: '08/04' }],
+    macon: [{ name: 'Point.P Avignon', cat: 'Matériaux gros œuvre', last: '2 840 €', date: '02/05' },{ name: 'Gedimat Carpentras', cat: 'Outillage', last: '380 €', date: '30/04' },{ name: 'Lafarge Béton', cat: 'Toupies béton', last: '1 240 €', date: '28/04' },{ name: 'Pum Plastiques', cat: 'Tubes et raccords', last: '180 €', date: '22/04' },{ name: 'Provence Carrelage', cat: 'Carrelage et faïence', last: '920 €', date: '18/04' }],
+    facadier: [{ name: 'Weber Saint-Gobain', cat: 'Enduits façade', last: '1 480 €', date: '02/05' },{ name: 'Layher Échafaudages', cat: 'Location échafaudage', last: '2 100 €', date: '28/04' },{ name: 'Sika France', cat: 'Réparation béton', last: '420 €', date: '22/04' },{ name: 'Tollens Pro', cat: 'Peinture façade', last: '680 €', date: '15/04' },{ name: 'Sto SAS', cat: 'ITE / isolation', last: '3 200 €', date: '10/04' }],
+    climatiseur: [{ name: 'Daikin France', cat: 'Climatiseurs', last: '4 200 €', date: '02/05' },{ name: 'Rexel Avignon', cat: 'Câbles, fixations', last: '380 €', date: '30/04' },{ name: 'Climfroid', cat: 'Fluides R32 / R410A', last: '680 €', date: '25/04' },{ name: 'Mitsubishi Electric', cat: 'Splits et gainables', last: '2 800 €', date: '20/04' },{ name: 'Frigo Outillage', cat: 'Pompes à vide, manomètres', last: '420 €', date: '12/04' }],
+    plombier: [{ name: 'Cédéo', cat: 'Plomberie sanitaire', last: '1 280 €', date: '02/05' },{ name: 'Richardson', cat: 'Chauffe-eau, robinetterie', last: '850 €', date: '30/04' },{ name: 'Comafranc', cat: 'PER, multicouche', last: '480 €', date: '28/04' },{ name: 'Thermador', cat: 'Pompes circulation', last: '320 €', date: '22/04' },{ name: 'Geberit', cat: 'WC suspendus, bâtis', last: '680 €', date: '15/04' }],
+    peintre: [{ name: 'Tollens Avignon', cat: 'Peintures intérieures', last: '420 €', date: '02/05' },{ name: 'Seigneurie Gauthier', cat: 'Peintures pro', last: '380 €', date: '30/04' },{ name: 'Farrow & Ball', cat: 'Peintures haut de gamme', last: '680 €', date: '22/04' },{ name: 'Saint-Maclou', cat: 'Papier peint, sols', last: '290 €', date: '18/04' },{ name: 'Outillage Brico Pro', cat: 'Pinceaux, rouleaux, bâches', last: '180 €', date: '12/04' }],
+    paysagiste: [{ name: 'Pépinières du Comtat', cat: 'Arbustes et vivaces', last: '1 480 €', date: '02/05' },{ name: 'Truffaut Pro', cat: 'Fournitures jardin', last: '320 €', date: '30/04' },{ name: 'Hozelock', cat: 'Arrosage automatique', last: '480 €', date: '25/04' },{ name: 'Husqvarna', cat: 'Outillage motorisé', last: '1 200 €', date: '20/04' },{ name: 'Compo Expert', cat: 'Engrais et amendements', last: '380 €', date: '15/04' }]
+  };
+  const list = lists[state.metier] || lists.pisciniste;
+  const m = METIERS[state.metier];
+  document.getElementById('fournisseursList').innerHTML = list.map(f => `
+    <div class="list-row" onclick="showToast('Fiche ${f.name}','success')">
+      <div class="list-row-icon" style="background:${m.accentLight}; color:${m.accent}">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4 9-4M12 11v10"/></svg>
+      </div>
+      <div class="list-row-info">
+        <div class="list-row-title">${f.name}</div>
+        <div class="list-row-subtitle">${f.cat} · dernière facture ${f.date}</div>
+      </div>
+      <div class="list-row-amount">${f.last}</div>
+    </div>
+  `).join('');
+}
+
+function renderAgendaMobile() {
+  const m = METIERS[state.metier];
+  const days = [
+    { num: 5, dow: "Aujourd'hui", count: 4, events: [
+      { time: '08:00', title: m.chantiers[0].name, meta: m.chantiers[0].addr },
+      { time: '10:30', title: m.chantiers[1].name, meta: m.chantiers[1].addr },
+      { time: '14:00', title: m.chantiers[5].name, meta: m.chantiers[5].addr },
+      { time: '16:30', title: 'RDV ' + m.chantiers[3].client, meta: 'Devis · ' + m.chantiers[3].addr }
+    ]},
+    { num: 6, dow: 'Demain', count: 3, events: [
+      { time: '08:00', title: m.chantiers[2].name, meta: m.chantiers[2].addr },
+      { time: '11:00', title: m.chantiers[7].name, meta: m.chantiers[7].addr },
+      { time: '15:00', title: 'Livraison fournisseur', meta: 'Camionnette atelier' }
+    ]},
+    { num: 7, dow: 'Jeudi', count: 2, events: [
+      { time: '09:00', title: m.chantiers[4].name, meta: m.chantiers[4].addr },
+      { time: '14:00', title: m.chantiers[6].name, meta: m.chantiers[6].addr }
+    ]},
+    { num: 8, dow: 'Vendredi', count: 3, events: [
+      { time: '08:00', title: m.chantiers[8] ? m.chantiers[8].name : 'Chantier', meta: m.chantiers[8] ? m.chantiers[8].addr : '' },
+      { time: '11:30', title: 'Visite technique', meta: 'Nouveau prospect' },
+      { time: '15:00', title: m.chantiers[10] ? m.chantiers[10].name : 'Chantier', meta: m.chantiers[10] ? m.chantiers[10].addr : '' }
+    ]}
+  ];
+  document.getElementById('agendaListMobile').innerHTML = days.map(d => `
+    <div class="agenda-day">
+      <div class="agenda-day-header">
+        <div class="agenda-day-num"><span>${d.num}</span><span>${d.dow.slice(0,3)}</span></div>
+        <div>
+          <div class="agenda-day-title">${d.dow}</div>
+          <div class="agenda-day-count">${d.count} ${d.count>1?'événements':'événement'}</div>
+        </div>
+      </div>
+      ${d.events.map(e => `
+        <div class="agenda-event">
+          <div class="agenda-time">${e.time}</div>
+          <div class="agenda-event-info">
+            <div class="agenda-event-title">${e.title}</div>
+            <div class="agenda-event-meta">${e.meta}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+}
+
+let currentMonthOffset = 0;
+function changeMonth(dir) {
+  if (dir === 0) currentMonthOffset = 0;
+  else currentMonthOffset += dir;
+  renderCalendar();
+}
+
+function renderCalendar() {
+  const m = METIERS[state.metier];
+  const today = new Date();
+  const target = new Date(today.getFullYear(), today.getMonth() + currentMonthOffset, 1);
+  const monthNames = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+  document.getElementById('calendarMonth').textContent = `${monthNames[target.getMonth()]} ${target.getFullYear()}`;
+  const firstDay = new Date(target.getFullYear(), target.getMonth(), 1);
+  const lastDay = new Date(target.getFullYear(), target.getMonth() + 1, 0);
+  const startOffset = (firstDay.getDay() + 6) % 7;
+  const dows = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+  let html = dows.map(d => `<div class="calendar-dow">${d}</div>`).join('');
+  for (let i = 0; i < startOffset; i++) {
+    const d = new Date(target.getFullYear(), target.getMonth(), -startOffset + i + 1);
+    html += `<div class="calendar-cell other"><div class="cal-num">${d.getDate()}</div></div>`;
+  }
+  const eventDays = {
+    5: [{ name: m.chantiers[0].name, color: 'blue' }, { name: m.chantiers[1].name, color: 'blue' }],
+    6: [{ name: m.chantiers[2].name, color: 'blue' }],
+    7: [{ name: m.chantiers[4].name, color: 'blue' }],
+    8: [{ name: 'RDV ' + m.chantiers[3].client, color: 'amber' }],
+    12: [{ name: 'Livraison', color: 'amber' }],
+    13: [{ name: m.chantiers[6].name, color: 'blue' }],
+    15: [{ name: m.chantiers[7].name, color: 'blue' }],
+    16: [{ name: m.chantiers[5].name, color: 'green' }],
+    19: [{ name: m.chantiers[8] ? m.chantiers[8].name : 'Chantier', color: 'blue' }],
+    20: [{ name: 'RDV devis', color: 'amber' }],
+    22: [{ name: m.chantiers[10] ? m.chantiers[10].name : 'Chantier', color: 'blue' }],
+    25: [{ name: 'Réception ' + (m.chantiers[2] ? m.chantiers[2].client : ''), color: 'green' }],
+    26: [{ name: 'Visite technique', color: 'amber' }],
+    28: [{ name: 'Échéance facture', color: 'amber' }]
+  };
+  for (let day = 1; day <= lastDay.getDate(); day++) {
+    const isToday = currentMonthOffset === 0 && day === today.getDate();
+    const events = eventDays[day] || [];
+    html += `<div class="calendar-cell ${isToday ? 'today' : ''}">
+      <div class="cal-num">${day}</div>
+      ${events.slice(0, 2).map(e => `<div class="cal-event ${e.color}">${e.name}</div>`).join('')}
+      ${events.length > 2 ? `<div style="font-size: 10px; color: var(--text-mute);">+${events.length-2}</div>` : ''}
+    </div>`;
+  }
+  const totalCells = startOffset + lastDay.getDate();
+  const nextDays = (7 - totalCells % 7) % 7;
+  for (let i = 1; i <= nextDays; i++) {
+    html += `<div class="calendar-cell other"><div class="cal-num">${i}</div></div>`;
+  }
+  document.getElementById('calendarGrid').innerHTML = html;
+}
+
+function exportCompta() { showToast('Export Excel téléchargé', 'success'); }
+function installPWA() { showToast('Sur mobile : menu navigateur → "Ajouter à l\'écran d\'accueil"', ''); }
+
+// ============================================================
+// === DEMO POWER : workflows fonctionnels pour prospection ===
+// ============================================================
+
+let devisLignes = [];
+let currentDocNumber = '';
+let currentDocClient = '';
+let currentDocAmount = 0;
+let currentDocType = 'devis';
+let currentDocObjet = '';
+
+const PRESTATIONS_PAR_METIER = {
+  pisciniste: [
+    { libelle: 'Mise en route printemps (vidange filtre, traitement choc, vérification)', qte: 1, unite: 'forfait', prix: 280 },
+    { libelle: 'Entretien hebdomadaire (12 visites avril-octobre)', qte: 12, unite: 'visite', prix: 95 },
+    { libelle: 'Liner armé 150/100° pose comprise', qte: 32, unite: 'm²', prix: 95 },
+    { libelle: 'Pompe filtration 3/4 CV', qte: 1, unite: 'unité', prix: 580 },
+    { libelle: 'Électrolyseur sel jusqu\'à 75m³', qte: 1, unite: 'unité', prix: 1450 },
+    { libelle: 'Hivernage actif', qte: 1, unite: 'forfait', prix: 290 }
+  ],
+  macon: [
+    { libelle: 'Décaissement terrain', qte: 50, unite: 'm³', prix: 45 },
+    { libelle: 'Coulage dalle béton 15cm armée', qte: 60, unite: 'm²', prix: 85 },
+    { libelle: 'Élévation murs parpaings 20cm', qte: 40, unite: 'm²', prix: 95 },
+    { libelle: 'Coulage chaînage', qte: 18, unite: 'ml', prix: 65 },
+    { libelle: 'Pose linteaux préfabriqués', qte: 4, unite: 'unité', prix: 120 },
+    { libelle: 'Enduit ciment intérieur', qte: 60, unite: 'm²', prix: 35 }
+  ],
+  facadier: [
+    { libelle: 'Échafaudage location 2 semaines', qte: 80, unite: 'm²', prix: 12 },
+    { libelle: 'Décapage façade haute pression', qte: 80, unite: 'm²', prix: 18 },
+    { libelle: 'Enduit monocouche taloché', qte: 80, unite: 'm²', prix: 42 },
+    { libelle: 'Peinture pliolite façade 2 couches', qte: 80, unite: 'm²', prix: 28 },
+    { libelle: 'ITE polystyrène 12cm', qte: 80, unite: 'm²', prix: 95 },
+    { libelle: 'Bandeaux et corniches', qte: 35, unite: 'ml', prix: 22 }
+  ],
+  climatiseur: [
+    { libelle: 'Pose mono-split mural 3,5kW', qte: 1, unite: 'unité', prix: 1280 },
+    { libelle: 'Pose multi-split 2 unités', qte: 1, unite: 'forfait', prix: 2890 },
+    { libelle: 'Recharge fluide R32 (1kg)', qte: 1, unite: 'kg', prix: 75 },
+    { libelle: 'Maintenance annuelle obligatoire', qte: 1, unite: 'forfait', prix: 145 },
+    { libelle: 'PAC air-eau 11kW pose comprise', qte: 1, unite: 'unité', prix: 8500 },
+    { libelle: 'Goulottes habillage 5m', qte: 5, unite: 'ml', prix: 32 }
+  ],
+  plombier: [
+    { libelle: 'Dépannage urgence (déplacement + 1h)', qte: 1, unite: 'forfait', prix: 180 },
+    { libelle: 'Remplacement chauffe-eau 200L', qte: 1, unite: 'unité', prix: 980 },
+    { libelle: 'WC suspendu pose comprise', qte: 1, unite: 'unité', prix: 720 },
+    { libelle: 'Mitigeur thermostatique douche', qte: 1, unite: 'unité', prix: 280 },
+    { libelle: 'Réfection complète salle de bain', qte: 1, unite: 'forfait', prix: 4500 },
+    { libelle: 'Recherche fuite avec caméra', qte: 1, unite: 'forfait', prix: 240 }
+  ],
+  peintre: [
+    { libelle: 'Peinture acrylique murs 2 couches', qte: 60, unite: 'm²', prix: 28 },
+    { libelle: 'Peinture plafond glycéro', qte: 30, unite: 'm²', prix: 32 },
+    { libelle: 'Préparation murs (rebouchage + ponçage)', qte: 60, unite: 'm²', prix: 14 },
+    { libelle: 'Pose toile de verre + peinture', qte: 40, unite: 'm²', prix: 38 },
+    { libelle: 'Vernis boiseries', qte: 25, unite: 'ml', prix: 18 },
+    { libelle: 'Peinture façade extérieure', qte: 80, unite: 'm²', prix: 32 }
+  ],
+  paysagiste: [
+    { libelle: 'Tonte pelouse', qte: 500, unite: 'm²', prix: 0.8 },
+    { libelle: 'Taille haies (récurrence trimestrielle)', qte: 40, unite: 'ml', prix: 12 },
+    { libelle: 'Création massif fleuri 10m²', qte: 1, unite: 'forfait', prix: 480 },
+    { libelle: 'Plantation arbre fruitier', qte: 1, unite: 'unité', prix: 220 },
+    { libelle: 'Système arrosage automatique', qte: 1, unite: 'forfait', prix: 1850 },
+    { libelle: 'Évacuation déchets verts', qte: 3, unite: 'm³', prix: 65 }
+  ]
+};
+
+function openNewDevis() {
+  const m = METIERS[state.metier];
+  const clients = [...new Set(m.chantiers.map(c => c.client))];
+  document.getElementById('devisClient').innerHTML = clients.map(c => `<option>${c}</option>`).join('');
+  document.getElementById('devisObjet').value = '';
+  // 2 lignes de départ pré-remplies pour la démo
+  const presta = PRESTATIONS_PAR_METIER[state.metier] || PRESTATIONS_PAR_METIER.pisciniste;
+  devisLignes = [
+    { ...presta[0] },
+    { ...presta[1] }
+  ];
+  renderDevisLignes();
+  openModal('devisModal');
+}
+
+function openNewDevisFromChantier(idx) {
+  const m = METIERS[state.metier];
+  const c = m.chantiers[idx];
+  const clients = [...new Set(m.chantiers.map(ch => ch.client))];
+  document.getElementById('devisClient').innerHTML = clients.map(cl => `<option ${cl === c.client ? 'selected' : ''}>${cl}</option>`).join('');
+  document.getElementById('devisObjet').value = c.name;
+  const presta = PRESTATIONS_PAR_METIER[state.metier] || PRESTATIONS_PAR_METIER.pisciniste;
+  devisLignes = [
+    { ...presta[0] },
+    { ...presta[2] }
+  ];
+  renderDevisLignes();
+  openModal('devisModal');
+}
+
+function renderDevisLignes() {
+  const html = devisLignes.map((l, i) => `
+    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-bottom: 8px;">
+      <div style="display: flex; gap: 8px; align-items: flex-start;">
+        <input class="field-input" style="flex: 1; font-size: 13px;" value="${l.libelle.replace(/"/g, '&quot;')}" oninput="devisLignes[${i}].libelle=this.value">
+        <button class="icon-btn" onclick="removeDevisLigne(${i})" style="flex-shrink:0;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/></svg>
+        </button>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; margin-top: 8px;">
+        <input class="field-input" style="font-size: 13px;" type="number" value="${l.qte}" oninput="devisLignes[${i}].qte=parseFloat(this.value)||0; updateDevisTotals()" placeholder="Qté">
+        <input class="field-input" style="font-size: 13px;" value="${l.unite}" oninput="devisLignes[${i}].unite=this.value" placeholder="Unité">
+        <input class="field-input" style="font-size: 13px;" type="number" step="0.01" value="${l.prix}" oninput="devisLignes[${i}].prix=parseFloat(this.value)||0; updateDevisTotals()" placeholder="PU HT">
+        <div style="display: flex; align-items: center; justify-content: flex-end; font-weight: 700; color: var(--secondary);">${(l.qte * l.prix).toFixed(2)} €</div>
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('devisLignesList').innerHTML = html;
+  updateDevisTotals();
+}
+
+function addDevisLigne() {
+  const presta = PRESTATIONS_PAR_METIER[state.metier] || PRESTATIONS_PAR_METIER.pisciniste;
+  const next = presta[devisLignes.length % presta.length];
+  devisLignes.push({ ...next });
+  renderDevisLignes();
+}
+
+function removeDevisLigne(i) {
+  devisLignes.splice(i, 1);
+  renderDevisLignes();
+}
+
+function updateDevisTotals() {
+  const ht = devisLignes.reduce((s, l) => s + l.qte * l.prix, 0);
+  const tva = ht * 0.20;
+  const ttc = ht + tva;
+  document.getElementById('devisTotalHT').textContent = ht.toFixed(2).replace('.', ',') + ' €';
+  document.getElementById('devisTVA').textContent = tva.toFixed(2).replace('.', ',') + ' €';
+  document.getElementById('devisTotalTTC').textContent = ttc.toFixed(2).replace('.', ',') + ' €';
+}
+
+function generateDevis() {
+  if (!devisLignes.length) { showToast('Ajoutez au moins une ligne', 'error'); return; }
+  const m = METIERS[state.metier];
+  const client = document.getElementById('devisClient').value;
+  const objet = document.getElementById('devisObjet').value || `Prestation ${m.label.toLowerCase()}`;
+  closeModal('devisModal');
+  showDocumentPreview('devis', client, objet, devisLignes);
+}
+
+function showDocumentPreview(type, client, objet, lignes) {
+  const m = METIERS[state.metier];
+  const ht = lignes.reduce((s, l) => s + l.qte * l.prix, 0);
+  const tva = ht * 0.20;
+  const ttc = ht + tva;
+  const today = new Date();
+  const num = (type === 'devis' ? 'DEV' : 'FAC') + '-' + today.getFullYear() + '-' + String(Math.floor(Math.random() * 900) + 100);
+  currentDocNumber = num;
+  currentDocClient = client;
+  currentDocAmount = ttc;
+  currentDocType = type;
+  currentDocObjet = objet;
+  document.getElementById('docPreviewTitle').textContent = type === 'devis' ? 'Aperçu du devis' : 'Aperçu de la facture';
+  const dateStr = today.toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' });
+  const echeanceStr = new Date(today.getTime() + 30 * 86400000).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' });
+  const html = `
+    <div style="max-width: 680px; margin: 16px auto; background: white; border-radius: 6px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); padding: 40px 44px; font-family: 'Helvetica Neue', Arial, sans-serif; color: #1F2933; min-height: 800px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 36px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+            <div style="width: 38px; height: 38px; border-radius: 8px; background: ${m.accent}; color: white; display: grid; place-items: center; font-weight: 800; font-size: 18px;">${m.label[0]}</div>
+            <div style="font-size: 18px; font-weight: 800;">${m.company}</div>
+          </div>
+          <div style="font-size: 12px; color: #52606D; line-height: 1.6;">
+            ${m.label} · Vaucluse<br>
+            SIRET 851 234 567 00018<br>
+            TVA FR 78 851 234 567<br>
+            contact@${m.company.toLowerCase().replace(/\s+/g, '')}.fr
+          </div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-size: 28px; font-weight: 800; color: ${m.accent}; margin-bottom: 4px; letter-spacing: -0.5px;">${type === 'devis' ? 'DEVIS' : 'FACTURE'}</div>
+          <div style="font-size: 13px; color: #52606D;">N° ${num}</div>
+          <div style="font-size: 13px; color: #52606D;">Date : ${dateStr}</div>
+          ${type === 'devis' ? `<div style="font-size: 13px; color: #52606D;">Validité : 30 jours</div>` : `<div style="font-size: 13px; color: #52606D;">Échéance : ${echeanceStr}</div>`}
+        </div>
+      </div>
+      <div style="background: #F5F3EE; padding: 16px 18px; border-radius: 8px; margin-bottom: 28px;">
+        <div style="font-size: 11px; color: #8A94A6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Adressé à</div>
+        <div style="font-weight: 700; font-size: 15px; margin-bottom: 2px;">${client}</div>
+        <div style="font-size: 13px; color: #52606D;">Vaucluse, France</div>
+      </div>
+      <div style="margin-bottom: 24px;">
+        <div style="font-size: 11px; color: #8A94A6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">Objet</div>
+        <div style="font-size: 15px; font-weight: 600;">${objet}</div>
+      </div>
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
+        <thead>
+          <tr style="border-bottom: 2px solid ${m.accent};">
+            <th style="text-align: left; padding: 10px 8px; font-size: 11px; font-weight: 700; color: #52606D; text-transform: uppercase; letter-spacing: 0.5px;">Désignation</th>
+            <th style="text-align: right; padding: 10px 8px; font-size: 11px; font-weight: 700; color: #52606D; text-transform: uppercase; letter-spacing: 0.5px; width: 60px;">Qté</th>
+            <th style="text-align: right; padding: 10px 8px; font-size: 11px; font-weight: 700; color: #52606D; text-transform: uppercase; letter-spacing: 0.5px; width: 80px;">PU HT</th>
+            <th style="text-align: right; padding: 10px 8px; font-size: 11px; font-weight: 700; color: #52606D; text-transform: uppercase; letter-spacing: 0.5px; width: 100px;">Total HT</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${lignes.map(l => `
+            <tr style="border-bottom: 1px solid #ECE9E1;">
+              <td style="padding: 12px 8px; font-size: 13px;">${l.libelle}</td>
+              <td style="padding: 12px 8px; font-size: 13px; text-align: right;">${l.qte} ${l.unite}</td>
+              <td style="padding: 12px 8px; font-size: 13px; text-align: right;">${l.prix.toFixed(2)} €</td>
+              <td style="padding: 12px 8px; font-size: 13px; text-align: right; font-weight: 600;">${(l.qte * l.prix).toFixed(2)} €</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+      <div style="display: flex; justify-content: flex-end; margin-bottom: 32px;">
+        <div style="min-width: 280px;">
+          <div style="display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px;">
+            <span style="color: #52606D;">Total HT</span>
+            <span style="font-weight: 600;">${ht.toFixed(2)} €</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px;">
+            <span style="color: #52606D;">TVA 20%</span>
+            <span style="font-weight: 600;">${tva.toFixed(2)} €</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 12px 0 4px; border-top: 2px solid ${m.accent}; margin-top: 4px;">
+            <span style="font-weight: 700; font-size: 15px;">Total TTC</span>
+            <span style="font-weight: 800; font-size: 18px; color: ${m.accent};">${ttc.toFixed(2)} €</span>
+          </div>
+        </div>
+      </div>
+      <div style="font-size: 11px; color: #8A94A6; line-height: 1.6; padding-top: 16px; border-top: 1px solid #ECE9E1;">
+        ${type === 'devis' ? 'Devis valable 30 jours. Bon pour accord à signer et retourner avec mention « Bon pour accord ».' : 'Règlement à 30 jours. Pénalités de retard : taux légal + 10€ d\'indemnité forfaitaire de recouvrement.'}<br>
+        ${m.company} · TVA FR 78 851 234 567 · IBAN FR76 1234 5678 9012 3456 7890 123
+      </div>
+    </div>
+  `;
+  document.getElementById('docPreviewContent').innerHTML = html;
+  openModal('documentPreviewModal');
+}
+
+function sendDocument() {
+  closeModal('documentPreviewModal');
+  showToast(`${currentDocType === 'devis' ? 'Devis' : 'Facture'} ${currentDocNumber} envoyé(e) à ${currentDocClient}`, 'success');
+  // Notif simulée 4s plus tard : le client a vu le devis
+  if (currentDocType === 'devis') {
+    setTimeout(() => {
+      pushNotif(`📧 ${currentDocClient} a ouvert votre devis ${currentDocNumber}`, 'info');
+    }, 4500);
+    setTimeout(() => {
+      pushNotif(`✅ ${currentDocClient} a accepté votre devis ${currentDocNumber} (${currentDocAmount.toFixed(2)} €)`, 'success');
+    }, 11000);
+  }
+}
+
+function openExistingDoc(d) {
+  // Reconstruit des lignes plausibles pour le doc existant
+  const presta = PRESTATIONS_PAR_METIER[state.metier] || PRESTATIONS_PAR_METIER.pisciniste;
+  // On répartit le montant total sur 3 lignes du catalogue
+  const targetHT = d.amount / 1.20;
+  // Lignes proportionnelles
+  let lignes = [
+    { ...presta[0] },
+    { ...presta[1] },
+    { ...presta[2] }
+  ];
+  const sumOrig = lignes.reduce((s, l) => s + l.qte * l.prix, 0);
+  const ratio = targetHT / sumOrig;
+  lignes.forEach(l => l.prix = +(l.prix * ratio).toFixed(2));
+  // Override le numéro de doc
+  currentDocNumber = d.num;
+  currentDocClient = d.client;
+  currentDocAmount = d.amount;
+  currentDocType = d.type === 'Devis' ? 'devis' : 'facture';
+  currentDocObjet = d.objet;
+  showDocumentPreview(currentDocType, d.client, d.objet, lignes);
+  // Si c'est un devis accepté, on propose de le convertir en facture
+  if (d.type === 'Devis' && d.status === 'Accepté') {
+    setTimeout(() => {
+      const footer = document.querySelector('#documentPreviewModal .modal-footer > div');
+      if (footer && !footer.querySelector('.convert-btn')) {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-primary convert-btn';
+        btn.style.background = 'var(--success)';
+        btn.innerHTML = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path d="M4 12l6 6L20 6"/></svg> Convertir en facture';
+        btn.onclick = () => convertDevisToFacture(d, lignes);
+        footer.insertBefore(btn, footer.firstChild);
+      }
+    }, 100);
+  }
+}
+
+function convertDevisToFacture(d, lignes) {
+  closeModal('documentPreviewModal');
+  showToast('Conversion en facture en cours...', '');
+  setTimeout(() => {
+    showDocumentPreview('facture', d.client, d.objet, lignes);
+    setTimeout(() => {
+      showToast(`✅ Facture créée à partir du devis ${d.num}`, 'success');
+    }, 400);
+  }, 700);
+}
+
+let photoCounter = {};
+function addPhotoToChantier(idx) {
+  const m = METIERS[state.metier];
+  const c = m.chantiers[idx];
+  if (!photoCounter[idx]) photoCounter[idx] = 0;
+  photoCounter[idx]++;
+  const phase = photoCounter[idx] === 1 ? 'AVANT' : photoCounter[idx] === 2 ? 'PENDANT' : 'APRÈS';
+  // Animation : "📸 Capture..." puis "🧠 Classement IA..." puis "✓ Photo classée"
+  showToast('📸 Photo prise...', '');
+  setTimeout(() => {
+    showToast(`🧠 IA : photo classée comme « ${phase} »`, '');
+  }, 800);
+  setTimeout(() => {
+    showToast(`✅ Photo ${phase} #${photoCounter[idx]} ajoutée à ${c.name}`, 'success');
+    pushNotif(`📷 Nouvelle photo <b>${phase}</b> ajoutée au chantier <b>${c.name}</b>`, 'info');
+  }, 1700);
+}
+
+// ============================================================
+// === OCR FACTURE FOURNISSEUR : animation + résultat        ===
+// ============================================================
+
+function openOCR() {
+  const body = document.getElementById('ocrModalBody');
+  const footer = document.getElementById('ocrModalFooter');
+  body.innerHTML = `
+    <div style="text-align: center; padding: 30px 0;">
+      <div style="width: 100px; height: 100px; border-radius: 24px; background: var(--secondary); display: grid; place-items: center; margin: 0 auto 20px; box-shadow: 0 12px 30px rgba(24,95,165,0.25);">
+        <svg width="48" height="48" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M23 19V5a2 2 0 00-2-2H3a2 2 0 00-2 2v14a2 2 0 002 2h18a2 2 0 002-2zM3 7h18M7 11h.01M11 11h.01M15 11h.01"/></svg>
+      </div>
+      <div style="font-size: 17px; font-weight: 600; margin-bottom: 6px;">Prendre en photo la facture</div>
+      <div style="font-size: 14px; color: var(--text-soft); max-width: 320px; margin: 0 auto;">L'IA va lire automatiquement le fournisseur, le montant, la date et les rattacher au bon chantier.</div>
+    </div>
+  `;
+  footer.innerHTML = `
+    <button class="btn btn-secondary" onclick="closeModal('ocrModal')">Annuler</button>
+    <button class="btn btn-primary" onclick="ocrSimulate()">📷 Prendre la photo</button>
+  `;
+  openModal('ocrModal');
+}
+
+function ocrSimulate() {
+  const body = document.getElementById('ocrModalBody');
+  const footer = document.getElementById('ocrModalFooter');
+  // Étape 1 : analyse en cours
+  body.innerHTML = `
+    <div style="text-align: center; padding: 40px 0;">
+      <div style="width: 120px; height: 120px; margin: 0 auto 24px; position: relative;">
+        <div style="position: absolute; inset: 0; border-radius: 50%; border: 4px solid var(--primary-light);"></div>
+        <div style="position: absolute; inset: 0; border-radius: 50%; border: 4px solid var(--secondary); border-top-color: transparent; animation: spin 0.8s linear infinite;"></div>
+        <div style="position: absolute; inset: 0; display: grid; place-items: center; font-size: 36px;">🔍</div>
+      </div>
+      <div style="font-size: 17px; font-weight: 600; margin-bottom: 6px;" id="ocrStatus">Analyse de la facture...</div>
+      <div style="font-size: 13px; color: var(--text-soft);" id="ocrSubStatus">Lecture du texte par l'IA</div>
+    </div>
+    <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+  `;
+  footer.innerHTML = '';
+  // Étapes successives
+  setTimeout(() => {
+    document.getElementById('ocrStatus') && (document.getElementById('ocrStatus').textContent = 'Identification du fournisseur...');
+    document.getElementById('ocrSubStatus') && (document.getElementById('ocrSubStatus').textContent = 'Recherche dans votre catalogue');
+  }, 900);
+  setTimeout(() => {
+    document.getElementById('ocrStatus') && (document.getElementById('ocrStatus').textContent = 'Rattachement au chantier...');
+    document.getElementById('ocrSubStatus') && (document.getElementById('ocrSubStatus').textContent = 'Mise à jour automatique');
+  }, 1800);
+  setTimeout(() => ocrShowResult(), 2700);
+}
+
+function ocrShowResult() {
+  const m = METIERS[state.metier];
+  const fournisseurs = {
+    pisciniste: { nom: 'CASH PISCINES Avignon', items: 'Galets chlore lent 5kg + Anti-algues 5L', montantHT: 156.50 },
+    macon: { nom: 'POINT.P Sorgues', items: '2 toupies béton C25/30 + Treillis ST25', montantHT: 1240.00 },
+    facadier: { nom: 'WELDOM Carpentras', items: '15 sacs enduit monocouche 25kg + Filet façade', montantHT: 487.30 },
+    climatiseur: { nom: 'CEDEO Avignon', items: 'Bouteille R32 5kg + Goulottes 10ml', montantHT: 312.80 },
+    plombier: { nom: 'CEDEO Avignon', items: 'Chauffe-eau Atlantic 200L + Groupe sécurité', montantHT: 612.40 },
+    peintre: { nom: 'TOLLENS Avignon', items: 'Peinture Acryl Mat 30L (blanc cassé) + Rouleaux', montantHT: 384.20 },
+    paysagiste: { nom: 'JARDILAND Avignon', items: '8 oliviers + Engrais organique 25kg', montantHT: 645.00 }
+  };
+  const f = fournisseurs[state.metier] || fournisseurs.pisciniste;
+  const ttc = (f.montantHT * 1.20).toFixed(2);
+  const today = new Date().toLocaleDateString('fr-FR');
+  const chantier = m.chantiers[0].name;
+  const body = document.getElementById('ocrModalBody');
+  const footer = document.getElementById('ocrModalFooter');
+  body.innerHTML = `
+    <div style="text-align: center; margin-bottom: 18px;">
+      <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--success-light); color: var(--success); display: grid; place-items: center; margin: 0 auto 10px;">
+        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div style="font-size: 17px; font-weight: 700;">Facture analysée avec succès</div>
+      <div style="font-size: 13px; color: var(--text-soft);">Vérifiez les informations puis enregistrez</div>
+    </div>
+    <div style="background: var(--bg); border-radius: 12px; padding: 16px;">
+      <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px;">
+        <span style="color: var(--text-soft);">Fournisseur</span>
+        <span style="font-weight: 600;">${f.nom}</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px;">
+        <span style="color: var(--text-soft);">Date</span>
+        <span style="font-weight: 600;">${today}</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px;">
+        <span style="color: var(--text-soft);">Articles</span>
+        <span style="font-weight: 600; max-width: 60%; text-align: right;">${f.items}</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px;">
+        <span style="color: var(--text-soft);">Montant HT</span>
+        <span style="font-weight: 600;">${f.montantHT.toFixed(2)} €</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px;">
+        <span style="color: var(--text-soft);">Montant TTC</span>
+        <span style="font-weight: 700; color: var(--secondary);">${ttc} €</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px;">
+        <span style="color: var(--text-soft);">Rattachée à</span>
+        <span style="font-weight: 600;">${chantier}</span>
+      </div>
+    </div>
+  `;
+  footer.innerHTML = `
+    <button class="btn btn-secondary" onclick="closeModal('ocrModal')">Annuler</button>
+    <button class="btn btn-primary" onclick="closeModal('ocrModal'); showToast('Facture enregistrée et rattachée au chantier', 'success')">Enregistrer</button>
+  `;
+}
+
+// ============================================================
+// === RELANCE IMPAYÉ : brouillon SMS/email pré-rempli       ===
+// ============================================================
+
+function openRelance(client, montant, retardJours, factureNum) {
+  const m = METIERS[state.metier];
+  const body = document.getElementById('relanceModalBody');
+  const footer = document.getElementById('relanceModalFooter');
+  const ton = retardJours > 60 ? 'ferme' : retardJours > 30 ? 'standard' : 'amical';
+  const messages = {
+    amical: `Bonjour ${client.split(' ').slice(-1)[0]},\n\nJ'espère que vous allez bien. Je me permets de vous relancer concernant la facture n°${factureNum} d'un montant de ${montant} € qui était à régler sous 30 jours.\n\nC'est peut-être un oubli, pouvez-vous me confirmer le règlement ?\n\nBien cordialement,\n${m.patron}\n${m.company}`,
+    standard: `Bonjour ${client.split(' ').slice(-1)[0]},\n\nMa facture n°${factureNum} (${montant} €) reste impayée depuis ${retardJours} jours malgré ma précédente relance.\n\nMerci de procéder au règlement sous 8 jours pour éviter d'engager une procédure de recouvrement.\n\nCordialement,\n${m.patron}\n${m.company}`,
+    ferme: `Bonjour ${client.split(' ').slice(-1)[0]},\n\nMalgré mes relances, votre facture n°${factureNum} de ${montant} € reste impayée depuis ${retardJours} jours.\n\nSans règlement sous 8 jours, je serai contraint d'engager une procédure de recouvrement par voie d'huissier, avec pénalités de retard et indemnité forfaitaire de 40 € (art. L441-10 du Code de commerce).\n\n${m.patron}\n${m.company}`
+  };
+  body.innerHTML = `
+    <div style="background: var(--bg); border-radius: 12px; padding: 14px 16px; margin-bottom: 16px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+        <span style="font-size: 13px; color: var(--text-soft);">Client</span>
+        <span style="font-weight: 700;">${client}</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+        <span style="font-size: 13px; color: var(--text-soft);">Facture</span>
+        <span style="font-weight: 600;">n°${factureNum} · ${montant} €</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 13px; color: var(--text-soft);">Retard</span>
+        <span style="font-weight: 700; color: ${retardJours > 60 ? 'var(--danger)' : 'var(--accent)'};">${retardJours} jours</span>
+      </div>
+    </div>
+    <div class="field-label" style="margin-bottom: 6px;">Type de relance</div>
+    <div style="display: flex; gap: 6px; margin-bottom: 14px;">
+      <button class="filter-chip ${ton === 'amical' ? 'active' : ''}" onclick="switchRelanceTon('amical', '${client.replace(/'/g, "\\'")}', '${montant}', ${retardJours}, '${factureNum}')">Amical</button>
+      <button class="filter-chip ${ton === 'standard' ? 'active' : ''}" onclick="switchRelanceTon('standard', '${client.replace(/'/g, "\\'")}', '${montant}', ${retardJours}, '${factureNum}')">Standard</button>
+      <button class="filter-chip ${ton === 'ferme' ? 'active' : ''}" onclick="switchRelanceTon('ferme', '${client.replace(/'/g, "\\'")}', '${montant}', ${retardJours}, '${factureNum}')">Ferme (mise en demeure)</button>
+    </div>
+    <div class="field-label">Brouillon de message</div>
+    <textarea id="relanceText" style="width: 100%; min-height: 240px; padding: 14px; border: 1px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 13px; line-height: 1.55; resize: vertical; background: var(--card-alt);">${messages[ton]}</textarea>
+  `;
+  footer.innerHTML = `
+    <button class="btn btn-secondary" onclick="closeModal('relanceModal')">Annuler</button>
+    <button class="btn btn-secondary" onclick="sendRelance('sms', '${client.replace(/'/g, "\\'")}')">📱 Envoyer SMS</button>
+    <button class="btn btn-primary" onclick="sendRelance('email', '${client.replace(/'/g, "\\'")}')">📧 Envoyer email</button>
+  `;
+  // Stocker la config courante pour switch ton
+  window._relanceCtx = { client, montant, retardJours, factureNum };
+  openModal('relanceModal');
+}
+
+function switchRelanceTon(ton, client, montant, retardJours, factureNum) {
+  const m = METIERS[state.metier];
+  const messages = {
+    amical: `Bonjour ${client.split(' ').slice(-1)[0]},\n\nJ'espère que vous allez bien. Je me permets de vous relancer concernant la facture n°${factureNum} d'un montant de ${montant} € qui était à régler sous 30 jours.\n\nC'est peut-être un oubli, pouvez-vous me confirmer le règlement ?\n\nBien cordialement,\n${m.patron}\n${m.company}`,
+    standard: `Bonjour ${client.split(' ').slice(-1)[0]},\n\nMa facture n°${factureNum} (${montant} €) reste impayée depuis ${retardJours} jours malgré ma précédente relance.\n\nMerci de procéder au règlement sous 8 jours pour éviter d'engager une procédure de recouvrement.\n\nCordialement,\n${m.patron}\n${m.company}`,
+    ferme: `Bonjour ${client.split(' ').slice(-1)[0]},\n\nMalgré mes relances, votre facture n°${factureNum} de ${montant} € reste impayée depuis ${retardJours} jours.\n\nSans règlement sous 8 jours, je serai contraint d'engager une procédure de recouvrement par voie d'huissier, avec pénalités de retard et indemnité forfaitaire de 40 € (art. L441-10 du Code de commerce).\n\n${m.patron}\n${m.company}`
+  };
+  document.getElementById('relanceText').value = messages[ton];
+  // Update active state
+  document.querySelectorAll('#relanceModalBody .filter-chip').forEach(c => c.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function sendRelance(channel, client) {
+  closeModal('relanceModal');
+  showToast(channel === 'sms' ? `📱 SMS envoyé à ${client}` : `📧 Email envoyé à ${client}`, 'success');
+}
+
+// ============================================================
+// === VOCAL SCÉNARISÉ : crée VRAIMENT des choses à l'écran   ===
+// ============================================================
+
+function vocalScenarioPlay() {
+  // Override de vocalToggle pour faire un scénario riche
+  const m = METIERS[state.metier];
+  const scenarios = {
+    pisciniste: {
+      transcript: "Ajoute un RDV jeudi 14h chez Madame Bertrand pour un devis remplacement liner sur Carpentras. Et envoie un message à Yanis pour qu'il prépare la mallette d'analyse demain matin.",
+      actions: [
+        { icon: '📅', text: 'RDV créé : Jeudi 14h · Mme Bertrand · Carpentras' },
+        { icon: '📋', text: 'Devis « Remplacement liner » initialisé' },
+        { icon: '💬', text: 'Message envoyé à Yanis Bertrand' }
+      ]
+    },
+    macon: {
+      transcript: "Note dans le chantier Granier qu'on a coulé 60m² de dalle ce matin avec 3 toupies. Et programme livraison parpaings demain 7h sur le chantier Dubois.",
+      actions: [
+        { icon: '📝', text: 'Avancement chantier Granier mis à jour (+60m² dalle)' },
+        { icon: '🚚', text: 'Livraison programmée : Demain 7h · Chantier Dubois' },
+        { icon: '📦', text: 'Bon de commande envoyé à POINT.P' }
+      ]
+    },
+    facadier: {
+      transcript: "Crée un nouveau chantier façade chez Monsieur Devaux à Orange, environ 80m². Et programme la pose d'échafaudage lundi prochain.",
+      actions: [
+        { icon: '🏗️', text: 'Chantier créé : Façade Devaux · 80m² · Orange' },
+        { icon: '📅', text: 'Pose échafaudage planifiée : Lundi 8h' },
+        { icon: '☁️', text: 'Météo lundi vérifiée : ensoleillé, OK' }
+      ]
+    },
+    climatiseur: {
+      transcript: "Enregistre la pose multi-split chez Vidal, 3 unités intérieures, 2.4kg de R32 chargés. Et planifie la maintenance annuelle dans 12 mois.",
+      actions: [
+        { icon: '❄️', text: 'Pose enregistrée : Vidal · 3 unités · 2,4kg R32' },
+        { icon: '📋', text: 'Registre F-Gas mis à jour automatiquement' },
+        { icon: '🔔', text: 'Maintenance annuelle programmée : avril 2027' }
+      ]
+    },
+    plombier: {
+      transcript: "Note l'intervention urgente chez Aubert pour la fuite chauffe-eau, paiement CB 380 euros. Et commande un nouveau groupe de sécurité chez Cedeo.",
+      actions: [
+        { icon: '🚨', text: 'Intervention urgence enregistrée : Aubert · Fuite chauffe-eau' },
+        { icon: '💳', text: 'Paiement CB 380 € encaissé · Reçu envoyé' },
+        { icon: '🛒', text: 'Commande groupe sécurité passée chez CEDEO' }
+      ]
+    },
+    peintre: {
+      transcript: "Crée un devis pour Madame Lopez : peinture salon plus 2 chambres, environ 75m² avec 2 couches. Et commande 30 litres de peinture acrylique blanc cassé chez Tollens.",
+      actions: [
+        { icon: '📋', text: 'Devis Lopez créé : 75m² · 2 couches · 2 100 €' },
+        { icon: '🎨', text: 'Commande passée : 30L Acryl Mat blanc cassé · TOLLENS' },
+        { icon: '📅', text: 'Livraison prévue : Mardi 14h' }
+      ]
+    },
+    paysagiste: {
+      transcript: "Programme la tonte chez Sarraille pour mardi matin, et envoie un rappel à Madame Halphen pour confirmer la taille des haies vendredi. Et note 1.5m³ de déchets verts évacués aujourd'hui.",
+      actions: [
+        { icon: '🌿', text: 'Tonte programmée : Mardi 8h · Sarraille' },
+        { icon: '💬', text: 'Rappel envoyé à Mme Halphen pour vendredi' },
+        { icon: '🚛', text: '1,5 m³ de déchets verts ajoutés au registre' }
+      ]
+    }
+  };
+  const sc = scenarios[state.metier] || scenarios.pisciniste;
+  // Phase 1 : transcription
+  const t = document.getElementById('vocalTranscript');
+  const status = document.getElementById('vocalStatus');
+  t.classList.add('has-content');
+  t.innerHTML = '';
+  status.textContent = '🎙️ J\'écoute...';
+  // Effet machine à écrire
+  let i = 0;
+  const typeIt = () => {
+    if (i < sc.transcript.length) {
+      t.textContent = sc.transcript.slice(0, i + 1);
+      i++;
+      setTimeout(typeIt, 18);
+    } else {
+      // Phase 2 : analyse
+      setTimeout(() => {
+        status.textContent = '🧠 Analyse de votre demande...';
+      }, 400);
+      // Phase 3 : actions exécutées
+      setTimeout(() => {
+        status.textContent = '✅ Actions exécutées';
+        const actionsHTML = sc.actions.map((a, idx) => `
+          <div class="vocal-action-item" style="opacity: 0; transform: translateY(10px); transition: all .4s; animation-delay: ${idx * 200}ms; display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: var(--success-light); border: 1px solid #B8DCC9; border-radius: 12px; margin-top: 10px;">
+            <div style="font-size: 22px;">${a.icon}</div>
+            <div style="flex: 1; font-size: 13px; font-weight: 500; color: var(--success);">${a.text}</div>
+            <svg width="16" height="16" fill="none" stroke="var(--success)" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+        `).join('');
+        const wrap = document.createElement('div');
+        wrap.id = 'vocalActions';
+        wrap.style.marginTop = '12px';
+        wrap.innerHTML = actionsHTML;
+        t.parentNode.insertBefore(wrap, t.nextSibling);
+        // Anime in
+        setTimeout(() => {
+          document.querySelectorAll('.vocal-action-item').forEach((el, idx) => {
+            setTimeout(() => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, idx * 250);
+          });
+        }, 50);
+      }, 1100);
+    }
+  };
+  typeIt();
+}
+
+// ============================================================
+// === NOTIFICATIONS PUSH SIMULÉES (effet "ça vit")          ===
+// ============================================================
+
+function pushNotif(text, type = 'info') {
+  const t = document.getElementById('toasts');
+  const div = document.createElement('div');
+  div.className = 'toast ' + type;
+  div.style.cssText = 'background: var(--card); color: var(--text); border: 1px solid var(--border); box-shadow: 0 12px 30px rgba(15,23,42,0.15); padding: 14px 18px; border-radius: 14px; max-width: 380px; min-width: 280px; display: flex; gap: 12px; align-items: flex-start; animation: slideIn .4s ease;';
+  if (type === 'success') div.style.borderLeft = '4px solid var(--success)';
+  if (type === 'info') div.style.borderLeft = '4px solid var(--secondary)';
+  if (type === 'warning') div.style.borderLeft = '4px solid var(--accent)';
+  div.innerHTML = `
+    <div style="flex: 1; font-size: 13.5px; line-height: 1.45; color: var(--text);">${text}</div>
+    <button onclick="this.parentNode.remove()" style="background: transparent; border: none; cursor: pointer; padding: 0; color: var(--text-mute); font-size: 18px;">×</button>
+  `;
+  t.appendChild(div);
+  setTimeout(() => {
+    div.style.opacity = '0';
+    div.style.transform = 'translateX(20px)';
+    div.style.transition = 'all .4s';
+    setTimeout(() => div.remove(), 400);
+  }, 6000);
+}
+
+// Lancer un cycle de notifs simulées après login
+function startDemoNotifs() {
+  const m = METIERS[state.metier];
+  const notifs = {
+    pisciniste: [
+      { delay: 12000, text: '📊 <b>Yanis</b> a enregistré les paramètres chez Aubert : pH 7.2, chlore 1.8', type: 'info' },
+      { delay: 28000, text: '✅ <b>Mme Combes</b> a accepté votre devis Pose électrolyseur (1 450 €)', type: 'success' },
+      { delay: 50000, text: '⚠️ <b>Hivernage</b> à programmer pour 8 piscines avant le 30 octobre', type: 'warning' }
+    ],
+    macon: [
+      { delay: 12000, text: '📦 <b>Livraison reçue</b> : 2 toupies béton C25/30 chez Granier', type: 'success' },
+      { delay: 28000, text: '☁️ <b>Pluie prévue</b> jeudi : reporter coulage dalle Dubois ?', type: 'warning' },
+      { delay: 50000, text: '👷 <b>Karim</b> a pointé 8h sur chantier Granier', type: 'info' }
+    ],
+    facadier: [
+      { delay: 12000, text: '☀️ <b>Météo OK</b> 5 jours pour façade Devaux', type: 'success' },
+      { delay: 28000, text: '📷 <b>15 photos AVANT</b> ajoutées au chantier Bouchet', type: 'info' },
+      { delay: 50000, text: '🏗️ <b>Échafaudage</b> à démonter chantier Lopez vendredi', type: 'warning' }
+    ],
+    climatiseur: [
+      { delay: 12000, text: '❄️ <b>Maintenance annuelle</b> Vidal due dans 15 jours', type: 'warning' },
+      { delay: 28000, text: '✅ <b>Attestation F-Gas</b> signée pour pose Roumieux', type: 'success' },
+      { delay: 50000, text: '📊 <b>Stock R32</b> bas : 2,5 kg restants', type: 'info' }
+    ],
+    plombier: [
+      { delay: 12000, text: '🚨 <b>Urgence</b> : fuite signalée par Mme Albert (Avignon)', type: 'warning' },
+      { delay: 28000, text: '💳 <b>Paiement CB</b> 380 € encaissé chez Aubert', type: 'success' },
+      { delay: 50000, text: '🛒 <b>Stock</b> : commander 4 mitigeurs avant fin de semaine', type: 'info' }
+    ],
+    peintre: [
+      { delay: 12000, text: '🎨 <b>Livraison</b> : 30L Tollens reçus chantier Lopez', type: 'success' },
+      { delay: 28000, text: '☔ <b>Pluie</b> demain : reporter peinture extérieure Bouchet', type: 'warning' },
+      { delay: 50000, text: '📷 <b>Photos APRÈS</b> ajoutées par Karim au chantier Mendes', type: 'info' }
+    ],
+    paysagiste: [
+      { delay: 12000, text: '🌧️ <b>Pluie demain</b> : tonte Sarraille reportée à mercredi', type: 'warning' },
+      { delay: 28000, text: '✅ <b>Tournée terminée</b> : 5 visites · 3,2 m³ déchets verts', type: 'success' },
+      { delay: 50000, text: '🌿 <b>Mme Halphen</b> a confirmé la taille de haies vendredi', type: 'info' }
+    ]
+  };
+  const list = notifs[state.metier] || notifs.pisciniste;
+  list.forEach(n => {
+    setTimeout(() => pushNotif(n.text, n.type), n.delay);
+  });
+}
+
+// Hook : démarrer les notifs après login (override doLogin)
+const _origDoLogin = doLogin;
+doLogin = function(role) {
+  _origDoLogin(role);
+  // Bienvenue
+  setTimeout(() => {
+    const m = METIERS[state.metier];
+    pushNotif(`👋 Bienvenue ${state.user.name.split(' ')[0]} ! Vous avez <b>${m.chantiers.filter(c => c.status === 'en_cours').length}</b> ${m.chantierWordPlural.toLowerCase()} en cours aujourd'hui.`, 'info');
+  }, 800);
+  startDemoNotifs();
+};
+
+// Hook : amélioration du bouton vocal (utilise scénario riche au lieu de simple transcript)
+vocalToggle = function() {
+  vocalActive = !vocalActive;
+  if (vocalActive) {
+    const existing = document.getElementById('vocalActions');
+    if (existing) existing.remove();
+    document.getElementById('vocalStatus').textContent = '🎙️ J\'écoute...';
+    setTimeout(() => vocalScenarioPlay(), 600);
+  } else {
+    document.getElementById('vocalStatus').textContent = 'Touchez l\'orbe et parlez';
+    const existing = document.getElementById('vocalActions');
+    if (existing) existing.remove();
+  }
+};
+
+// Hook : bouton "Nouveau document" en page Finances → ouvre vrai modal devis
+function newDocumentClick() { openNewDevis(); }
+
+// Hook : bouton OCR → ouvre vrai modal d'animation
+function newOCRClick() { openOCR(); }
+
+init();
+</script>
+</body>
+</html>

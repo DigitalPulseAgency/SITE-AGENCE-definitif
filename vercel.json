@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/demo/btp", "destination": "/demos/btp.html" },
+    { "source": "/demo/restaurant", "destination": "/demos/restaurant.html" },
+    { "source": "/demo/conciergerie", "destination": "/demos/conciergerie.html" }
+  ]
+}

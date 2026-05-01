@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bistro Lumière — Tableau de bord</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f9fc;
+    --bg-2: #eef1f7;
+    --ink: #0f1729;
+    --ink-2: #475569;
+    --ink-3: #94a3b8;
+    --line: #dde3ed;
+    --line-2: #c1cad8;
+    --terra: #1e3a8a;
+    --terra-dark: #1e2a6a;
+    --ocre: #d4a056;
+    --olive: #2d5a87;
+    --celadon: #4a7da3;
+    --bleu: #0f2547;
+    --rouge: #c2410c;
+    --vert: #16a34a;
+    --card: #ffffff;
+    --shadow-sm: 0 1px 2px rgba(60, 40, 20, 0.04), 0 2px 8px rgba(60, 40, 20, 0.04);
+    --shadow-md: 0 4px 12px rgba(60, 40, 20, 0.06), 0 12px 32px rgba(60, 40, 20, 0.05);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { height: 100%; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 0% 0%, rgba(212, 160, 86, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 100% 0%, rgba(30, 58, 138, 0.05) 0%, transparent 40%);
+  }
+
+  .display { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.02em; }
+
+  /* === LAYOUT === */
+  .app { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+
+  /* === SIDEBAR === */
+  .sidebar {
+    background: #0f2547;
+    color: #e2e8f0;
+    padding: 24px 16px;
+    position: sticky; top: 0; height: 100vh;
+    display: flex; flex-direction: column;
+  }
+
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    padding: 4px 8px 24px; border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 16px;
+  }
+  .brand-mark {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, var(--terra), var(--ocre));
+    border-radius: 8px;
+    display: grid; place-items: center;
+    font-family: 'Playfair Display', serif; font-weight: 700; color: #fff;
+    font-size: 16px;
+  }
+  .brand-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+  .brand-sub { font-size: 11px; color: rgba(226, 232, 240, 0.5); margin-top: 1px; }
+
+  .resto-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .resto-avatar {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: linear-gradient(135deg, #d99a3a, #c2552d);
+    display: grid; place-items: center;
+    font-family: 'Playfair Display', serif; font-weight: 600; color: #fff; font-size: 14px;
+  }
+  .resto-name { font-size: 13px; font-weight: 600; }
+  .resto-status { font-size: 11px; color: rgba(232,223,203,0.5); display: flex; align-items: center; gap: 5px; }
+  .resto-status::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: #6fcf97; box-shadow: 0 0 8px #6fcf97;
+  }
+
+  .nav-label {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+    color: rgba(232,223,203,0.4); padding: 12px 8px 6px;
+  }
+
+  .nav-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 10px; margin: 1px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    color: rgba(232,223,203,0.75);
+    font-size: 13px; font-weight: 500;
+    transition: all 0.18s ease;
+    border: 1px solid transparent;
+  }
+  .nav-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
+  .nav-item.active {
+    background: rgba(217, 154, 58, 0.12);
+    color: #f4d99a;
+    border-color: rgba(217, 154, 58, 0.2);
+  }
+  .nav-item .icon {
+    width: 18px; height: 18px; display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .nav-item .icon svg { width: 16px; height: 16px; stroke-width: 1.7; }
+  .nav-item .badge {
+    margin-left: auto; font-size: 10px; font-weight: 600;
+    background: var(--terra); color: #fff; padding: 2px 6px; border-radius: 999px;
+  }
+
+  .sidebar-footer {
+    margin-top: auto; padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center; gap: 10px;
+    font-size: 12px; color: rgba(232,223,203,0.6);
+  }
+  .user-avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--celadon); color: #fff;
+    display: grid; place-items: center; font-weight: 600; font-size: 11px;
+  }
+
+  /* === MAIN === */
+  .main { display: flex; flex-direction: column; min-width: 0; }
+
+  .topbar {
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 32px;
+    display: flex; align-items: center; gap: 16px;
+    position: sticky; top: 0; z-index: 10;
+    backdrop-filter: blur(10px);
+    background: rgba(250, 246, 240, 0.85);
+  }
+  .breadcrumb { font-size: 12px; color: var(--ink-3); display: flex; align-items: center; gap: 6px; }
+  .breadcrumb strong { color: var(--ink); font-weight: 600; }
+
+  .top-actions { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+
+  .btn {
+    border: 1px solid var(--line-2); background: var(--card);
+    padding: 7px 12px; border-radius: 8px; font-size: 12px; font-weight: 600;
+    cursor: pointer; color: var(--ink); transition: all 0.15s;
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: inherit;
+  }
+  .btn:hover { border-color: var(--ink-3); transform: translateY(-1px); }
+  .btn-primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .btn-primary:hover { background: #000; }
+  .btn-icon { padding: 7px 9px; }
+
+  .content { padding: 28px 32px 60px; }
+
+  /* === SECTION HEADER === */
+  .section-head { margin-bottom: 22px; }
+  .section-head h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px; font-weight: 500; letter-spacing: -0.025em;
+    line-height: 1.1; margin-bottom: 4px;
+  }
+  .section-head h1 em { font-style: italic; color: var(--terra); font-weight: 400; }
+  .section-head p { color: var(--ink-2); font-size: 13px; max-width: 640px; }
+
+  /* === DASHBOARD === */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 22px; }
+
+  .kpi {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .kpi:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .kpi-label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--ink-3); font-weight: 600;
+  }
+  .kpi-value {
+    font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 500;
+    letter-spacing: -0.02em; margin-top: 6px; line-height: 1;
+  }
+  .kpi-value .unit { font-size: 16px; color: var(--ink-3); margin-left: 2px; }
+  .kpi-trend {
+    margin-top: 10px; font-size: 12px;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .kpi-trend.up { color: var(--vert); }
+  .kpi-trend.down { color: var(--rouge); }
+  .kpi-trend .vs { color: var(--ink-3); }
+  .kpi-spark {
+    position: absolute; right: 12px; top: 16px;
+    width: 60px; height: 28px; opacity: 0.6;
+  }
+
+  /* === TWO COLUMN === */
+  .two-col { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; margin-bottom: 14px; }
+
+  .panel {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .panel-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .panel-title {
+    font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .panel-sub { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+
+  .pill {
+    font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px;
+    background: var(--bg-2); color: var(--ink-2);
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .pill.live { background: rgba(74, 124, 89, 0.12); color: var(--vert); }
+  .pill.live::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--vert); animation: pulse 1.6s infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity:1 } 50% { opacity:0.4 } }
+
+  /* === CHART === */
+  .chart-area { position: relative; height: 220px; margin: 8px -4px; }
+  .chart-area svg { width: 100%; height: 100%; overflow: visible; }
+  .chart-legend { display: flex; gap: 16px; font-size: 12px; color: var(--ink-2); margin-top: 8px; }
+  .legend-dot { width: 8px; height: 8px; border-radius: 2px; display: inline-block; margin-right: 6px; vertical-align: middle; }
+
+  /* === ACTIVITY === */
+  .activity-list { display: flex; flex-direction: column; gap: 14px; }
+  .activity-item { display: flex; gap: 11px; align-items: flex-start; }
+  .activity-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    display: grid; place-items: center; flex-shrink: 0;
+    background: var(--bg-2);
+  }
+  .activity-icon svg { width: 14px; height: 14px; stroke-width: 2; }
+  .activity-icon.terra { background: rgba(194, 85, 45, 0.12); color: var(--terra); }
+  .activity-icon.olive { background: rgba(107, 122, 74, 0.14); color: var(--olive); }
+  .activity-icon.bleu { background: rgba(44, 74, 90, 0.12); color: var(--bleu); }
+  .activity-icon.ocre { background: rgba(217, 154, 58, 0.16); color: var(--ocre); }
+  .activity-text { font-size: 13px; line-height: 1.45; }
+  .activity-text strong { font-weight: 600; }
+  .activity-time { font-size: 11px; color: var(--ink-3); margin-top: 2px; }
+
+  /* === TABLES === */
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    text-align: left; padding: 10px 12px; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--ink-3); font-weight: 600;
+    border-bottom: 1px solid var(--line);
+  }
+  td {
+    padding: 13px 12px; font-size: 13px;
+    border-bottom: 1px solid var(--line);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: var(--bg-2); }
+
+  .status {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 999px;
+  }
+  .status.confirme { background: rgba(74, 124, 89, 0.12); color: var(--vert); }
+  .status.attente  { background: rgba(217, 154, 58, 0.16); color: #a47424; }
+  .status.relance  { background: rgba(44, 74, 90, 0.12); color: var(--bleu); }
+  .status.annule   { background: rgba(176, 58, 46, 0.1); color: var(--rouge); }
+
+  /* === SECTIONS HIDDEN BY DEFAULT === */
+  .section { display: none; animation: fadeIn 0.3s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+  /* === RÉSAS - PLAN DE SALLE === */
+  .salle-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    background: var(--bg-2);
+    padding: 18px;
+    border-radius: 10px;
+    border: 1px dashed var(--line-2);
+  }
+  .table-cell {
+    aspect-ratio: 1;
+    border-radius: 10px;
+    background: var(--card);
+    border: 2px solid var(--line);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.18s;
+    position: relative;
+    font-size: 11px;
+  }
+  .table-cell:hover { transform: scale(1.04); border-color: var(--ink-3); }
+  .table-cell .num { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; line-height: 1; }
+  .table-cell .cap { font-size: 10px; color: var(--ink-3); margin-top: 2px; }
+  .table-cell.occupee { background: var(--terra); color: #fff; border-color: var(--terra-dark); }
+  .table-cell.occupee .cap { color: rgba(255,255,255,0.75); }
+  .table-cell.reservee { background: rgba(217, 154, 58, 0.18); border-color: var(--ocre); }
+  .table-cell.libre { background: rgba(74, 124, 89, 0.08); border-color: rgba(74, 124, 89, 0.3); }
+
+  .legend-row { display: flex; gap: 18px; font-size: 12px; color: var(--ink-2); margin-top: 12px; flex-wrap: wrap; }
+  .legend-row .sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; margin-right: 5px; vertical-align: middle; }
+
+  /* === BUFFET === */
+  .buffet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .plat-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 16px; position: relative; overflow: hidden;
+  }
+  .plat-card.alerte { border-color: var(--terra); background: linear-gradient(135deg, #fff, #fdf3ed); }
+  .plat-card.alerte::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--terra), var(--ocre));
+  }
+  .plat-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; }
+  .plat-meta { font-size: 11px; color: var(--ink-3); margin-top: 2px; }
+  .plat-bar {
+    height: 8px; background: var(--bg-2); border-radius: 99px; margin-top: 12px;
+    overflow: hidden;
+  }
+  .plat-bar-fill {
+    height: 100%; border-radius: 99px;
+    background: linear-gradient(90deg, var(--vert), var(--olive));
+    transition: width 0.4s;
+  }
+  .plat-bar-fill.warn { background: linear-gradient(90deg, var(--ocre), #e2a84d); }
+  .plat-bar-fill.alert { background: linear-gradient(90deg, var(--terra), var(--terra-dark)); }
+  .plat-status {
+    display: flex; justify-content: space-between; margin-top: 7px;
+    font-size: 12px; font-weight: 600;
+  }
+  .plat-status .left { color: var(--ink); }
+  .plat-status .right.alert { color: var(--terra); }
+  .plat-action {
+    margin-top: 12px; width: 100%;
+    padding: 7px; font-size: 12px; font-weight: 600;
+    border-radius: 7px; border: 1px solid var(--line-2); background: var(--bg);
+    cursor: pointer; font-family: inherit;
+  }
+  .plat-action.primary { background: var(--terra); color: #fff; border-color: var(--terra); }
+
+  /* === AVIS === */
+  .avis-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 16px; margin-bottom: 10px;
+  }
+  .avis-head { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 8px; }
+  .avis-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--celadon); color: #fff;
+    display: grid; place-items: center; font-weight: 600; font-size: 13px;
+    flex-shrink: 0;
+  }
+  .avis-name { font-weight: 600; font-size: 13px; }
+  .avis-meta { font-size: 11px; color: var(--ink-3); }
+  .stars { color: var(--ocre); font-size: 13px; letter-spacing: 1px; }
+  .avis-text { font-size: 13px; color: var(--ink-2); line-height: 1.55; margin-bottom: 10px; }
+  .reponse-box {
+    background: var(--bg-2); border-radius: 8px; padding: 10px 12px;
+    font-size: 12px; color: var(--ink-2); border-left: 3px solid var(--celadon);
+    position: relative;
+  }
+  .reponse-box .ai-tag {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 10px; font-weight: 700; color: var(--celadon);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;
+  }
+
+  /* === FOURNISSEURS === */
+  .four-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .four-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 18px;
+  }
+  .four-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .four-logo {
+    width: 40px; height: 40px; border-radius: 9px;
+    display: grid; place-items: center; font-weight: 700; color: #fff;
+    font-family: 'Playfair Display', serif; font-size: 17px;
+  }
+  .four-name { font-weight: 600; font-size: 14px; }
+  .four-tag { font-size: 11px; color: var(--ink-3); }
+  .four-items { font-size: 12px; color: var(--ink-2); margin-bottom: 10px; line-height: 1.6; }
+  .four-foot { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--line); }
+  .next-cmd { font-size: 11px; color: var(--ink-3); }
+  .next-cmd strong { color: var(--ink); }
+
+  /* === GASPILLAGE === */
+  .gaspi-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; padding: 12px 14px; border-radius: 10px; align-items: center; }
+  .gaspi-row + .gaspi-row { margin-top: 6px; }
+  .gaspi-row.head { background: transparent; padding: 0 14px 8px; font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .gaspi-row.body { background: var(--card); border: 1px solid var(--line); }
+  .gaspi-bar { height: 6px; background: var(--bg-2); border-radius: 99px; overflow: hidden; }
+  .gaspi-bar-fill { height: 100%; background: var(--terra); border-radius: 99px; }
+  .gaspi-bar-fill.low { background: var(--vert); }
+  .gaspi-bar-fill.med { background: var(--ocre); }
+
+  /* === STAFF === */
+  .planning-grid {
+    display: grid;
+    grid-template-columns: 140px repeat(7, 1fr);
+    gap: 4px;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 12px;
+  }
+  .planning-grid .head-cell {
+    font-size: 11px; color: var(--ink-3); text-transform: uppercase;
+    letter-spacing: 0.06em; font-weight: 600; padding: 6px 4px; text-align: center;
+  }
+  .planning-grid .head-cell.day strong { color: var(--ink); display: block; font-size: 14px; margin-top: 2px; font-family: 'Playfair Display', serif; font-weight: 500; }
+  .staff-name {
+    padding: 10px 8px; font-size: 12px; font-weight: 600;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .staff-pic {
+    width: 26px; height: 26px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 11px; font-weight: 600; color: #fff;
+  }
+  .shift {
+    padding: 8px 6px; border-radius: 6px; font-size: 11px;
+    text-align: center; font-weight: 600;
+    background: var(--bg-2); color: var(--ink-3);
+  }
+  .shift.midi { background: rgba(217, 154, 58, 0.18); color: #8b6018; }
+  .shift.soir { background: rgba(44, 74, 90, 0.14); color: var(--bleu); }
+  .shift.full { background: rgba(194, 85, 45, 0.14); color: var(--terra-dark); }
+  .shift.off { background: var(--bg); color: var(--ink-3); border: 1px dashed var(--line-2); }
+
+  /* === AUTOMATISATIONS === */
+  .auto-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 16px; display: flex; align-items: center; gap: 14px;
+    margin-bottom: 10px;
+  }
+  .auto-icon {
+    width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+    display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--terra), var(--ocre));
+    color: #fff;
+  }
+  .auto-icon svg { width: 20px; height: 20px; stroke-width: 1.8; }
+  .auto-body { flex: 1; }
+  .auto-title { font-weight: 600; font-size: 14px; }
+  .auto-desc { font-size: 12px; color: var(--ink-3); margin-top: 2px; line-height: 1.45; }
+  .auto-stats { font-size: 11px; color: var(--olive); font-weight: 600; margin-top: 5px; }
+
+  /* === SWITCH === */
+  .switch { position: relative; width: 38px; height: 22px; flex-shrink: 0; }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .slider {
+    position: absolute; cursor: pointer; inset: 0;
+    background: var(--line-2); border-radius: 999px; transition: 0.25s;
+  }
+  .slider::before {
+    content: ''; position: absolute; height: 16px; width: 16px;
+    left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: 0.25s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  .switch input:checked + .slider { background: var(--vert); }
+  .switch input:checked + .slider::before { transform: translateX(16px); }
+
+  /* === DECORATIVE === */
+  .ornament {
+    position: absolute; top: -1px; right: 18px;
+    font-family: 'Playfair Display', serif; font-size: 11px; color: var(--ocre);
+    font-style: italic;
+    background: var(--card); padding: 0 8px;
+  }
+
+  @media (max-width: 1100px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+    .buffet-grid { grid-template-columns: repeat(2, 1fr); }
+    .four-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">P</div>
+      <div>
+        <div class="brand-name">Bistro Lumière</div>
+        <div class="brand-sub">Tableau de bord</div>
+      </div>
+    </div>
+
+    <div class="nav-label">Pilotage</div>
+    <div class="nav-item active" data-target="dashboard">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+      Tableau de bord
+    </div>
+    <div class="nav-item" data-target="reservations">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+      Réservations
+      <span class="badge">12</span>
+    </div>
+    <div class="nav-item" data-target="buffet">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 11h18l-1 9H4z"/><path d="M5 11V7a7 7 0 0114 0v4"/><path d="M9 4V2M12 4V2M15 4V2"/></svg></span>
+      Réassort buffet
+      <span class="badge">2</span>
+    </div>
+
+    <div class="nav-label">Croissance</div>
+    <div class="nav-item" data-target="avis">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></span>
+      Avis & fidélisation
+    </div>
+    <div class="nav-item" data-target="fournisseurs">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 7h18l-2 12H5z"/><path d="M8 7V4a4 4 0 018 0v3"/></svg></span>
+      Commandes fournisseurs
+    </div>
+
+    <div class="nav-label">Opérations</div>
+    <div class="nav-item" data-target="gaspi">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/></svg></span>
+      Anti-gaspillage
+    </div>
+    <div class="nav-item" data-target="staff">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="9" cy="8" r="4"/><path d="M3 21v-1a6 6 0 0112 0v1"/><circle cx="17" cy="9" r="3"/><path d="M15 21v-1a4 4 0 016-3.5"/></svg></span>
+      Planning équipe
+    </div>
+    <div class="nav-item" data-target="automatisations">
+      <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L4 14h7l-2 8 9-12h-7z"/></svg></span>
+      Automatisations
+    </div>
+
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+    <div class="topbar">
+      <div class="breadcrumb">
+        <span>Bistro Lumière</span>
+        <span>›</span>
+        <strong id="bc">Tableau de bord</strong>
+      </div>
+      <div class="top-actions">
+        <span class="pill live">Service en cours · 19 couverts</span>
+        <button class="btn btn-icon" title="Notifications">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+        </button>
+        <button class="btn btn-primary">+ Nouvelle réservation</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- ===================== DASHBOARD ===================== -->
+      <section class="section active" id="dashboard">
+        <div class="section-head">
+          <h1>Bonjour Marc, <em>belle journée en perspective</em></h1>
+          <p>Voici l'état de votre restaurant en temps réel — samedi 25 avril 2026, service du soir.</p>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi">
+            <div class="kpi-label">Couverts du soir</div>
+            <div class="kpi-value">52<span class="unit">/ 80</span></div>
+            <div class="kpi-trend up">▲ +18% <span class="vs">vs samedi dernier</span></div>
+            <svg class="kpi-spark" viewBox="0 0 60 28">
+              <polyline fill="none" stroke="#c2552d" stroke-width="1.5" points="0,22 10,18 20,20 30,12 40,14 50,8 60,6"/>
+            </svg>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">CA du soir</div>
+            <div class="kpi-value">1 248<span class="unit">€</span></div>
+            <div class="kpi-trend up">▲ +12% <span class="vs">vs moyenne</span></div>
+            <svg class="kpi-spark" viewBox="0 0 60 28">
+              <polyline fill="none" stroke="#6b7a4a" stroke-width="1.5" points="0,18 10,16 20,20 30,14 40,10 50,12 60,7"/>
+            </svg>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Ticket moyen</div>
+            <div class="kpi-value">24<span class="unit">€</span></div>
+            <div class="kpi-trend up">▲ +0,80€ <span class="vs">vs avril</span></div>
+            <svg class="kpi-spark" viewBox="0 0 60 28">
+              <polyline fill="none" stroke="#d99a3a" stroke-width="1.5" points="0,16 10,18 20,14 30,16 40,12 50,10 60,11"/>
+            </svg>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Taux remplissage</div>
+            <div class="kpi-value">65<span class="unit">%</span></div>
+            <div class="kpi-trend down">▼ −4% <span class="vs">objectif 75%</span></div>
+            <svg class="kpi-spark" viewBox="0 0 60 28">
+              <polyline fill="none" stroke="#2c4a5a" stroke-width="1.5" points="0,8 10,12 20,10 30,16 40,14 50,18 60,16"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <div class="panel-title">Activité des 7 derniers jours</div>
+                <div class="panel-sub">Couverts servis · vue comparative</div>
+              </div>
+              <div style="display: flex; gap: 6px;">
+                <button class="btn" style="font-size:11px;padding:5px 10px;">7j</button>
+                <button class="btn" style="font-size:11px;padding:5px 10px;">30j</button>
+              </div>
+            </div>
+            <div class="chart-area">
+              <svg viewBox="0 0 700 220" preserveAspectRatio="none">
+                <!-- grid -->
+                <line x1="40" y1="20" x2="680" y2="20" stroke="#e6dcc7" stroke-dasharray="2,4"/>
+                <line x1="40" y1="70" x2="680" y2="70" stroke="#e6dcc7" stroke-dasharray="2,4"/>
+                <line x1="40" y1="120" x2="680" y2="120" stroke="#e6dcc7" stroke-dasharray="2,4"/>
+                <line x1="40" y1="170" x2="680" y2="170" stroke="#e6dcc7" stroke-dasharray="2,4"/>
+                <!-- y axis labels -->
+                <text x="32" y="24" text-anchor="end" font-size="10" fill="#8a7c68">80</text>
+                <text x="32" y="74" text-anchor="end" font-size="10" fill="#8a7c68">60</text>
+                <text x="32" y="124" text-anchor="end" font-size="10" fill="#8a7c68">40</text>
+                <text x="32" y="174" text-anchor="end" font-size="10" fill="#8a7c68">20</text>
+
+                <!-- area fill -->
+                <path d="M 70,140 L 160,120 L 250,90 L 340,100 L 430,60 L 520,40 L 610,70 L 610,180 L 70,180 Z" fill="url(#grad1)" opacity="0.35"/>
+                <defs>
+                  <linearGradient id="grad1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#c2552d"/>
+                    <stop offset="100%" stop-color="#c2552d" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <!-- line current -->
+                <polyline points="70,140 160,120 250,90 340,100 430,60 520,40 610,70" fill="none" stroke="#c2552d" stroke-width="2.5"/>
+                <!-- line previous -->
+                <polyline points="70,150 160,140 250,110 340,130 430,90 520,75 610,90" fill="none" stroke="#8a7c68" stroke-width="1.5" stroke-dasharray="4,4"/>
+                <!-- dots -->
+                <g fill="#c2552d">
+                  <circle cx="70" cy="140" r="3.5"/>
+                  <circle cx="160" cy="120" r="3.5"/>
+                  <circle cx="250" cy="90" r="3.5"/>
+                  <circle cx="340" cy="100" r="3.5"/>
+                  <circle cx="430" cy="60" r="3.5"/>
+                  <circle cx="520" cy="40" r="4.5" stroke="#fff" stroke-width="2"/>
+                  <circle cx="610" cy="70" r="3.5"/>
+                </g>
+                <!-- value highlight -->
+                <g>
+                  <rect x="495" y="14" width="50" height="22" rx="4" fill="#1f1a14"/>
+                  <text x="520" y="29" text-anchor="middle" font-size="11" fill="#fff" font-weight="600">72 cvts</text>
+                </g>
+                <!-- x labels -->
+                <g font-size="10" fill="#8a7c68" text-anchor="middle" font-family="Manrope">
+                  <text x="70" y="200">Dim</text>
+                  <text x="160" y="200">Lun</text>
+                  <text x="250" y="200">Mar</text>
+                  <text x="340" y="200">Mer</text>
+                  <text x="430" y="200">Jeu</text>
+                  <text x="520" y="200">Ven</text>
+                  <text x="610" y="200">Sam</text>
+                </g>
+              </svg>
+            </div>
+            <div class="chart-legend">
+              <span><span class="legend-dot" style="background:#c2552d"></span>Cette semaine</span>
+              <span><span class="legend-dot" style="background:#8a7c68"></span>Semaine précédente</span>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <div class="panel-title">Fil d'activité</div>
+                <div class="panel-sub">Temps réel</div>
+              </div>
+            </div>
+            <div class="activity-list">
+              <div class="activity-item">
+                <div class="activity-icon terra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 11h18l-1 9H4z"/></svg></div>
+                <div>
+                  <div class="activity-text"><strong>Tajine kefta</strong> bientôt épuisé · 18% restants</div>
+                  <div class="activity-time">il y a 2 min</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon olive"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12l5 5L20 7"/></svg></div>
+                <div>
+                  <div class="activity-text">Réponse auto envoyée à <strong>Sarah M.</strong> sur Google (5★)</div>
+                  <div class="activity-time">il y a 12 min</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon bleu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg></div>
+                <div>
+                  <div class="activity-text">Rappel SMS envoyé à <strong>3 réservations</strong> de demain midi</div>
+                  <div class="activity-time">il y a 28 min</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon ocre"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 7h18l-2 12H5z"/></svg></div>
+                <div>
+                  <div class="activity-text">Bon de commande <strong>El Baraka Halal</strong> prêt à valider · 312€</div>
+                  <div class="activity-time">il y a 1 h</div>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon terra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 2"/></svg></div>
+                <div>
+                  <div class="activity-text">Karim a pointé son arrivée · service 19h</div>
+                  <div class="activity-time">il y a 1 h</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== RÉSERVATIONS ===================== -->
+      <section class="section" id="reservations">
+        <div class="section-head">
+          <h1>Réservations <em>du soir</em></h1>
+          <p>Plan de salle en direct · relances no-show automatiques · suivi de chaque table.</p>
+        </div>
+
+        <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="kpi">
+            <div class="kpi-label">Couverts réservés</div>
+            <div class="kpi-value">62</div>
+            <div class="kpi-trend up">▲ 12 walk-in attendus</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">No-show prévisible</div>
+            <div class="kpi-value">3</div>
+            <div class="kpi-trend down">SMS envoyés ✓</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Tables actives</div>
+            <div class="kpi-value">12<span class="unit">/ 18</span></div>
+            <div class="kpi-trend up">Rotation 1,4×</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Liste d'attente</div>
+            <div class="kpi-value">2</div>
+            <div class="kpi-trend">~ 25 min</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <div class="panel-title">Plan de salle</div>
+                <div class="panel-sub">Service du soir · 19h45</div>
+              </div>
+              <div class="pill live">Live</div>
+            </div>
+            <div class="salle-grid">
+              <div class="table-cell occupee"><div class="num">1</div><div class="cap">4 / 4 · 35min</div></div>
+              <div class="table-cell occupee"><div class="num">2</div><div class="cap">2 / 2 · 22min</div></div>
+              <div class="table-cell libre"><div class="num">3</div><div class="cap">4 places</div></div>
+              <div class="table-cell occupee"><div class="num">4</div><div class="cap">6 / 6 · 48min</div></div>
+              <div class="table-cell reservee"><div class="num">5</div><div class="cap">20h15 · 4p</div></div>
+              <div class="table-cell occupee"><div class="num">6</div><div class="cap">3 / 4 · 12min</div></div>
+              <div class="table-cell libre"><div class="num">7</div><div class="cap">2 places</div></div>
+              <div class="table-cell occupee"><div class="num">8</div><div class="cap">4 / 4 · 55min</div></div>
+              <div class="table-cell occupee"><div class="num">9</div><div class="cap">5 / 6 · 18min</div></div>
+              <div class="table-cell reservee"><div class="num">10</div><div class="cap">20h30 · 6p</div></div>
+              <div class="table-cell libre"><div class="num">11</div><div class="cap">4 places</div></div>
+              <div class="table-cell occupee"><div class="num">12</div><div class="cap">2 / 2 · 8min</div></div>
+            </div>
+            <div class="legend-row">
+              <span><span class="sw" style="background:#c2552d"></span>Occupée</span>
+              <span><span class="sw" style="background:rgba(217, 154, 58, 0.4); border:2px solid #d99a3a"></span>Réservée</span>
+              <span><span class="sw" style="background:rgba(74, 124, 89, 0.15); border:2px solid rgba(74, 124, 89, 0.4)"></span>Libre</span>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <div class="panel-title">Réservations à venir</div>
+                <div class="panel-sub">Aujourd'hui & demain</div>
+              </div>
+            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <td><strong>Famille Bensaid</strong><div style="font-size:11px;color:var(--ink-3);margin-top:2px;">20h15 · 4 pers · Anniversaire</div></td>
+                  <td><span class="status confirme">Confirmé</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Mr. Tazi</strong><div style="font-size:11px;color:var(--ink-3);margin-top:2px;">20h30 · 6 pers</div></td>
+                  <td><span class="status relance">SMS envoyé</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Famille El Khattabi</strong><div style="font-size:11px;color:var(--ink-3);margin-top:2px;">21h00 · 8 pers</div></td>
+                  <td><span class="status confirme">Confirmé</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Mme Lahlou</strong><div style="font-size:11px;color:var(--ink-3);margin-top:2px;">Demain 12h30 · 5 pers</div></td>
+                  <td><span class="status attente">À relancer</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Mr. Idrissi</strong><div style="font-size:11px;color:var(--ink-3);margin-top:2px;">Demain 13h00 · 3 pers</div></td>
+                  <td><span class="status annule">Annulé</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== BUFFET ===================== -->
+      <section class="section" id="buffet">
+        <div class="section-head">
+          <h1>Réassort <em>du buffet</em></h1>
+          <p>La cuisine reçoit une alerte automatique dès qu'un plat passe sous le seuil critique. Plus besoin de courir entre la salle et le piano.</p>
+        </div>
+
+        <div class="panel" style="margin-bottom: 14px;">
+          <div class="panel-head">
+            <div>
+              <div class="panel-title">État du buffet · service du soir</div>
+              <div class="panel-sub">Capteurs de poids + saisie manuelle staff · mise à jour auto toutes les 5 min</div>
+            </div>
+            <div class="pill live">Live</div>
+          </div>
+
+          <div class="buffet-grid">
+            <div class="plat-card alerte">
+              <div class="plat-name">Tajine kefta</div>
+              <div class="plat-meta">Plat chaud · zone B · réassort moy. 25min</div>
+              <div class="plat-bar"><div class="plat-bar-fill alert" style="width: 18%;"></div></div>
+              <div class="plat-status"><span class="left">18% restant</span><span class="right alert">⚠ Critique</span></div>
+              <button class="plat-action primary">Notifier la cuisine</button>
+            </div>
+            <div class="plat-card alerte">
+              <div class="plat-name">Couscous royal</div>
+              <div class="plat-meta">Plat chaud · zone A · réassort moy. 30min</div>
+              <div class="plat-bar"><div class="plat-bar-fill alert" style="width: 22%;"></div></div>
+              <div class="plat-status"><span class="left">22% restant</span><span class="right alert">⚠ Critique</span></div>
+              <button class="plat-action primary">Notifier la cuisine</button>
+            </div>
+            <div class="plat-card">
+              <div class="plat-name">Pastilla poulet</div>
+              <div class="plat-meta">Salé · zone C</div>
+              <div class="plat-bar"><div class="plat-bar-fill warn" style="width: 45%;"></div></div>
+              <div class="plat-status"><span class="left">45% restant</span><span style="color:var(--ocre)">À surveiller</span></div>
+              <button class="plat-action">Voir détails</button>
+            </div>
+            <div class="plat-card">
+              <div class="plat-name">Salade méchouia</div>
+              <div class="plat-meta">Entrée · zone D</div>
+              <div class="plat-bar"><div class="plat-bar-fill" style="width: 78%;"></div></div>
+              <div class="plat-status"><span class="left">78% restant</span><span style="color:var(--vert)">OK</span></div>
+              <button class="plat-action">Voir détails</button>
+            </div>
+            <div class="plat-card">
+              <div class="plat-name">Briouates fromage</div>
+              <div class="plat-meta">Entrée · zone D</div>
+              <div class="plat-bar"><div class="plat-bar-fill" style="width: 64%;"></div></div>
+              <div class="plat-status"><span class="left">64% restant</span><span style="color:var(--vert)">OK</span></div>
+              <button class="plat-action">Voir détails</button>
+            </div>
+            <div class="plat-card">
+              <div class="plat-name">Cornes de gazelle</div>
+              <div class="plat-meta">Dessert · zone E</div>
+              <div class="plat-bar"><div class="plat-bar-fill" style="width: 88%;"></div></div>
+              <div class="plat-status"><span class="left">88% restant</span><span style="color:var(--vert)">OK</span></div>
+              <button class="plat-action">Voir détails</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-title">Tendances de consommation · ce soir</div>
+              <div class="panel-sub">Quels plats partent le plus vite ?</div>
+            </div>
+          </div>
+          <div class="chart-area" style="height: 180px;">
+            <svg viewBox="0 0 700 180" preserveAspectRatio="none">
+              <g font-size="11" fill="#5b4f3f">
+                <text x="10" y="30">Tajine kefta</text>
+                <rect x="130" y="18" width="480" height="16" rx="3" fill="#f3ecdf"/>
+                <rect x="130" y="18" width="430" height="16" rx="3" fill="url(#g1)"/>
+                <text x="620" y="30" font-weight="600">3,8 kg/h</text>
+
+                <text x="10" y="60">Couscous royal</text>
+                <rect x="130" y="48" width="480" height="16" rx="3" fill="#f3ecdf"/>
+                <rect x="130" y="48" width="380" height="16" rx="3" fill="url(#g1)"/>
+                <text x="620" y="60" font-weight="600">3,2 kg/h</text>
+
+                <text x="10" y="90">Pastilla poulet</text>
+                <rect x="130" y="78" width="480" height="16" rx="3" fill="#f3ecdf"/>
+                <rect x="130" y="78" width="240" height="16" rx="3" fill="url(#g2)"/>
+                <text x="620" y="90" font-weight="600">2,1 kg/h</text>
+
+                <text x="10" y="120">Salade méchouia</text>
+                <rect x="130" y="108" width="480" height="16" rx="3" fill="#f3ecdf"/>
+                <rect x="130" y="108" width="180" height="16" rx="3" fill="url(#g2)"/>
+                <text x="620" y="120" font-weight="600">1,5 kg/h</text>
+
+                <text x="10" y="150">Briouates fromage</text>
+                <rect x="130" y="138" width="480" height="16" rx="3" fill="#f3ecdf"/>
+                <rect x="130" y="138" width="120" height="16" rx="3" fill="url(#g2)"/>
+                <text x="620" y="150" font-weight="600">1,1 kg/h</text>
+              </g>
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1"><stop offset="0%" stop-color="#c2552d"/><stop offset="100%" stop-color="#d99a3a"/></linearGradient>
+                <linearGradient id="g2" x1="0" x2="1"><stop offset="0%" stop-color="#6b7a4a"/><stop offset="100%" stop-color="#8a9a5b"/></linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== AVIS ===================== -->
+      <section class="section" id="avis">
+        <div class="section-head">
+          <h1>Avis Google <em>& fidélisation</em></h1>
+          <p>Chaque client reçoit un SMS de remerciement après son repas. L'IA répond automatiquement aux avis positifs et vous alerte sur les négatifs.</p>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi">
+            <div class="kpi-label">Note Google</div>
+            <div class="kpi-value">4,6<span class="unit">/5</span></div>
+            <div class="kpi-trend up">▲ +0,3 ce mois</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Avis ce mois</div>
+            <div class="kpi-value">38</div>
+            <div class="kpi-trend up">▲ ×3 vs mars</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Taux conversion SMS</div>
+            <div class="kpi-value">22<span class="unit">%</span></div>
+            <div class="kpi-trend">benchmark : 8%</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Clients fidèles</div>
+            <div class="kpi-value">412</div>
+            <div class="kpi-trend up">+47 ce mois</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <div class="panel-title">Avis récents</div>
+                <div class="panel-sub">L'IA a répondu automatiquement aux 4★ et 5★</div>
+              </div>
+            </div>
+
+            <div class="avis-card">
+              <div class="avis-head">
+                <div class="avis-avatar">S</div>
+                <div style="flex:1">
+                  <div class="avis-name">Sarah M.</div>
+                  <div class="avis-meta">il y a 12 min · via Google</div>
+                </div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <div class="avis-text">"Le meilleur tajine de Lyon ! L'accueil de Marc était parfait, le buffet d'une fraîcheur incroyable. On reviendra c'est sûr."</div>
+              <div class="reponse-box">
+                <div class="ai-tag">⚡ Réponse IA envoyée</div>
+                Merci infiniment Sarah pour ce retour qui nous touche beaucoup. C'est un plaisir de vous compter parmi nos clients — au plaisir de vous accueillir à nouveau ! · Marc
+              </div>
+            </div>
+
+            <div class="avis-card" style="border-color: var(--terra); background: linear-gradient(135deg, #fff, #fdf3ed);">
+              <div class="avis-head">
+                <div class="avis-avatar" style="background:var(--terra)">R</div>
+                <div style="flex:1">
+                  <div class="avis-name">Rachid B.</div>
+                  <div class="avis-meta">il y a 2 h · via Google</div>
+                </div>
+                <div class="stars" style="color:var(--terra)">★★☆☆☆</div>
+              </div>
+              <div class="avis-text">"Service un peu long le samedi soir, on a attendu près de 25 minutes pour la table malgré la réservation. Dommage car la nourriture est très bonne."</div>
+              <div class="reponse-box" style="border-color: var(--terra); background: rgba(194,85,45,0.06);">
+                <div class="ai-tag" style="color:var(--terra)">⚠ Action requise · brouillon prêt</div>
+                Bonjour Rachid, je suis sincèrement désolé pour cette attente. Nous avons connu un afflux samedi qui ne doit pas être une excuse. Pourriez-vous m'écrire en privé pour que je vous offre un dîner...
+              </div>
+            </div>
+
+            <div class="avis-card">
+              <div class="avis-head">
+                <div class="avis-avatar" style="background:var(--olive)">A</div>
+                <div style="flex:1">
+                  <div class="avis-name">Amina K.</div>
+                  <div class="avis-meta">hier · via Google</div>
+                </div>
+                <div class="stars">★★★★★</div>
+              </div>
+              <div class="avis-text">"Endroit chaleureux, plats généreux et savoureux. La pastilla est à tomber. Je recommande !"</div>
+              <div class="reponse-box">
+                <div class="ai-tag">⚡ Réponse IA envoyée</div>
+                Merci Amina ! Notre pastilla est faite maison chaque matin, ravi qu'elle vous ait plu. À très bientôt !
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <div class="panel-title">Programme fidélité</div>
+                <div class="panel-sub">3 visites = couscous offert</div>
+              </div>
+            </div>
+
+            <div style="text-align:center; padding: 20px 0; border-bottom: 1px solid var(--line);">
+              <div style="font-family:'Fraunces',serif; font-size:42px; font-weight:500; color: var(--terra); line-height:1;">412</div>
+              <div style="font-size:12px; color: var(--ink-3); margin-top: 6px;">membres actifs</div>
+            </div>
+
+            <div style="margin-top: 16px;">
+              <div style="font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color: var(--ink-3); margin-bottom:10px;">Campagnes auto actives</div>
+
+              <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--line);">
+                <div>
+                  <div style="font-weight:600; font-size:13px;">SMS anniversaire</div>
+                  <div style="font-size:11px;color:var(--ink-3);">−20% sur le repas du jour J</div>
+                </div>
+                <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+              </div>
+
+              <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--line);">
+                <div>
+                  <div style="font-weight:600; font-size:13px;">Relance clients inactifs</div>
+                  <div style="font-size:11px;color:var(--ink-3);">+30 jours sans visite</div>
+                </div>
+                <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+              </div>
+
+              <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--line);">
+                <div>
+                  <div style="font-weight:600; font-size:13px;">SMS post-repas</div>
+                  <div style="font-size:11px;color:var(--ink-3);">Demande d'avis Google · 2h après</div>
+                </div>
+                <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+              </div>
+
+              <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 0;">
+                <div>
+                  <div style="font-weight:600; font-size:13px;">Promo Aïd / Ramadan</div>
+                  <div style="font-size:11px;color:var(--ink-3);">Programmée 7 jours avant</div>
+                </div>
+                <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== FOURNISSEURS ===================== -->
+      <section class="section" id="fournisseurs">
+        <div class="section-head">
+          <h1>Commandes <em>fournisseurs</em></h1>
+          <p>Vos commandes hebdomadaires sont préparées automatiquement à partir de vos consommations réelles. Vous validez d'un clic, l'envoi part par WhatsApp ou email.</p>
+        </div>
+
+        <div class="panel" style="margin-bottom:14px; background: linear-gradient(135deg, #fff, #f9efe2); border-color: var(--ocre);">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="width:48px; height:48px; border-radius:10px; background: var(--ocre); display:grid; place-items:center; color:#fff;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h7l-2 8 9-12h-7z"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="panel-title">3 bons de commande prêts à valider</div>
+              <div class="panel-sub">Total estimé : 847,50€ · gain de temps : ~ 1h45</div>
+            </div>
+            <button class="btn btn-primary">Tout valider →</button>
+          </div>
+        </div>
+
+        <div class="four-grid">
+          <div class="four-card">
+            <div class="four-head">
+              <div class="four-logo" style="background: linear-gradient(135deg, var(--terra), var(--terra-dark));">EB</div>
+              <div style="flex:1;">
+                <div class="four-name">El Baraka Halal</div>
+                <div class="four-tag">Boucherie · Vénissieux</div>
+              </div>
+              <span class="status confirme">Prêt</span>
+            </div>
+            <div class="four-items">
+              · Agneau épaule · 8 kg<br>
+              · Bœuf haché 15% · 12 kg<br>
+              · Poulet fermier · 15 kg<br>
+              · Merguez maison · 6 kg
+            </div>
+            <div class="four-foot">
+              <div class="next-cmd">Envoi : <strong>Lundi 8h via WhatsApp</strong></div>
+              <div style="font-weight:600; font-size:14px;">312€</div>
+            </div>
+          </div>
+
+          <div class="four-card">
+            <div class="four-head">
+              <div class="four-logo" style="background: linear-gradient(135deg, var(--olive), #8a9a5b);">P</div>
+              <div style="flex:1;">
+                <div class="four-name">Primeurs du Forez</div>
+                <div class="four-tag">Légumes & herbes · marché Gerland</div>
+              </div>
+              <span class="status confirme">Prêt</span>
+            </div>
+            <div class="four-items">
+              · Tomates · 10 kg<br>
+              · Courgettes · 8 kg<br>
+              · Coriandre & persil · 1 kg<br>
+              · Oignons rouges · 6 kg
+            </div>
+            <div class="four-foot">
+              <div class="next-cmd">Envoi : <strong>Mardi 6h via Email</strong></div>
+              <div style="font-weight:600; font-size:14px;">186€</div>
+            </div>
+          </div>
+
+          <div class="four-card">
+            <div class="four-head">
+              <div class="four-logo" style="background: linear-gradient(135deg, var(--ocre), #e2a84d);">D</div>
+              <div style="flex:1;">
+                <div class="four-name">Délices d'Atlas</div>
+                <div class="four-tag">Épicerie · pâtisserie orientale</div>
+              </div>
+              <span class="status attente">À valider</span>
+            </div>
+            <div class="four-items">
+              · Semoule fine · 25 kg<br>
+              · Cornes de gazelle · 200 pièces<br>
+              · Thé Tuareg · 2 kg<br>
+              · Eau de fleur d'oranger · 6 L
+            </div>
+            <div class="four-foot">
+              <div class="next-cmd">Envoi : <strong>Mercredi 9h via WhatsApp</strong></div>
+              <div style="font-weight:600; font-size:14px;">219€</div>
+            </div>
+          </div>
+
+          <div class="four-card">
+            <div class="four-head">
+              <div class="four-logo" style="background: linear-gradient(135deg, var(--bleu), #4a7388);">M</div>
+              <div style="flex:1;">
+                <div class="four-name">Métro Pro</div>
+                <div class="four-tag">Sec · épicerie · boissons</div>
+              </div>
+              <span class="status attente">Récurrent</span>
+            </div>
+            <div class="four-items">
+              · Huile d'olive 5L · ×6<br>
+              · Sodas pack 24 · ×8<br>
+              · Eau minérale 1,5L · ×40<br>
+              · Serviettes papier · ×10
+            </div>
+            <div class="four-foot">
+              <div class="next-cmd">Envoi : <strong>Jeudi via portail</strong></div>
+              <div style="font-weight:600; font-size:14px;">130,50€</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== GASPILLAGE ===================== -->
+      <section class="section" id="gaspi">
+        <div class="section-head">
+          <h1>Anti-<em>gaspillage</em></h1>
+          <p>Suivi des pertes par plat, recommandations d'ajustement des quantités préparées, alerte sur les écarts importants.</p>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi">
+            <div class="kpi-label">Gaspillage ce mois</div>
+            <div class="kpi-value">4,2<span class="unit">%</span></div>
+            <div class="kpi-trend up">▼ −2,1 pts vs mars</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Économie estimée</div>
+            <div class="kpi-value">340<span class="unit">€</span></div>
+            <div class="kpi-trend up">grâce aux ajustements</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Plats à risque</div>
+            <div class="kpi-value">2</div>
+            <div class="kpi-trend down">surproduction détectée</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Score éco-resto</div>
+            <div class="kpi-value">B+</div>
+            <div class="kpi-trend">objectif A</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-title">Pertes par plat · 7 derniers jours</div>
+              <div class="panel-sub">L'IA recommande d'ajuster les quantités produites</div>
+            </div>
+          </div>
+
+          <div class="gaspi-row head">
+            <div>Plat</div>
+            <div>Préparé</div>
+            <div>Jeté</div>
+            <div>Recommandation</div>
+          </div>
+
+          <div class="gaspi-row body">
+            <div>
+              <strong>Briouates fromage</strong>
+              <div style="font-size:11px;color:var(--ink-3);margin-top:3px;">Entrée · zone D</div>
+            </div>
+            <div style="font-weight:600;">240 pcs</div>
+            <div>
+              <div style="font-weight:600; color:var(--terra);">38 pcs (16%)</div>
+              <div class="gaspi-bar" style="margin-top:4px;"><div class="gaspi-bar-fill" style="width:80%;"></div></div>
+            </div>
+            <div style="font-size:12px; color: var(--olive); font-weight:600;">↓ Réduire à 200 pcs</div>
+          </div>
+
+          <div class="gaspi-row body">
+            <div>
+              <strong>Salade méchouia</strong>
+              <div style="font-size:11px;color:var(--ink-3);margin-top:3px;">Entrée · zone D</div>
+            </div>
+            <div style="font-weight:600;">12 kg</div>
+            <div>
+              <div style="font-weight:600; color:var(--ocre);">1,4 kg (12%)</div>
+              <div class="gaspi-bar" style="margin-top:4px;"><div class="gaspi-bar-fill med" style="width:60%;"></div></div>
+            </div>
+            <div style="font-size:12px; color: var(--olive); font-weight:600;">↓ Réduire à 10 kg</div>
+          </div>
+
+          <div class="gaspi-row body">
+            <div>
+              <strong>Tajine kefta</strong>
+              <div style="font-size:11px;color:var(--ink-3);margin-top:3px;">Plat chaud · zone B</div>
+            </div>
+            <div style="font-weight:600;">28 kg</div>
+            <div>
+              <div style="font-weight:600; color:var(--vert);">0,6 kg (2%)</div>
+              <div class="gaspi-bar" style="margin-top:4px;"><div class="gaspi-bar-fill low" style="width:10%;"></div></div>
+            </div>
+            <div style="font-size:12px; color: var(--terra); font-weight:600;">↑ Augmenter à 32 kg</div>
+          </div>
+
+          <div class="gaspi-row body">
+            <div>
+              <strong>Couscous royal</strong>
+              <div style="font-size:11px;color:var(--ink-3);margin-top:3px;">Plat chaud · zone A</div>
+            </div>
+            <div style="font-weight:600;">35 kg</div>
+            <div>
+              <div style="font-weight:600; color:var(--vert);">1,2 kg (3%)</div>
+              <div class="gaspi-bar" style="margin-top:4px;"><div class="gaspi-bar-fill low" style="width:15%;"></div></div>
+            </div>
+            <div style="font-size:12px; color: var(--ink-3); font-weight:600;">— Maintenir</div>
+          </div>
+
+          <div class="gaspi-row body">
+            <div>
+              <strong>Cornes de gazelle</strong>
+              <div style="font-size:11px;color:var(--ink-3);margin-top:3px;">Dessert · zone E</div>
+            </div>
+            <div style="font-weight:600;">180 pcs</div>
+            <div>
+              <div style="font-weight:600; color:var(--terra);">42 pcs (23%)</div>
+              <div class="gaspi-bar" style="margin-top:4px;"><div class="gaspi-bar-fill" style="width:90%;"></div></div>
+            </div>
+            <div style="font-size:12px; color: var(--olive); font-weight:600;">↓ Réduire à 140 pcs</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== STAFF ===================== -->
+      <section class="section" id="staff">
+        <div class="section-head">
+          <h1>Planning <em>de l'équipe</em></h1>
+          <p>Pointage automatique, planning généré sur la base de l'affluence prévue, alertes en cas d'absence ou de retard.</p>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi">
+            <div class="kpi-label">Équipe ce soir</div>
+            <div class="kpi-value">7<span class="unit">/ 7</span></div>
+            <div class="kpi-trend up">tous pointés ✓</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Heures cette semaine</div>
+            <div class="kpi-value">312<span class="unit">h</span></div>
+            <div class="kpi-trend">budget : 320h</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Coût main d'œuvre</div>
+            <div class="kpi-value">28<span class="unit">%</span></div>
+            <div class="kpi-trend up">▼ −3 pts vs cible</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Absences</div>
+            <div class="kpi-value">1</div>
+            <div class="kpi-trend">remplacement OK</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-title">Semaine du 27 avril au 3 mai</div>
+              <div class="panel-sub">Suggéré par IA selon l'affluence prévue · ajustable manuellement</div>
+            </div>
+            <button class="btn btn-primary">Publier le planning</button>
+          </div>
+
+          <div class="planning-grid">
+            <div class="head-cell"></div>
+            <div class="head-cell day">Lun<strong>27</strong></div>
+            <div class="head-cell day">Mar<strong>28</strong></div>
+            <div class="head-cell day">Mer<strong>29</strong></div>
+            <div class="head-cell day">Jeu<strong>30</strong></div>
+            <div class="head-cell day">Ven<strong>1</strong></div>
+            <div class="head-cell day">Sam<strong>2</strong></div>
+            <div class="head-cell day">Dim<strong>3</strong></div>
+
+            <div class="staff-name"><div class="staff-pic" style="background:#c2552d;">K</div>Karim · Chef</div>
+            <div class="shift full">11h–23h</div>
+            <div class="shift off">Repos</div>
+            <div class="shift full">11h–23h</div>
+            <div class="shift full">11h–23h</div>
+            <div class="shift full">11h–23h</div>
+            <div class="shift full">11h–00h</div>
+            <div class="shift midi">12h–16h</div>
+
+            <div class="staff-name"><div class="staff-pic" style="background:#6b7a4a;">F</div>Fatima · Cuis.</div>
+            <div class="shift midi">11h–15h</div>
+            <div class="shift full">11h–22h</div>
+            <div class="shift off">Repos</div>
+            <div class="shift midi">11h–15h</div>
+            <div class="shift full">11h–22h</div>
+            <div class="shift full">11h–23h</div>
+            <div class="shift midi">12h–16h</div>
+
+            <div class="staff-name"><div class="staff-pic" style="background:#d99a3a;">S</div>Samir · Salle</div>
+            <div class="shift soir">18h–23h</div>
+            <div class="shift soir">18h–23h</div>
+            <div class="shift soir">18h–23h</div>
+            <div class="shift off">Repos</div>
+            <div class="shift soir">18h–23h</div>
+            <div class="shift full">11h–00h</div>
+            <div class="shift soir">18h–22h</div>
+
+            <div class="staff-name"><div class="staff-pic" style="background:#4a7367;">L</div>Leila · Salle</div>
+            <div class="shift midi">11h–15h</div>
+            <div class="shift midi">11h–15h</div>
+            <div class="shift midi">11h–15h</div>
+            <div class="shift soir">18h–23h</div>
+            <div class="shift midi">11h–15h</div>
+            <div class="shift soir">18h–23h</div>
+            <div class="shift off">Repos</div>
+
+            <div class="staff-name"><div class="staff-pic" style="background:#2c4a5a;">Y</div>Yassine · Plonge</div>
+            <div class="shift soir">18h–23h</div>
+            <div class="shift off">Repos</div>
+            <div class="shift soir">18h–23h</div>
+            <div class="shift soir">18h–23h</div>
+            <div class="shift soir">18h–23h</div>
+            <div class="shift soir">18h–00h</div>
+            <div class="shift midi">12h–16h</div>
+
+            <div class="staff-name"><div class="staff-pic" style="background:#b03a2e;">M</div>Mehdi · Salle</div>
+            <div class="shift off">Repos</div>
+            <div class="shift soir">18h–23h</div>
+            <div class="shift soir">18h–23h</div>
+            <div class="shift soir">18h–23h</div>
+            <div class="shift full">11h–22h</div>
+            <div class="shift full">11h–00h</div>
+            <div class="shift midi">12h–16h</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== AUTOMATISATIONS ===================== -->
+      <section class="section" id="automatisations">
+        <div class="section-head">
+          <h1>Vos <em>automatisations</em></h1>
+          <p>Toutes vos automatisations actives et leur impact mesurable. Activez ou désactivez chaque flux en un clic.</p>
+        </div>
+
+        <div class="panel" style="margin-bottom: 14px; background: linear-gradient(135deg, #1f1a14, #3a2f22); color: #fff; border:none;">
+          <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 8px;">
+            <div>
+              <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.6);">Heures économisées ce mois</div>
+              <div style="font-family:'Fraunces',serif; font-size:42px; font-weight:500; margin-top:4px; color:#f4d99a;">~ 47h</div>
+              <div style="font-size:12px; color:rgba(255,255,255,0.7); margin-top: 2px;">soit <strong>1 175€</strong> de temps gérant</div>
+            </div>
+            <div>
+              <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.6);">Automatisations actives</div>
+              <div style="font-family:'Fraunces',serif; font-size:42px; font-weight:500; margin-top:4px; color:#fff;">8</div>
+              <div style="font-size:12px; color:rgba(255,255,255,0.7); margin-top: 2px;">sur 12 disponibles</div>
+            </div>
+            <div>
+              <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.6);">Actions auto déclenchées</div>
+              <div style="font-family:'Fraunces',serif; font-size:42px; font-weight:500; margin-top:4px; color:#fff;">1 248</div>
+              <div style="font-size:12px; color:rgba(255,255,255,0.7); margin-top: 2px;">ce mois-ci</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="auto-card">
+          <div class="auto-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
+          <div class="auto-body">
+            <div class="auto-title">Rappel SMS automatique aux réservations</div>
+            <div class="auto-desc">Envoi 2h avant le repas · réduit le no-show de 60%</div>
+            <div class="auto-stats">↑ 184 SMS envoyés · 12 no-shows évités ce mois</div>
+          </div>
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+        </div>
+
+        <div class="auto-card">
+          <div class="auto-icon" style="background: linear-gradient(135deg, var(--olive), #8a9a5b);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 11h18l-1 9H4z"/></svg></div>
+          <div class="auto-body">
+            <div class="auto-title">Alerte cuisine sur seuil de réassort</div>
+            <div class="auto-desc">Notification automatique au chef quand un plat passe sous 25%</div>
+            <div class="auto-stats">↑ 312 alertes ce mois · temps réassort divisé par 2</div>
+          </div>
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+        </div>
+
+        <div class="auto-card">
+          <div class="auto-icon" style="background: linear-gradient(135deg, var(--celadon), #6b9b8c);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+          <div class="auto-body">
+            <div class="auto-title">SMS post-repas pour avis Google</div>
+            <div class="auto-desc">Envoi 2h après le repas · 22% de conversion</div>
+            <div class="auto-stats">↑ 38 nouveaux avis · note passée de 4,3 à 4,6 ★</div>
+          </div>
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+        </div>
+
+        <div class="auto-card">
+          <div class="auto-icon" style="background: linear-gradient(135deg, var(--bleu), #4a7388);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 12a9 9 0 11-9-9c2.5 0 4.7 1 6.4 2.6"/><path d="M21 3v6h-6"/></svg></div>
+          <div class="auto-body">
+            <div class="auto-title">Réponses IA aux avis Google</div>
+            <div class="auto-desc">Auto pour 4★ et 5★ · brouillon pour les autres</div>
+            <div class="auto-stats">↑ 32 réponses auto · 6 brouillons à valider</div>
+          </div>
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+        </div>
+
+        <div class="auto-card">
+          <div class="auto-icon" style="background: linear-gradient(135deg, var(--ocre), #e2a84d);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 7h18l-2 12H5z"/></svg></div>
+          <div class="auto-body">
+            <div class="auto-title">Préparation automatique des bons fournisseurs</div>
+            <div class="auto-desc">Selon consommation réelle · validation 1 clic</div>
+            <div class="auto-stats">↑ 12 bons générés · ~ 7h de saisie évitées</div>
+          </div>
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+        </div>
+
+        <div class="auto-card">
+          <div class="auto-icon" style="background: linear-gradient(135deg, var(--terra), var(--ocre));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div class="auto-body">
+            <div class="auto-title">Pointage staff automatique</div>
+            <div class="auto-desc">Via QR code à l'entrée du restaurant</div>
+            <div class="auto-stats">↑ 168 pointages · feuille de paie générée auto</div>
+          </div>
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+        </div>
+
+        <div class="auto-card">
+          <div class="auto-icon" style="background: linear-gradient(135deg, #b03a2e, #c2552d);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 8v4M12 16h.01"/><circle cx="12" cy="12" r="10"/></svg></div>
+          <div class="auto-body">
+            <div class="auto-title">Alerte avis négatif (1-2★)</div>
+            <div class="auto-desc">Notification immédiate sur votre téléphone</div>
+            <div class="auto-stats">↑ 3 alertes ce mois · réponse moyenne en 12 min</div>
+          </div>
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+        </div>
+
+        <div class="auto-card">
+          <div class="auto-icon" style="background: linear-gradient(135deg, var(--olive), #8a9a5b);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div>
+          <div class="auto-body">
+            <div class="auto-title">Recommandation anti-gaspi quotidienne</div>
+            <div class="auto-desc">Ajustement des quantités préparées selon historique</div>
+            <div class="auto-stats">↑ ~340€ économisés ce mois</div>
+          </div>
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+  // Navigation entre sections
+  const items = document.querySelectorAll('.nav-item');
+  const sections = document.querySelectorAll('.section');
+  const bc = document.getElementById('bc');
+  const labels = {
+    dashboard: 'Tableau de bord',
+    reservations: 'Réservations',
+    buffet: 'Réassort buffet',
+    avis: 'Avis & fidélisation',
+    fournisseurs: 'Commandes fournisseurs',
+    gaspi: 'Anti-gaspillage',
+    staff: 'Planning équipe',
+    automatisations: 'Automatisations'
+  };
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      const target = item.dataset.target;
+      items.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      sections.forEach(s => s.classList.remove('active'));
+      const sec = document.getElementById(target);
+      if (sec) sec.classList.add('active');
+      if (bc && labels[target]) bc.textContent = labels[target];
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>

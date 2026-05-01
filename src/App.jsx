@@ -1,40 +1,30 @@
-import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Problems from './components/Problems';
-import WhyUs from './components/WhyUs';
-import Offers from './components/Offers';
-import Websites from './components/Websites';
-import HowItWorks from './components/HowItWorks';
-import Niches from './components/Niches';
-import ROI from './components/ROI';
-import Automations from './components/Automations';
-import Bio from './components/Bio';
-import FAQ from './components/FAQ';
-import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import SiteInternet from './pages/SiteInternet';
+import ReseauxSociaux from './pages/ReseauxSociaux';
+import FicheGoogle from './pages/FicheGoogle';
+import Automatisations from './pages/Automatisations';
+import Ecommerce from './pages/Ecommerce';
+import Restaurants from './pages/Restaurants';
+import Conciergerie from './pages/Conciergerie';
 
-function App() {
+export default function App() {
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <main>
-        <Hero />
-        <Problems />
-        <WhyUs />
-        <Offers />
-        <Websites />
-        <HowItWorks />
-        <Niches />
-        <ROI />
-        <Automations />
-        <Bio />
-        <FAQ />
-        <FinalCTA />
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sites-internet" element={<SiteInternet />} />
+        <Route path="/reseaux-sociaux" element={<ReseauxSociaux />} />
+        <Route path="/fiche-google" element={<FicheGoogle />} />
+        <Route path="/automatisations" element={<Automatisations />} />
+        <Route path="/ecommerce" element={<Ecommerce />} />
+        <Route path="/restaurants" element={<Restaurants />} />
+        <Route path="/conciergerie" element={<Conciergerie />} />
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
-
-export default App;
