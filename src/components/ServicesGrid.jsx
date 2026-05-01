@@ -25,7 +25,7 @@ export default function ServicesGrid() {
       titre: 'Fiche Google',
       prix: '130€ + 50€',
       prixSuffix: '/mois',
-      desc: 'Apparais en premier sur Google dans ta zone.',
+      desc: 'Apparaître en premier sur Google dans ta zone.',
       url: '/fiche-google',
       featured: false
     },

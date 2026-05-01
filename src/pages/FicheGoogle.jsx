@@ -17,7 +17,7 @@ export default function FicheGoogle() {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
-            Apparais en premier<br />
+            Apparaître en premier<br />
             sur Google.<br />
             <span className="text-[#6B3FE8]">Chez toi, dans ta ville.</span>
           </h1>
@@ -139,7 +139,7 @@ export default function FicheGoogle() {
 
           <div className="grid md:grid-cols-2 gap-4">
             {[
-              { icon: TrendingUp, titre: "Plus de visibilité locale", desc: "Apparais en haut des recherches Google de ta zone" },
+              { icon: TrendingUp, titre: "Plus de visibilité locale", desc: "Apparaître en haut des recherches Google de ta zone" },
               { icon: Phone, titre: "Plus d'appels directs", desc: "Bouton 'Appeler' visible sur Google = appels qualifiés" },
               { icon: Star, titre: "Plus d'avis 5 étoiles", desc: "Stratégie pour collecter et valoriser les avis clients" },
               { icon: MapPin, titre: "Plus de visites en boutique", desc: "Les clients trouvent ton adresse, ton itinéraire" },
