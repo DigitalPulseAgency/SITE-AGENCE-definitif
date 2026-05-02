@@ -118,8 +118,8 @@ export default function ReseauxSociaux() {
             {/* OFFRE GROWTH (PLACES LIMITÉES) */}
             <div className="bg-gradient-to-br from-[#6B3FE8]/30 to-[#6B3FE8]/5 border-2 border-[#6B3FE8] rounded-3xl p-8 flex flex-col relative">
               {/* Badge urgence */}
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500/10 border border-orange-400/30 text-orange-400 text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full whitespace-nowrap animate-pulse">
-                🔥 PLACES LIMITÉES
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 bg-orange-500/10 border border-orange-400/30 text-orange-400 text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full whitespace-nowrap animate-pulse">
+                20 PLACES LIMITÉES
               </div>
 
               <div className="mb-6">
