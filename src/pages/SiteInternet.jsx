@@ -96,12 +96,12 @@ export default function SiteInternet() {
 
               <ul className="space-y-3 mb-8 flex-grow">
                 {[
-                  "Site sur-mesure (5 pages)",
+                  "Site vitrine",
                   "100% responsive (mobile, tablette, ordi)",
                   "Optimisation SEO de base",
                   "Hébergement rapide inclus 1 an",
                   "Avis Google intégrés",
-                  "Livré en 7 jours",
+                  "Livré en 48 à 72h",
                   "Formation à la prise en main"
                 ].map((item, i) => (
                   <li key={i} className="flex gap-3 items-start">
@@ -115,7 +115,7 @@ export default function SiteInternet() {
                 href={CAL_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold py-3.5 rounded-xl transition-all"
+                className="w-full text-center bg-white/10 hover:bg-white/15 border border-[#6B3FE8]/40 hover:border-[#6B3FE8]/70 text-white font-semibold py-3.5 rounded-xl transition-all duration-300 shadow-[0_0_30px_rgba(107,63,232,0.35)] hover:shadow-[0_0_40px_rgba(107,63,232,0.6)] hover:scale-[1.02]"
               >
                 Choisir l'Essentiel
               </a>
@@ -136,7 +136,8 @@ export default function SiteInternet() {
                 <div className="flex items-baseline gap-2 mb-2">
                   <span className="text-5xl font-bold">1 200€</span>
                 </div>
-                <p className="text-sm text-white/60 mb-3">Paiement unique pour le site</p>
+                <p className="text-sm text-white/60 mb-2">Paiement unique pour le site</p>
+                <p className="text-sm font-semibold text-emerald-400 mb-3">✓ Paiement en 3 fois possible</p>
 
                 <div className="flex items-baseline gap-2 pt-3 border-t border-white/10">
                   <span className="text-2xl font-bold text-[#B59FFF]">+ 79€</span>
@@ -155,7 +156,8 @@ export default function SiteInternet() {
                   "Articles optimisés générés régulièrement",
                   "Référencement naturel sans payer d'ads",
                   "Hébergement premium inclus 1 an",
-                  "Maintenance + sécurité incluses"
+                  "Maintenance + sécurité incluses",
+                  "Livré en 3 à 7 jours maximum"
                 ].map((item, i) => (
                   <li key={i} className="flex gap-3 items-start">
                     <Check className="w-5 h-5 text-[#B59FFF] flex-shrink-0 mt-0.5" />
@@ -168,7 +170,7 @@ export default function SiteInternet() {
                 href={CAL_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold py-3.5 rounded-xl transition-all"
+                className="w-full text-center bg-gradient-to-r from-[#6B3FE8] to-[#8B5FFF] hover:from-[#5a32d4] hover:to-[#7a4ff0] text-white font-semibold py-3.5 rounded-xl transition-all duration-300 shadow-[0_0_30px_rgba(107,63,232,0.5)] hover:shadow-[0_0_45px_rgba(139,95,255,0.75)] hover:scale-[1.02]"
               >
                 Choisir Premium
               </a>
