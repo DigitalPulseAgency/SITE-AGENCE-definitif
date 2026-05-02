@@ -78,7 +78,7 @@ export default function ReseauxSociaux() {
             <div className="bg-white/[0.03] border border-white/10 rounded-3xl p-8 flex flex-col">
               <div className="mb-6">
                 <h3 className="text-2xl font-bold mb-2">Starter</h3>
-                <p className="text-white/60">Pour tester sur 1 mois, sans engagement</p>
+                <p className="text-white/60">Pour tester sur 1 mois.</p>
               </div>
 
               <div className="mb-6">
