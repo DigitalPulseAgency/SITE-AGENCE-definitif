@@ -78,8 +78,8 @@ export default function ServicesGrid() {
               <a
                 key={i}
                 href={service.url}
-                style={service.cardStyle}
-                className="group relative rounded-2xl p-5 border-[0.5px] flex flex-col min-h-[200px] md:min-h-[240px] transition-all duration-200 ease-out hover:scale-[1.02] hover:shadow-lg hover:shadow-violet-500/10"
+                style={{ ...service.cardStyle, boxShadow: '0 0 22px rgba(107, 63, 232, 0.22)' }}
+                className="group relative rounded-2xl p-5 border-[0.5px] flex flex-col min-h-[200px] md:min-h-[240px] transition-all duration-300 ease-out hover:scale-[1.03] hover:-translate-y-1 hover:!shadow-[0_0_45px_rgba(107,63,232,0.55)]"
               >
                 {service.featured && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#6B3FE8] text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap shadow-md">
@@ -113,9 +113,9 @@ export default function ServicesGrid() {
                   {service.desc}
                 </p>
 
-                <div className="inline-flex items-center gap-2 font-semibold text-sm group-hover:gap-3 transition-all">
+                <div className="inline-flex items-center gap-2 font-semibold text-sm bg-white/40 backdrop-blur px-3 py-1.5 rounded-full self-start transition-all duration-300 group-hover:bg-white/70 group-hover:gap-3 group-hover:shadow-md">
                   Découvrir
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </div>
               </a>
             );
