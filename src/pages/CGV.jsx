@@ -3,7 +3,7 @@ import { ArrowLeft } from 'lucide-react';
 
 export default function CGV() {
   return (
-    <div style={{ paddingTop: '8rem', paddingBottom: '4rem', minHeight: '100vh' }}>
+    <div style={{ paddingTop: '11rem', paddingBottom: '4rem', minHeight: '100vh' }}>
       <div className="container" style={{ maxWidth: '760px' }}>
         <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: '#6B3FE8', fontWeight: 600, marginBottom: '2rem' }}>
           <ArrowLeft size={18} /> Retour à l'accueil

@@ -41,7 +41,7 @@ export default function Automatisations() {
   return (
     <div className="bg-[#0a0a0f] text-white min-h-screen">
       {/* HERO */}
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+      <section className="relative pt-44 pb-20 px-6 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#6B3FE8] opacity-25 blur-[120px] rounded-full pointer-events-none" />
         <div className="max-w-5xl mx-auto relative">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#6B3FE8]/30 to-[#6B3FE8]/10 border border-[#6B3FE8]/40 mb-8">

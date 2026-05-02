@@ -9,7 +9,7 @@ export default function Hero() {
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
-      padding: '10rem 1.5rem 6rem',
+      padding: '11rem 1.5rem 6rem',
       position: 'relative',
       overflow: 'hidden'
     }}>
