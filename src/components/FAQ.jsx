@@ -48,7 +48,7 @@ export default function FAQ() {
         <div style={{ marginBottom: '4rem', marginTop: '4rem' }}>
           {faqs.map((faq, idx) => (
             <FadeIn key={idx} delay={idx * 0.1}>
-              <div className="accordion-item" style={{ backgroundColor: '#fff', borderRadius: '0.75rem', marginBottom: '1rem', overflow: 'hidden', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>
+              <div className="accordion-item" style={{ backgroundColor: '#fff', borderRadius: '0.75rem', marginBottom: '1rem', overflow: 'hidden', boxShadow: '0 4px 16px rgba(107, 63, 232, 0.06)', border: '1px solid #EEEAF6' }}>
                 <button 
                   className="accordion-header" 
                   onClick={() => setOpenIndex(openIndex === idx ? null : idx)}

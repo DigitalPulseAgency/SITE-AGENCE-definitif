@@ -8,6 +8,17 @@ export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const isDarkPage = location.pathname !== '/';
+  const navTextColor = isDarkPage ? '#FFFFFF' : '#1F1B2E';
+  const headerBg = isDarkPage
+    ? (scrolled ? 'rgba(10, 10, 15, 0.92)' : 'rgba(10, 10, 15, 0.6)')
+    : (scrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent');
+  const headerBorder = isDarkPage
+    ? (scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent')
+    : (scrolled ? '1px solid #E5E7EB' : '1px solid transparent');
+  const logoSrc = isDarkPage ? '/logo/logo_dark_bg.png' : '/logo/logo_light_bg.png';
+  const burgerBorder = isDarkPage ? '1px solid rgba(255,255,255,0.2)' : '1px solid #E5E7EB';
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -50,9 +61,10 @@ export default function Header() {
       left: 0,
       right: 0,
       zIndex: 50,
-      backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
-      backdropFilter: scrolled ? 'blur(10px)' : 'none',
-      borderBottom: scrolled ? '1px solid #E5E7EB' : '1px solid transparent',
+      backgroundColor: headerBg,
+      backdropFilter: (scrolled || isDarkPage) ? 'blur(10px)' : 'none',
+      WebkitBackdropFilter: (scrolled || isDarkPage) ? 'blur(10px)' : 'none',
+      borderBottom: headerBorder,
       transition: 'all 0.3s ease'
     }}>
       <div className="container" style={{
@@ -68,7 +80,7 @@ export default function Header() {
           style={{ display: 'inline-flex', alignItems: 'center' }}
         >
           <img
-            src="/logo/logo_light_bg.png"
+            src={logoSrc}
             alt="DigitalPulse Agency"
             style={{ height: '60px', width: 'auto' }}
             className="logo-img"
@@ -77,10 +89,10 @@ export default function Header() {
 
         {/* NAVIGATION DESKTOP — CACHÉE SUR MOBILE */}
         <nav className="desktop-only" style={{ display: 'none', gap: '2.5rem', fontWeight: 600 }}>
-          <a href="/" onClick={(e) => { e.preventDefault(); goToRoute('/')(); }} style={{ color: '#1F1B2E', textDecoration: 'none' }}>Accueil</a>
-          <a href="/#services" onClick={goToAnchor('services')} style={{ color: '#1F1B2E', textDecoration: 'none' }}>Services</a>
-          <a href="/#a-propos" onClick={goToAnchor('a-propos')} style={{ color: '#1F1B2E', textDecoration: 'none' }}>À propos</a>
-          <a href="/#faq" onClick={goToAnchor('faq')} style={{ color: '#1F1B2E', textDecoration: 'none' }}>FAQ</a>
+          <a href="/" onClick={(e) => { e.preventDefault(); goToRoute('/')(); }} style={{ color: navTextColor, textDecoration: 'none' }}>Accueil</a>
+          <a href="/#services" onClick={goToAnchor('services')} style={{ color: navTextColor, textDecoration: 'none' }}>Services</a>
+          <a href="/#a-propos" onClick={goToAnchor('a-propos')} style={{ color: navTextColor, textDecoration: 'none' }}>À propos</a>
+          <a href="/#faq" onClick={goToAnchor('faq')} style={{ color: navTextColor, textDecoration: 'none' }}>FAQ</a>
         </nav>
 
         {/* BOUTONS DESKTOP — CACHÉS SUR MOBILE */}
@@ -129,10 +141,11 @@ export default function Header() {
             justifyContent: 'center',
             width: '44px',
             height: '44px',
-            border: '1px solid #E5E7EB',
+            border: burgerBorder,
             borderRadius: '8px',
             background: 'none',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            color: navTextColor
           }}
           aria-label="Menu"
         >

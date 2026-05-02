@@ -72,20 +72,20 @@ export default function Hero() {
                   <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
-              <a href="#offres" className="btn btn-secondary" style={{ padding: '1rem 1.5rem', fontSize: '1.125rem', fontWeight: 600 }}>
+              <a href="#services" className="btn btn-secondary" style={{ padding: '1rem 1.5rem', fontSize: '1.125rem', fontWeight: 600 }}>
                 Voir nos offres
               </a>
             </div>
             
-            <div style={{ 
-              display: 'flex', 
-              flexWrap: 'wrap', 
-              gap: 'x: 2rem, y: 1rem', 
-              fontSize: '0.875rem', 
-              color: 'var(--text-muted)', 
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              rowGap: '1rem',
+              columnGap: '2.5rem',
+              fontSize: '0.875rem',
+              color: 'var(--text-muted)',
               fontWeight: 500,
-              justifyContent: HERO_HAS_PHOTO ? 'flex-start' : 'center',
-              columnGap: '2.5rem'
+              justifyContent: HERO_HAS_PHOTO ? 'flex-start' : 'center'
             }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" style={{ color: 'var(--purple-primary)' }}>

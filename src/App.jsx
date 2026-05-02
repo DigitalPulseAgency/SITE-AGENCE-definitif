@@ -9,6 +9,9 @@ import Automatisations from './pages/Automatisations';
 import Ecommerce from './pages/Ecommerce';
 import Restaurants from './pages/Restaurants';
 import Conciergerie from './pages/Conciergerie';
+import MentionsLegales from './pages/MentionsLegales';
+import Confidentialite from './pages/Confidentialite';
+import CGV from './pages/CGV';
 
 export default function App() {
   return (
@@ -23,6 +26,9 @@ export default function App() {
         <Route path="/ecommerce" element={<Ecommerce />} />
         <Route path="/restaurants" element={<Restaurants />} />
         <Route path="/conciergerie" element={<Conciergerie />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
+        <Route path="/confidentialite" element={<Confidentialite />} />
+        <Route path="/cgv" element={<CGV />} />
       </Routes>
       <Footer />
     </BrowserRouter>

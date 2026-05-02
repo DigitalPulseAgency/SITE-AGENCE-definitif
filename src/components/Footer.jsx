@@ -60,9 +60,9 @@ export default function Footer() {
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', width: '100%', paddingTop: '2rem', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: '1rem', fontSize: '0.875rem' }}>
           <div>Copyright &copy; 2026 DigitalPulse Agency</div>
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
-            <a href="#" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Mentions légales</a>
-            <a href="#" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Politique de confidentialité</a>
-            <a href="#" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>CGV</a>
+            <Link to="/mentions-legales" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Mentions légales</Link>
+            <Link to="/confidentialite" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>Politique de confidentialité</Link>
+            <Link to="/cgv" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>CGV</Link>
           </div>
         </div>
 
