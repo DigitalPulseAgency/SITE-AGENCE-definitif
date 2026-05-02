@@ -32,7 +32,7 @@ export default function Bio() {
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-gray-900">
-              Salut, moi c'est <span className="text-[#6B3FE8]">Louis.</span>
+              Bonjour, moi c'est <span className="text-[#6B3FE8]">Louis.</span>
             </h2>
 
             <div className="space-y-5 text-lg text-gray-700 leading-relaxed">
