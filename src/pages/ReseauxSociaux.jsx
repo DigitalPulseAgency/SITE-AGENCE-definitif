@@ -91,10 +91,11 @@ export default function ReseauxSociaux() {
 
               <ul className="space-y-3 mb-8 flex-grow">
                 {[
-                  "8 publications Instagram sur le mois",
+                  "2 posts vidéo par semaine (Reels)",
+                  "2 stories par semaine",
+                  "2 posts photo par semaine",
                   "Création des visuels et rédaction des textes",
                   "Réponse aux commentaires et DM",
-                  "1 reel/vidéo courte sur le mois",
                   "Reporting de performance en fin de mois",
                   "Aucun engagement : tu ne paies que ce mois-là"
                 ].map((item, i) => (
@@ -157,12 +158,12 @@ export default function ReseauxSociaux() {
                   </span>
                 </li>
                 {[
-                  "16 publications Instagram par mois",
+                  "5 posts vidéo par semaine (Reels)",
+                  "5 stories par semaine",
+                  "3 posts photo par semaine",
                   "Création des visuels et rédaction des textes",
                   "Réponse aux commentaires et DM",
-                  "4 reels/vidéos courtes par mois",
                   "Stratégie de hashtags personnalisée",
-                  "Stories quotidiennes (5j/7)",
                   "Reporting mensuel avec recommandations",
                   "Community manager dédié"
                 ].map((item, i) => (
