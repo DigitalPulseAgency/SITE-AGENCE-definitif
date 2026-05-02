@@ -66,13 +66,13 @@ export default function Hero() {
               justifyContent: HERO_HAS_PHOTO ? 'flex-start' : 'center',
               marginBottom: '3rem' 
             }}>
-              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ padding: '1.125rem 2.5rem', fontSize: '1.125rem', boxShadow: '0 20px 40px rgba(107, 63, 232, 0.2)' }}>
+              <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-primary transition-all duration-300 ease-out shadow-[0_0_25px_rgba(107,63,232,0.45)] hover:!shadow-[0_0_40px_rgba(107,63,232,0.7)] hover:scale-[1.02] hover:-translate-y-0.5" style={{ padding: '1.125rem 2.5rem', fontSize: '1.125rem' }}>
                 Réserver mon diagnostic gratuit
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '0.75rem' }}>
                   <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
-              <a href="#services" className="btn btn-secondary" style={{ padding: '1rem 1.5rem', fontSize: '1.125rem', fontWeight: 600 }}>
+              <a href="#services" className="btn btn-secondary transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(107,63,232,0.3)]" style={{ padding: '1rem 1.5rem', fontSize: '1.125rem', fontWeight: 600 }}>
                 Voir nos offres
               </a>
             </div>

@@ -124,7 +124,7 @@ export default function Header() {
             href={CAL_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-primary"
+            className="btn btn-primary transition-all duration-300 ease-out shadow-[0_0_25px_rgba(74,222,128,0.4)] hover:!shadow-[0_0_35px_rgba(74,222,128,0.65)] hover:scale-[1.02] hover:-translate-y-0.5"
             style={{ padding: '0.75rem 1.5rem', fontSize: '1rem' }}
           >
             Diagnostic gratuit
@@ -200,7 +200,9 @@ export default function Header() {
                   fontWeight: 700,
                   padding: '1rem',
                   borderRadius: '12px',
-                  textDecoration: 'none'
+                  textDecoration: 'none',
+                  boxShadow: '0 0 25px rgba(107, 63, 232, 0.45)',
+                  transition: 'all 0.3s ease-out'
                 }}
               >
                 ⚡ Diagnostic gratuit

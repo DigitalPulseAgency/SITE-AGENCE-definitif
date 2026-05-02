@@ -55,7 +55,7 @@ export default function Automatisations() {
           <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-3xl leading-relaxed">
             Des applications sur-mesure pour ton métier. Adaptées à ton activité, ton vocabulaire, ta façon de bosser.
           </p>
-          <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold px-8 py-4 rounded-xl transition-all hover:scale-[1.02]">
+          <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-[0_0_25px_rgba(107,63,232,0.45)] hover:shadow-[0_0_40px_rgba(107,63,232,0.7)] hover:scale-[1.02] hover:-translate-y-0.5">
             Réserver mon diagnostic gratuit
             <ArrowRight className="w-5 h-5" />
           </a>
@@ -105,7 +105,7 @@ export default function Automatisations() {
                   Le e-commerce, c'est un autre métier. Pas d'app sur-mesure, mais des leviers précis : e-mailing, publicités Meta/TikTok, optimisation de conversion, fidélisation.
                 </p>
               </div>
-              <a href="/ecommerce" className="inline-flex items-center gap-2 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold px-6 py-3 rounded-xl transition-all whitespace-nowrap">
+              <a href="/ecommerce" className="inline-flex items-center gap-2 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 ease-out whitespace-nowrap shadow-[0_0_25px_rgba(107,63,232,0.45)] hover:shadow-[0_0_40px_rgba(107,63,232,0.7)] hover:scale-[1.02] hover:-translate-y-0.5">
                 Voir l'offre e-commerce
                 <ArrowRight className="w-4 h-4" />
               </a>
@@ -123,7 +123,7 @@ export default function Automatisations() {
           <p className="text-xl text-white/70 mb-10">
             Réserve un diagnostic gratuit. On regarde ensemble ce que tu fais à la main, et on te dit ce qui pourrait être automatisé.
           </p>
-          <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold px-8 py-4 rounded-xl transition-all hover:scale-[1.02]">
+          <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-[0_0_25px_rgba(107,63,232,0.45)] hover:shadow-[0_0_40px_rgba(107,63,232,0.7)] hover:scale-[1.02] hover:-translate-y-0.5">
             Je réserve mon diagnostic
             <ArrowRight className="w-5 h-5" />
           </a>

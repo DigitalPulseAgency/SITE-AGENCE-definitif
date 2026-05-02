@@ -21,11 +21,12 @@ export default function FinalCTA() {
             15 minutes en visio. 100% offert. Zéro blabla.
           </p>
 
-          <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-star" style={{ 
-            backgroundColor: '#fff', 
-            color: 'var(--purple-primary)', 
-            padding: '1.25rem 3rem', 
-            fontSize: '1.125rem' 
+          <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="btn btn-star transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-0.5" style={{
+            backgroundColor: '#fff',
+            color: 'var(--purple-primary)',
+            padding: '1.25rem 3rem',
+            fontSize: '1.125rem',
+            boxShadow: '0 0 30px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 255, 255, 0.15)'
           }}>
             Réserver mon diagnostic gratuit <ArrowRight size={20} />
           </a>
