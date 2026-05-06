@@ -1,6 +1,6 @@
 export default function Bio() {
   return (
-    <section id="a-propos" className="py-24 px-6 bg-[#0a0a0f] text-white border-t border-white/5">
+    <section id="a-propos" className="py-24 px-6 text-white border-t border-white/5">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
@@ -45,7 +45,7 @@ export default function Bio() {
               </p>
 
               <p className="mb-4">
-                Aujourd'hui, je suis spécialisé en <strong className="text-white font-semibold">intelligence artificielle et en développement d'applications sur-mesure</strong>.
+                Aujourd'hui, je suis spécialisé en <strong className="text-white font-semibold">intelligence artificielle et en développement d'applications sur-mesure</strong>. Mais à la base, ça fait <strong className="text-white font-semibold">4 ans que je crée des sites web</strong> — d'abord avec WordPress et Shopify, et aujourd'hui en code sur-mesure pour des résultats à la hauteur de tes ambitions.
               </p>
 
               <p className="mb-4">

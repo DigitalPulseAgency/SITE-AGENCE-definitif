@@ -2,7 +2,7 @@ import { Globe, Instagram, MapPin, Sparkles, ShoppingBag, ArrowRight, Check } fr
 
 export default function ServicesGrid() {
   return (
-    <section id="services" className="py-24 px-6 bg-[#0a0a0f] text-white">
+    <section id="services" className="py-24 px-6 text-white">
       <div className="max-w-6xl mx-auto">
 
         {/* === SECTION 1 : SERVICES PHARES === */}
@@ -19,10 +19,6 @@ export default function ServicesGrid() {
 
           {/* CARD 1 — Automatisations IA (mise en valeur N°1) */}
           <div className="group relative p-8 rounded-2xl border-2 border-[#6B3FE8]/40 bg-gradient-to-br from-[#6B3FE8]/20 to-[#0a0a0f] shadow-[0_0_30px_rgba(107,63,232,0.3)] flex flex-col transition-all duration-300 ease-out hover:scale-[1.01] hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(107,63,232,0.55)] hover:border-[#6B3FE8]/70">
-            <div className="inline-flex items-center self-start gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-400/30 mb-5 animate-pulse">
-              <span className="text-xs font-bold uppercase tracking-wider text-orange-400">🔥 Service N°1</span>
-            </div>
-
             <Sparkles className="w-10 h-10 text-[#6B3FE8] mb-5" strokeWidth={2} />
 
             <h3 className="text-2xl font-bold mb-1">Automatisations IA</h3>

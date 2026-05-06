@@ -12,7 +12,6 @@ export default function Hero() {
       padding: '11rem 1.5rem 6rem',
       position: 'relative',
       overflow: 'hidden',
-      backgroundColor: '#0a0a0f',
       color: '#ffffff'
     }}>
       <div style={{
