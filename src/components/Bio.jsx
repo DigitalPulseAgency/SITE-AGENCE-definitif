@@ -17,8 +17,8 @@ export default function Bio() {
                 style={{ objectPosition: 'center top', imageRendering: 'auto' }}
                 loading="lazy"
                 decoding="async"
-                width="1023"
-                height="717"
+                width="1600"
+                height="1073"
               />
             </div>
           </div>
@@ -45,7 +45,8 @@ export default function Bio() {
               </p>
 
               <p className="mb-4">
-                Aujourd'hui, je suis spécialisé en <strong className="text-white font-semibold">intelligence artificielle et en développement d'applications sur-mesure</strong>. Mais à la base, ça fait <strong className="text-white font-semibold">4 ans que je crée des sites web</strong> — d'abord avec WordPress et Shopify, et aujourd'hui en code sur-mesure pour des résultats à la hauteur de tes ambitions.
+                <span className="block text-violet-300 font-bold text-lg md:text-xl mb-2">4 ans à créer des sites web. 2 ans plongé dans l'IA.</span>
+                Pendant que la plupart découvraient à peine ChatGPT, j'implémentais déjà des solutions concrètes chez mes clients. Aujourd'hui je suis spécialisé en <strong className="text-white font-semibold">intelligence artificielle et en développement d'applications sur-mesure</strong> — d'abord avec WordPress et Shopify, aujourd'hui en code sur-mesure pour des sites qui convertissent vraiment et des automatisations qui te font gagner des heures chaque semaine.
               </p>
 
               <p className="mb-4">
