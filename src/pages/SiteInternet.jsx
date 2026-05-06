@@ -76,7 +76,7 @@ export default function SiteInternet() {
 
           <div className="grid md:grid-cols-2 gap-6">
 
-            {/* OFFRE STARTER 280€ */}
+            {/* OFFRE ESSENTIEL 350€ */}
             <div className="bg-white/[0.03] border border-white/10 rounded-3xl p-8 flex flex-col">
               <div className="mb-6">
                 <div className="inline-block bg-[#6B3FE8]/20 text-[#B59FFF] text-xs font-bold px-3 py-1 rounded-full mb-3">
@@ -88,8 +88,8 @@ export default function SiteInternet() {
 
               <div className="mb-8">
                 <div className="flex items-baseline gap-3">
-                  <span className="text-white/50 line-through text-2xl">500€</span>
-                  <span className="text-5xl font-bold">280€</span>
+                  <span className="text-white/50 line-through text-2xl">600€</span>
+                  <span className="text-5xl font-bold">350€</span>
                 </div>
                 <p className="text-sm text-white/50 mt-2">Paiement unique · Sans abonnement</p>
               </div>
@@ -121,7 +121,7 @@ export default function SiteInternet() {
               </a>
             </div>
 
-            {/* OFFRE PREMIUM 1200€ + 79€/mois */}
+            {/* OFFRE PREMIUM 1500€ + 99€/mois */}
             <div className="bg-gradient-to-br from-[#6B3FE8]/30 to-[#6B3FE8]/5 border-2 border-[#6B3FE8] rounded-3xl p-8 flex flex-col relative">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#6B3FE8] text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap">
                 ⚡ POUR DOMINER TON SECTEUR
@@ -134,13 +134,13 @@ export default function SiteInternet() {
 
               <div className="mb-8">
                 <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-5xl font-bold">1 200€</span>
+                  <span className="text-5xl font-bold">1 500€</span>
                 </div>
                 <p className="text-sm text-white/60 mb-2">Paiement unique pour le site</p>
                 <p className="text-sm font-semibold text-emerald-400 mb-3">✓ Paiement en 3 fois possible</p>
 
                 <div className="flex items-baseline gap-2 pt-3 border-t border-white/10">
-                  <span className="text-2xl font-bold text-[#B59FFF]">+ 79€</span>
+                  <span className="text-2xl font-bold text-[#B59FFF]">+ 99€</span>
                   <span className="text-white/70">/mois automatisation SEO</span>
                 </div>
                 <p className="text-xs text-white/50 mt-2">Articles de blog optimisés mots-clés, sans payer d'ads</p>
@@ -194,7 +194,7 @@ export default function SiteInternet() {
               </div>
 
               <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-                Comment 79€/mois<br />
+                Comment 99€/mois<br />
                 <span className="text-[#6B3FE8]">remplacent 500€ de pubs Google.</span>
               </h2>
 
@@ -280,7 +280,7 @@ export default function SiteInternet() {
             <ArrowRight className="w-5 h-5" />
           </a>
           <p className="text-sm text-white/50 mt-6">
-            Tarif Essentiel à 280€ valable jusqu'à fin mai 2026
+            Tarif Essentiel à 350€ valable jusqu'à fin mai 2026
           </p>
         </div>
       </section>

@@ -36,9 +36,9 @@ export default function Hero() {
               lineHeight: 1.1, 
               fontWeight: 700 
             }}>
-              <span style={{ display: 'block', color: '#1F1B2E' }}>Plus de clients qualifiés.</span>
-              <span style={{ display: 'block', color: '#1F1B2E' }}>Plus de soirées libres.</span>
-              <span style={{ display: 'block', color: '#6B3FE8' }}>Moins de stress au quotidien.</span>
+              <span style={{ display: 'block', color: '#1F1B2E' }}>Plus de temps.</span>
+              <span style={{ display: 'block', color: '#1F1B2E' }}>Plus de clients.</span>
+              <span style={{ display: 'block', color: '#6B3FE8' }}>Sans recruter.</span>
             </h1>
           </FadeIn>
           
@@ -53,7 +53,7 @@ export default function Hero() {
               marginLeft: HERO_HAS_PHOTO ? '0' : 'auto',
               marginRight: HERO_HAS_PHOTO ? '0' : 'auto'
             }}>
-              On gère ta visibilité sur Google, Instagram et TikTok. On va chercher des prospects qualifiés chez tes concurrents. On automatise tes tâches chronophages. <strong style={{ color: '#1F1B2E' }}>On te redonne ton temps. Et tu reviens à l'essentiel.</strong>
+              On développe des <strong style={{ color: '#1F1B2E' }}>applications sur-mesure</strong> qui centralisent <strong style={{ color: '#1F1B2E' }}>3 à 5 automatisations</strong> adaptées à ton métier. On crée aussi des <strong style={{ color: '#1F1B2E' }}>sites web qui convertissent</strong>. Tu gardes ta visibilité, tu gagnes du temps, tu te recentres sur l'essentiel.
             </p>
           </FadeIn>
           
