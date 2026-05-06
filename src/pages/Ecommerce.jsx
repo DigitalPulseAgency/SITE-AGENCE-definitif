@@ -3,7 +3,7 @@ import { CAL_LINK } from '../config/links';
 
 export default function Ecommerce() {
   return (
-    <div className="bg-[#0a0a0f] text-white min-h-screen">
+    <div className="text-white min-h-screen">
       {/* HERO */}
       <section className="relative pt-44 pb-20 px-6 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#6B3FE8] opacity-20 blur-[120px] rounded-full pointer-events-none" />
