@@ -3,13 +3,13 @@
 :root {
   --bg-main: #FFFFFF;
   --bg-alt: #FAFAFC;
-  --purple-primary: #9333EA;
-  --purple-hover: #7E22CE;
-  --purple-light: #F3E8FF;
-  --purple-electric: #A855F7;
+  --purple-primary: #6B3FE8;
+  --purple-hover: #5a32d4;
+  --purple-light: #B59FFF;
+  --purple-electric: #8B5FFF;
   --text-main: #1F1B2E;
   --text-muted: #6B7280;
-  
+
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
@@ -97,21 +97,42 @@ ul {
 .btn-primary {
   background-color: var(--purple-primary);
   color: #fff;
+  box-shadow: 0 0 25px rgba(107, 63, 232, 0.45);
+  transition: all 0.3s ease-out;
 }
 
 .btn-primary:hover {
   background-color: var(--purple-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(107, 63, 232, 0.3);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 40px rgba(107, 63, 232, 0.7);
 }
 
 .btn-secondary {
-  background-color: transparent;
-  color: var(--purple-primary);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(107, 63, 232, 0.2);
+  transition: all 0.3s ease-out;
 }
 
 .btn-secondary:hover {
-  color: var(--purple-hover);
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(167, 139, 250, 0.5);
+  box-shadow: 0 0 25px rgba(107, 63, 232, 0.5);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn-success {
+  background-color: #10B981;
+  color: #fff;
+  box-shadow: 0 0 25px rgba(74, 222, 128, 0.4);
+  transition: all 0.3s ease-out;
+}
+
+.btn-success:hover {
+  background-color: #059669;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 35px rgba(74, 222, 128, 0.65);
 }
 
 .btn-white {

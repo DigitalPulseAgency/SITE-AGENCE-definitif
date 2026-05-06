@@ -8,16 +8,12 @@ export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const isDarkPage = location.pathname !== '/';
-  const navTextColor = isDarkPage ? '#FFFFFF' : '#1F1B2E';
-  const headerBg = isDarkPage
-    ? (scrolled ? 'rgba(10, 10, 15, 0.92)' : 'rgba(10, 10, 15, 0.6)')
-    : (scrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent');
-  const headerBorder = isDarkPage
-    ? (scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent')
-    : (scrolled ? '1px solid #E5E7EB' : '1px solid transparent');
-  const logoSrc = isDarkPage ? '/logo/logo_dark_bg.png' : '/logo/logo_light_bg.png';
-  const burgerBorder = isDarkPage ? '1px solid rgba(255,255,255,0.2)' : '1px solid #E5E7EB';
+  // Site entièrement en dark mode désormais
+  const navTextColor = '#FFFFFF';
+  const headerBg = scrolled ? 'rgba(10, 10, 15, 0.92)' : 'rgba(10, 10, 15, 0.6)';
+  const headerBorder = scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent';
+  const logoSrc = '/logo/logo_dark_bg.png';
+  const burgerBorder = '1px solid rgba(255,255,255,0.2)';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,8 +58,8 @@ export default function Header() {
       right: 0,
       zIndex: 50,
       backgroundColor: headerBg,
-      backdropFilter: (scrolled || isDarkPage) ? 'blur(10px)' : 'none',
-      WebkitBackdropFilter: (scrolled || isDarkPage) ? 'blur(10px)' : 'none',
+      backdropFilter: 'blur(10px)',
+      WebkitBackdropFilter: 'blur(10px)',
       borderBottom: headerBorder,
       transition: 'all 0.3s ease'
     }}>
@@ -97,20 +93,22 @@ export default function Header() {
 
         {/* BOUTONS DESKTOP — CACHÉS SUR MOBILE */}
         <div className="desktop-only" style={{ display: 'none', alignItems: 'center', gap: '1rem' }}>
-          {/* Pilule téléphone */}
+          {/* Pilule téléphone (outline vert + glow subtil) */}
           <a
             href="tel:+33615940883"
+            className="transition-all duration-300 ease-out hover:!shadow-[0_0_22px_rgba(74,222,128,0.4)]"
             style={{
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
-              backgroundColor: '#F0FDF4',
+              backgroundColor: 'rgba(16, 185, 129, 0.08)',
               padding: '0.5rem 1rem',
               borderRadius: '9999px',
-              border: '1px solid #DCFCE7',
-              color: '#15803D',
+              border: '1px solid rgba(74, 222, 128, 0.35)',
+              color: '#4ADE80',
               fontWeight: 600,
-              textDecoration: 'none'
+              textDecoration: 'none',
+              boxShadow: '0 0 15px rgba(74, 222, 128, 0.2)'
             }}
           >
             <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
@@ -119,12 +117,12 @@ export default function Header() {
             06 15 94 08 83
           </a>
 
-          {/* CTA Diagnostic gratuit */}
+          {/* CTA Diagnostic gratuit (vert harmonisé) */}
           <a
             href={CAL_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-primary transition-all duration-300 ease-out shadow-[0_0_25px_rgba(74,222,128,0.4)] hover:!shadow-[0_0_35px_rgba(74,222,128,0.65)] hover:scale-[1.02] hover:-translate-y-0.5"
+            className="btn btn-success"
             style={{ padding: '0.75rem 1.5rem', fontSize: '1rem' }}
           >
             Diagnostic gratuit
@@ -158,12 +156,12 @@ export default function Header() {
 
       {/* MENU MOBILE PLEIN ÉCRAN */}
       {mobileMenuOpen && (
-        <div style={{ position: 'fixed', inset: 0, zIndex: 100, backgroundColor: 'white', display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.5rem', borderBottom: '1px solid #E5E7EB', position: 'sticky', top: 0, backgroundColor: 'white', zIndex: 1 }}>
-            <span style={{ fontSize: '1.25rem', fontWeight: 700 }}>Menu</span>
+        <div style={{ position: 'fixed', inset: 0, zIndex: 100, backgroundColor: '#0a0a0f', color: '#ffffff', display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', position: 'sticky', top: 0, backgroundColor: '#0a0a0f', zIndex: 1 }}>
+            <span style={{ fontSize: '1.25rem', fontWeight: 700, color: '#ffffff' }}>Menu</span>
             <button
               onClick={() => setMobileMenuOpen(false)}
-              style={{ width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', background: 'none', cursor: 'pointer' }}
+              style={{ width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', background: 'none', cursor: 'pointer', color: '#ffffff' }}
               aria-label="Fermer"
             >
               <svg style={{ width: '28px', height: '28px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
@@ -175,14 +173,14 @@ export default function Header() {
           <nav style={{ display: 'flex', flexDirection: 'column', padding: '1.5rem', gap: '0.25rem' }}>
             <a href="/" onClick={(e) => { e.preventDefault(); goToRoute('/')(); }} style={mobileLinkStyle}>Accueil</a>
 
-            <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', padding: '1rem 1rem 0.5rem' }}>Services</p>
+            <p style={{ fontSize: '0.75rem', fontWeight: 700, color: 'rgba(255,255,255,0.45)', textTransform: 'uppercase', letterSpacing: '0.05em', padding: '1rem 1rem 0.5rem' }}>Services</p>
             <a href="/sites-internet" onClick={(e) => { e.preventDefault(); goToRoute('/sites-internet')(); }} style={mobileLinkStyle}>Sites internet</a>
             <a href="/reseaux-sociaux" onClick={(e) => { e.preventDefault(); goToRoute('/reseaux-sociaux')(); }} style={mobileLinkStyle}>Réseaux sociaux</a>
             <a href="/fiche-google" onClick={(e) => { e.preventDefault(); goToRoute('/fiche-google')(); }} style={mobileLinkStyle}>Fiche Google</a>
             <a href="/automatisations" onClick={(e) => { e.preventDefault(); goToRoute('/automatisations')(); }} style={mobileLinkStyle}>Automatisations IA</a>
             <a href="/ecommerce" onClick={(e) => { e.preventDefault(); goToRoute('/ecommerce')(); }} style={mobileLinkStyle}>E-commerce</a>
 
-            <p style={{ fontSize: '0.75rem', fontWeight: 700, color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.05em', padding: '1rem 1rem 0.5rem' }}>L'agence</p>
+            <p style={{ fontSize: '0.75rem', fontWeight: 700, color: 'rgba(255,255,255,0.45)', textTransform: 'uppercase', letterSpacing: '0.05em', padding: '1rem 1rem 0.5rem' }}>L'agence</p>
             <a href="/#a-propos" onClick={goToAnchor('a-propos')} style={mobileLinkStyle}>À propos</a>
             <a href="/#faq" onClick={goToAnchor('faq')} style={mobileLinkStyle}>FAQ</a>
 
@@ -215,13 +213,14 @@ export default function Header() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '0.5rem',
-                  backgroundColor: '#F0FDF4',
-                  border: '1px solid #DCFCE7',
-                  color: '#15803D',
+                  backgroundColor: 'rgba(16, 185, 129, 0.08)',
+                  border: '1px solid rgba(74, 222, 128, 0.35)',
+                  color: '#4ADE80',
                   fontWeight: 600,
                   padding: '0.875rem',
                   borderRadius: '12px',
-                  textDecoration: 'none'
+                  textDecoration: 'none',
+                  boxShadow: '0 0 15px rgba(74, 222, 128, 0.2)'
                 }}
               >
                 <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
@@ -255,7 +254,7 @@ const mobileLinkStyle = {
   padding: '1rem',
   fontSize: '1.125rem',
   fontWeight: 600,
-  color: '#1F1B2E',
+  color: '#FFFFFF',
   textDecoration: 'none',
   borderRadius: '8px',
   display: 'block'
