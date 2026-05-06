@@ -11,8 +11,23 @@ export default function Hero() {
       alignItems: 'center',
       padding: '11rem 1.5rem 6rem',
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      backgroundColor: '#0a0a0f',
+      color: '#ffffff'
     }}>
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '900px',
+        height: '900px',
+        background: '#6B3FE8',
+        opacity: 0.18,
+        filter: 'blur(140px)',
+        borderRadius: '50%',
+        pointerEvents: 'none'
+      }} />
       <div className="container" style={{
         display: HERO_HAS_PHOTO ? 'grid' : 'flex',
         flexDirection: HERO_HAS_PHOTO ? 'row' : 'column',
@@ -36,24 +51,24 @@ export default function Hero() {
               lineHeight: 1.1, 
               fontWeight: 700 
             }}>
-              <span style={{ display: 'block', color: '#1F1B2E' }}>Plus de temps.</span>
-              <span style={{ display: 'block', color: '#1F1B2E' }}>Plus de clients.</span>
+              <span style={{ display: 'block', color: '#ffffff' }}>Plus de temps.</span>
+              <span style={{ display: 'block', color: '#ffffff' }}>Plus de clients.</span>
               <span style={{ display: 'block', color: '#6B3FE8' }}>Sans recruter.</span>
             </h1>
           </FadeIn>
           
           <FadeIn delay={0.1}>
-            <p style={{ 
-              fontSize: 'clamp(1.125rem, 2vw, 1.25rem)', 
-              color: '#6B7280', 
-              maxWidth: HERO_HAS_PHOTO ? '600px' : '850px', 
-              lineHeight: 1.7, 
+            <p style={{
+              fontSize: 'clamp(1.125rem, 2vw, 1.25rem)',
+              color: 'rgba(255,255,255,0.7)',
+              maxWidth: HERO_HAS_PHOTO ? '600px' : '850px',
+              lineHeight: 1.7,
               marginTop: '2rem',
               marginBottom: '2.5rem',
               marginLeft: HERO_HAS_PHOTO ? '0' : 'auto',
               marginRight: HERO_HAS_PHOTO ? '0' : 'auto'
             }}>
-              On développe des <strong style={{ color: '#1F1B2E' }}>applications sur-mesure</strong> qui centralisent <strong style={{ color: '#1F1B2E' }}>3 à 5 automatisations</strong> adaptées à ton métier. On crée aussi des <strong style={{ color: '#1F1B2E' }}>sites web qui convertissent</strong>. Tu gardes ta visibilité, tu gagnes du temps, tu te recentres sur l'essentiel.
+              On développe des <strong style={{ color: '#ffffff' }}>applications sur-mesure</strong> qui centralisent <strong style={{ color: '#ffffff' }}>3 à 5 automatisations</strong> adaptées à ton métier. On crée aussi des <strong style={{ color: '#ffffff' }}>sites web qui convertissent</strong>. Tu gardes ta visibilité, tu gagnes du temps, tu te recentres sur l'essentiel.
             </p>
           </FadeIn>
           
@@ -83,7 +98,7 @@ export default function Hero() {
               rowGap: '1rem',
               columnGap: '2.5rem',
               fontSize: '0.875rem',
-              color: 'var(--text-muted)',
+              color: 'rgba(255,255,255,0.65)',
               fontWeight: 500,
               justifyContent: HERO_HAS_PHOTO ? 'flex-start' : 'center'
             }}>
