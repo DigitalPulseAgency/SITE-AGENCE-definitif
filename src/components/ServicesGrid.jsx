@@ -100,38 +100,38 @@ export default function ServicesGrid() {
             </p>
           </div>
 
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto">
 
             {/* CARD 3 — Réseaux sociaux */}
-            <div className="group p-5 rounded-xl border border-white/5 bg-white/[0.02] flex flex-col transition-all duration-300 ease-out hover:bg-white/[0.04] hover:border-white/15">
-              <Instagram className="w-7 h-7 text-white/85 mb-3" strokeWidth={2} />
-              <h4 className="text-lg font-semibold mb-1.5">Réseaux sociaux</h4>
-              <p className="text-sm text-white/60 leading-relaxed mb-3">
+            <div className="card-secondary group p-7 rounded-xl border border-white/10 bg-white/[0.03] flex flex-col transition-all duration-300 ease-out hover:bg-white/[0.05] hover:border-violet-400/40 hover:shadow-[0_0_25px_rgba(107,63,232,0.3)] hover:scale-[1.02]">
+              <Instagram className="w-7 h-7 text-violet-300 mb-4" strokeWidth={2} />
+              <h4 className="text-xl font-semibold mb-2 text-white">Réseaux sociaux</h4>
+              <p className="text-sm text-white/65 leading-relaxed mb-4">
                 Gestion Instagram clé en main. Création de contenu, publications, prospection ciblée.
               </p>
-              <p className="text-base font-bold text-violet-400 mb-3">Dès 69€</p>
+              <p className="text-base font-bold text-violet-400 mb-4">Dès 69€</p>
               <a
                 href="/reseaux-sociaux"
-                className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 hover:text-violet-300 group-hover:gap-2 transition-all"
+                className="card-cta-secondary mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 hover:text-violet-300 group-hover:gap-2 transition-all"
               >
-                Voir l'offre
+                <span className="card-cta-text">Voir l'offre</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
               </a>
             </div>
 
             {/* CARD 4 — Fiche Google */}
-            <div className="group p-5 rounded-xl border border-white/5 bg-white/[0.02] flex flex-col transition-all duration-300 ease-out hover:bg-white/[0.04] hover:border-white/15">
-              <MapPin className="w-7 h-7 text-white/85 mb-3" strokeWidth={2} />
-              <h4 className="text-lg font-semibold mb-1.5">Fiche Google</h4>
-              <p className="text-sm text-white/60 leading-relaxed mb-3">
+            <div className="card-secondary group p-7 rounded-xl border border-white/10 bg-white/[0.03] flex flex-col transition-all duration-300 ease-out hover:bg-white/[0.05] hover:border-violet-400/40 hover:shadow-[0_0_25px_rgba(107,63,232,0.3)] hover:scale-[1.02]">
+              <MapPin className="w-7 h-7 text-violet-300 mb-4" strokeWidth={2} />
+              <h4 className="text-xl font-semibold mb-2 text-white">Fiche Google</h4>
+              <p className="text-sm text-white/65 leading-relaxed mb-4">
                 Apparaître en premier sur Google dans ta zone géographique. Setup + maintenance.
               </p>
-              <p className="text-base font-bold text-violet-400 mb-3">130€ + 50€/mois</p>
+              <p className="text-base font-bold text-violet-400 mb-4">130€</p>
               <a
                 href="/fiche-google"
-                className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 hover:text-violet-300 group-hover:gap-2 transition-all"
+                className="card-cta-secondary mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 hover:text-violet-300 group-hover:gap-2 transition-all"
               >
-                Voir l'offre
+                <span className="card-cta-text">Voir l'offre</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
               </a>
             </div>

@@ -12,7 +12,7 @@ export default function Header() {
   const navTextColor = '#FFFFFF';
   const headerBg = scrolled ? 'rgba(10, 10, 15, 0.92)' : 'rgba(10, 10, 15, 0.6)';
   const headerBorder = scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent';
-  const logoSrc = '/logo/logo_dark_bg.png';
+  const logoSrc = '/logo.png';
   const burgerBorder = '1px solid rgba(255,255,255,0.2)';
 
   useEffect(() => {

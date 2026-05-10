@@ -9,50 +9,63 @@ export default function FAQ() {
 
   const faqs = [
     {
-      q: "Je ne suis pas sûr de savoir ce dont j'ai besoin, est-ce que je peux quand même réserver un diagnostic ?",
-      a: "Oui, et c'est même exactement le bon réflexe. Le diagnostic de 15 minutes sert précisément à ça : on analyse ta situation, on identifie ce qui bloque, et on te dit honnêtement si on peut t'aider — ou pas. Aucun engagement, aucun argumentaire forcé."
+      q: "Est-ce que je dois m'engager sur une durée minimum ?",
+      a: `Cela dépend uniquement du service Réseaux Sociaux :
+- **Offre Starter (79€/mois)** : aucun engagement, paiement mensuel
+- **Offre Growth (247€/mois)** : engagement minimum de 6 mois pour des résultats durables
+
+Tous les autres services (sites, automatisations IA, Fiche Google) sont des prestations ponctuelles sans engagement de durée.`
     },
     {
-      q: "Combien de temps avant de voir des résultats ?",
-      a: "Avec l'offre Acquisition (prospection active), les premiers contacts qualifiés arrivent souvent en 3 à 6 semaines. Avec les sites internet + SEO, le référencement Google prend 2 à 4 mois pour bien se positionner, mais tu es opérationnel dès la mise en ligne."
+      q: "Combien de temps pour avoir des résultats ?",
+      a: `Cela dépend du levier activé :
+- **SEO + Fiche Google** : 2 semaines à 1 mois pour les premiers résultats. C'est le levier le plus puissant sur la durée.
+- **Réseaux sociaux** : 2 à 3 mois pour voir les effets, mais extrêmement puissant sur le long terme.
+- **Automatisations IA** : effet immédiat dès la mise en place, tu gagnes du temps dès la première semaine.
+
+La combinaison la plus puissante reste : SEO + Site optimisé + Fiche Google.`
     },
     {
-      q: "Est-ce que je dois m'engager sur une durée minimum ?",
-      a: "Pour la gestion des réseaux sociaux, c'est un abonnement mensuel résiliable à tout moment. On préfère te garder parce que tu es content des résultats, pas parce qu'un contrat te bloque."
+      q: "4 ans d'expérience ? Pourtant DigitalPulse Agency vient de se lancer...",
+      a: `Exact. La marque DigitalPulse Agency est récente, mais moi pas. Ça fait 4 ans que je crée des sites web (WordPress, Shopify, puis code sur-mesure) et 2 ans que je suis plongé dans l'IA. J'ai testé mes solutions chez des proches et mes premiers clients bien avant de structurer la marque.
+
+Aujourd'hui, ma priorité c'est claire : **redonner du temps aux entreprises** en automatisant leurs tâches chronophages et répétitives à faible valeur ajoutée. Pour qu'elles se concentrent sur l'essentiel et passent plus de temps avec leur famille.`
     },
     {
-      q: "Comment ça, \"4 ans d'expérience\" si DigitalPulse Agency vient de se lancer ?",
-      a: "Bonne question. Louis crée des sites et gère des réseaux sociaux depuis 4 ans, d'abord pour son entourage professionnel (artisans, carrossiers, conciergeries, indépendants de son réseau). Il a appris sur le terrain, en vrai, avec des résultats concrets.\n\nDigitalPulse Agency, c'est la structure professionnelle qu'il a créée cette année pour proposer ce savoir-faire au plus grand nombre — avec en plus une nouvelle méthode d'acquisition (prospection active + automatisation IA des premières interactions) qu'on a développée spécifiquement pour les entreprises locales.\n\nTu bénéficies donc d'une expertise de 4 ans sur le terrain, ET d'une méthode nouvelle qui n'existe pas ailleurs. Le meilleur des deux mondes."
+      q: "Pourquoi seulement 20 clients par secteur ?",
+      a: `Cette limite concerne **uniquement le service Réseaux Sociaux**, pour garantir une qualité maximale sur chaque compte.
+
+Pour les automatisations IA, je travaille avec un réseau de 3 prestataires freelance expérimentés. Je me concentre sur l'acquisition et le suivi clients, et nous développons actuellement notre activité en Suisse également.`
     },
     {
-      q: "Pourquoi seulement 20 clients par secteur ?",
-      a: "Parce qu'on est deux à bosser à la main, et qu'on refuse de diluer la qualité de service. Aussi, on ne veut pas de conflit d'intérêt : on ne prend pas deux concurrents directs dans la même zone. Quand le quota est atteint, on ferme les inscriptions le temps d'agrandir l'équipe."
-    },
-    {
-      q: "Pourquoi le tarif fondateur à 187€ ?",
-      a: "Parce que DigitalPulse Agency est une structure récente, avec une méthode nouvelle qui combine prospection active sur les comptes des concurrents et automatisation des premières interactions grâce à l'IA.\n\nCette méthode n'existait pas sous cette forme il y a encore quelques mois. On a besoin de premiers clients pour prouver son efficacité à grande échelle et construire des études de cas solides, secteur par secteur.\n\nEn échange, les clients fondateurs bénéficient du tarif de lancement à vie — même quand le prix passera à 400€/mois pour les nouveaux inscrits. C'est notre manière de remercier ceux qui nous font confiance en premier."
-    },
-    {
-      q: "Vous travaillez avec des entreprises comme la mienne ?",
-      a: "Nos spécialistes accompagnent principalement : les salons de beauté, les coiffeurs, les conciergeries immobilières, les restaurants et pizzerias, les artisans du bâtiment (maçons, etc.), et les garages/carrossiers. Si ton domaine n'est pas listé, parlons-en lors du diagnostic gratuit."
+      q: "Vous travaillez avec des entreprises comme la mienne ?",
+      a: `On accompagne en priorité :
+
+**BTP - Artisans du bâtiment** : piscinistes, climaticiens, frigoristes, plombiers, chauffagistes, maçons, peintres, sociétés de nettoyage.
+
+**Automobile** : carrossiers, mécaniciens.
+
+**Restauration** : restaurants, bars, brasseries.
+
+On adapte aussi nos méthodes aux conciergeries immobilières, instituts de beauté, salons de massage, spas, salons de coiffure et au monde du bien-être en général.
+
+En réalité, **95% du temps, c'est faisable**. Tout est sur-mesure. Le mieux c'est d'en parler 15 min en visio pour voir ce qu'on peut faire pour toi.`
     }
   ];
 
-  const HIGHLIGHTS = [
-    "honnêtement", "exactement", "depuis 4 ans", "pour son entourage professionnel",
-    "structure professionnelle", "nouvelle méthode d'acquisition",
-    "expertise de 4 ans sur le terrain", "méthode nouvelle", "structure récente",
-    "résiliable à tout moment", "tarif de lancement à vie", "deux à bosser à la main",
-    "conflit d'intérêt", "20 clients", "On a besoin de premiers clients pour prouver son efficacité à grande échelle"
-  ];
-
+  // Rendu d'une réponse avec gras markdown (**texte**)
   const renderAnswer = (text) => {
-    const pattern = new RegExp(`(${HIGHLIGHTS.map(h => h.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'gi');
-    return text.split(pattern).map((part, i) =>
-      HIGHLIGHTS.some(h => h.toLowerCase() === part.toLowerCase())
-        ? <strong key={i} className="text-white font-semibold">{part}</strong>
-        : part
-    );
+    const parts = text.split(/(\*\*[^*]+\*\*)/g);
+    return parts.map((part, i) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return (
+          <strong key={i} className="text-white font-semibold">
+            {part.slice(2, -2)}
+          </strong>
+        );
+      }
+      return part;
+    });
   };
 
   return (
@@ -92,7 +105,7 @@ export default function FAQ() {
                         transition={{ duration: 0.3 }}
                       >
                         <div
-                          className="px-5 pb-5 text-white/70 leading-relaxed"
+                          className="px-5 pb-5 text-white/75 leading-relaxed"
                           style={{ whiteSpace: 'pre-line' }}
                         >
                           {renderAnswer(faq.a)}
