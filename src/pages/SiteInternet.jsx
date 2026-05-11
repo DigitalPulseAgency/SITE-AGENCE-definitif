@@ -1,4 +1,4 @@
-import { Check, ArrowRight, Globe, Search, Award, Sparkles, FileText, TrendingUp } from 'lucide-react';
+import { Check, ArrowRight, Globe, Search, Award, Sparkles, FileText, TrendingUp, Layers } from 'lucide-react';
 import { CAL_LINK } from '../config/links';
 
 const ESSENTIEL_FEATURES = [
@@ -152,6 +152,42 @@ export default function SiteInternet() {
               <p className="text-zinc-500 text-sm text-center mt-4">
                 Diagnostic offert · 15 min en visio · Sans engagement
               </p>
+            </div>
+
+            {/* BANDEAU INFO — projet sur-mesure */}
+            <div className="mt-8 p-6 md:p-8 rounded-2xl border border-violet-500/20 bg-zinc-900/50">
+              <div className="flex flex-col md:flex-row md:items-start gap-6">
+
+                {/* Icône */}
+                <div className="p-3 rounded-xl bg-violet-500/10 flex-shrink-0 self-start">
+                  <Layers className="w-6 h-6 text-violet-400" strokeWidth={2} />
+                </div>
+
+                {/* Texte */}
+                <div className="flex-grow">
+                  <h4 className="text-white font-semibold text-lg mb-2">
+                    Besoin de plus qu'un site vitrine ?
+                  </h4>
+                  <p className="text-zinc-400 text-sm leading-relaxed mb-3">
+                    Si ton projet implique plusieurs pages, un site e-commerce, un espace client, ou des fonctionnalités spécifiques — ce n'est plus un site vitrine standard. C'est un projet sur-mesure, avec un tarif adapté à ton besoin réel.
+                  </p>
+                  <p className="text-zinc-400 text-sm leading-relaxed">
+                    On en discute 15 min pour voir ensemble ce qu'il te faut.
+                  </p>
+                </div>
+
+                {/* Bouton */}
+                <a
+                  href={CAL_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary inline-flex items-center justify-center gap-2 px-5 py-3 whitespace-nowrap flex-shrink-0 self-start md:self-center"
+                >
+                  Réserver un appel découverte
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+
+              </div>
             </div>
           </div>
         </div>
