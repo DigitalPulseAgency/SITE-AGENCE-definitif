@@ -68,7 +68,7 @@ export default function ProofBanner() {
             Des résultats concrets, à grande échelle
           </h2>
           <p className="text-base text-white/60 mt-3">
-            On ne fait pas que parler. On exécute.
+            Ce qu'on a déjà livré sur le terrain.
           </p>
         </FadeIn>
 
@@ -91,7 +91,7 @@ export default function ProofBanner() {
           <FadeIn delay={0.1}>
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-center transition-all duration-300 hover:border-violet-400/30 hover:bg-white/[0.05]">
               <div className="text-6xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6B3FE8] to-[#B59FFF]">
-                Dizaines
+                Des dizaines
               </div>
               <p className="text-white/80 text-lg mt-3">
                 d'entreprises accompagnées dans chaque domaine (BTP, Auto, Restauration, etc.)
