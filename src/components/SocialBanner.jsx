@@ -6,7 +6,7 @@ import TikTokIcon from './icons/TikTokIcon';
 const SOCIALS = [
   {
     name: 'Instagram',
-    handle: '@digitalpulse.agency',
+    handle: '@digitalpulse',
     href: INSTAGRAM_LINK,
     Icon: ({ className }) => <Instagram className={className} />,
   },
@@ -48,13 +48,13 @@ export default function SocialBanner() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${name} — ${handle}`}
-              className="group w-28 md:w-40 p-6 rounded-2xl border border-violet-500/20 bg-zinc-900/60 backdrop-blur-sm transition-all duration-300 hover:border-violet-500/50 hover:scale-105 hover:shadow-lg hover:shadow-violet-500/20 flex flex-col items-center gap-3"
+              className="group w-36 md:w-44 p-6 rounded-2xl border border-violet-500/20 bg-zinc-900/60 backdrop-blur-sm transition-all duration-300 hover:border-violet-500/50 hover:scale-105 hover:shadow-lg hover:shadow-violet-500/20 flex flex-col items-center gap-3"
             >
               <Icon className="w-8 h-8 text-violet-400 transition-colors group-hover:text-violet-300" />
-              <span className="text-white font-semibold text-sm md:text-base">
+              <span className="text-white font-semibold text-sm md:text-base whitespace-nowrap">
                 {name}
               </span>
-              <span className="text-zinc-500 text-xs text-center break-all">
+              <span className="text-zinc-500 text-xs text-center whitespace-nowrap">
                 {handle}
               </span>
             </a>
