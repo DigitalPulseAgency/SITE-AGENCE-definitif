@@ -125,35 +125,8 @@ ul {
   box-shadow: 0 0 40px rgba(107, 63, 232, 0.7);
 }
 
-/* Shimmer hover effect for secondary "Voir l'offre" CTAs */
-.card-cta-secondary {
-  position: relative;
-}
-
-.card-cta-secondary .card-cta-text {
-  background: linear-gradient(
-    90deg,
-    currentColor 0%,
-    currentColor 40%,
-    rgba(255, 255, 255, 0.95) 50%,
-    currentColor 60%,
-    currentColor 100%
-  );
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: background-position 0.8s ease-out;
-}
-
-.group:hover .card-cta-secondary .card-cta-text {
-  background-position: -100% 0;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .btn-primary::before,
-  .card-cta-secondary .card-cta-text {
+  .btn-primary::before {
     transition: none !important;
     animation: none !important;
   }

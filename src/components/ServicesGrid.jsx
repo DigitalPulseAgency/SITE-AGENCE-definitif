@@ -18,8 +18,13 @@ export default function ServicesGrid() {
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
 
           {/* CARD 1 — Automatisations IA (mise en valeur N°1) */}
-          <div className="group relative p-8 rounded-2xl border-2 border-[#6B3FE8]/40 bg-gradient-to-br from-[#6B3FE8]/20 to-[#0a0a0f] shadow-[0_0_30px_rgba(107,63,232,0.3)] flex flex-col transition-all duration-300 ease-out hover:scale-[1.01] hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(107,63,232,0.55)] hover:border-[#6B3FE8]/70">
-            <Sparkles className="w-10 h-10 text-[#6B3FE8] mb-5" strokeWidth={2} />
+          <div className="group relative p-8 rounded-2xl border-2 border-[#6B3FE8]/50 bg-gradient-to-br from-[#6B3FE8]/20 to-[#0a0a0f] shadow-[0_0_40px_rgba(107,63,232,0.35)] flex flex-col overflow-hidden transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-1 hover:shadow-[0_0_60px_rgba(107,63,232,0.5)] hover:border-[#6B3FE8]/70">
+            {/* Ambiance lumineuse — gradient radial coin sup. gauche */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_top_left,rgba(107,63,232,0.25),transparent_55%)]"
+            />
+            <Sparkles className="w-10 h-10 text-[#6B3FE8] mb-5 animate-pulse opacity-90 relative" strokeWidth={2} style={{ animationDuration: '3s' }} />
 
             <h3 className="text-2xl font-bold mb-1">Automatisations IA</h3>
             <p className="text-violet-400 font-semibold mb-4">Ton app sur-mesure</p>
@@ -50,10 +55,10 @@ export default function ServicesGrid() {
             </a>
           </div>
 
-          {/* CARD 2 — Site internet */}
-          <div className="group relative p-8 rounded-2xl border border-white/10 bg-white/[0.03] flex flex-col transition-all duration-300 ease-out hover:scale-[1.01] hover:-translate-y-1 hover:border-[#6B3FE8]/40 hover:shadow-[0_0_30px_rgba(107,63,232,0.25)]">
-            <div className="inline-flex items-center self-start gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-400/20 mb-5">
-              <span className="text-xs font-semibold text-violet-300">Très demandé</span>
+          {/* CARD 2 — Site internet (rôle support) */}
+          <div className="group relative p-8 rounded-2xl border border-white/10 bg-white/[0.02] shadow-[0_0_15px_rgba(255,255,255,0.03)] flex flex-col transition-all duration-300 ease-out hover:scale-[1.01] hover:-translate-y-1 hover:border-[#6B3FE8]/30 hover:shadow-[0_0_25px_rgba(107,63,232,0.2)]">
+            <div className="inline-flex items-center self-start gap-2 px-3 py-1 rounded-full bg-violet-500/5 border border-violet-400/15 mb-5">
+              <span className="text-xs font-semibold text-violet-300/70">Très demandé</span>
             </div>
 
             <Globe className="w-10 h-10 text-white mb-5" strokeWidth={2} />
@@ -112,9 +117,9 @@ export default function ServicesGrid() {
               <p className="text-base font-bold text-violet-400 mb-4">Dès 69€</p>
               <a
                 href="/reseaux-sociaux"
-                className="card-cta-secondary mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 hover:text-violet-300 group-hover:gap-2 transition-all"
+                className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 hover:text-violet-300 group-hover:gap-2 transition-colors"
               >
-                <span className="card-cta-text">Voir l'offre</span>
+                <span>Voir l'offre</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
               </a>
             </div>
@@ -129,9 +134,9 @@ export default function ServicesGrid() {
               <p className="text-base font-bold text-violet-400 mb-4">130€</p>
               <a
                 href="/fiche-google"
-                className="card-cta-secondary mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 hover:text-violet-300 group-hover:gap-2 transition-all"
+                className="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 hover:text-violet-300 group-hover:gap-2 transition-colors"
               >
-                <span className="card-cta-text">Voir l'offre</span>
+                <span>Voir l'offre</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
               </a>
             </div>

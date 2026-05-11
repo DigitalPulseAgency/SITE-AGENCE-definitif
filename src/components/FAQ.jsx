@@ -23,7 +23,7 @@ Tous les autres services (sites, automatisations IA, Fiche Google) sont des pres
 - **Réseaux sociaux** : 2 à 3 mois pour voir les effets, mais extrêmement puissant sur le long terme.
 - **Automatisations IA** : effet immédiat dès la mise en place, tu gagnes du temps dès la première semaine.
 
-La combinaison la plus puissante reste : SEO + Site optimisé + Fiche Google.`
+La combinaison la plus puissante reste : SEO + Site optimisé + Infrastructure IA.`
     },
     {
       q: "4 ans d'expérience ? Pourtant DigitalPulse Agency vient de se lancer...",
