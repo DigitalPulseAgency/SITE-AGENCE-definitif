@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   X, ChevronDown, Home, Briefcase, User, HelpCircle,
@@ -37,7 +38,14 @@ export default function MobileMenu({ isOpen, onClose }) {
     if (!isOpen) setServicesOpen(false);
   }, [isOpen]);
 
+  // Diagnostic temporaire (à retirer après validation prod)
+  if (typeof window !== 'undefined') {
+    // eslint-disable-next-line no-console
+    console.log('[MobileMenu] Render - isOpen:', isOpen);
+  }
+
   if (!isOpen) return null;
+  if (typeof document === 'undefined') return null;
 
   const goToRoute = (path) => (e) => {
     e.preventDefault();
@@ -65,13 +73,22 @@ export default function MobileMenu({ isOpen, onClose }) {
     }
   };
 
-  return (
+  return createPortal((
     <div
       role="dialog"
       aria-label="Menu de navigation"
-      className="md:hidden fixed inset-0 z-[100] flex flex-col overflow-y-auto text-white"
+      className="md:hidden flex flex-col overflow-y-auto text-white"
       style={{
-        background: 'linear-gradient(180deg, #0a0a0f 0%, #1a0d2e 50%, #0a0a0f 100%)',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 9999,
+        backgroundColor: '#09090b',
+        backgroundImage: 'linear-gradient(180deg, #0a0a0f 0%, #1a0d2e 50%, #0a0a0f 100%)',
+        color: '#ffffff',
+        overflowY: 'auto',
         animation: 'fadeInMenu 0.25s ease-out'
       }}
     >
@@ -220,5 +237,5 @@ export default function MobileMenu({ isOpen, onClose }) {
         </div>
       </nav>
     </div>
-  );
+  ), document.body);
 }
