@@ -67,14 +67,14 @@ export default function ServicesGrid() {
             <p className="text-violet-400 font-semibold mb-4">Qui convertit vraiment</p>
 
             <p className="text-white/70 leading-relaxed mb-5">
-              Site vitrine ou Premium avec SEO automatisé. Conçu pour transformer tes visiteurs en clients. Hébergement, maintenance et formation inclus.
+              Site vitrine sur-mesure conçu pour transformer tes visiteurs en clients. Hébergement, maintenance et formation inclus. Livré en 48 à 72h.
             </p>
 
             <ul className="space-y-2 mb-7">
               {[
-                'Vitrine dès 350€ (au lieu de 600€)',
-                'Premium à 1500€ (paiement en 3x)',
-                'SEO automatisé 99€/mois en Premium'
+                'Site Essentiel 350€ (au lieu de 600€)',
+                'Paiement en 2 fois possible',
+                'Option SEO automatisé 59€/mois'
               ].map((item, i) => (
                 <li key={i} className="flex gap-2 items-start text-sm text-white/85">
                   <Check className="w-4 h-4 text-[#6B3FE8] flex-shrink-0 mt-0.5" strokeWidth={2.5} />

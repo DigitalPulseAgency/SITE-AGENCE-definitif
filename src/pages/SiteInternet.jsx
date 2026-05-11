@@ -1,5 +1,17 @@
-import { Check, ArrowRight, Globe, Zap, Search, Smartphone, Award, Clock, Sparkles, FileText, TrendingUp } from 'lucide-react';
+import { Check, ArrowRight, Globe, Search, Award, Sparkles, FileText, TrendingUp } from 'lucide-react';
 import { CAL_LINK } from '../config/links';
+
+const ESSENTIEL_FEATURES = [
+  'Site vitrine 100% sur-mesure',
+  'Design haut de gamme personnalisé',
+  '100% responsive (mobile, tablette, ordi)',
+  'Optimisation SEO de base incluse',
+  'Avis Google intégrés',
+  'Hébergement rapide inclus 1 an',
+  'Maintenance + sécurité incluses',
+  'Formation à la prise en main',
+  'Livré en 48 à 72h',
+];
 
 export default function SiteInternet() {
   return (
@@ -64,122 +76,84 @@ export default function SiteInternet() {
         </div>
       </section>
 
-      {/* LES 2 OFFRES */}
+      {/* OFFRE UNIQUE — ESSENTIEL */}
       <section className="py-20 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center">
-            Deux formules. Tu choisis.
+            Une offre simple. Tout est dedans.
           </h2>
           <p className="text-xl text-white/60 mb-16 text-center max-w-2xl mx-auto">
-            Une formule essentielle pour démarrer. Une formule premium pour dominer ton secteur.
+            Un site sur-mesure prêt à convertir, livré en 48 à 72h. Une option SEO si tu veux dominer ton secteur.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          {/* CARTE ESSENTIEL — CENTRÉE */}
+          <div className="max-w-2xl mx-auto">
+            <div className="relative bg-gradient-to-br from-zinc-900/80 via-violet-950/40 to-zinc-900/80 border border-violet-500/30 rounded-3xl p-8 md:p-12 shadow-2xl shadow-violet-500/20">
 
-            {/* OFFRE ESSENTIEL 350€ */}
-            <div className="bg-white/[0.03] border border-white/10 rounded-3xl p-8 flex flex-col">
-              <div className="mb-6">
-                <div className="inline-block bg-[#6B3FE8]/20 text-[#B59FFF] text-xs font-bold px-3 py-1 rounded-full mb-3">
+              {/* Badge en haut */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <div className="bg-[#6B3FE8] text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-[0_0_25px_rgba(107,63,232,0.6)] animate-pulse" style={{ animationDuration: '3s' }}>
                   ⚡ OFFRE FLASH — Jusqu'à fin mai
                 </div>
-                <h3 className="text-2xl font-bold mb-2">Essentiel</h3>
-                <p className="text-white/60">Pour démarrer fort sur internet</p>
               </div>
 
-              <div className="mb-8">
-                <div className="flex items-baseline gap-3">
-                  <span className="text-white/50 line-through text-2xl">600€</span>
-                  <span className="text-5xl font-bold">350€</span>
+              {/* Titre + sous-titre */}
+              <div className="mb-8 mt-2 text-center">
+                <h3 className="text-3xl md:text-4xl font-bold mb-2">Essentiel</h3>
+                <p className="text-white/70 text-lg">Pour démarrer fort sur internet</p>
+              </div>
+
+              {/* Prix */}
+              <div className="mb-6 text-center">
+                <div className="flex items-baseline gap-3 justify-center">
+                  <span className="text-zinc-500 line-through text-2xl">600€</span>
+                  <span className="text-5xl md:text-6xl font-bold text-white">350€</span>
                 </div>
-                <p className="text-sm text-white/50 mt-2">Paiement unique · Sans abonnement</p>
+                <p className="text-sm text-white/60 mt-2">Paiement unique · Sans abonnement</p>
+                <p className="text-sm font-semibold text-emerald-400 mt-3 inline-flex items-center gap-2">
+                  <Check className="w-4 h-4" strokeWidth={3} />
+                  Paiement en 2 fois possible
+                </p>
               </div>
 
-              <ul className="space-y-3 mb-8 flex-grow">
-                {[
-                  "Site vitrine",
-                  "100% responsive (mobile, tablette, ordi)",
-                  "Optimisation SEO de base",
-                  "Hébergement rapide inclus 1 an",
-                  "Avis Google intégrés",
-                  "Livré en 48 à 72h",
-                  "Formation à la prise en main"
-                ].map((item, i) => (
-                  <li key={i} className="flex gap-3 items-start">
-                    <Check className="w-5 h-5 text-[#6B3FE8] flex-shrink-0 mt-0.5" />
-                    <span className="text-white/80">{item}</span>
+              {/* Option SEO */}
+              <div className="border-t border-zinc-800/50 pt-5 mb-8 text-center">
+                <p>
+                  <span className="text-violet-400 font-semibold text-2xl">+ 59€</span>
+                  <span className="text-white/80 text-base">/mois</span>
+                  <span className="text-zinc-400 text-sm"> — Automatisation SEO (optionnel)</span>
+                </p>
+                <p className="text-zinc-500 text-xs mt-2 max-w-md mx-auto leading-relaxed">
+                  Articles de blog optimisés mots-clés, générés régulièrement, pour ton référencement naturel sans payer d'ads.
+                </p>
+              </div>
+
+              {/* Liste bullets */}
+              <ul className="space-y-3 mb-8">
+                {ESSENTIEL_FEATURES.map((item) => (
+                  <li key={item} className="flex gap-3 items-start">
+                    <Check className="w-5 h-5 text-violet-400 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                    <span className="text-white/85">{item}</span>
                   </li>
                 ))}
               </ul>
 
+              {/* CTA */}
               <a
                 href={CAL_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center bg-white/10 hover:bg-white/15 border border-[#6B3FE8]/40 hover:border-[#6B3FE8]/70 text-white font-semibold py-3.5 rounded-xl transition-all duration-300 shadow-[0_0_30px_rgba(107,63,232,0.35)] hover:shadow-[0_0_40px_rgba(107,63,232,0.6)] hover:scale-[1.02]"
+                className="btn btn-primary w-full inline-flex items-center justify-center gap-2 py-4 text-lg font-semibold mt-8 hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 ease-out"
               >
-                Choisir l'Essentiel
+                Réserver mon diagnostic gratuit
+                <ArrowRight className="w-5 h-5" />
               </a>
-            </div>
 
-            {/* OFFRE PREMIUM 1500€ + 99€/mois */}
-            <div className="bg-gradient-to-br from-[#6B3FE8]/30 to-[#6B3FE8]/5 border-2 border-[#6B3FE8] rounded-3xl p-8 flex flex-col relative">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#6B3FE8] text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap">
-                ⚡ POUR DOMINER TON SECTEUR
-              </div>
-
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-2">Premium</h3>
-                <p className="text-white/70">Site + automatisation SEO continue</p>
-              </div>
-
-              <div className="mb-8">
-                <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-5xl font-bold">1 500€</span>
-                </div>
-                <p className="text-sm text-white/60 mb-2">Paiement unique pour le site</p>
-                <p className="text-sm font-semibold text-emerald-400 mb-3">✓ Paiement en 3 fois possible</p>
-
-                <div className="flex items-baseline gap-2 pt-3 border-t border-white/10">
-                  <span className="text-2xl font-bold text-[#B59FFF]">+ 99€</span>
-                  <span className="text-white/70">/mois automatisation SEO</span>
-                </div>
-                <p className="text-xs text-white/50 mt-2">Articles de blog optimisés mots-clés, sans payer d'ads</p>
-              </div>
-
-              <ul className="space-y-3 mb-8 flex-grow">
-                {[
-                  "Tout ce qui est dans l'Essentiel",
-                  "Site sur-mesure jusqu'à 10 pages",
-                  "Design haut de gamme personnalisé",
-                  "SEO avancé (technique + contenu)",
-                  "Blog automatisé avec mots-clés stratégiques",
-                  "Articles optimisés générés régulièrement",
-                  "Référencement naturel sans payer d'ads",
-                  "Hébergement premium inclus 1 an",
-                  "Maintenance + sécurité incluses",
-                  "Livré en 3 à 7 jours maximum"
-                ].map((item, i) => (
-                  <li key={i} className="flex gap-3 items-start">
-                    <Check className="w-5 h-5 text-[#B59FFF] flex-shrink-0 mt-0.5" />
-                    <span className="text-white/90">{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href={CAL_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full text-center bg-gradient-to-r from-[#6B3FE8] to-[#8B5FFF] hover:from-[#5a32d4] hover:to-[#7a4ff0] text-white font-semibold py-3.5 rounded-xl transition-all duration-300 shadow-[0_0_30px_rgba(107,63,232,0.5)] hover:shadow-[0_0_45px_rgba(139,95,255,0.75)] hover:scale-[1.02]"
-              >
-                Choisir Premium
-              </a>
+              <p className="text-zinc-500 text-sm text-center mt-4">
+                Diagnostic offert · 15 min en visio · Sans engagement
+              </p>
             </div>
           </div>
-
-          <p className="text-center text-white/50 text-sm mt-8 max-w-2xl mx-auto">
-            💡 La formule Premium est faite pour ceux qui veulent <strong className="text-white/80">dominer leur secteur sans payer de pubs Google</strong>. Le SEO automatisé travaille pour toi 24h/24.
-          </p>
         </div>
       </section>
 
@@ -190,11 +164,11 @@ export default function SiteInternet() {
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#6B3FE8]/15 border border-[#6B3FE8]/30 mb-4">
                 <Sparkles className="w-4 h-4 text-[#B59FFF]" />
-                <span className="text-xs font-semibold text-[#B59FFF]">L'automatisation SEO incluse en Premium</span>
+                <span className="text-xs font-semibold text-[#B59FFF]">Option Automatisation SEO</span>
               </div>
 
               <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-                Comment 99€/mois<br />
+                Comment 59€/mois<br />
                 <span className="text-[#6B3FE8]">remplacent 500€ de pubs Google.</span>
               </h2>
 
@@ -244,10 +218,10 @@ export default function SiteInternet() {
           <div className="space-y-6">
             {[
               { n: "01", titre: "Diagnostic gratuit (15 min)", desc: "On comprend ton activité, ta cible, tes objectifs. Tu repars avec une stratégie claire." },
-              { n: "02", titre: "Création du site (5-10 jours)", desc: "On code ton site sur-mesure dans ta charte. Pas de template moche réutilisé." },
+              { n: "02", titre: "Création du site (48 à 72h)", desc: "On code ton site sur-mesure dans ta charte. Pas de template moche réutilisé." },
               { n: "03", titre: "Validation et ajustements", desc: "Tu donnes ton avis, on ajuste les textes, couleurs, photos." },
               { n: "04", titre: "Mise en ligne", desc: "Site déployé, nom de domaine configuré, Google informé." },
-              { n: "05", titre: "Si Premium : automatisation SEO", desc: "On configure le blog automatisé. À partir du mois 2, tes articles commencent à remonter sur Google." }
+              { n: "05", titre: "Option SEO : blog automatisé", desc: "Si tu actives l'option à 59€/mois, on configure le blog. À partir du mois 2, tes articles commencent à remonter sur Google." }
             ].map((item, i) => (
               <div key={i} className="flex gap-6 items-start">
                 <div className="text-5xl font-bold text-[#6B3FE8] flex-shrink-0 w-20">{item.n}</div>
@@ -268,7 +242,7 @@ export default function SiteInternet() {
             Prêt à avoir un site qui bosse pour toi ?
           </h2>
           <p className="text-xl text-white/70 mb-10">
-            Réserve un diagnostic gratuit. On regarde ensemble ce qui te manque, et on te propose la formule qui colle à tes objectifs.
+            Réserve un diagnostic gratuit. On regarde ensemble ce qui te manque, et on te livre ton site sur-mesure en 48 à 72h.
           </p>
           <a
             href={CAL_LINK}
