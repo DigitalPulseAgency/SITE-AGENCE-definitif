@@ -75,13 +75,14 @@ export default function Header() {
         display: 'flex',
         alignItems: 'center',
         gap: '1.5rem',
-        height: '72px'
+        height: '72px',
+        position: 'relative'
       }}>
         {/* ZONE GAUCHE — LOGO */}
         <Link
           to="/"
           onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          style={{ display: 'inline-flex', alignItems: 'center', flexShrink: 0 }}
+          style={{ display: 'inline-flex', alignItems: 'center', flexShrink: 0, position: 'relative', zIndex: 10 }}
         >
           <img
             src={logoSrc}
@@ -91,13 +92,16 @@ export default function Header() {
           />
         </Link>
 
-        {/* ZONE CENTRE — NAVIGATION (centrée horizontalement) */}
+        {/* ZONE CENTRE — NAVIGATION (position absolue pour centrage parfait sur la page) */}
         <nav className="desktop-only header-nav" style={{
           display: 'none',
-          flex: 1,
           alignItems: 'center',
-          justifyContent: 'center',
-          gap: '2.5rem'
+          gap: '2.5rem',
+          position: 'absolute',
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 1
         }}>
           <a href="/" onClick={(e) => { e.preventDefault(); goToRoute('/')(); }} style={navLinkStyle}>Accueil</a>
           <a href="/#services" onClick={goToAnchor('services')} style={navLinkStyle}>Services</a>
@@ -111,7 +115,9 @@ export default function Header() {
           alignItems: 'center',
           gap: '0.75rem',
           flexShrink: 0,
-          marginLeft: 'auto'
+          marginLeft: 'auto',
+          position: 'relative',
+          zIndex: 10
         }}>
           {/* Pilule téléphone (outline vert + glow subtil) */}
           <a
