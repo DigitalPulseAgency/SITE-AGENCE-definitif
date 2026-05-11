@@ -1,26 +1,27 @@
 import React from 'react';
-import { Instagram, Linkedin } from 'lucide-react';
 import { INSTAGRAM_LINK, TIKTOK_LINK, LINKEDIN_LINK } from '../config/links';
-import TikTokIcon from './icons/TikTokIcon';
+import InstagramLogo from './icons/InstagramLogo';
+import TikTokLogo from './icons/TikTokLogo';
+import LinkedInLogo from './icons/LinkedInLogo';
 
 const SOCIALS = [
   {
     name: 'Instagram',
     handle: '@digitalpulse',
     href: INSTAGRAM_LINK,
-    Icon: ({ className }) => <Instagram className={className} />,
+    Logo: InstagramLogo,
   },
   {
     name: 'TikTok',
     handle: '@louis.dev',
     href: TIKTOK_LINK,
-    Icon: ({ className }) => <TikTokIcon className={className} size={32} />,
+    Logo: TikTokLogo,
   },
   {
     name: 'LinkedIn',
     handle: 'Louis Humbert',
     href: LINKEDIN_LINK,
-    Icon: ({ className }) => <Linkedin className={className} />,
+    Logo: LinkedInLogo,
   },
 ];
 
@@ -41,7 +42,7 @@ export default function SocialBanner() {
 
         {/* Row d'icônes */}
         <div className="mt-10 flex flex-wrap justify-center gap-4 md:gap-6">
-          {SOCIALS.map(({ name, handle, href, Icon }) => (
+          {SOCIALS.map(({ name, handle, href, Logo }) => (
             <a
               key={name}
               href={href}
@@ -50,7 +51,9 @@ export default function SocialBanner() {
               aria-label={`${name} — ${handle}`}
               className="group w-36 md:w-44 p-6 rounded-2xl border border-violet-500/20 bg-zinc-900/60 backdrop-blur-sm transition-all duration-300 hover:border-violet-500/50 hover:scale-105 hover:shadow-lg hover:shadow-violet-500/20 flex flex-col items-center gap-3"
             >
-              <Icon className="w-8 h-8 text-violet-400 transition-colors group-hover:text-violet-300" />
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+                <Logo size={32} />
+              </div>
               <span className="text-white font-semibold text-sm md:text-base whitespace-nowrap">
                 {name}
               </span>
