@@ -72,7 +72,7 @@ export default function ServicesGrid() {
 
             <ul className="space-y-2 mb-7">
               {[
-                'Site Essentiel 350€ (au lieu de 600€)',
+                'Site Essentiel 350€ (au lieu de 700€)',
                 'Paiement en 2 fois possible',
                 'Option SEO automatisé 59€/mois'
               ].map((item, i) => (

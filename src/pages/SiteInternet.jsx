@@ -106,7 +106,7 @@ export default function SiteInternet() {
               {/* Prix */}
               <div className="mb-6 text-center">
                 <div className="flex items-baseline gap-3 justify-center">
-                  <span className="text-zinc-500 line-through text-2xl">600€</span>
+                  <span className="text-zinc-500 line-through text-2xl">700€</span>
                   <span className="text-5xl md:text-6xl font-bold text-white">350€</span>
                 </div>
                 <p className="text-sm text-white/60 mt-2">Paiement unique · Sans abonnement</p>
