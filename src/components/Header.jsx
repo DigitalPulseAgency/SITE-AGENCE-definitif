@@ -8,11 +8,10 @@ export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Site entièrement en dark mode désormais
   const navTextColor = '#FFFFFF';
   const headerBg = scrolled ? 'rgba(10, 10, 15, 0.92)' : 'rgba(10, 10, 15, 0.6)';
   const headerBorder = scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent';
-  const logoSrc = '/logo.png';
+  const logoSrc = '/logo-transparent.png';
   const burgerBorder = '1px solid rgba(255,255,255,0.2)';
 
   useEffect(() => {
@@ -50,6 +49,15 @@ export default function Header() {
     setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);
   };
 
+  const navLinkStyle = {
+    color: navTextColor,
+    textDecoration: 'none',
+    fontSize: '0.95rem',
+    fontWeight: 600,
+    padding: '0.5rem 0',
+    transition: 'color 0.2s ease',
+  };
+
   return (
     <header style={{
       position: 'fixed',
@@ -66,33 +74,45 @@ export default function Header() {
       <div className="container" style={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0.75rem 0'
+        gap: '1.5rem',
+        height: '72px'
       }}>
-        {/* LOGO */}
+        {/* ZONE GAUCHE — LOGO */}
         <Link
           to="/"
           onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          style={{ display: 'inline-flex', alignItems: 'center' }}
+          style={{ display: 'inline-flex', alignItems: 'center', flexShrink: 0 }}
         >
           <img
             src={logoSrc}
             alt="DigitalPulse Agency"
-            style={{ height: '60px', width: 'auto' }}
             className="logo-img"
+            style={{ height: '52px', width: 'auto', display: 'block' }}
           />
         </Link>
 
-        {/* NAVIGATION DESKTOP — CACHÉE SUR MOBILE */}
-        <nav className="desktop-only" style={{ display: 'none', gap: '2.5rem', fontWeight: 600 }}>
-          <a href="/" onClick={(e) => { e.preventDefault(); goToRoute('/')(); }} style={{ color: navTextColor, textDecoration: 'none' }}>Accueil</a>
-          <a href="/#services" onClick={goToAnchor('services')} style={{ color: navTextColor, textDecoration: 'none' }}>Services</a>
-          <a href="/#a-propos" onClick={goToAnchor('a-propos')} style={{ color: navTextColor, textDecoration: 'none' }}>À propos</a>
-          <a href="/#faq" onClick={goToAnchor('faq')} style={{ color: navTextColor, textDecoration: 'none' }}>FAQ</a>
+        {/* ZONE CENTRE — NAVIGATION (centrée horizontalement) */}
+        <nav className="desktop-only header-nav" style={{
+          display: 'none',
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '2.5rem'
+        }}>
+          <a href="/" onClick={(e) => { e.preventDefault(); goToRoute('/')(); }} style={navLinkStyle}>Accueil</a>
+          <a href="/#services" onClick={goToAnchor('services')} style={navLinkStyle}>Services</a>
+          <a href="/#a-propos" onClick={goToAnchor('a-propos')} style={navLinkStyle}>À propos</a>
+          <a href="/#faq" onClick={goToAnchor('faq')} style={navLinkStyle}>FAQ</a>
         </nav>
 
-        {/* BOUTONS DESKTOP — CACHÉS SUR MOBILE */}
-        <div className="desktop-only" style={{ display: 'none', alignItems: 'center', gap: '1rem' }}>
+        {/* ZONE DROITE — CTAs */}
+        <div className="desktop-only" style={{
+          display: 'none',
+          alignItems: 'center',
+          gap: '0.75rem',
+          flexShrink: 0,
+          marginLeft: 'auto'
+        }}>
           {/* Pilule téléphone (outline vert + glow subtil) */}
           <a
             href="tel:+33615940883"
@@ -107,23 +127,25 @@ export default function Header() {
               border: '1px solid rgba(74, 222, 128, 0.35)',
               color: '#4ADE80',
               fontWeight: 600,
+              fontSize: '0.9rem',
               textDecoration: 'none',
-              boxShadow: '0 0 15px rgba(74, 222, 128, 0.2)'
+              boxShadow: '0 0 15px rgba(74, 222, 128, 0.2)',
+              whiteSpace: 'nowrap'
             }}
           >
-            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
             06 15 94 08 83
           </a>
 
-          {/* CTA Diagnostic gratuit (vert harmonisé) */}
+          {/* CTA Diagnostic gratuit */}
           <a
             href={CAL_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-success"
-            style={{ padding: '0.75rem 1.5rem', fontSize: '1rem' }}
+            style={{ padding: '0.6rem 1.25rem', fontSize: '0.95rem', whiteSpace: 'nowrap' }}
           >
             Diagnostic gratuit
           </a>
@@ -143,7 +165,9 @@ export default function Header() {
             borderRadius: '8px',
             background: 'none',
             cursor: 'pointer',
-            color: navTextColor
+            color: navTextColor,
+            flexShrink: 0,
+            marginLeft: 'auto'
           }}
           aria-label="Menu"
         >
@@ -151,7 +175,6 @@ export default function Header() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-
       </div>
 
       {/* MENU MOBILE PLEIN ÉCRAN */}
@@ -236,14 +259,15 @@ export default function Header() {
       <style>{`
         .mobile-burger { display: flex !important; }
         .desktop-only { display: none !important; }
+        .header-nav a:hover { color: #B59FFF !important; }
 
         @media(min-width: 768px) {
           .mobile-burger { display: none !important; }
           .desktop-only { display: flex !important; }
-          .logo-img { height: 100px !important; }
+          .logo-img { height: 56px !important; }
         }
         @media(min-width: 1024px) {
-          .logo-img { height: 120px !important; }
+          .logo-img { height: 64px !important; }
         }
       `}</style>
     </header>
