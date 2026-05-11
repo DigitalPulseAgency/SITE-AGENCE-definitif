@@ -1,9 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { CAL_LINK } from '../config/links';
+import {
+  X, Menu, ChevronDown, Home, Briefcase, User, HelpCircle,
+  Globe, Instagram, MapPin, Sparkles, Linkedin, Phone, Zap
+} from 'lucide-react';
+import { CAL_LINK, INSTAGRAM_LINK, TIKTOK_LINK, LINKEDIN_LINK } from '../config/links';
+import TikTokIcon from './icons/TikTokIcon';
+
+const SERVICES = [
+  { label: 'Sites internet', path: '/sites-internet', Icon: Globe },
+  { label: 'Réseaux sociaux', path: '/reseaux-sociaux', Icon: Instagram },
+  { label: 'Fiche Google', path: '/fiche-google', Icon: MapPin },
+  { label: 'Automatisations IA', path: '/automatisations', Icon: Sparkles },
+];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -15,17 +28,38 @@ export default function Header() {
   const burgerBorder = '1px solid rgba(255,255,255,0.2)';
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Scroll lock + ESC key quand le menu mobile est ouvert
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const onKey = (e) => {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [mobileMenuOpen]);
+
+  const closeMenu = () => {
+    setMobileMenuOpen(false);
+    setServicesOpen(false);
+  };
+
   // Scroll vers une ancre (gère le cas où on est sur une autre route)
   const goToAnchor = (sectionId) => (e) => {
     e.preventDefault();
-    setMobileMenuOpen(false);
+    closeMenu();
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
@@ -44,7 +78,7 @@ export default function Header() {
 
   // Navigation vers une vraie route
   const goToRoute = (path) => () => {
-    setMobileMenuOpen(false);
+    closeMenu();
     navigate(path);
     setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);
   };
@@ -81,7 +115,7 @@ export default function Header() {
         {/* ZONE GAUCHE — LOGO */}
         <Link
           to="/"
-          onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          onClick={() => { closeMenu(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           style={{ display: 'inline-flex', alignItems: 'center', flexShrink: 0, position: 'relative', zIndex: 10 }}
         >
           <img
@@ -92,7 +126,7 @@ export default function Header() {
           />
         </Link>
 
-        {/* ZONE CENTRE — NAVIGATION (position absolue pour centrage parfait sur la page) */}
+        {/* ZONE CENTRE — NAVIGATION DESKTOP */}
         <nav className="desktop-only header-nav" style={{
           display: 'none',
           alignItems: 'center',
@@ -109,7 +143,7 @@ export default function Header() {
           <a href="/#faq" onClick={goToAnchor('faq')} style={navLinkStyle}>FAQ</a>
         </nav>
 
-        {/* ZONE DROITE — CTAs */}
+        {/* ZONE DROITE — CTAs DESKTOP */}
         <div className="desktop-only" style={{
           display: 'none',
           alignItems: 'center',
@@ -119,33 +153,24 @@ export default function Header() {
           position: 'relative',
           zIndex: 10
         }}>
-          {/* Pilule téléphone (outline vert + glow subtil) */}
           <a
             href="tel:+33615940883"
             className="transition-all duration-300 ease-out hover:!shadow-[0_0_22px_rgba(74,222,128,0.4)]"
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
+              display: 'flex', alignItems: 'center', gap: '0.5rem',
               backgroundColor: 'rgba(16, 185, 129, 0.08)',
-              padding: '0.5rem 1rem',
-              borderRadius: '9999px',
+              padding: '0.5rem 1rem', borderRadius: '9999px',
               border: '1px solid rgba(74, 222, 128, 0.35)',
-              color: '#4ADE80',
-              fontWeight: 600,
-              fontSize: '0.9rem',
+              color: '#4ADE80', fontWeight: 600, fontSize: '0.9rem',
               textDecoration: 'none',
               boxShadow: '0 0 15px rgba(74, 222, 128, 0.2)',
               whiteSpace: 'nowrap'
             }}
           >
-            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-            </svg>
+            <Phone size={16} strokeWidth={2.5} />
             06 15 94 08 83
           </a>
 
-          {/* CTA Diagnostic gratuit */}
           <a
             href={CAL_LINK}
             target="_blank"
@@ -175,87 +200,224 @@ export default function Header() {
             flexShrink: 0,
             marginLeft: 'auto'
           }}
-          aria-label="Menu"
+          aria-label="Ouvrir le menu"
+          aria-expanded={mobileMenuOpen}
         >
-          <svg style={{ width: '24px', height: '24px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+          <Menu size={24} strokeWidth={2.5} />
         </button>
       </div>
 
-      {/* MENU MOBILE PLEIN ÉCRAN */}
+      {/* MENU MOBILE — OVERLAY PLEIN ÉCRAN */}
       {mobileMenuOpen && (
-        <div style={{ position: 'fixed', inset: 0, zIndex: 100, backgroundColor: '#0a0a0f', color: '#ffffff', display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', position: 'sticky', top: 0, backgroundColor: '#0a0a0f', zIndex: 1 }}>
-            <span style={{ fontSize: '1.25rem', fontWeight: 700, color: '#ffffff' }}>Menu</span>
+        <div
+          className="mobile-menu-overlay"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 100,
+            background: 'linear-gradient(180deg, #0a0a0f 0%, #1a0d2e 50%, #0a0a0f 100%)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            display: 'flex',
+            flexDirection: 'column',
+            overflowY: 'auto',
+            color: '#fff',
+            animation: 'fadeInMenu 0.25s ease-out'
+          }}
+          role="dialog"
+          aria-label="Menu de navigation"
+        >
+          {/* HEADER DU MENU */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '1.5rem',
+            borderBottom: '1px solid rgba(255,255,255,0.08)',
+            position: 'sticky',
+            top: 0,
+            background: 'rgba(10, 10, 15, 0.85)',
+            backdropFilter: 'blur(20px)',
+            zIndex: 1
+          }}>
+            <span style={{ fontSize: '1.5rem', fontWeight: 700, color: '#fff' }}>Menu</span>
             <button
-              onClick={() => setMobileMenuOpen(false)}
-              style={{ width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', background: 'none', cursor: 'pointer', color: '#ffffff' }}
-              aria-label="Fermer"
+              onClick={closeMenu}
+              aria-label="Fermer le menu"
+              style={{
+                width: '44px', height: '44px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                border: 'none', background: 'rgba(255,255,255,0.05)',
+                borderRadius: '10px', cursor: 'pointer', color: '#fff',
+                transition: 'background 0.2s'
+              }}
+              onMouseDown={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.12)'}
+              onMouseUp={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}
             >
-              <svg style={{ width: '28px', height: '28px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <X size={26} strokeWidth={2.5} />
             </button>
           </div>
 
-          <nav style={{ display: 'flex', flexDirection: 'column', padding: '1.5rem', gap: '0.25rem' }}>
-            <a href="/" onClick={(e) => { e.preventDefault(); goToRoute('/')(); }} style={mobileLinkStyle}>Accueil</a>
+          {/* CORPS DU MENU */}
+          <nav style={{ flex: 1, padding: '2rem 1.5rem 1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
 
-            <p style={{ fontSize: '0.75rem', fontWeight: 700, color: 'rgba(255,255,255,0.45)', textTransform: 'uppercase', letterSpacing: '0.05em', padding: '1rem 1rem 0.5rem' }}>Services</p>
-            <a href="/sites-internet" onClick={(e) => { e.preventDefault(); goToRoute('/sites-internet')(); }} style={mobileLinkStyle}>Sites internet</a>
-            <a href="/reseaux-sociaux" onClick={(e) => { e.preventDefault(); goToRoute('/reseaux-sociaux')(); }} style={mobileLinkStyle}>Réseaux sociaux</a>
-            <a href="/fiche-google" onClick={(e) => { e.preventDefault(); goToRoute('/fiche-google')(); }} style={mobileLinkStyle}>Fiche Google</a>
-            <a href="/automatisations" onClick={(e) => { e.preventDefault(); goToRoute('/automatisations')(); }} style={mobileLinkStyle}>Automatisations IA</a>
-            <a href="/ecommerce" onClick={(e) => { e.preventDefault(); goToRoute('/ecommerce')(); }} style={mobileLinkStyle}>E-commerce</a>
+            {/* Accueil */}
+            <a
+              href="/"
+              onClick={(e) => { e.preventDefault(); goToRoute('/')(); }}
+              className="mobile-nav-link"
+            >
+              <Home size={22} strokeWidth={2} />
+              <span>Accueil</span>
+            </a>
 
-            <p style={{ fontSize: '0.75rem', fontWeight: 700, color: 'rgba(255,255,255,0.45)', textTransform: 'uppercase', letterSpacing: '0.05em', padding: '1rem 1rem 0.5rem' }}>L'agence</p>
-            <a href="/#a-propos" onClick={goToAnchor('a-propos')} style={mobileLinkStyle}>À propos</a>
-            <a href="/#faq" onClick={goToAnchor('faq')} style={mobileLinkStyle}>FAQ</a>
+            {/* Services (déployable) */}
+            <button
+              onClick={() => setServicesOpen((v) => !v)}
+              aria-expanded={servicesOpen}
+              className="mobile-nav-link"
+              style={{
+                background: servicesOpen ? 'rgba(107, 63, 232, 0.12)' : 'transparent',
+                border: 'none', width: '100%', textAlign: 'left', cursor: 'pointer'
+              }}
+            >
+              <Briefcase size={22} strokeWidth={2} />
+              <span style={{ flex: 1 }}>Services</span>
+              <ChevronDown
+                size={20}
+                strokeWidth={2.5}
+                style={{
+                  transition: 'transform 0.25s ease',
+                  transform: servicesOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                  color: '#B59FFF'
+                }}
+              />
+            </button>
 
-            <div style={{ marginTop: '1.5rem', padding: '0 1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            {/* Sous-menu Services */}
+            <div
+              style={{
+                maxHeight: servicesOpen ? '500px' : '0',
+                overflow: 'hidden',
+                transition: 'max-height 0.3s ease',
+                marginLeft: '1rem',
+                borderLeft: '2px solid rgba(107, 63, 232, 0.3)'
+              }}
+            >
+              <div style={{ padding: servicesOpen ? '0.5rem 0' : '0', display: 'flex', flexDirection: 'column' }}>
+                {SERVICES.map(({ label, path, Icon }) => (
+                  <a
+                    key={path}
+                    href={path}
+                    onClick={(e) => { e.preventDefault(); goToRoute(path)(); }}
+                    className="mobile-sub-link"
+                  >
+                    <Icon size={18} strokeWidth={2} style={{ color: '#B59FFF' }} />
+                    <span>{label}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* À propos */}
+            <a
+              href="/#a-propos"
+              onClick={goToAnchor('a-propos')}
+              className="mobile-nav-link"
+            >
+              <User size={22} strokeWidth={2} />
+              <span>À propos</span>
+            </a>
+
+            {/* FAQ */}
+            <a
+              href="/#faq"
+              onClick={goToAnchor('faq')}
+              className="mobile-nav-link"
+            >
+              <HelpCircle size={22} strokeWidth={2} />
+              <span>FAQ</span>
+            </a>
+
+            {/* SÉPARATEUR */}
+            <hr style={{ border: 'none', borderTop: '1px solid rgba(255,255,255,0.1)', margin: '1.5rem 0 1rem' }} />
+
+            {/* CTAs */}
+            <a
+              href={CAL_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMenu}
+              className="btn btn-primary"
+              style={{
+                width: '100%',
+                padding: '1rem',
+                fontSize: '1rem',
+                fontWeight: 700,
+                marginBottom: '0.75rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem'
+              }}
+            >
+              <Zap size={18} strokeWidth={2.5} />
+              Réserver mon diagnostic gratuit
+            </a>
+
+            <a
+              href="tel:+33615940883"
+              onClick={closeMenu}
+              className="btn btn-success"
+              style={{
+                width: '100%',
+                padding: '0.95rem 1rem',
+                fontSize: '1rem',
+                fontWeight: 700,
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem'
+              }}
+            >
+              <Phone size={18} strokeWidth={2.5} />
+              06 15 94 08 83
+            </a>
+
+            {/* RÉSEAUX SOCIAUX */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '1rem',
+              marginTop: '2rem',
+              marginBottom: '2rem'
+            }}>
               <a
-                href={CAL_LINK}
+                href={INSTAGRAM_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                style={{
-                  display: 'block',
-                  textAlign: 'center',
-                  backgroundColor: '#6B3FE8',
-                  color: 'white',
-                  fontWeight: 700,
-                  padding: '1rem',
-                  borderRadius: '12px',
-                  textDecoration: 'none',
-                  boxShadow: '0 0 25px rgba(107, 63, 232, 0.45)',
-                  transition: 'all 0.3s ease-out'
-                }}
+                aria-label="Instagram"
+                className="mobile-social-icon"
               >
-                ⚡ Diagnostic gratuit
+                <Instagram size={22} />
               </a>
               <a
-                href="tel:+33615940883"
-                onClick={() => setMobileMenuOpen(false)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.5rem',
-                  backgroundColor: 'rgba(16, 185, 129, 0.08)',
-                  border: '1px solid rgba(74, 222, 128, 0.35)',
-                  color: '#4ADE80',
-                  fontWeight: 600,
-                  padding: '0.875rem',
-                  borderRadius: '12px',
-                  textDecoration: 'none',
-                  boxShadow: '0 0 15px rgba(74, 222, 128, 0.2)'
-                }}
+                href={TIKTOK_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+                className="mobile-social-icon"
               >
-                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                06 15 94 08 83
+                <TikTokIcon size={22} />
+              </a>
+              <a
+                href={LINKEDIN_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="mobile-social-icon"
+              >
+                <Linkedin size={22} />
               </a>
             </div>
           </nav>
@@ -267,9 +429,69 @@ export default function Header() {
         .desktop-only { display: none !important; }
         .header-nav a:hover { color: #B59FFF !important; }
 
+        @keyframes fadeInMenu {
+          from { opacity: 0; transform: scale(0.98); }
+          to   { opacity: 1; transform: scale(1); }
+        }
+
+        .mobile-nav-link {
+          display: flex;
+          align-items: center;
+          gap: 0.875rem;
+          padding: 1rem 1rem;
+          border-radius: 12px;
+          color: #ffffff;
+          font-size: 1.125rem;
+          font-weight: 600;
+          text-decoration: none;
+          min-height: 56px;
+          transition: background 0.2s ease;
+        }
+        .mobile-nav-link:hover,
+        .mobile-nav-link:active {
+          background: rgba(107, 63, 232, 0.12);
+        }
+
+        .mobile-sub-link {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          padding: 0.75rem 1rem;
+          color: rgba(255,255,255,0.78);
+          font-size: 1.0625rem;
+          font-weight: 500;
+          text-decoration: none;
+          transition: all 0.2s ease;
+          border-radius: 8px;
+        }
+        .mobile-sub-link:hover,
+        .mobile-sub-link:active {
+          color: #fff;
+          background: rgba(107, 63, 232, 0.08);
+        }
+
+        .mobile-social-icon {
+          width: 44px;
+          height: 44px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 12px;
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.08);
+          color: rgba(255,255,255,0.7);
+          transition: all 0.2s ease;
+        }
+        .mobile-social-icon:hover {
+          color: #B59FFF;
+          background: rgba(107, 63, 232, 0.12);
+          border-color: rgba(107, 63, 232, 0.4);
+        }
+
         @media(min-width: 768px) {
           .mobile-burger { display: none !important; }
           .desktop-only { display: flex !important; }
+          .mobile-menu-overlay { display: none !important; }
           .logo-img { height: 56px !important; }
         }
         @media(min-width: 1024px) {
@@ -279,13 +501,3 @@ export default function Header() {
     </header>
   );
 }
-
-const mobileLinkStyle = {
-  padding: '1rem',
-  fontSize: '1.125rem',
-  fontWeight: 600,
-  color: '#FFFFFF',
-  textDecoration: 'none',
-  borderRadius: '8px',
-  display: 'block'
-};
