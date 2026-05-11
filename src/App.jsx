@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -12,11 +12,18 @@ import Conciergerie from './pages/Conciergerie';
 import MentionsLegales from './pages/MentionsLegales';
 import Confidentialite from './pages/Confidentialite';
 import CGV from './pages/CGV';
+import AutoChoice from './pages/demos/AutoChoice';
+import CardanIA from './pages/demos/CardanIA';
+import CarrossIA from './pages/demos/CarrossIA';
 
-export default function App() {
+function AppShell() {
+  const { pathname } = useLocation();
+  // Les démos métiers sont des apps immersives — pas de header / footer site
+  const isImmersive = pathname.startsWith('/demo/cardan') || pathname.startsWith('/demo/carrossia');
+
   return (
-    <BrowserRouter>
-      <Header />
+    <>
+      {!isImmersive && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sites-internet" element={<SiteInternet />} />
@@ -29,8 +36,19 @@ export default function App() {
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/confidentialite" element={<Confidentialite />} />
         <Route path="/cgv" element={<CGV />} />
+        <Route path="/demo/auto" element={<AutoChoice />} />
+        <Route path="/demo/cardan" element={<CardanIA />} />
+        <Route path="/demo/carrossia" element={<CarrossIA />} />
       </Routes>
-      <Footer />
+      {!isImmersive && <Footer />}
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppShell />
     </BrowserRouter>
   );
 }

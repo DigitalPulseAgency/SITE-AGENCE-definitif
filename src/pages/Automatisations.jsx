@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, Building2, UtensilsCrossed, Home, Zap, Brain, Clock, ExternalLink, ShoppingBag } from 'lucide-react';
+import { ArrowRight, Sparkles, Building2, UtensilsCrossed, Home, Zap, Brain, Clock, ExternalLink, ShoppingBag, Wrench } from 'lucide-react';
 import { CAL_LINK } from '../config/links';
 
 export default function Automatisations() {
@@ -13,6 +13,17 @@ export default function Automatisations() {
       gradient: 'from-orange-500/20 to-amber-500/5',
       iconBg: 'bg-orange-500/20',
       iconColor: 'text-orange-300'
+    },
+    {
+      id: 'auto',
+      icon: Wrench,
+      nom: 'Mécaniciens & carrossiers',
+      desc: 'Gestion atelier, dossiers sinistres, stock pièces, communication client, planning. Deux apps pensées pour les pros de l\'auto : mécanique et carrosserie.',
+      exemples: 'Mécanique générale · Diagnostic · Carrosserie · Peinture · Sinistres',
+      url: '/demo/auto',
+      gradient: 'from-amber-400/20 to-yellow-500/5',
+      iconBg: 'bg-amber-400/20',
+      iconColor: 'text-amber-300'
     },
     {
       id: 'restaurant',
@@ -67,13 +78,13 @@ export default function Automatisations() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">Vois ce qu'on a déjà construit.</h2>
-            <p className="text-xl text-white/60 max-w-2xl mx-auto">3 démos métiers — clique pour les essayer en vrai.</p>
+            <p className="text-xl text-white/60 max-w-2xl mx-auto">4 démos métiers — clique pour les essayer en vrai.</p>
             <div className="inline-flex items-center gap-2 mt-6 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30">
               <span className="text-sm font-medium text-amber-300">⚠️ Ce sont des DÉMOS — ton app sera 100% sur-mesure</span>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {metiers.map((metier) => {
               const Icon = metier.icon;
               return (
