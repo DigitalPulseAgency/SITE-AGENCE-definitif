@@ -90,7 +90,7 @@ export default function FicheGoogle() {
               <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-6">
                 <div className="text-sm font-semibold text-[#B59FFF] mb-2">MAINTENANCE</div>
                 <div className="flex items-baseline gap-2 mb-3">
-                  <span className="text-4xl font-bold">50€</span>
+                  <span className="text-4xl font-bold">99€</span>
                   <span className="text-white/60">/mois</span>
                 </div>
                 <p className="text-white/70">Posts, photos, avis, optimisation continue</p>
