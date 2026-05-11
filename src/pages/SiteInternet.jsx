@@ -128,12 +128,12 @@ export default function SiteInternet() {
                 </p>
               </div>
 
-              {/* Liste bullets */}
-              <ul className="space-y-3 mb-8">
+              {/* Liste bullets — bloc centré, chaque ligne alignée à gauche */}
+              <ul className="space-y-3 mb-8 w-fit mx-auto">
                 {ESSENTIEL_FEATURES.map((item) => (
-                  <li key={item} className="flex gap-3 items-start">
+                  <li key={item} className="flex gap-3 items-start text-left">
                     <Check className="w-5 h-5 text-violet-400 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
-                    <span className="text-white/85">{item}</span>
+                    <span className="text-white/90">{item}</span>
                   </li>
                 ))}
               </ul>
