@@ -9,7 +9,6 @@ const ESSENTIEL_FEATURES = [
   'Avis Google intégrés',
   'Hébergement rapide inclus 1 an',
   'Maintenance + sécurité incluses',
-  'Formation à la prise en main',
   'Livré en 48 à 72h',
 ];
 
@@ -232,7 +231,7 @@ export default function SiteInternet() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <div>
                 <span className="text-3xl font-bold text-[#B59FFF]">59€</span>
-                <span className="text-white/60 ml-1">/mois · Sans engagement</span>
+                <span className="text-white/60 ml-1">/mois · Engagement 1 an</span>
               </div>
               <a
                 href={CAL_LINK}
