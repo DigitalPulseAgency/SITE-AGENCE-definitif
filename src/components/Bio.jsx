@@ -32,7 +32,8 @@ export default function Bio() {
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-8 text-white">
-              Bonjour, moi c'est <span className="text-[#6B3FE8]">Louis.</span>
+              Fondateur de DigitalPulse Agency.<br />
+              <span className="text-[#6B3FE8]">Moi, c'est Louis.</span>
             </h2>
 
             <div className="text-base md:text-lg text-white/75 leading-relaxed">
@@ -53,8 +54,14 @@ export default function Bio() {
                 J'ai commencé par tester mes solutions là où je connaissais le terrain : <strong className="text-white font-semibold">un ami maçon, un pote carrossier, un pisciniste, un peintre, l'entreprise de conciergerie de ma mère, l'entreprise de sécurité de mon père</strong> (13 ans d'existence). Résultat : <strong className="text-white font-semibold">plusieurs heures gagnées par semaine, à chaque fois.</strong>
               </p>
 
-              <p className="mb-4">
-                Aujourd'hui je me concentre sur les domaines que je connais le mieux : <strong className="text-white font-semibold">garages automobiles</strong> (mécaniciens, carrossiers), <strong className="text-white font-semibold">artisans du bâtiment</strong> (piscinistes, climatiseurs, maçons), conciergeries, restauration, sécurité.
+              <p className="mb-2">
+                On a déjà implémenté des solutions concrètes dans des dizaines d'entreprises :
+              </p>
+              <p className="mb-1 font-semibold text-white">
+                Bien-être · Restaurants · Nettoyage · Conciergerie immobilière
+              </p>
+              <p className="mb-4 text-white/40 text-sm">
+                Bâtiment · Automobile · Sécurité · Coiffure
               </p>
 
               <p className="mb-4">
