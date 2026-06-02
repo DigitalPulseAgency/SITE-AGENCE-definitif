@@ -37,7 +37,7 @@ export default function ServicesGrid() {
               {[
                 'Adapté à ton métier, ton vocabulaire, ta façon de bosser',
                 'Tourne en arrière-plan sans que tu touches à rien',
-                'Démos disponibles par métier — vois avant d\'acheter'
+                'Démos disponibles par métier — vois avant de prendre ton rendez-vous'
               ].map((item, i) => (
                 <li key={i} className="flex gap-2 items-start text-sm text-white/85">
                   <Check className="w-4 h-4 text-[#6B3FE8] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
