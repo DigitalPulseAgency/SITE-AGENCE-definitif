@@ -67,7 +67,7 @@ export default function Hero() {
               marginLeft: HERO_HAS_PHOTO ? '0' : 'auto',
               marginRight: HERO_HAS_PHOTO ? '0' : 'auto'
             }}>
-              On développe des <strong style={{ color: '#ffffff' }}>applications sur-mesure</strong> qui centralisent <strong style={{ color: '#ffffff' }}>plusieurs automatisations</strong> adaptées à ton métier. On crée aussi des <strong style={{ color: '#ffffff' }}>sites web qui convertissent</strong>. Tu gardes ta visibilité, tu gagnes du temps, tu te recentres sur l'essentiel.
+              On développe des <strong style={{ color: '#ffffff' }}>applications sur-mesure</strong> qui centralisent <strong style={{ color: '#ffffff' }}>plusieurs automatisations</strong> adaptées à ton métier. On crée aussi des <strong style={{ color: '#ffffff' }}>sites web conçus pour convertir dès la première semaine</strong>. Tu gardes ta visibilité, tu gagnes du temps, tu te recentres sur l'essentiel.
             </p>
           </FadeIn>
           
