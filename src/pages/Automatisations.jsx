@@ -125,6 +125,48 @@ export default function Automatisations() {
         </div>
       </section>
 
+      {/* SECTEURS */}
+      <section className="py-20 px-6 border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center">On intervient principalement dans ces secteurs.</h2>
+          <p className="text-white/50 text-center mb-12">Si ton activité est dans l'un d'eux, on a probablement déjà construit quelque chose pour toi.</p>
+
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            {[
+              {
+                titre: 'Bien-être',
+                items: ['Instituts de beauté', 'Massage · Spa', 'Manucure · Coiffure'],
+              },
+              {
+                titre: 'Restauration',
+                items: ['Restaurants', 'Pizzerias', 'Brasseries'],
+              },
+              {
+                titre: 'Sécurité',
+                items: ['Alarme', 'Sécurité événementielle', 'Agents de sécurité', 'Maîtres-chiens'],
+              },
+              {
+                titre: 'Nettoyage & Bâtiment',
+                items: ['Agences de nettoyage', 'Maçons · Plaquistes', 'Paysagistes · Carreleurs', 'Climaticiens · Plombiers'],
+              },
+              {
+                titre: 'Conciergerie',
+                items: ['Conciergerie immobilière', 'Gestion locative centralisée'],
+              },
+            ].map((secteur, i) => (
+              <div key={i} className="bg-white/[0.03] border border-white/10 rounded-2xl p-5">
+                <h3 className="font-bold text-[#B59FFF] mb-3 text-sm uppercase tracking-widest">{secteur.titre}</h3>
+                <ul className="space-y-1.5">
+                  {secteur.items.map((item, j) => (
+                    <li key={j} className="text-white/70 text-sm">{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA FINAL */}
       <section className="py-24 px-6 border-t border-white/5">
         <div className="max-w-3xl mx-auto text-center">
