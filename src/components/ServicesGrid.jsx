@@ -26,18 +26,18 @@ export default function ServicesGrid() {
             />
             <Sparkles className="w-10 h-10 text-[#6B3FE8] mb-5 animate-pulse opacity-90 relative" strokeWidth={2} style={{ animationDuration: '3s' }} />
 
-            <h3 className="text-2xl font-bold mb-1">Automatisations IA</h3>
-            <p className="text-violet-400 font-semibold mb-4">Ton app sur-mesure</p>
+            <h3 className="text-2xl font-bold mb-1">3 à 10h récupérées chaque semaine.</h3>
+            <p className="text-violet-400 font-semibold mb-4">Automatisations IA sur-mesure</p>
 
             <p className="text-white/70 leading-relaxed mb-5">
-              3 à 5 automatisations centralisées dans un seul outil. Adapté à ton métier (BTP, garages, conciergeries, restaurants...). Ça tourne 24h/24, 7j/7. Tu te libères de la charge mentale.
+              Ton process implémenté sur-mesure. Tourne 24h/24, 7j/7, toute l'année. Te coûte 10× moins cher qu'un employé. Et remplace littéralement un être humain.
             </p>
 
             <ul className="space-y-2 mb-7">
               {[
-                'Application développée sur-mesure',
-                '3 à 5 automatisations centralisées',
-                'Démos disponibles par métier'
+                'Adapté à ton métier, ton vocabulaire, ta façon de bosser',
+                'Tourne en arrière-plan sans que tu touches à rien',
+                'Démos disponibles par métier — vois avant d\'acheter'
               ].map((item, i) => (
                 <li key={i} className="flex gap-2 items-start text-sm text-white/85">
                   <Check className="w-4 h-4 text-[#6B3FE8] flex-shrink-0 mt-0.5" strokeWidth={2.5} />
