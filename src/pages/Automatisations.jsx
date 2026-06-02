@@ -4,6 +4,28 @@ import { CAL_LINK } from '../config/links';
 export default function Automatisations() {
   const metiers = [
     {
+      id: 'restaurant',
+      icon: UtensilsCrossed,
+      nom: 'Restaurants',
+      desc: 'Réservations, fidélisation client, gestion des stocks, menus dynamiques. Une solution sur-mesure pour ton resto.',
+      exemples: 'Pizzeria · Restaurant · Brasserie · Food truck · Bistrot',
+      url: '/demo/restaurant',
+      gradient: 'from-red-500/20 to-rose-500/5',
+      iconBg: 'bg-red-500/20',
+      iconColor: 'text-red-300'
+    },
+    {
+      id: 'conciergerie',
+      icon: Home,
+      nom: 'Conciergerie immobilière',
+      desc: 'Gestion des biens, planning ménage, communication propriétaires/voyageurs, automatisations Airbnb.',
+      exemples: 'Conciergerie Airbnb · Gestion locative · Location courte durée',
+      url: '/demo/conciergerie',
+      gradient: 'from-emerald-500/20 to-teal-500/5',
+      iconBg: 'bg-emerald-500/20',
+      iconColor: 'text-emerald-300'
+    },
+    {
       id: 'btp',
       icon: Building2,
       nom: 'Artisans du bâtiment',
@@ -25,28 +47,6 @@ export default function Automatisations() {
       iconBg: 'bg-amber-400/20',
       iconColor: 'text-amber-300'
     },
-    {
-      id: 'restaurant',
-      icon: UtensilsCrossed,
-      nom: 'Restaurants',
-      desc: 'Réservations, fidélisation client, gestion des stocks, menus dynamiques. Une solution sur-mesure pour ton resto.',
-      exemples: 'Pizzeria · Restaurant · Brasserie · Food truck · Bistrot',
-      url: '/demo/restaurant',
-      gradient: 'from-red-500/20 to-rose-500/5',
-      iconBg: 'bg-red-500/20',
-      iconColor: 'text-red-300'
-    },
-    {
-      id: 'conciergerie',
-      icon: Home,
-      nom: 'Conciergerie immobilière',
-      desc: 'Gestion des biens, planning ménage, communication propriétaires/voyageurs, automatisations Airbnb.',
-      exemples: 'Conciergerie Airbnb · Gestion locative · Location courte durée',
-      url: '/demo/conciergerie',
-      gradient: 'from-emerald-500/20 to-teal-500/5',
-      iconBg: 'bg-emerald-500/20',
-      iconColor: 'text-emerald-300'
-    }
   ];
 
   return (
