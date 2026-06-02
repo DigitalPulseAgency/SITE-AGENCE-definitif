@@ -64,64 +64,89 @@ export default function FicheGoogle() {
         </div>
       </section>
 
+      {/* COMMENT ÇA MARCHE */}
+      <section className="py-20 px-6 border-t border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center">
+            Comment ça se passe, concrètement.
+          </h2>
+          <p className="text-xl text-white/60 mb-14 text-center">
+            Tu n'as rien à faire. On gère ta fiche Google de A à Z.
+          </p>
+
+          <div className="grid md:grid-cols-4 gap-6 mb-16">
+            {[
+              { step: "1", titre: "Diagnostic gratuit", desc: "On audite ta présence Google actuelle : ta fiche, celles de tes concurrents, et les mots-clés que tes clients tapent." },
+              { step: "2", titre: "Création ou reprise", desc: "On crée ta fiche ou on reprend celle qui existe. Vérification, photos, description optimisée, horaires, services — tout est fait pour toi." },
+              { step: "3", titre: "On la fait vivre", desc: "Chaque semaine, on publie du contenu sur ta fiche : offres, photos, actus. On répond à tous tes avis sous 24h." },
+              { step: "4", titre: "Tu reçois les appels", desc: "Tes clients te trouvent sur Google, voient une fiche pro avec des avis 5 étoiles, et t'appellent directement." }
+            ].map((item, i) => (
+              <div key={i} className="relative">
+                <div className="w-10 h-10 rounded-full bg-[#6B3FE8] flex items-center justify-center text-lg font-bold mb-4">{item.step}</div>
+                <h3 className="font-bold text-lg mb-2">{item.titre}</h3>
+                <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* L'OFFRE */}
       <section className="py-20 px-6 border-t border-white/5">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center">
-            Une offre claire, sans surprise.
+            Le tarif. Clair, sans surprise.
           </h2>
           <p className="text-xl text-white/60 mb-12 text-center">
-            On crée ta fiche, on l'optimise, et on s'en occupe chaque mois.
+            Pas d'engagement longue durée. Tu restes parce que ça marche.
           </p>
 
           <div className="bg-gradient-to-br from-[#6B3FE8]/30 to-[#6B3FE8]/5 border-2 border-[#6B3FE8] rounded-3xl p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               {/* Setup */}
               <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-6">
-                <div className="text-sm font-semibold text-[#B59FFF] mb-2">CRÉATION</div>
+                <div className="text-sm font-semibold text-[#B59FFF] mb-2">MISE EN PLACE</div>
                 <div className="flex items-baseline gap-2 mb-3">
                   <span className="text-4xl font-bold">130€</span>
-                  <span className="text-white/60">paiement unique</span>
+                  <span className="text-white/60">une seule fois</span>
                 </div>
-                <p className="text-white/70">Création complète + optimisation initiale</p>
+                <ul className="space-y-2 text-sm text-white/70">
+                  <li className="flex gap-2"><Check className="w-4 h-4 text-[#B59FFF] flex-shrink-0 mt-0.5" /><span>Création ou reprise de ta fiche</span></li>
+                  <li className="flex gap-2"><Check className="w-4 h-4 text-[#B59FFF] flex-shrink-0 mt-0.5" /><span>Vérification Google (tu deviens propriétaire)</span></li>
+                  <li className="flex gap-2"><Check className="w-4 h-4 text-[#B59FFF] flex-shrink-0 mt-0.5" /><span>Photos pro + description optimisée</span></li>
+                  <li className="flex gap-2"><Check className="w-4 h-4 text-[#B59FFF] flex-shrink-0 mt-0.5" /><span>Catégories, horaires, zone de chalandise</span></li>
+                  <li className="flex gap-2"><Check className="w-4 h-4 text-[#B59FFF] flex-shrink-0 mt-0.5" /><span>Première publication + configuration complète</span></li>
+                </ul>
               </div>
 
               {/* Maintenance */}
               <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-6">
-                <div className="text-sm font-semibold text-[#B59FFF] mb-2">MAINTENANCE</div>
+                <div className="text-sm font-semibold text-[#B59FFF] mb-2">GESTION MENSUELLE</div>
                 <div className="flex items-baseline gap-2 mb-3">
-                  <span className="text-4xl font-bold">99€</span>
-                  <span className="text-white/60">/mois</span>
+                  <span className="text-4xl font-bold">89€</span>
+                  <span className="text-white/60">/mois — sans engagement</span>
                 </div>
-                <p className="text-white/70">Posts, photos, avis, optimisation continue</p>
+                <ul className="space-y-2 text-sm text-white/70">
+                  <li className="flex gap-2"><Check className="w-4 h-4 text-[#B59FFF] flex-shrink-0 mt-0.5" /><span>4 publications par mois (offres, photos, actus)</span></li>
+                  <li className="flex gap-2"><Check className="w-4 h-4 text-[#B59FFF] flex-shrink-0 mt-0.5" /><span>Réponse à tous les avis sous 24h</span></li>
+                  <li className="flex gap-2"><Check className="w-4 h-4 text-[#B59FFF] flex-shrink-0 mt-0.5" /><span>Automatisation de la collecte d'avis (tes clients reçoivent une demande automatique après chaque intervention)</span></li>
+                  <li className="flex gap-2"><Check className="w-4 h-4 text-[#B59FFF] flex-shrink-0 mt-0.5" /><span>Optimisation continue (mots-clés, catégories)</span></li>
+                  <li className="flex gap-2"><Check className="w-4 h-4 text-[#B59FFF] flex-shrink-0 mt-0.5" /><span>Rapport mensuel : vues, clics, appels reçus</span></li>
+                </ul>
               </div>
             </div>
 
-            <div className="border-t border-white/10 pt-8">
-              <h3 className="text-xl font-bold mb-6">Ce qu'on fait pour toi :</h3>
-              <ul className="space-y-3">
-                {[
-                  "Création et vérification de ta fiche Google",
-                  "Optimisation complète : photos pro, description, horaires, services",
-                  "Catégorisation précise pour mieux remonter dans les recherches locales",
-                  "Publications hebdomadaires sur ta fiche (offres, actus, photos)",
-                  "Réponse à tous les avis clients (positifs et négatifs) sous 24h",
-                  "Stratégie pour collecter plus d'avis 5 étoiles auprès de tes clients",
-                  "Reporting mensuel des performances (vues, clics, appels)"
-                ].map((item, i) => (
-                  <li key={i} className="flex gap-3 items-start">
-                    <Check className="w-5 h-5 text-[#B59FFF] flex-shrink-0 mt-0.5" />
-                    <span className="text-white/90">{item}</span>
-                  </li>
-                ))}
-              </ul>
+            <div className="bg-white/[0.03] border border-white/10 rounded-xl p-5 mb-8">
+              <p className="text-white/80 text-center">
+                <strong className="text-white">En clair :</strong> tu nous confies ta fiche, on la rend visible, on la fait vivre. Tes clients reçoivent automatiquement une demande d'avis après chaque intervention. Tu ne touches à rien — et les avis s'accumulent.
+              </p>
             </div>
 
             <a
               href={CAL_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 w-full text-center inline-flex items-center justify-center gap-3 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold py-4 rounded-xl transition-all duration-300 ease-out shadow-[0_0_25px_rgba(107,63,232,0.45)] hover:shadow-[0_0_40px_rgba(107,63,232,0.7)] hover:scale-[1.02] hover:-translate-y-0.5"
+              className="mt-4 w-full text-center inline-flex items-center justify-center gap-3 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold py-4 rounded-xl transition-all duration-300 ease-out shadow-[0_0_25px_rgba(107,63,232,0.45)] hover:shadow-[0_0_40px_rgba(107,63,232,0.7)] hover:scale-[1.02] hover:-translate-y-0.5"
             >
               Réserver mon diagnostic gratuit
               <ArrowRight className="w-5 h-5" />
