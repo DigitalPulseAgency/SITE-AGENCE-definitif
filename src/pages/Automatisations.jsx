@@ -60,11 +60,12 @@ export default function Automatisations() {
             <span className="text-sm font-semibold text-[#B59FFF]">Notre service phare</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
-            Automatise les tâches<br />qui te bouffent.<br />
-            <span className="text-[#6B3FE8]">On te redonne ton temps.</span>
+            Avant, tu gérais tout à la main.<br />
+            Tu perdais des heures sur des tâches répétitives.<br />
+            <span className="text-[#6B3FE8]">Aujourd'hui, ça tourne tout seul.</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-3xl leading-relaxed">
-            Des applications sur-mesure pour ton métier. Adaptées à ton activité, ton vocabulaire, ta façon de bosser.
+            On implémente un système sur-mesure qui centralise tout ce qui te prend du temps dans ton activité. Il tourne 24h/24, toute l'année — et te fait récupérer plusieurs heures par semaine dès le premier mois.
           </p>
           <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-[0_0_25px_rgba(107,63,232,0.45)] hover:shadow-[0_0_40px_rgba(107,63,232,0.7)] hover:scale-[1.02] hover:-translate-y-0.5">
             Réserver mon diagnostic gratuit
