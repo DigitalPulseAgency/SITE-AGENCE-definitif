@@ -102,26 +102,6 @@ export default function Automatisations() {
             })}
           </div>
 
-          {/* SITE E-COMMERCE */}
-          <div className="mt-12 bg-white/[0.03] border border-white/10 rounded-2xl p-6 flex flex-col md:flex-row md:items-center gap-6">
-            <div className="flex-grow">
-              <h3 className="text-lg font-bold mb-2">Tu as besoin d'un site pour vendre tes produits en ligne ?</h3>
-              <p className="text-white/60 text-sm leading-relaxed">
-                C'est du sur-mesure — le tarif dépend du besoin de chaque entreprise. On en discute lors du diagnostic.
-                <br />
-                <span className="text-white/80">Pour un <strong className="text-white">site vitrine simple</strong> : <strong className="text-[#B59FFF]">350€ au lieu de 700€</strong> — offre valable jusqu'à fin juin.</span>
-              </p>
-            </div>
-            <a
-              href={CAL_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 text-white font-semibold px-5 py-3 rounded-xl transition-all duration-200 whitespace-nowrap flex-shrink-0"
-            >
-              En discuter
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
         </div>
       </section>
 
