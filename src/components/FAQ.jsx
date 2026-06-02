@@ -9,48 +9,58 @@ export default function FAQ() {
 
   const faqs = [
     {
-      q: "Est-ce que je dois m'engager sur une durée minimum ?",
-      a: `Cela dépend uniquement du service Réseaux Sociaux :
-- **Offre Starter (79€/mois)** : aucun engagement, paiement mensuel
-- **Offre Growth (247€/mois)** : engagement minimum de 6 mois pour des résultats durables
+      q: "Quel est le risque que je prends à collaborer avec vous ?",
+      a: `Le vrai risque, c'est de ne pas le faire. En France, on est en retard sur les États-Unis. Dans 5 ans, **80% des entreprises auront des automatisations en place**. Ceux qui s'y mettent aujourd'hui prennent une avance que les autres ne rattraperont pas.
 
-Tous les autres services (sites, automatisations IA, Fiche Google) sont des prestations ponctuelles sans engagement de durée.`
+Concrètement : nos solutions font gagner **3 à 10h par semaine dès le premier mois**. Moins de charge mentale, plus de temps pour ce qui compte vraiment.`
     },
     {
-      q: "Combien de temps pour avoir des résultats ?",
-      a: `Cela dépend du levier activé :
-- **SEO + Fiche Google** : 2 semaines à 1 mois pour les premiers résultats. C'est le levier le plus puissant sur la durée.
-- **Réseaux sociaux** : 2 à 3 mois pour voir les effets, mais extrêmement puissant sur le long terme.
-- **Automatisations IA** : effet immédiat dès la mise en place, tu gagnes du temps dès la première semaine.
+      q: "Combien de temps avant de voir des résultats ?",
+      a: `**Site internet** : dès la première semaine, tes futurs clients peuvent t'appeler.
 
-La combinaison la plus puissante reste : SEO + Site optimisé + Infrastructure IA.`
+**Automatisations** : l'effet est immédiat dès la première mise en place.
+
+**SEO** : les premiers résultats apparaissent dès la première semaine, et ça s'améliore de mois en mois.`
     },
     {
-      q: "4 ans d'expérience ? Pourtant DigitalPulse Agency vient de se lancer...",
-      a: `Exact. La marque DigitalPulse Agency est récente, mais moi pas. Ça fait 4 ans que je crée des sites web (WordPress, Shopify, puis code sur-mesure) et 2 ans que je suis plongé dans l'IA. J'ai testé mes solutions chez des proches et mes premiers clients bien avant de structurer la marque.
+      q: "C'est quoi concrètement une automatisation ?",
+      a: `Imagine un assistant qui ne dort jamais, ne prend pas de pauses et ne fait pas d'erreurs. Concrètement, on centralise dans un seul outil :
 
-Aujourd'hui, ma priorité c'est claire : **redonner du temps aux entreprises** en automatisant leurs tâches chronophages et répétitives à faible valeur ajoutée. Pour qu'elles se concentrent sur l'essentiel et passent plus de temps avec leur famille.`
+- **Devis et factures** générés automatiquement selon tes tarifs
+- **Suivi clients, commandes, fournisseurs**
+- **Gestion de stocks** : alertes et commandes automatiques
+- **Prise de rendez-vous** : le client réserve seul, tu reçois une notification
+- **Réceptionniste virtuelle** : réponses automatiques aux demandes courantes
+- **Avis Google** : demande envoyée automatiquement après chaque intervention
+
+Pour une conciergerie immobilière par exemple : planning des femmes de ménage, affectation des interventions par bien, communication propriétaires/voyageurs — tout centralisé, tout automatique.
+
+**Tu te connectes à un seul endroit et tu vois tout.**`
     },
     {
-      q: "Pourquoi seulement 20 clients par secteur ?",
-      a: `Cette limite concerne **uniquement le service Réseaux Sociaux**, pour garantir une qualité maximale sur chaque compte.
+      q: "Votre SEO peut vraiment ramener des clients dès la première semaine ?",
+      a: `Oui — parce qu'on intègre le SEO dans le code du site dès la construction, pas en option après coup. Chaque page est optimisée avec les mots-clés que tes clients tapent réellement sur Google.
 
-Pour les automatisations IA, je travaille avec un réseau de 3 prestataires freelance expérimentés. Je me concentre sur l'acquisition et le suivi clients, et nous développons actuellement notre activité en Suisse également.`
+Dès que le site est en ligne, Google commence à l'indexer. Pour une activité locale avec peu de concurrence digitale, les premiers appels peuvent arriver dans les 7 jours.
+
+Et chaque mois, avec l'option SEO à **59€/mois**, on met à jour les mots-clés selon les nouvelles tendances de recherche. **Ton site remonte seul — sans payer de pub.**`
     },
     {
-      q: "Vous travaillez avec des entreprises comme la mienne ?",
-      a: `On accompagne en priorité :
+      q: "Est-ce que la visibilité sur Google est vraiment importante ?",
+      a: `Non négociable. On ne dit même plus "important" — **c'est obligatoire**.
 
-**BTP - Artisans du bâtiment** : piscinistes, climaticiens, frigoristes, plombiers, chauffagistes, maçons, peintres, sociétés de nettoyage.
+En 2026, si tu n'apparais pas sur Google quand quelqu'un cherche ton activité dans ta ville, tu n'existes pas. Peu importe la qualité de ton travail. Les réseaux sociaux créent de la confiance, mais c'est Google qui génère les appels entrants.
 
-**Automobile** : carrossiers, mécaniciens.
+Un client qui cherche "plombier urgence Lyon" à 22h ne va pas scroller Instagram — il clique sur le premier résultat Google. **C'est là qu'on t'installe.**`
+    },
+    {
+      q: "Vous êtes une agence ou un freelance ?",
+      a: `Les deux à la fois. Je suis **CEO de DigitalPulse Agency**, à la tête des projets et focus sur l'acquisition client.
 
-**Restauration** : restaurants, bars, brasseries.
+Pour les projets qui le nécessitent — notamment les **infrastructures IA et les automatisations complexes** — je collabore régulièrement avec deux développeurs expérimentés.
 
-On adapte aussi nos méthodes aux conciergeries immobilières, instituts de beauté, salons de massage, spas, salons de coiffure et au monde du bien-être en général.
-
-En réalité, **95% du temps, c'est faisable**. Tout est sur-mesure. Le mieux c'est d'en parler 15 min en visio pour voir ce qu'on peut faire pour toi.`
-    }
+On est trois, chacun à sa place. Tu as un seul interlocuteur, mais derrière, **une équipe qui sait livrer.**`
+    },
   ];
 
   // Rendu d'une réponse avec gras markdown (**texte**)
