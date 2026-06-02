@@ -9,7 +9,7 @@ const ESSENTIEL_FEATURES = [
   'Avis Google intégrés',
   'Hébergement rapide inclus 1 an',
   'Maintenance + sécurité incluses',
-  'Livré en 48 à 72h',
+  'Livré en 3 à 5 jours',
 ];
 
 export default function SiteInternet() {
@@ -81,7 +81,7 @@ export default function SiteInternet() {
             Une offre simple. Tout est dedans.
           </h2>
           <p className="text-xl text-white/60 mb-16 text-center max-w-2xl mx-auto">
-            Un site sur-mesure prêt à convertir, livré en 48 à 72h. Une option SEO si tu veux dominer ton secteur.
+            Un site sur-mesure prêt à convertir, livré en 3 à 5 jours. Une option SEO si tu veux dominer ton secteur.
           </p>
 
           {/* CARTE ESSENTIEL — CENTRÉE */}
@@ -254,7 +254,7 @@ export default function SiteInternet() {
           <div className="space-y-6">
             {[
               { n: "01", titre: "Diagnostic gratuit (15 min)", desc: "On comprend ton activité, ta cible, tes objectifs. Tu repars avec une stratégie claire." },
-              { n: "02", titre: "Création du site (48 à 72h)", desc: "On code ton site sur-mesure dans ta charte. Pas de template moche réutilisé." },
+              { n: "02", titre: "Création du site (3 à 5 jours)", desc: "On code ton site sur-mesure dans ta charte. Pas de template moche réutilisé." },
               { n: "03", titre: "Validation et ajustements", desc: "Tu donnes ton avis, on ajuste les textes, couleurs, photos." },
               { n: "04", titre: "Mise en ligne", desc: "Site déployé, nom de domaine configuré, Google informé." },
               { n: "05", titre: "Option SEO : blog automatisé", desc: "Si tu actives l'option à 59€/mois, on configure le blog. À partir du mois 2, tes articles commencent à remonter sur Google." }
@@ -278,7 +278,7 @@ export default function SiteInternet() {
             Prêt à avoir un site qui bosse pour toi ?
           </h2>
           <p className="text-xl text-white/70 mb-10">
-            Réserve un diagnostic gratuit. On regarde ensemble ce qui te manque, et on te livre ton site sur-mesure en 48 à 72h.
+            Réserve un diagnostic gratuit. On regarde ensemble ce qui te manque, et on te livre ton site sur-mesure en 3 à 5 jours.
           </p>
           <a
             href={CAL_LINK}
