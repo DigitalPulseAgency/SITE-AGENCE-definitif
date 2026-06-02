@@ -55,11 +55,11 @@ Un client qui cherche "plombier urgence Lyon" à 22h ne va pas scroller Instagra
     },
     {
       q: "Vous êtes une agence ou un freelance ?",
-      a: `Les deux à la fois. Je suis **CEO de DigitalPulse Agency**, à la tête des projets et focus sur l'acquisition client.
+      a: `Les deux à la fois. Je suis le fondateur de DigitalPulse Agency — j'occupe le poste de CIO. Je gère l'ensemble : pilotage des projets, acquisition client, stratégie.
 
-Pour les projets qui le nécessitent — notamment les **infrastructures IA et les automatisations complexes** — je collabore régulièrement avec deux développeurs expérimentés.
+Pour les parties techniques, je délègue à **deux développeurs qui travaillent avec moi à temps plein** — disponibles tous les jours, y compris la nuit. Ce sont mes deux bras droits.
 
-On est trois, chacun à sa place. Tu as un seul interlocuteur, mais derrière, **une équipe qui sait livrer.**`
+Tu as un seul interlocuteur côté business, mais derrière, **une équipe soudée qui livre.**`
     },
   ];
 
