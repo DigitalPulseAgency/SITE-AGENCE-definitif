@@ -70,7 +70,7 @@ export default function ServicesGrid() {
               {[
                 'Site Essentiel 350€ (au lieu de 700€)',
                 'Paiement en 2 fois possible',
-                'Option SEO automatisé 59€/mois'
+                'Option SEO automatisé mensuel'
               ].map((item, i) => (
                 <li key={i} className="flex gap-2 items-start text-sm text-white/85">
                   <Check className="w-4 h-4 text-[#6B3FE8] flex-shrink-0 mt-0.5" strokeWidth={2.5} />

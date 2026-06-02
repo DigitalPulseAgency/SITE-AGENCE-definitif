@@ -5,7 +5,7 @@ const ESSENTIEL_FEATURES = [
   'Site vitrine 100% sur-mesure',
   'Design haut de gamme personnalisé',
   '100% responsive (mobile, tablette, ordi)',
-  'Optimisation SEO de base incluse',
+  'SEO intégré dans le code — tu pars visible sur Google dès le lancement',
   'Avis Google intégrés',
   'Hébergement rapide inclus 1 an',
   'Maintenance + sécurité incluses',
@@ -93,7 +93,7 @@ export default function SiteInternet() {
               {/* Badge en haut */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                 <div className="bg-[#6B3FE8] text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-[0_0_25px_rgba(107,63,232,0.6)] animate-pulse" style={{ animationDuration: '3s' }}>
-                  ⚡ OFFRE FLASH — Jusqu'à fin mai
+                  ⚡ OFFRE FLASH — Jusqu'à fin juin
                 </div>
               </div>
 
@@ -118,13 +118,8 @@ export default function SiteInternet() {
 
               {/* Option SEO */}
               <div className="border-t border-zinc-800/50 pt-5 mb-8 text-center">
-                <p>
-                  <span className="text-violet-400 font-semibold text-2xl">+ 59€</span>
-                  <span className="text-white/80 text-base">/mois</span>
-                  <span className="text-zinc-400 text-sm"> — Automatisation SEO (optionnel)</span>
-                </p>
-                <p className="text-zinc-500 text-xs mt-2 max-w-md mx-auto leading-relaxed">
-                  Articles de blog optimisés mots-clés, générés régulièrement, pour ton référencement naturel sans payer d'ads.
+                <p className="text-white/60 text-sm">
+                  + Option <strong className="text-[#B59FFF]">SEO mensuel</strong> disponible — voir le détail ci-dessous ↓
                 </p>
               </div>
 
@@ -193,54 +188,61 @@ export default function SiteInternet() {
         </div>
       </section>
 
-      {/* L'AUTOMATISATION SEO EXPLIQUÉE */}
+      {/* BANDEAU SEO — DIFFÉRENCIATEUR CLÉ */}
       <section className="py-20 px-6 border-t border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#6B3FE8]/15 border border-[#6B3FE8]/30 mb-4">
-                <Sparkles className="w-4 h-4 text-[#B59FFF]" />
-                <span className="text-xs font-semibold text-[#B59FFF]">Option Automatisation SEO</span>
-              </div>
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-[#6B3FE8]/20 to-transparent border border-[#6B3FE8]/30 rounded-3xl p-10">
 
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-                Comment 59€/mois<br />
-                <span className="text-[#6B3FE8]">remplacent 500€ de pubs Google.</span>
-              </h2>
-
-              <div className="space-y-4 text-white/70 leading-relaxed">
-                <p>
-                  Au lieu de payer Google à chaque clic (Google Ads), on travaille ton <strong className="text-white">référencement naturel</strong>.
-                </p>
-                <p>
-                  L'automatisation publie régulièrement des <strong className="text-white">articles de blog optimisés sur les bons mots-clés</strong> de ton secteur.
-                </p>
-                <p>
-                  Résultat : ton site remonte tout seul dans Google. Les clients te trouvent <strong className="text-white">sans que tu payes pour chaque visite</strong>.
-                </p>
-              </div>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#6B3FE8]/20 border border-[#6B3FE8]/40 mb-6">
+              <Search className="w-4 h-4 text-[#B59FFF]" />
+              <span className="text-sm font-semibold text-[#B59FFF]">Option SEO mensuel — 59€/mois</span>
             </div>
 
-            <div className="bg-white/[0.03] border border-white/10 rounded-3xl p-6 space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Apparais en premier sur Google.<br />
+              <span className="text-[#6B3FE8]">Sans payer de pub.</span>
+            </h2>
+
+            <p className="text-white/70 text-lg mb-8 max-w-2xl leading-relaxed">
+              Chaque mois, j'analyse les mots-clés que tes clients tapent vraiment dans ton secteur. Je mets à jour le SEO de ton site en conséquence. Résultat : ton site remonte dans Google naturellement — là où tes concurrents paient 300 à 500€/mois en Google Ads, toi tu n'as rien de plus à débourser.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-4 mb-8">
               {[
-                { icon: TrendingUp, titre: "Mots-clés ciblés", desc: "On identifie les mots-clés que tes clients tapent vraiment sur Google" },
-                { icon: FileText, titre: "Articles automatisés", desc: "Génération d'articles de qualité optimisés pour ces mots-clés" },
-                { icon: Search, titre: "Indexation Google", desc: "Tes articles remontent dans les résultats de recherche organiques" },
-                { icon: Award, titre: "Trafic gratuit", desc: "Plus tu publies, plus tu attires de visiteurs sans payer d'ads" }
+                { icon: TrendingUp, titre: "Analyse mensuelle des mots-clés", desc: "Je vérifie chaque mois ce que tes clients cherchent vraiment sur Google dans ton secteur" },
+                { icon: FileText, titre: "Mise à jour SEO du site", desc: "Le contenu et les balises de ton site sont ajustés selon les tendances du moment" },
+                { icon: Search, titre: "Articles optimisés publiés auto", desc: "Des articles ciblés publiés régulièrement pour renforcer ton positionnement Google" },
+                { icon: Award, titre: "Trafic organique, zéro pub", desc: "Ton site remonte tout seul, mois après mois. Aucune dépense publicitaire nécessaire" },
               ].map((item, i) => {
                 const Icon = item.icon;
                 return (
-                  <div key={i} className="flex gap-3 items-start">
+                  <div key={i} className="flex gap-3 bg-white/[0.05] rounded-xl p-4">
                     <div className="w-10 h-10 rounded-lg bg-[#6B3FE8]/20 flex items-center justify-center flex-shrink-0">
                       <Icon className="w-5 h-5 text-[#B59FFF]" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1">{item.titre}</h4>
-                      <p className="text-sm text-white/60">{item.desc}</p>
+                      <h4 className="font-semibold mb-1 text-sm">{item.titre}</h4>
+                      <p className="text-xs text-white/60 leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 );
               })}
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div>
+                <span className="text-3xl font-bold text-[#B59FFF]">59€</span>
+                <span className="text-white/60 ml-1">/mois · Sans engagement</span>
+              </div>
+              <a
+                href={CAL_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 ease-out hover:scale-[1.02]"
+              >
+                En savoir plus lors du diagnostic
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
@@ -290,7 +292,7 @@ export default function SiteInternet() {
             <ArrowRight className="w-5 h-5" />
           </a>
           <p className="text-sm text-white/50 mt-6">
-            Tarif Essentiel à 350€ valable jusqu'à fin mai 2026
+            Tarif Essentiel à 350€ valable jusqu'à fin juin 2026
           </p>
         </div>
       </section>
