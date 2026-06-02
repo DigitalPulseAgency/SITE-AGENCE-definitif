@@ -57,10 +57,6 @@ export default function ServicesGrid() {
 
           {/* CARD 2 — Site internet (rôle support) */}
           <div className="group relative p-8 rounded-2xl border border-white/10 bg-white/[0.02] shadow-[0_0_15px_rgba(255,255,255,0.03)] flex flex-col transition-all duration-300 ease-out hover:scale-[1.01] hover:-translate-y-1 hover:border-[#6B3FE8]/30 hover:shadow-[0_0_25px_rgba(107,63,232,0.2)]">
-            <div className="inline-flex items-center self-start gap-2 px-3 py-1 rounded-full bg-violet-500/5 border border-violet-400/15 mb-5">
-              <span className="text-xs font-semibold text-violet-300/70">Très demandé</span>
-            </div>
-
             <Globe className="w-10 h-10 text-white mb-5" strokeWidth={2} />
 
             <h3 className="text-2xl font-bold mb-1">Site internet</h3>
