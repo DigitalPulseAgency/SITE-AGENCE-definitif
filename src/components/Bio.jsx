@@ -55,7 +55,7 @@ export default function Bio() {
               </p>
 
               <p className="mb-2">
-                On a déjà implémenté des solutions concrètes dans des dizaines d'entreprises :
+                On intervient principalement dans ces secteurs d'activité :
               </p>
               <p className="mb-1 font-semibold text-white">
                 Bien-être · Restaurants · Nettoyage · Conciergerie immobilière
