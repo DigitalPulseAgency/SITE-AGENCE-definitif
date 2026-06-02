@@ -105,31 +105,25 @@ export default function Automatisations() {
             })}
           </div>
 
-          {/* E-COMMERCE — APPROCHE DIFFÉRENTE */}
-          <div className="mt-12 bg-gradient-to-br from-[#6B3FE8]/15 to-transparent border border-[#6B3FE8]/30 rounded-3xl p-8">
-            <div className="flex flex-col md:flex-row md:items-start gap-6">
-              <div className="w-16 h-16 rounded-2xl bg-[#6B3FE8]/20 flex items-center justify-center flex-shrink-0">
-                <ShoppingBag className="w-8 h-8 text-[#B59FFF]" />
-              </div>
-              <div className="flex-grow">
-                <h3 className="text-2xl font-bold mb-3">Tu vends en ligne ?</h3>
-                <p className="text-white/80 leading-relaxed mb-3">
-                  Le e-commerce, c'est un autre métier. On ne propose pas d'application sur-mesure ici, mais on intervient là où tu perds vraiment du temps : automatiser ton <strong className="text-white font-semibold">suivi de stock et commandes fournisseurs</strong>, et surtout <strong className="text-white font-semibold">gérer et automatiser ton support mail SAV</strong> pour répondre vite à tes clients sans y passer tes soirées.
-                </p>
-                <p className="text-white/70 text-sm italic leading-relaxed">
-                  C'est un accompagnement sur-mesure. On en discute 15 min pour voir ce qu'on peut faire pour toi.
-                </p>
-              </div>
-              <a
-                href={CAL_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary inline-flex items-center gap-2 px-6 py-3 whitespace-nowrap flex-shrink-0 self-start md:self-center hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 ease-out"
-              >
-                Réserver un appel découverte
-                <ArrowRight className="w-4 h-4" />
-              </a>
+          {/* SITE E-COMMERCE */}
+          <div className="mt-12 bg-white/[0.03] border border-white/10 rounded-2xl p-6 flex flex-col md:flex-row md:items-center gap-6">
+            <div className="flex-grow">
+              <h3 className="text-lg font-bold mb-2">Tu as besoin d'un site pour vendre tes produits en ligne ?</h3>
+              <p className="text-white/60 text-sm leading-relaxed">
+                C'est du sur-mesure — le tarif dépend du besoin de chaque entreprise. On en discute lors du diagnostic.
+                <br />
+                <span className="text-white/80">Pour un <strong className="text-white">site vitrine simple</strong> : <strong className="text-[#B59FFF]">350€ au lieu de 700€</strong> — offre valable jusqu'à fin juin.</span>
+              </p>
             </div>
+            <a
+              href={CAL_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 text-white font-semibold px-5 py-3 rounded-xl transition-all duration-200 whitespace-nowrap flex-shrink-0"
+            >
+              En discuter
+              <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </section>
