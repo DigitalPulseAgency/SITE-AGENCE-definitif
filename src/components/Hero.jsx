@@ -67,7 +67,7 @@ export default function Hero() {
               marginLeft: HERO_HAS_PHOTO ? '0' : 'auto',
               marginRight: HERO_HAS_PHOTO ? '0' : 'auto'
             }}>
-              On implémente des <strong style={{ color: '#ffffff' }}>solutions d'automatisation sur-mesure</strong> adaptées à ton activité, et on centralise tout dans une <strong style={{ color: '#ffffff' }}>application dédiée</strong>. On crée aussi des <strong style={{ color: '#ffffff' }}>sites web conçus pour convertir dès la première semaine</strong>.
+              On implémente des <strong style={{ color: '#ffffff' }}>solutions d'automatisation sur-mesure</strong> adaptées à ton activité, et on centralise tout dans une <strong style={{ color: '#ffffff' }}>application dédiée</strong> + création de <strong style={{ color: '#ffffff' }}>sites web conçus pour convertir dès la première semaine</strong>.
             </p>
           </FadeIn>
           
