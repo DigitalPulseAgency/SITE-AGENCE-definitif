@@ -91,7 +91,7 @@ export default function SiteInternet() {
               {/* Badge en haut */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                 <div className="bg-[#6B3FE8] text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-[0_0_25px_rgba(107,63,232,0.6)] animate-pulse" style={{ animationDuration: '3s' }}>
-                  ⚡ OFFRE FLASH — Jusqu'à fin juin
+                  OFFRE FLASH — Jusqu'à fin juin
                 </div>
               </div>
 
