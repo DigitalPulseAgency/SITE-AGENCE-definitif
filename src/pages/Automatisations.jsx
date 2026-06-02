@@ -80,8 +80,8 @@ export default function Automatisations() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">Vois ce qu'on a déjà construit.</h2>
             <p className="text-xl text-white/60 max-w-2xl mx-auto">4 démos métiers — clique pour les essayer en vrai.</p>
-            <div className="inline-flex items-center gap-2 mt-6 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30">
-              <span className="text-sm font-medium text-amber-300">⚠️ Ce sont des DÉMOS — ton app sera 100% sur-mesure</span>
+            <div className="hidden">
+              <span>
             </div>
           </div>
 
