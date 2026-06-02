@@ -28,13 +28,12 @@ export default function SiteInternet() {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
-            Un site internet<br />
-            qui te ramène<br />
-            <span className="text-[#6B3FE8]">de vrais clients.</span>
+            Site livré sous 3 à 5 jours.<br />
+            <span className="text-[#6B3FE8]">Tes futurs clients t'appelleront dès la première semaine.</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-3xl leading-relaxed">
-            Pas un site vitrine que personne ne visite. Un site pensé pour convertir, optimisé pour Google, livré rapidement.
+            Sur-mesure, optimisé SEO pour ton référencement Google.
           </p>
 
           <a
