@@ -141,9 +141,8 @@ export default function ReseauxSociaux() {
               </div>
 
               <div className="mb-8 bg-orange-500/10 border-l-4 border-orange-400 rounded-md p-4">
-                <p className="font-bold text-white flex items-start gap-2">
-                  <span aria-hidden="true">⚠️</span>
-                  <span>Bientôt plus de places disponibles</span>
+                <p className="font-bold text-white">
+                  Bientôt plus de places disponibles
                 </p>
                 <p className="text-sm text-white/80 mt-1">
                   À la réouverture, le tarif passera à 450€/mois. Profite du tarif actuel avant fermeture.
