@@ -19,7 +19,7 @@ export default function Footer() {
 
           {/* Colonne logo + tagline */}
           <div>
-            <img src="/logo/logo_dark_bg.png" alt="Digital Pulse Agency" loading="lazy" style={{ width: '150px', height: 'auto', objectFit: 'contain', marginBottom: '1rem' }} />
+            <img src="/logo-transparent.png" alt="Digital Pulse Agency" loading="lazy" style={{ width: '150px', height: 'auto', objectFit: 'contain', marginBottom: '1rem' }} />
             <p className="text-white/75" style={{ fontSize: '0.95rem', maxWidth: '280px' }}>
               Pendant que les autres attendent, nous on va chercher.
             </p>
