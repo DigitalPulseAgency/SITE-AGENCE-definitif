@@ -10,8 +10,7 @@ export default function Automatisations() {
       desc: 'Réservations, fidélisation client, gestion des stocks, menus dynamiques.',
       exemples: 'Pizzeria · Restaurant · Brasserie · Bistrot',
       url: '/demo/restaurant',
-      headerFrom: '#b91c1c',
-      headerTo: '#7f1d1d',
+      image: '/demos-images/restaurant.jpg',
       glow: '0 0 50px rgba(239,68,68,0.35)',
       border: 'rgba(239,68,68,0.5)',
     },
@@ -22,8 +21,7 @@ export default function Automatisations() {
       desc: 'Gestion des biens, planning ménage, communication propriétaires/voyageurs.',
       exemples: 'Conciergerie Airbnb · Gestion locative',
       url: '/demo/conciergerie',
-      headerFrom: '#065f46',
-      headerTo: '#064e3b',
+      image: '/demos-images/conciergerie.jpg',
       glow: '0 0 50px rgba(16,185,129,0.35)',
       border: 'rgba(16,185,129,0.5)',
     },
@@ -34,8 +32,7 @@ export default function Automatisations() {
       desc: 'Devis, chantiers, factures, photos, agenda. App pensée pour le terrain.',
       exemples: 'Maçon · Plombier · Électricien · Carreleur · Paysagiste',
       url: '/demo/btp',
-      headerFrom: '#c2410c',
-      headerTo: '#7c2d12',
+      image: '/demos-images/nettoyage.jpg',
       glow: '0 0 50px rgba(249,115,22,0.35)',
       border: 'rgba(249,115,22,0.5)',
     },
@@ -46,8 +43,7 @@ export default function Automatisations() {
       desc: 'Gestion atelier, dossiers sinistres, stock pièces, communication client.',
       exemples: 'Mécanique · Diagnostic · Carrosserie · Sinistres',
       url: '/demo/auto',
-      headerFrom: '#b45309',
-      headerTo: '#78350f',
+      image: '/demos-images/mecanique.jpg',
       glow: '0 0 50px rgba(245,158,11,0.35)',
       border: 'rgba(245,158,11,0.5)',
     },
@@ -111,12 +107,18 @@ export default function Automatisations() {
                     e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
                   }}
                 >
-                  {/* Header coloré */}
-                  <div
-                    className="flex items-center justify-center py-10"
-                    style={{ background: `linear-gradient(135deg, ${metier.headerFrom}, ${metier.headerTo})` }}
-                  >
-                    <Icon className="w-14 h-14 text-white drop-shadow-lg" />
+                  {/* Header photo */}
+                  <div className="relative overflow-hidden h-48">
+                    <img
+                      src={metier.image}
+                      alt={metier.nom}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-3 left-4">
+                      <Icon className="w-8 h-8 text-white drop-shadow-lg" />
+                    </div>
                   </div>
 
                   {/* Contenu */}
