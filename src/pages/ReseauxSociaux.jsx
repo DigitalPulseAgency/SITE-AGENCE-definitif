@@ -130,7 +130,7 @@ export default function ReseauxSociaux() {
 
               <div className="mb-6">
                 <div className="flex items-baseline gap-3 flex-wrap">
-                  <span className="text-white/40 line-through text-2xl">500€</span>
+                  <span className="text-white/40 line-through text-2xl">499,99€</span>
                   <span className="text-5xl md:text-6xl font-bold">247€</span>
                   <span className="text-white/60">/mois</span>
                 </div>
