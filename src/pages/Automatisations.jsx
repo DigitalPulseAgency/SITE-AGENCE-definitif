@@ -7,45 +7,49 @@ export default function Automatisations() {
       id: 'restaurant',
       icon: UtensilsCrossed,
       nom: 'Restaurants',
-      desc: 'Réservations, fidélisation client, gestion des stocks, menus dynamiques. Une solution sur-mesure pour ton resto.',
-      exemples: 'Pizzeria · Restaurant · Brasserie · Food truck · Bistrot',
+      desc: 'Réservations, fidélisation client, gestion des stocks, menus dynamiques.',
+      exemples: 'Pizzeria · Restaurant · Brasserie · Bistrot',
       url: '/demo/restaurant',
-      gradient: 'from-red-500/20 to-rose-500/5',
-      iconBg: 'bg-red-500/20',
-      iconColor: 'text-red-300'
+      headerFrom: '#b91c1c',
+      headerTo: '#7f1d1d',
+      glow: '0 0 50px rgba(239,68,68,0.35)',
+      border: 'rgba(239,68,68,0.5)',
     },
     {
       id: 'conciergerie',
       icon: Home,
       nom: 'Conciergerie immobilière',
-      desc: 'Gestion des biens, planning ménage, communication propriétaires/voyageurs, automatisations Airbnb.',
-      exemples: 'Conciergerie Airbnb · Gestion locative · Location courte durée',
+      desc: 'Gestion des biens, planning ménage, communication propriétaires/voyageurs.',
+      exemples: 'Conciergerie Airbnb · Gestion locative',
       url: '/demo/conciergerie',
-      gradient: 'from-emerald-500/20 to-teal-500/5',
-      iconBg: 'bg-emerald-500/20',
-      iconColor: 'text-emerald-300'
+      headerFrom: '#065f46',
+      headerTo: '#064e3b',
+      glow: '0 0 50px rgba(16,185,129,0.35)',
+      border: 'rgba(16,185,129,0.5)',
     },
     {
       id: 'btp',
       icon: Building2,
       nom: 'Artisans du bâtiment',
-      desc: 'Devis, chantiers, factures, photos, agenda. Tout dans une app simple, pensée pour le terrain.',
-      exemples: 'Maçon · Plombier · Électricien · Peintre · Carreleur · Paysagiste',
+      desc: 'Devis, chantiers, factures, photos, agenda. App pensée pour le terrain.',
+      exemples: 'Maçon · Plombier · Électricien · Carreleur · Paysagiste',
       url: '/demo/btp',
-      gradient: 'from-orange-500/20 to-amber-500/5',
-      iconBg: 'bg-orange-500/20',
-      iconColor: 'text-orange-300'
+      headerFrom: '#c2410c',
+      headerTo: '#7c2d12',
+      glow: '0 0 50px rgba(249,115,22,0.35)',
+      border: 'rgba(249,115,22,0.5)',
     },
     {
       id: 'auto',
       icon: Wrench,
       nom: 'Mécaniciens & carrossiers',
-      desc: 'Gestion atelier, dossiers sinistres, stock pièces, communication client, planning. Deux apps pensées pour les pros de l\'auto : mécanique et carrosserie.',
-      exemples: 'Mécanique générale · Diagnostic · Carrosserie · Peinture · Sinistres',
+      desc: 'Gestion atelier, dossiers sinistres, stock pièces, communication client.',
+      exemples: 'Mécanique · Diagnostic · Carrosserie · Sinistres',
       url: '/demo/auto',
-      gradient: 'from-amber-400/20 to-yellow-500/5',
-      iconBg: 'bg-amber-400/20',
-      iconColor: 'text-amber-300'
+      headerFrom: '#b45309',
+      headerTo: '#78350f',
+      glow: '0 0 50px rgba(245,158,11,0.35)',
+      border: 'rgba(245,158,11,0.5)',
     },
   ];
 
@@ -82,20 +86,41 @@ export default function Automatisations() {
             <p className="text-xl text-white/60 max-w-2xl mx-auto">4 démos métiers — clique pour les essayer en vrai.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {metiers.map((metier) => {
               const Icon = metier.icon;
               return (
-                <a key={metier.id} href={metier.url} className={`group relative bg-gradient-to-br ${metier.gradient} border border-white/10 rounded-3xl p-6 hover:border-[#6B3FE8]/50 transition-all hover:scale-[1.02] flex flex-col`}>
-                  <div className={`w-14 h-14 rounded-2xl ${metier.iconBg} flex items-center justify-center mb-5`}>
-                    <Icon className={`w-7 h-7 ${metier.iconColor}`} />
+                <a
+                  key={metier.id}
+                  href={metier.url}
+                  className="group flex flex-col rounded-2xl overflow-hidden border border-white/10 bg-[#0c0c14] cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1"
+                  style={{ '--glow': metier.glow, '--border': metier.border }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.boxShadow = metier.glow;
+                    e.currentTarget.style.borderColor = metier.border;
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.boxShadow = 'none';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                  }}
+                >
+                  {/* Header coloré */}
+                  <div
+                    className="flex items-center justify-center py-10"
+                    style={{ background: `linear-gradient(135deg, ${metier.headerFrom}, ${metier.headerTo})` }}
+                  >
+                    <Icon className="w-14 h-14 text-white drop-shadow-lg" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-3">{metier.nom}</h3>
-                  <p className="text-white/70 mb-4 leading-relaxed flex-grow">{metier.desc}</p>
-                  <div className="text-xs text-white/50 mb-4 leading-relaxed">{metier.exemples}</div>
-                  <div className="inline-flex items-center gap-2 text-[#B59FFF] font-semibold group-hover:gap-3 transition-all">
-                    Essayer la démo
-                    <ExternalLink className="w-4 h-4" />
+
+                  {/* Contenu */}
+                  <div className="flex flex-col flex-grow p-6">
+                    <h3 className="text-lg font-bold mb-2 text-white">{metier.nom}</h3>
+                    <p className="text-white/60 text-sm leading-relaxed flex-grow mb-4">{metier.desc}</p>
+                    <div className="text-xs text-white/30 mb-5 leading-relaxed">{metier.exemples}</div>
+                    <div className="flex items-center gap-2 text-sm font-semibold text-white/80 group-hover:text-white transition-colors duration-200">
+                      Essayer la démo
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                    </div>
                   </div>
                 </a>
               );
