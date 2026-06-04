@@ -82,8 +82,13 @@ export default function Automatisations() {
       <section className="py-20 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Vois ce qu'on a déjà construit.</h2>
-            <p className="text-xl text-white/60 max-w-2xl mx-auto">4 démos métiers — clique pour les essayer en vrai.</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 max-w-3xl mx-auto leading-tight">
+              Des apps pensées pour ton activité.<br />
+              <span className="text-white/70 font-medium">Une solution apportée à chaque problème rencontré dans le passé.</span>
+            </h2>
+            <p className="text-xl font-semibold text-[#B59FFF] mt-6">
+              Essaye la démo dans ton domaine, directement par toi-même.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
