@@ -145,7 +145,7 @@ export default function ReseauxSociaux() {
                   Bientôt plus de places disponibles
                 </p>
                 <p className="text-sm text-white/80 mt-1">
-                  À la réouverture, le tarif passera à 450€/mois. Profite du tarif actuel avant fermeture.
+                  À la réouverture, le tarif passera à 499,99€/mois. Profite du tarif actuel avant fermeture.
                 </p>
               </div>
 
