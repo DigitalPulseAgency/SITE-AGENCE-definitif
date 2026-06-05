@@ -79,7 +79,7 @@ export default function Automatisations() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 max-w-3xl mx-auto leading-tight">
-              Des apps pensées pour ton activité.
+              Des apps pensées pour votre activité.
             </h2>
             <p className="text-lg text-white/65 max-w-2xl mx-auto mb-6 leading-relaxed">
               On implémente une solution unique à chaque problématique ou tâche répétitive à faible valeur ajoutée que tu peux rencontrer au quotidien. Le résultat est instantané.
