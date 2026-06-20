@@ -67,102 +67,66 @@ export default function ReseauxSociaux() {
       <section className="py-20 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center">
-            Deux formules. Une stratégie.
+            Un accompagnement sur-mesure.
           </h2>
           <p className="text-xl text-white/60 mb-16 text-center max-w-2xl mx-auto">
-            Démarre sans engagement, ou passe en vitesse supérieure pour des résultats long terme.
+            Pas de forfait standard. Le contenu et le tarif s'adaptent à ton activité,
+            à ton volume et à tes objectifs — on définit tout ensemble.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* OFFRE STARTER */}
-            <div className="bg-white/[0.03] border border-white/10 rounded-3xl p-8 flex flex-col">
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-2">Starter</h3>
-                <p className="text-white/60">Pour tester sur 1 mois.</p>
-              </div>
-
-              <div className="mb-6">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-bold">69€</span>
-                  <span className="text-white/60">pour 1 mois</span>
-                </div>
-                <p className="text-sm text-white/50 mt-2">Paiement unique · Renouvelable manuellement</p>
-              </div>
-
-              <ul className="space-y-3 mb-8 flex-grow">
-                {[
-                  "2 posts vidéo par semaine (Reels)",
-                  "2 stories par semaine",
-                  "2 posts photo par semaine",
-                  "Création des visuels et rédaction des textes",
-                  "Réponse aux commentaires et DM",
-                  "Reporting de performance en fin de mois",
-                  "Aucun engagement : tu ne paies que ce mois-là"
-                ].map((item, i) => (
-                  <li key={i} className="flex gap-3 items-start">
-                    <Check className="w-5 h-5 text-[#6B3FE8] flex-shrink-0 mt-0.5" />
-                    <span className="text-white/80">{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href={CAL_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full text-center bg-white/10 hover:bg-white/15 border border-white/20 hover:border-[#6B3FE8] text-white font-semibold py-3.5 rounded-xl transition-all duration-300 ease-out shadow-[0_0_15px_rgba(107,63,232,0.25)] hover:shadow-[0_0_25px_rgba(107,63,232,0.5)] hover:scale-[1.02]"
-              >
-                Choisir Starter
-              </a>
-            </div>
-
-            {/* OFFRE GROWTH (PLACES LIMITÉES) */}
+          <div className="max-w-2xl mx-auto">
             <div className="bg-gradient-to-br from-[#6B3FE8]/30 to-[#6B3FE8]/5 border-2 border-[#6B3FE8] rounded-3xl p-8 flex flex-col relative">
-              {/* Badge urgence */}
-              <div className="absolute -top-2 left-1/2 -translate-x-1/2 bg-orange-500/10 border border-orange-400/30 text-orange-400 text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full whitespace-nowrap animate-pulse">
-                20 PLACES LIMITÉES
+              {/* Badge */}
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 bg-[#6B3FE8]/20 border border-[#B59FFF]/40 text-[#B59FFF] text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full whitespace-nowrap">
+                ACCOMPAGNEMENT COMPLET
               </div>
 
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-2">Growth</h3>
-                <p className="text-white/70">Pour des résultats long terme</p>
-              </div>
-
-              <div className="mb-6">
-                <div className="flex items-baseline gap-3 flex-wrap">
-                  <span className="text-white/40 line-through text-2xl">499,99€</span>
-                  <span className="text-5xl md:text-6xl font-bold">247€</span>
-                  <span className="text-white/60">/mois</span>
-                </div>
-                <p className="text-sm italic text-orange-300 mt-2">
-                  Quelques accompagnements encore disponibles ce mois-ci
-                </p>
-                <p className="text-sm text-white/60 mt-2">Engagement 6 mois · Vrais résultats à partir du M2</p>
-              </div>
-
-              <div className="mb-8 bg-orange-500/10 border-l-4 border-orange-400 rounded-md p-4">
-                <p className="font-bold text-white">
-                  Bientôt plus de places disponibles
-                </p>
-                <p className="text-sm text-white/80 mt-1">
-                  À la réouverture, le tarif passera à 499,99€/mois. Profite du tarif actuel avant fermeture.
+              <div className="mb-6 text-center">
+                <span className="text-4xl md:text-5xl font-bold">Tarif sur-mesure</span>
+                <p className="text-sm text-white/60 mt-3 max-w-lg mx-auto leading-relaxed">
+                  Pas de forfait unique, et c'est normal : le prix se calcule sur le <strong className="text-white/80">temps réel</strong> que je passe à produire ton contenu. Un montage soigné prend du temps — et ce temps varie selon le type de contenu et le réseau.
                 </p>
               </div>
 
-              <ul className="space-y-3 mb-8 flex-grow">
-                <li className="flex gap-3 items-start">
-                  <Check className="w-5 h-5 text-[#B59FFF] flex-shrink-0 mt-0.5" />
-                  <span className="text-white/90">
-                    <strong className="text-white">Prospection active ciblée</strong> : on identifie tes clients potentiels et on initie la conversation pour toi
-                  </span>
-                </li>
+              {/* Temps moyen par contenu */}
+              <div className="mb-6 grid grid-cols-3 gap-3">
                 {[
-                  "5 posts vidéo par semaine (Reels)",
-                  "5 stories par semaine",
-                  "3 posts photo par semaine",
+                  { t: "Reel", d: "1h ou +", n: "montage + peaufinage" },
+                  { t: "Post", d: "20 – 25 min", n: "visuel + texte" },
+                  { t: "Story", d: "~15 min", n: "format court" },
+                ].map((c) => (
+                  <div key={c.t} className="bg-white/[0.04] border border-white/10 rounded-2xl p-4 text-center">
+                    <p className="text-xs uppercase tracking-widest text-[#B59FFF] mb-1">{c.t}</p>
+                    <p className="font-bold text-white text-lg leading-tight">{c.d}</p>
+                    <p className="text-[0.7rem] text-white/50 mt-1">{c.n}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mb-6 rounded-2xl border border-[#6B3FE8]/40 bg-[#6B3FE8]/10 p-6 text-center">
+                <p className="text-base text-white/85 leading-relaxed">
+                  Chaque projet est différent : ton <strong className="text-white">secteur</strong>, ton <strong className="text-white">volume de contenus</strong> et le temps que ça demande changent tout. Impossible de mettre un prix unique sans connaître ton besoin.
+                </p>
+                <p className="text-sm text-white/65 leading-relaxed mt-3">
+                  Le plus simple : on prend <strong className="text-white">15 minutes ensemble</strong> pour parler de ton projet. Je t'envoie ensuite une <strong className="text-white">synthèse claire</strong> avec plusieurs formules adaptées à tes attentes.
+                </p>
+              </div>
+
+              <div className="mb-6 bg-[#6B3FE8]/10 border-l-4 border-[#B59FFF] rounded-md p-4">
+                <p className="text-sm text-white/80 leading-relaxed">
+                  On produit sur <strong className="text-white">TikTok, Instagram et Facebook</strong>. Un même contenu peut souvent être décliné sur les trois — on vérifie simplement si le format doit être adapté. La vraie différence, c'est la <strong className="text-white">cible</strong> : chaque réseau a ses propres audiences. On ne met donc pas tout le monde sur le même réseau — on choisit celui qui colle à ton activité.
+                </p>
+                <p className="text-sm text-white/80 leading-relaxed mt-3">
+                  Et soyons clairs : je suis <strong className="text-white">sélectif</strong>. Je ne prends que les projets que je sens pertinents et sur lesquels j'ai envie de bosser.
+                </p>
+              </div>
+
+              <ul className="space-y-3 mb-8">
+                {[
+                  "Volume de contenus adapté à ton activité (Reels, stories, posts)",
                   "Création des visuels et rédaction des textes",
-                  "Réponse aux commentaires et DM",
                   "Stratégie de hashtags personnalisée",
+                  "Automatisations sur-mesure pour gagner du temps",
                   "Reporting mensuel avec recommandations",
                   "Community manager dédié"
                 ].map((item, i) => (
@@ -179,7 +143,7 @@ export default function ReseauxSociaux() {
                 rel="noopener noreferrer"
                 className="w-full text-center bg-gradient-to-r from-[#6B3FE8] to-[#8B5FFF] hover:from-[#5a32d4] hover:to-[#7a4ff0] text-white font-semibold py-3.5 rounded-xl transition-all duration-300 shadow-[0_0_30px_rgba(107,63,232,0.5)] hover:shadow-[0_0_45px_rgba(139,95,255,0.75)] hover:scale-[1.02]"
               >
-                Choisir Growth
+                Réserver mon diagnostic gratuit
               </a>
             </div>
           </div>
@@ -195,7 +159,7 @@ export default function ReseauxSociaux() {
           </div>
 
           <p className="text-center text-white/50 text-sm mt-8 max-w-2xl mx-auto">
-            💡 Beaucoup de clients démarrent par <strong className="text-white/80">Starter</strong> (un seul mois, à la carte) pour tester. Si ça leur plaît, ils basculent ensuite sur <strong className="text-white/80">Growth</strong> pour des résultats long terme.
+            💡 On commence toujours par un <strong className="text-white/80">diagnostic gratuit</strong> : on regarde ton activité, tes objectifs, et on construit l'offre qui te correspond — sans engagement pour en parler.
           </p>
         </div>
       </section>
@@ -211,10 +175,8 @@ export default function ReseauxSociaux() {
             {[
               { icon: Calendar, titre: "Planning de contenu mensuel", desc: "On planifie tout à l'avance, validé avec toi" },
               { icon: TrendingUp, titre: "Création des visuels", desc: "Photos, carrousels, vidéos courtes — tout fait pour toi" },
-              { icon: MessageCircle, titre: "Gestion des messages", desc: "Réponse rapide aux DM et commentaires" },
-              { icon: Users, titre: "Engagement communauté", desc: "On crée des liens avec ta communauté" },
-              { icon: BarChart3, titre: "Analyse des performances", desc: "Reporting clair tous les mois" },
-              { icon: Instagram, titre: "Stratégie Instagram dédiée", desc: "Spécialisation sur le réseau qui convertit le mieux en local" }
+              { icon: Users, titre: "Engagement communauté", desc: "On like les commentaires et messages de tes abonnés (sans gérer les réponses)" },
+              { icon: BarChart3, titre: "Analyse des performances", desc: "Reporting clair tous les mois" }
             ].map((item, i) => {
               const Icon = item.icon;
               return (

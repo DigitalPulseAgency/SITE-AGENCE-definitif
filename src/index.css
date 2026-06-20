@@ -372,3 +372,139 @@ select:focus-visible {
 .btn-primary:active {
   box-shadow: 0 2px 8px rgba(107, 63, 232, 0.2);
 }
+
+/* ============================================================
+   DESIGN TOKENS + ANIMATIONS importés du nouveau site (home v2)
+   ============================================================ */
+:root {
+  --background: oklch(0.13 0.02 280);
+  --foreground: oklch(0.97 0.01 280);
+  --card: oklch(0.17 0.025 280);
+  --muted-foreground: oklch(0.7 0.03 280);
+  --primary: oklch(0.62 0.24 295);
+  --primary-foreground: oklch(0.99 0 0);
+  --border: rgba(255,255,255,0.10);
+  --violet: oklch(0.55 0.26 295);
+  --violet-glow: oklch(0.7 0.22 295);
+  --mint: oklch(0.82 0.2 150);
+}
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.glass-strong {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.text-gradient-violet {
+  background: linear-gradient(135deg, oklch(0.85 0.05 295), oklch(0.7 0.22 295) 50%, oklch(0.82 0.2 150));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.glow-violet {
+  box-shadow: 0 0 0 1px rgba(147,51,234,0.3), 0 8px 40px -8px rgba(147,51,234,0.5), 0 0 60px -10px rgba(147,51,234,0.35);
+}
+@keyframes aurora {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(8%,-6%) scale(1.1); }
+  66% { transform: translate(-6%,8%) scale(0.95); }
+}
+.animate-aurora { animation: aurora 18s ease-in-out infinite; }
+@keyframes marquee { from { transform: translateX(0);} to { transform: translateX(-50%);} }
+.animate-marquee { animation: marquee 40s linear infinite; }
+@keyframes pulse-glow {
+  0%,100% { box-shadow: 0 0 0 0 rgba(147,51,234,0.55), 0 8px 40px -8px rgba(147,51,234,0.55); }
+  50% { box-shadow: 0 0 0 8px rgba(147,51,234,0), 0 12px 60px -8px rgba(147,51,234,0.8); }
+}
+.animate-pulse-glow { animation: pulse-glow 2.6s ease-in-out infinite; }
+
+/* Fix : la home v2 doit hériter des couleurs claires du nouveau design
+   (l'ancien CSS force les titres en sombre #1F1B2E) */
+.home-v2 { color: oklch(0.7 0.03 280); }
+.home-v2 :is(h1,h2,h3,h4,h5,h6) { color: oklch(0.97 0.01 280); }
+.home-v2 .text-gradient-violet { color: transparent; }
+.home-v2 .text-muted-foreground { color: oklch(0.7 0.03 280) !important; }
+.home-v2 .text-foreground { color: oklch(0.97 0.01 280) !important; }
+
+/* ============================================================
+   Cartes tarifaires (/reseaux-sociaux) : inclinaison 3D au survol/touch
+   + brillance SÉQUENTIELLE sur les CTA (gauche d'abord, puis droite)
+   ============================================================ */
+div[class*="rounded-3xl"]:has(a[class*="w-full"][class*="text-center"]) {
+  transition: transform .55s cubic-bezier(.18,.7,.2,1), box-shadow .55s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+/* Tilt 3D uniquement sur appareils à vrai survol (souris/desktop).
+   Sur mobile (toucher), le :hover restait collé → blocs penchés/décalés. */
+@media (hover: hover) and (pointer: fine) {
+  div[class*="rounded-3xl"][class*="border-white/10"]:has(a[class*="w-full"]):hover {
+    transform: perspective(1200px) rotateY(8deg) rotateX(3deg) translateY(-12px) scale(1.025);
+    box-shadow: 0 30px 60px -18px rgba(124,58,237,.5);
+  }
+  div[class*="rounded-3xl"][class*="border-2"]:has(a[class*="w-full"]):hover {
+    transform: perspective(1200px) rotateY(-8deg) rotateX(3deg) translateY(-12px) scale(1.03);
+    box-shadow: 0 36px 76px -16px rgba(124,58,237,.65);
+  }
+}
+div[class*="rounded-3xl"]:has(a[class*="w-full"]) a[class*="w-full"][class*="text-center"] {
+  position: relative;
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease, filter .3s ease;
+}
+div[class*="rounded-3xl"]:has(a[class*="w-full"]) a[class*="w-full"][class*="text-center"]:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 34px -8px rgba(124,58,237,.6);
+  filter: brightness(1.1);
+}
+div[class*="rounded-3xl"]:has(a[class*="w-full"]) a[class*="w-full"][class*="text-center"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.5) 50%, transparent 65%);
+  transform: translateX(-160%);
+  animation: dpaShine 6s ease-in-out infinite;
+}
+div[class*="rounded-3xl"][class*="border-2"]:has(a[class*="w-full"]) a[class*="w-full"][class*="text-center"]::after {
+  animation-delay: 1.3s;
+}
+@keyframes dpaShine {
+  0%   { transform: translateX(-160%); }
+  25%  { transform: translateX(160%); }
+  100% { transform: translateX(160%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  div[class*="rounded-3xl"]:has(a[class*="w-full"]) a[class*="w-full"][class*="text-center"]::after { animation: none; }
+}
+
+/* Reflet chromé qui traverse les cartes du hero */
+@keyframes card-shine {
+  0%   { transform: translateX(-140%) skewX(-18deg); opacity: 0; }
+  6%   { opacity: 1; }
+  26%  { transform: translateX(260%) skewX(-18deg); opacity: 0; }
+  100% { transform: translateX(260%) skewX(-18deg); opacity: 0; }
+}
+.card-shine {
+  animation: card-shine 5s ease-in-out infinite;
+}
+
+/* Dégradé violet → vert léger qui coule lentement (3e ligne du hero) */
+.text-gradient-flow {
+  background: linear-gradient(100deg, #8B5FFF 0%, #B59FFF 28%, #7CE0C0 64%, #34d399 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-flow 7s ease-in-out infinite;
+}
+@keyframes gradient-flow {
+  0%, 100% { background-position: 0% center; }
+  50%      { background-position: 100% center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .text-gradient-flow { animation: none; }
+}

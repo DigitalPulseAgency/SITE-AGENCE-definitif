@@ -234,7 +234,7 @@ export default function FicheGoogle() {
               <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-6">
                 <div className="text-xs font-bold text-[#B59FFF] uppercase tracking-widest mb-4">Étape 1 — Une seule fois</div>
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-5xl font-bold">130€</span>
+                  <span className="text-5xl font-bold">150€</span>
                 </div>
                 <p className="text-white/50 text-sm mb-6">Paiement unique. Pas de récurrence.</p>
                 <div className="space-y-2">
@@ -259,14 +259,16 @@ export default function FicheGoogle() {
                 <div className="absolute -top-3 left-6 bg-[#6B3FE8] text-white text-xs font-bold px-3 py-1 rounded-full">Récurrent</div>
                 <div className="text-xs font-bold text-[#B59FFF] uppercase tracking-widest mb-4">Étape 2 — Chaque mois</div>
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-5xl font-bold">89€</span>
+                  <span className="text-5xl font-bold">84,99€</span>
                   <span className="text-white/50">/mois</span>
                 </div>
                 <p className="text-white/50 text-sm mb-6">Sans engagement. Résiliable à tout moment.</p>
                 <div className="space-y-2">
                   {[
                     "4 publications par mois sur ta fiche",
-                    "Réponse à tous tes avis sous 24h",
+                    "Nouvelles photos ajoutées chaque mois",
+                    "Backlinks stratégiques sur des sites de qualité",
+                    "Réponses automatisées aux avis : une IA analyse chaque avis et y répond pour toi",
                     "Automatisation des demandes d'avis actives",
                     "Mise à jour des horaires et infos en continu",
                     "Optimisation mensuelle (mots-clés, catégories)",

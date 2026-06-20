@@ -1,19 +1,29 @@
-import Hero from '../components/Hero';
-import ServicesGrid from '../components/ServicesGrid';
-import Bio from '../components/Bio';
+import { Hero } from '../components/home/Hero';
+import { Stats } from '../components/home/Stats';
+import { AIInfra } from '../components/home/AIInfra';
+import { AIVoiceAgents } from '../components/home/AIVoiceAgents';
+import { Services } from '../components/home/Services';
+import { AutomationExplainer } from '../components/home/AutomationExplainer';
+import { Bio } from '../components/home/Bio';
+import { Process } from '../components/home/Process';
+import { MonthlyOffer } from '../components/home/MonthlyOffer';
+import { FinalCTA } from '../components/home/FinalCTA';
 import FAQ from '../components/FAQ';
-import ProofBanner from '../components/ProofBanner';
-import FinalCTA from '../components/FinalCTA';
 
 export default function Home() {
   return (
-    <>
+    <div className="home-v2">
       <Hero />
-      <ServicesGrid />
+      <Stats />
+      <AIInfra />
+      <AIVoiceAgents />
+      <Services />
+      <AutomationExplainer />
       <Bio />
+      <Process />
+      <MonthlyOffer />
       <FAQ />
-      <ProofBanner />
       <FinalCTA />
-    </>
+    </div>
   );
 }

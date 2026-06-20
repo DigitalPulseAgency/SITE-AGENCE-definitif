@@ -1,4 +1,4 @@
-import { Check, ArrowRight, Globe, Search, Award, Sparkles, FileText, TrendingUp, Layers, ShieldCheck, RefreshCw, PencilLine, CalendarCheck, ShoppingBag } from 'lucide-react';
+import { Check, ArrowRight, Globe, Search, Award, Sparkles, FileText, TrendingUp, Layers } from 'lucide-react';
 import { CAL_LINK } from '../config/links';
 
 const ESSENTIEL_FEATURES = [
@@ -8,7 +8,8 @@ const ESSENTIEL_FEATURES = [
   'SEO intégré dans le code — tu pars visible sur Google dès le lancement',
   'Avis Google intégrés',
   'Hébergement rapide inclus 1 an',
-  'Mentions légales & conformité incluses',
+  'Maintenance + sécurité incluses',
+  'Livré en 3 à 5 jours',
 ];
 
 export default function SiteInternet() {
@@ -27,12 +28,12 @@ export default function SiteInternet() {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
-            Un site sur-mesure qui travaille pour toi.<br />
-            <span className="text-[#6B3FE8]">Visible sur Google, pensé pour convertir.</span>
+            Site livré sous 3 à 5 jours.<br />
+            <span className="text-[#6B3FE8]">Tes futurs clients t'appelleront dès la première semaine.</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-3xl leading-relaxed">
-            Conçu sur-mesure dans ta charte, optimisé pour ton référencement Google dès le lancement.
+            Sur-mesure, optimisé SEO pour ton référencement Google.
           </p>
 
           <a
@@ -73,55 +74,54 @@ export default function SiteInternet() {
         </div>
       </section>
 
-      {/* OFFRE — SUR DEVIS */}
+      {/* OFFRE UNIQUE — ESSENTIEL */}
       <section className="py-20 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center">
-            Un site sur-mesure. Tout est dedans.
+            Une offre simple. Tout est dedans.
           </h2>
           <p className="text-xl text-white/60 mb-16 text-center max-w-2xl mx-auto">
-            Chaque projet est unique — le tarif s'établit sur devis, après un diagnostic gratuit.
+            Un site sur-mesure prêt à convertir, livré en 3 à 5 jours. Une option SEO si tu veux dominer ton secteur.
           </p>
 
-          {/* CARTE — CENTRÉE */}
+          {/* CARTE ESSENTIEL — CENTRÉE */}
           <div className="max-w-2xl mx-auto">
             <div className="relative bg-gradient-to-br from-zinc-900/80 via-violet-950/40 to-zinc-900/80 border border-violet-500/30 rounded-3xl p-8 md:p-12 shadow-2xl shadow-violet-500/20">
 
+              {/* Badge en haut */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <div className="bg-[#6B3FE8] text-white text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap shadow-[0_0_25px_rgba(107,63,232,0.6)] animate-pulse" style={{ animationDuration: '3s' }}>
+                  OFFRE FLASH — Jusqu'à fin juin
+                </div>
+              </div>
+
               {/* Titre + sous-titre */}
               <div className="mb-8 mt-2 text-center">
-                <h3 className="text-3xl md:text-4xl font-bold mb-2">Site vitrine sur-mesure</h3>
-                <p className="text-white/70 text-lg">Pensé pour ton métier et tes clients</p>
+                <h3 className="text-3xl md:text-4xl font-bold mb-2">Essentiel</h3>
+                <p className="text-white/70 text-lg">Pour démarrer fort sur internet</p>
               </div>
 
               {/* Prix */}
               <div className="mb-6 text-center">
-                <div className="inline-flex items-center gap-2 bg-[#6B3FE8]/15 border border-[#6B3FE8]/40 rounded-full px-4 py-1.5 mb-4">
-                  <span className="text-xs font-semibold uppercase tracking-widest text-[#B59FFF]">Tarif de lancement</span>
+                <div className="flex items-baseline gap-3 justify-center">
+                  <span className="text-zinc-500 line-through text-2xl">700€</span>
+                  <span className="text-5xl md:text-6xl font-bold text-white">350€</span>
                 </div>
-                <div className="flex items-baseline justify-center gap-3">
-                  <span className="text-2xl md:text-3xl font-semibold text-white/35 line-through decoration-2">700€</span>
-                  <span className="text-5xl md:text-7xl font-bold text-white">399€</span>
-                </div>
-                <span className="block text-sm text-white/50 mt-1">à partir de · paiement en 2× possible</span>
-                <p className="text-sm text-white/60 mt-4 max-w-md mx-auto leading-relaxed">
-                  Pour un site vitrine essentiel. Les projets plus complexes (multi-pages,
-                  e-commerce, espace client) sont chiffrés sur devis lors du diagnostic gratuit.
+                <p className="text-sm text-white/60 mt-2">Paiement unique · Sans abonnement</p>
+                <p className="text-sm font-semibold text-emerald-400 mt-3 inline-flex items-center gap-2">
+                  <Check className="w-4 h-4" strokeWidth={3} />
+                  Paiement en 2 fois possible
                 </p>
               </div>
 
-              {/* Délais */}
-              <div className="border-t border-zinc-800/50 pt-5 mb-8 grid sm:grid-cols-2 gap-3 text-center sm:text-left">
-                <div className="bg-white/[0.04] rounded-xl p-4">
-                  <p className="text-sm font-semibold text-[#B59FFF] mb-1">Landing page</p>
-                  <p className="text-white/70 text-sm">Livrée en 1 à 2 semaines</p>
-                </div>
-                <div className="bg-white/[0.04] rounded-xl p-4">
-                  <p className="text-sm font-semibold text-[#B59FFF] mb-1">Site multi-pages</p>
-                  <p className="text-white/70 text-sm">Compter 3 semaines à 1 mois</p>
-                </div>
+              {/* Option SEO */}
+              <div className="border-t border-zinc-800/50 pt-5 mb-8 text-center">
+                <p className="text-white/60 text-sm">
+                  + Option <strong className="text-[#B59FFF]">SEO mensuel</strong> disponible — voir le détail ci-dessous ↓
+                </p>
               </div>
 
-              {/* Liste bullets */}
+              {/* Liste bullets — bloc centré, chaque ligne alignée à gauche */}
               <ul className="space-y-3 mb-8 w-fit mx-auto">
                 {ESSENTIEL_FEATURES.map((item) => (
                   <li key={item} className="flex gap-3 items-start text-left">
@@ -131,20 +131,14 @@ export default function SiteInternet() {
                 ))}
               </ul>
 
-              <div className="border-t border-zinc-800/50 pt-5 mb-8 text-center">
-                <p className="text-white/60 text-sm">
-                  + <strong className="text-[#B59FFF]">Maintenance mensuelle</strong> en option (SEO inclus) — voir le détail ci-dessous ↓
-                </p>
-              </div>
-
               {/* CTA */}
               <a
                 href={CAL_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-primary w-full inline-flex items-center justify-center gap-2 py-4 text-lg font-semibold mt-2 hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 ease-out"
+                className="btn btn-primary w-full inline-flex items-center justify-center gap-2 py-4 text-lg font-semibold mt-8 hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 ease-out"
               >
-                Réserver mon appel gratuit
+                Réserver mon diagnostic gratuit
                 <ArrowRight className="w-5 h-5" />
               </a>
 
@@ -156,20 +150,26 @@ export default function SiteInternet() {
             {/* BANDEAU INFO — projet sur-mesure */}
             <div className="mt-8 p-6 md:p-8 rounded-2xl border border-violet-500/20 bg-zinc-900/50">
               <div className="flex flex-col md:flex-row md:items-start gap-6">
+
+                {/* Icône */}
                 <div className="p-3 rounded-xl bg-violet-500/10 flex-shrink-0 self-start">
                   <Layers className="w-6 h-6 text-violet-400" strokeWidth={2} />
                 </div>
+
+                {/* Texte */}
                 <div className="flex-grow">
                   <h4 className="text-white font-semibold text-lg mb-2">
                     Besoin de plus qu'un site vitrine ?
                   </h4>
                   <p className="text-zinc-400 text-sm leading-relaxed mb-3">
-                    Si ton projet implique plusieurs pages, un site e-commerce, un espace client, ou des fonctionnalités spécifiques — ce n'est plus un site vitrine. On change d'ampleur : plus de pages, plus de fonctionnalités, plus de temps de dev — et un tarif qui suit cette complexité.
+                    Si ton projet implique plusieurs pages, un site e-commerce, un espace client, ou des fonctionnalités spécifiques — ce n'est plus un site vitrine standard. C'est un projet sur-mesure, avec un tarif adapté à ton besoin réel.
                   </p>
                   <p className="text-zinc-400 text-sm leading-relaxed">
                     On en discute 15 min pour voir ensemble ce qu'il te faut.
                   </p>
                 </div>
+
+                {/* Bouton */}
                 <a
                   href={CAL_LINK}
                   target="_blank"
@@ -179,73 +179,38 @@ export default function SiteInternet() {
                   Réserver un appel découverte
                   <ArrowRight className="w-4 h-4" />
                 </a>
+
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* PRISE DE COMMANDE & RDV — SUR-MESURE PAR NICHE */}
-      <section className="py-20 px-6 border-t border-white/5">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white/[0.03] border border-white/10 rounded-3xl p-8 md:p-10">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="p-3 rounded-xl bg-violet-500/10">
-                <CalendarCheck className="w-6 h-6 text-violet-400" strokeWidth={2} />
-              </div>
-              <div className="p-3 rounded-xl bg-violet-500/10">
-                <ShoppingBag className="w-6 h-6 text-violet-400" strokeWidth={2} />
-              </div>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Prise de commande &amp; prise de rendez-vous intégrées
-            </h2>
-            <p className="text-zinc-300 leading-relaxed mb-4">
-              Tu veux que tes clients <strong className="text-white">commandent</strong> ou <strong className="text-white">réservent</strong> directement depuis ton site ? On l'intègre selon ton métier — <strong className="text-white">restaurant</strong> (prise de commande), <strong className="text-white">salon de coiffure</strong> ou <strong className="text-white">institut de beauté</strong> (prise de rendez-vous), etc.
-            </p>
-            <p className="text-zinc-400 leading-relaxed mb-6">
-              C'est du <strong className="text-white">sur-mesure</strong> : le prix dépend de la complexité de ce que tu veux. Pas de tarif unique affiché — on en parle et je t'envoie un <strong className="text-white">devis personnalisé</strong>.
-            </p>
-            <a
-              href={CAL_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-secondary inline-flex items-center gap-2 px-5 py-3"
-            >
-              Demander mon devis personnalisé
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* MAINTENANCE — DIFFÉRENCIATEUR CLÉ */}
+      {/* BANDEAU SEO — DIFFÉRENCIATEUR CLÉ */}
       <section className="py-20 px-6 border-t border-white/5">
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-[#6B3FE8]/20 to-transparent border border-[#6B3FE8]/30 rounded-3xl p-10">
 
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#6B3FE8]/20 border border-[#6B3FE8]/40 mb-6">
-              <ShieldCheck className="w-4 h-4 text-[#B59FFF]" />
-              <span className="text-sm font-semibold text-[#B59FFF]">Maintenance & SEO — 59€/mois</span>
+              <Search className="w-4 h-4 text-[#B59FFF]" />
+              <span className="text-sm font-semibold text-[#B59FFF]">Option SEO mensuel — 59€/mois</span>
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ton site vivant, protégé,<br />
-              <span className="text-[#6B3FE8]">et qui monte sur Google.</span>
+              Apparais en premier sur Google.<br />
+              <span className="text-[#6B3FE8]">Sans payer de pub.</span>
             </h2>
 
             <p className="text-white/70 text-lg mb-8 max-w-2xl leading-relaxed">
-              La maintenance, ce n'est pas une ligne en plus sur la facture : c'est ce qui garde ton site
-              sécurisé, à jour et bien référencé mois après mois. Tout est compris dedans — surveillance,
-              mises à jour, SEO et articles de blog.
+              Chaque mois, j'analyse les mots-clés que tes clients tapent vraiment dans ton secteur. Je mets à jour le SEO de ton site en conséquence. Résultat : ton site remonte dans Google naturellement — là où tes concurrents paient 300 à 500€/mois en Google Ads, toi tu n'as rien de plus à débourser.
             </p>
 
             <div className="grid md:grid-cols-2 gap-4 mb-8">
               {[
-                { icon: ShieldCheck, titre: "Surveillance & sécurité", desc: "Un agent me notifie immédiatement en cas d'anomalie : tentative d'intrusion, cyberattaque, panne. On agit avant que ça pose problème." },
-                { icon: RefreshCw, titre: "Mises à jour proactives", desc: "Photos ou contenus qui datent de plus de 6 mois ? On te le signale et on rafraîchit pour garder un site impeccable." },
-                { icon: FileText, titre: "SEO + articles de blog chaque mois", desc: "Mon plus gros atout : chaque mois, de nouveaux articles avec des mots-clés à jour pour faire grimper ton site sur Google — naturellement." },
-                { icon: PencilLine, titre: "1 modification incluse / mois", desc: "Tu veux changer ou mettre à jour un module du site ? Une modification est comprise chaque mois, sans frais." },
+                { icon: TrendingUp, titre: "Analyse mensuelle des mots-clés", desc: "Je vérifie chaque mois ce que tes clients cherchent vraiment sur Google dans ton secteur" },
+                { icon: FileText, titre: "Mise à jour SEO du site", desc: "Le contenu et les balises de ton site sont ajustés selon les tendances du moment" },
+                { icon: Search, titre: "Articles optimisés publiés auto", desc: "Des articles ciblés publiés régulièrement pour renforcer ton positionnement Google" },
+                { icon: Award, titre: "Trafic organique, zéro pub", desc: "Ton site remonte tout seul, mois après mois. Aucune dépense publicitaire nécessaire" },
               ].map((item, i) => {
                 const Icon = item.icon;
                 return (
@@ -262,20 +227,10 @@ export default function SiteInternet() {
               })}
             </div>
 
-            {/* Sans maintenance */}
-            <div className="bg-white/[0.04] border border-white/10 rounded-2xl p-5 mb-8">
-              <p className="text-white/70 text-sm leading-relaxed">
-                <strong className="text-white">Pas de maintenance ?</strong> Aucun souci. Tu prends ton site,
-                tu paies simplement ton nom de domaine, et il est à toi. En cas de modification ponctuelle ensuite,
-                elle est facturée à partir de <strong className="text-[#B59FFF]">50€</strong> par modification principale
-                (un simple changement de texte coûte moins — on s'arrange).
-              </p>
-            </div>
-
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <div>
                 <span className="text-3xl font-bold text-[#B59FFF]">59€</span>
-                <span className="text-white/60 ml-1">/mois · SEO, sécurité & 1 modif inclus</span>
+                <span className="text-white/60 ml-1">/mois · Engagement 1 an</span>
               </div>
               <a
                 href={CAL_LINK}
@@ -298,11 +253,11 @@ export default function SiteInternet() {
 
           <div className="space-y-6">
             {[
-              { n: "01", titre: "Diagnostic gratuit (15 min)", desc: "On comprend ton activité, ta cible, tes objectifs. Tu repars avec une stratégie claire et un devis adapté." },
-              { n: "02", titre: "Création du site sur-mesure", desc: "On code ton site dans ta charte. Compter 1 à 2 semaines pour une landing page, 3 semaines à 1 mois pour un site multi-pages. Pas de template moche réutilisé." },
+              { n: "01", titre: "Diagnostic gratuit (15 min)", desc: "On comprend ton activité, ta cible, tes objectifs. Tu repars avec une stratégie claire." },
+              { n: "02", titre: "Création du site (3 à 5 jours)", desc: "On code ton site sur-mesure dans ta charte. Pas de template moche réutilisé." },
               { n: "03", titre: "Validation et ajustements", desc: "Tu donnes ton avis, on ajuste les textes, couleurs, photos." },
               { n: "04", titre: "Mise en ligne", desc: "Site déployé, nom de domaine configuré, Google informé." },
-              { n: "05", titre: "Maintenance : SEO & blog (option 59€/mois)", desc: "Si tu actives la maintenance, on surveille, on sécurise, et chaque mois on publie de nouveaux articles SEO pour te faire monter sur Google. Une modification de module est aussi incluse chaque mois." }
+              { n: "05", titre: "Option SEO : blog automatisé", desc: "Si tu actives l'option à 59€/mois, on configure le blog. À partir du mois 2, tes articles commencent à remonter sur Google." }
             ].map((item, i) => (
               <div key={i} className="flex gap-6 items-start">
                 <div className="text-5xl font-bold text-[#6B3FE8] flex-shrink-0 w-20">{item.n}</div>
@@ -323,7 +278,7 @@ export default function SiteInternet() {
             Prêt à avoir un site qui bosse pour toi ?
           </h2>
           <p className="text-xl text-white/70 mb-10">
-            Réserve un diagnostic gratuit. On regarde ensemble ce qui te manque, et on établit ton devis sur-mesure — clair, sans surprise.
+            Réserve un diagnostic gratuit. On regarde ensemble ce qui te manque, et on te livre ton site sur-mesure en 3 à 5 jours.
           </p>
           <a
             href={CAL_LINK}
@@ -335,7 +290,7 @@ export default function SiteInternet() {
             <ArrowRight className="w-5 h-5" />
           </a>
           <p className="text-sm text-white/50 mt-6">
-            Diagnostic 100% offert · 15 min en visio · Sans engagement
+            Tarif Essentiel à 350€ valable jusqu'à fin juin 2026
           </p>
         </div>
       </section>

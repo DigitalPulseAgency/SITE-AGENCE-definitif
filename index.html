@@ -22,12 +22,57 @@
     <meta name="twitter:title" content="DigitalPulse Agency — Automatisations IA et sites web pour entreprises locales">
     <meta name="twitter:description" content="Plus de temps, plus de clients, sans recruter. Applications sur-mesure + sites web qui convertissent. Diagnostic gratuit 15 min.">
     <meta name="twitter:image" content="/logo-transparent.png">
+    <!-- Schema.org : identité officielle pour Google (référencement de marque) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Digital Pulse Agency",
+      "alternateName": "DigitalPulse Agency",
+      "url": "https://digitalpulse-agency.fr",
+      "logo": "https://digitalpulse-agency.fr/logo-transparent.png",
+      "image": "https://digitalpulse-agency.fr/logo-transparent.png",
+      "description": "Agence digitale spécialisée dans l'intégration d'intelligence artificielle pour automatiser les tâches répétitives des entreprises, la création de sites web, le référencement SEO et la gestion des réseaux sociaux.",
+      "telephone": "+33615940883",
+      "email": "contact@digitalpulse-agency.fr",
+      "priceRange": "€€",
+      "areaServed": [
+        { "@type": "Country", "name": "France" },
+        { "@type": "Country", "name": "Belgique" },
+        { "@type": "Country", "name": "Suisse" }
+      ],
+      "knowsAbout": ["Intelligence artificielle", "Automatisation", "Création de sites web", "Référencement SEO", "Réseaux sociaux"]
+    }
+    </script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS (quick fix : pages services + Home utilisent Tailwind) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: {
+        colors: {
+          background: 'oklch(0.13 0.02 280)',
+          foreground: 'oklch(0.97 0.01 280)',
+          card: 'oklch(0.17 0.025 280)',
+          'card-foreground': 'oklch(0.97 0.01 280)',
+          muted: 'oklch(0.22 0.03 280)',
+          'muted-foreground': 'oklch(0.7 0.03 280)',
+          primary: 'oklch(0.62 0.24 295)',
+          'primary-foreground': 'oklch(0.99 0 0)',
+          accent: 'oklch(0.78 0.18 150)',
+          border: 'rgba(255,255,255,0.10)',
+          input: 'rgba(255,255,255,0.12)',
+          ring: 'oklch(0.62 0.24 295)',
+          violet: 'oklch(0.55 0.26 295)',
+          'violet-glow': 'oklch(0.7 0.22 295)',
+          mint: 'oklch(0.82 0.2 150)',
+        },
+        fontFamily: { display: ['Space Grotesk', 'sans-serif'], sans: ['Inter', 'sans-serif'] },
+        borderRadius: { '2xl': '1.25rem', '3xl': '1.5rem' },
+      }}};
+    </script>
   </head>
   <body>
     <div id="root"></div>

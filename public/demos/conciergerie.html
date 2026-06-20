@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Conciergerie">
-<title>Conciergerie · Lidia</title>
+<title>Conciergerie · Camille</title>
 <link rel="manifest" href='data:application/manifest+json;charset=utf-8,{"name":"Conciergerie","short_name":"Conciergerie","start_url":".","display":"standalone","background_color":"%23F5F3EE","theme_color":"%23185FA5","icons":[{"src":"data:image/svg%2Bxml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 192 192%22><rect width=%22192%22 height=%22192%22 rx=%2240%22 fill=%22%23185FA5%22/><text x=%2296%22 y=%22128%22 font-size=%22120%22 text-anchor=%22middle%22 fill=%22white%22>%F0%9F%8F%A1</text></svg>","sizes":"192x192","type":"image/svg+xml"}]}'>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -663,7 +663,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
 
     <div class="login-field">
       <label>Identifiant</label>
-      <input type="text" id="login-user" placeholder="lidia">
+      <input type="text" id="login-user" placeholder="camille">
     </div>
     <div class="login-field">
       <label>Mot de passe</label>
@@ -674,8 +674,8 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
 
     <div class="login-demo">
       <div class="login-demo-title">Comptes de démonstration</div>
-      <button class="login-demo-btn" onclick="quickLogin('lidia','demo')">👤 Lidia (admin)</button>
-      <button class="login-demo-btn" onclick="quickLogin('charlotte','demo')">🧹 Charlotte (ménage)</button>
+      <button class="login-demo-btn" onclick="quickLogin('camille','demo')">👤 Camille (admin)</button>
+      <button class="login-demo-btn" onclick="quickLogin('sophie','demo')">🧹 Sophie (ménage)</button>
     </div>
   </div>
 </div>
@@ -695,7 +695,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
 
   <div class="scroll-area">
     <div class="greeting-block">
-      <h1 id="m-greeting">Bonjour Lidia</h1>
+      <h1 id="m-greeting">Bonjour Camille</h1>
       <p>3 interventions aujourd'hui</p>
     </div>
 
@@ -714,29 +714,29 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
 
     <div class="section-title">Aujourd'hui</div>
 
-    <div class="intervention-card checkin" onclick="openChecklist('checkin','Mas du Cheval Blanc')">
+    <div class="intervention-card checkin" onclick="openChecklist('checkin','Villa des Oliviers')">
       <div>
         <div class="intervention-tag">Check-in · 16h</div>
-        <div class="intervention-title">Mas du Cheval Blanc</div>
+        <div class="intervention-title">Villa des Oliviers</div>
         <div class="intervention-meta">Famille Dupont · Airbnb · 4 nuits</div>
       </div>
       <div class="intervention-status">À FAIRE</div>
     </div>
 
-    <div class="intervention-card checkout" onclick="openChecklist('checkout','Beaumes 1')">
+    <div class="intervention-card checkout" onclick="openChecklist('checkout','Bellerive 1')">
       <div>
         <div class="intervention-tag">Check-out · 11h</div>
-        <div class="intervention-title">Beaumes 1</div>
-        <div class="intervention-meta">M. Bernard · Booking · caution 500€</div>
+        <div class="intervention-title">Bellerive 1</div>
+        <div class="intervention-meta">M. Girard · Booking · caution 500€</div>
       </div>
       <div class="intervention-status">EN COURS</div>
     </div>
 
-    <div class="intervention-card cleaning" onclick="showToast('Ménage Le Barroux 2 — terminé')">
+    <div class="intervention-card cleaning" onclick="showToast('Ménage Roquelaine 2 — terminé')">
       <div>
         <div class="intervention-tag">Ménage · 14h</div>
-        <div class="intervention-title">Le Barroux 2</div>
-        <div class="intervention-meta">Charlotte · prêt avant 17h</div>
+        <div class="intervention-title">Roquelaine 2</div>
+        <div class="intervention-meta">Sophie · prêt avant 17h</div>
       </div>
       <div class="intervention-status">FAIT</div>
     </div>
@@ -794,26 +794,26 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
       <input type="text" placeholder="Rechercher un bien…">
     </div>
 
-    <div class="commune-header">Carpentras · 4 biens</div>
-    <div class="bien-card" onclick="openBien('Carpentras 1','gradient-1','libre','Libre','Airbnb + Booking','6 voyageurs')"><div class="bien-img gradient-1">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Carpentras 1</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
-    <div class="bien-card" onclick="openBien('Carpentras 2','gradient-2','occupe','Occupé','Airbnb','4 voyageurs')"><div class="bien-img gradient-2">🏡<div class="bien-status-badge occupe">OCCUPÉ</div></div><div class="bien-info"><div class="bien-name">Carpentras 2</div><div class="bien-meta">Piscine · 4 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
-    <div class="bien-card" onclick="openBien('Carpentras 3','gradient-3','libre','Libre','Airbnb + Booking','8 voyageurs')"><div class="bien-img gradient-3">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Carpentras 3</div><div class="bien-meta">Piscine · 8 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
-    <div class="bien-card" onclick="openBien('Carpentras 4','gradient-4','checkout','Check-out','Booking','6 voyageurs')"><div class="bien-img gradient-4">🏡<div class="bien-status-badge checkout">CHECK-OUT</div></div><div class="bien-info"><div class="bien-name">Carpentras 4</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag booking">Booking</span></div></div></div>
+    <div class="commune-header">Beauval · 4 biens</div>
+    <div class="bien-card" onclick="openBien('Beauval 1','gradient-1','libre','Libre','Airbnb + Booking','6 voyageurs')"><div class="bien-img gradient-1">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Beauval 1</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
+    <div class="bien-card" onclick="openBien('Beauval 2','gradient-2','occupe','Occupé','Airbnb','4 voyageurs')"><div class="bien-img gradient-2">🏡<div class="bien-status-badge occupe">OCCUPÉ</div></div><div class="bien-info"><div class="bien-name">Beauval 2</div><div class="bien-meta">Piscine · 4 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
+    <div class="bien-card" onclick="openBien('Beauval 3','gradient-3','libre','Libre','Airbnb + Booking','8 voyageurs')"><div class="bien-img gradient-3">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Beauval 3</div><div class="bien-meta">Piscine · 8 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
+    <div class="bien-card" onclick="openBien('Beauval 4','gradient-4','checkout','Check-out','Booking','6 voyageurs')"><div class="bien-img gradient-4">🏡<div class="bien-status-badge checkout">CHECK-OUT</div></div><div class="bien-info"><div class="bien-name">Beauval 4</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag booking">Booking</span></div></div></div>
 
-    <div class="commune-header">Le Barroux · 4 biens</div>
-    <div class="bien-card" onclick="openBien('Le Barroux 1','gradient-5','libre','Libre','Airbnb','4 voyageurs')"><div class="bien-img gradient-5">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Le Barroux 1</div><div class="bien-meta">Piscine · 4 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
-    <div class="bien-card" onclick="openBien('Le Barroux 2','gradient-6','checkin','Check-in','Airbnb + Booking','6 voyageurs')"><div class="bien-img gradient-6">🏡<div class="bien-status-badge checkin">CHECK-IN</div></div><div class="bien-info"><div class="bien-name">Le Barroux 2</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
-    <div class="bien-card" onclick="openBien('Le Barroux 3','gradient-1','occupe','Occupé','Airbnb','8 voyageurs')"><div class="bien-img gradient-1">🏡<div class="bien-status-badge occupe">OCCUPÉ</div></div><div class="bien-info"><div class="bien-name">Le Barroux 3</div><div class="bien-meta">Piscine · 8 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
-    <div class="bien-card" onclick="openBien('Le Barroux 4','gradient-2','libre','Libre','Booking','5 voyageurs')"><div class="bien-img gradient-2">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Le Barroux 4</div><div class="bien-meta">Piscine · 5 voyageurs</div><div class="bien-platforms"><span class="platform-tag booking">Booking</span></div></div></div>
+    <div class="commune-header">Roquelaine · 4 biens</div>
+    <div class="bien-card" onclick="openBien('Roquelaine 1','gradient-5','libre','Libre','Airbnb','4 voyageurs')"><div class="bien-img gradient-5">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Roquelaine 1</div><div class="bien-meta">Piscine · 4 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
+    <div class="bien-card" onclick="openBien('Roquelaine 2','gradient-6','checkin','Check-in','Airbnb + Booking','6 voyageurs')"><div class="bien-img gradient-6">🏡<div class="bien-status-badge checkin">CHECK-IN</div></div><div class="bien-info"><div class="bien-name">Roquelaine 2</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
+    <div class="bien-card" onclick="openBien('Roquelaine 3','gradient-1','occupe','Occupé','Airbnb','8 voyageurs')"><div class="bien-img gradient-1">🏡<div class="bien-status-badge occupe">OCCUPÉ</div></div><div class="bien-info"><div class="bien-name">Roquelaine 3</div><div class="bien-meta">Piscine · 8 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
+    <div class="bien-card" onclick="openBien('Roquelaine 4','gradient-2','libre','Libre','Booking','5 voyageurs')"><div class="bien-img gradient-2">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Roquelaine 4</div><div class="bien-meta">Piscine · 5 voyageurs</div><div class="bien-platforms"><span class="platform-tag booking">Booking</span></div></div></div>
 
-    <div class="commune-header">Beaumes-de-Venise · 2 biens</div>
-    <div class="bien-card" onclick="openBien('Beaumes 1','gradient-3','checkout','Check-out','Airbnb + Booking','6 voyageurs')"><div class="bien-img gradient-3">🏡<div class="bien-status-badge checkout">CHECK-OUT</div></div><div class="bien-info"><div class="bien-name">Beaumes 1</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
-    <div class="bien-card" onclick="openBien('Beaumes 2','gradient-4','libre','Libre','Airbnb','4 voyageurs')"><div class="bien-img gradient-4">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Beaumes 2</div><div class="bien-meta">Piscine · 4 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
+    <div class="commune-header">Bellerive-de-Venise · 2 biens</div>
+    <div class="bien-card" onclick="openBien('Bellerive 1','gradient-3','checkout','Check-out','Airbnb + Booking','6 voyageurs')"><div class="bien-img gradient-3">🏡<div class="bien-status-badge checkout">CHECK-OUT</div></div><div class="bien-info"><div class="bien-name">Bellerive 1</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
+    <div class="bien-card" onclick="openBien('Bellerive 2','gradient-4','libre','Libre','Airbnb','4 voyageurs')"><div class="bien-img gradient-4">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Bellerive 2</div><div class="bien-meta">Piscine · 4 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
 
     <div class="commune-header">Autres communes · 3 biens</div>
-    <div class="bien-card" onclick="openBien('Mas du Cheval Blanc','gradient-5','checkin','Check-in','Airbnb','8 voyageurs')"><div class="bien-img gradient-5">🏡<div class="bien-status-badge checkin">CHECK-IN</div></div><div class="bien-info"><div class="bien-name">Mas du Cheval Blanc</div><div class="bien-meta">Le Cheval-Blanc · Piscine · 8 voy.</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
-    <div class="bien-card" onclick="openBien('Entraigues 1','gradient-6','libre','Libre','Airbnb + Booking','6 voyageurs')"><div class="bien-img gradient-6">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Entraigues 1</div><div class="bien-meta">Entraigues-sur-la-Sorgue · 6 voy.</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
-    <div class="bien-card" onclick="openBien('Sarrians 1','gradient-1','libre','Libre','Booking','5 voyageurs')"><div class="bien-img gradient-1">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Sarrians 1</div><div class="bien-meta">Piscine · 5 voyageurs</div><div class="bien-platforms"><span class="platform-tag booking">Booking</span></div></div></div>
+    <div class="bien-card" onclick="openBien('Villa des Oliviers','gradient-5','checkin','Check-in','Airbnb','8 voyageurs')"><div class="bien-img gradient-5">🏡<div class="bien-status-badge checkin">CHECK-IN</div></div><div class="bien-info"><div class="bien-name">Villa des Oliviers</div><div class="bien-meta">Le Cheval-Blanc · Piscine · 8 voy.</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
+    <div class="bien-card" onclick="openBien('Montclair 1','gradient-6','libre','Libre','Airbnb + Booking','6 voyageurs')"><div class="bien-img gradient-6">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Montclair 1</div><div class="bien-meta">Montclair-sur-Source · 6 voy.</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
+    <div class="bien-card" onclick="openBien('Valbois 1','gradient-1','libre','Libre','Booking','5 voyageurs')"><div class="bien-img gradient-1">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Valbois 1</div><div class="bien-meta">Piscine · 5 voyageurs</div><div class="bien-platforms"><span class="platform-tag booking">Booking</span></div></div></div>
   </div>
 
   <div class="bottom-nav">
@@ -830,15 +830,15 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
   <div class="app-header">
     <button class="back-btn" onclick="navMobile('biens')">←</button>
     <div class="header-content">
-      <div class="header-title" id="m-bien-detail-title">Le Barroux 2</div>
+      <div class="header-title" id="m-bien-detail-title">Roquelaine 2</div>
     </div>
   </div>
 
   <div class="scroll-area">
     <div class="bien-detail-img" id="m-bien-detail-img" style="background: linear-gradient(135deg, #ED93B1 0%, #D4537E 100%);">🏡</div>
     <div class="bien-detail-info">
-      <div class="bien-detail-name" id="m-bien-detail-name">Le Barroux 2</div>
-      <div class="bien-detail-address">12 chemin des Oliviers, 84330 Le Barroux</div>
+      <div class="bien-detail-name" id="m-bien-detail-name">Roquelaine 2</div>
+      <div class="bien-detail-address">12 chemin des Oliviers, 84330 Roquelaine</div>
       <div class="bien-detail-tags">
         <span class="bien-tag" id="m-bien-tag-status">Check-in aujourd'hui</span>
         <span class="bien-tag">Piscine</span>
@@ -890,7 +890,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
     <button class="back-btn" onclick="navMobile('bien-detail')">←</button>
     <div class="header-content">
       <div class="header-title">Check-in</div>
-      <div class="header-subtitle" id="m-checkin-subtitle">Le Barroux 2 · Booking</div>
+      <div class="header-subtitle" id="m-checkin-subtitle">Roquelaine 2 · Booking</div>
     </div>
   </div>
   <div class="progress-block">
@@ -921,15 +921,15 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
     <div class="checklist-item" onclick="toggleItem(this,'m-checkin')"><div class="checkbox-circle"></div><div><div class="item-title">18 · Remettre les consignes</div><div class="item-detail">Wifi, règles maison, horaires bruit, tri sélectif</div></div></div>
     <div class="checklist-item" onclick="toggleItem(this,'m-checkin')"><div class="checkbox-circle"></div><div><div class="item-title">19 · Adresses utiles</div><div class="item-detail">Boulangerie, supermarché, médecin, pharmacie, restaurants</div></div></div>
     <div class="checklist-item" onclick="toggleItem(this,'m-checkin')"><div class="checkbox-circle"></div><div><div class="item-title">20 · Remise des clés</div><div class="item-detail">Maison + portail + télécommande + badge</div></div></div>
-    <div class="checklist-item" onclick="toggleItem(this,'m-checkin')"><div class="checkbox-circle"></div><div><div class="item-title">21 · Donner contacts d'urgence</div><div class="item-detail">Tél Lidia + Charlotte + numéros utiles</div></div></div>
+    <div class="checklist-item" onclick="toggleItem(this,'m-checkin')"><div class="checkbox-circle"></div><div><div class="item-title">21 · Donner contacts d'urgence</div><div class="item-detail">Tél Camille + Sophie + numéros utiles</div></div></div>
     <div class="phase-header">Phase 4 · Clôture</div>
     <div class="checklist-item" onclick="toggleItem(this,'m-checkin')"><div class="checkbox-circle"></div><div><div class="item-title">22 · Demander si tout est OK</div><div class="item-detail">Une dernière fois avant de partir</div></div></div>
     <div class="checklist-item" onclick="toggleItem(this,'m-checkin')"><div class="checkbox-circle"></div><div><div class="item-title">23 · Marquer le bien comme occupé</div><div class="item-detail">Mise à jour automatique du statut</div></div></div>
-    <div class="checklist-item" onclick="toggleItem(this,'m-checkin')"><div class="checkbox-circle"></div><div><div class="item-title">24 · Notifier Lidia</div><div class="item-detail">Notification automatique : check-in terminé</div></div></div>
+    <div class="checklist-item" onclick="toggleItem(this,'m-checkin')"><div class="checkbox-circle"></div><div><div class="item-title">24 · Notifier Camille</div><div class="item-detail">Notification automatique : check-in terminé</div></div></div>
   </div>
   <div class="checklist-footer">
     <button class="footer-btn danger" onclick="showToast('⚠ Signalement créé')">⚠ Signaler</button>
-    <button class="footer-btn" onclick="showToast('📞 Appel à Lidia')">📞 Lidia</button>
+    <button class="footer-btn" onclick="showToast('📞 Appel à Camille')">📞 Camille</button>
   </div>
 </div>
 
@@ -939,7 +939,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
     <button class="back-btn" onclick="navMobile('bien-detail')">←</button>
     <div class="header-content">
       <div class="header-title">Check-out</div>
-      <div class="header-subtitle" id="m-checkout-subtitle">Beaumes 1 · Booking · 5 nuits</div>
+      <div class="header-subtitle" id="m-checkout-subtitle">Bellerive 1 · Booking · 5 nuits</div>
     </div>
   </div>
   <div class="progress-block">
@@ -949,7 +949,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
   <div class="scroll-area" id="m-checkout-list">
     <div class="phase-header checkout">Phase 1 · Avant le départ (J-1)</div>
     <div class="checklist-item" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title">1 · Confirmer l'heure de départ</div><div class="item-detail">Message au voyageur · rappel heure max + remise des clés</div></div></div>
-    <div class="checklist-item" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title">2 · Préparer planning ménage</div><div class="item-detail">Vérifier prochaine arrivée · planifier Charlotte</div></div></div>
+    <div class="checklist-item" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title">2 · Préparer planning ménage</div><div class="item-detail">Vérifier prochaine arrivée · planifier Sophie</div></div></div>
     <div class="phase-header checkout">Phase 2 · Départ voyageurs</div>
     <div class="checklist-item" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title">3 · Arriver à l'heure de départ</div><div class="item-detail">10h ou heure convenue · saluer avant inspection</div></div></div>
     <div class="checklist-item" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title">4 · Récupérer les clés</div><div class="item-detail">Maison + portail + télécommande + badge</div></div></div>
@@ -967,18 +967,18 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
     <div class="checklist-item highlight-red" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title" style="color:#501313;">14 · Dégâts détectés → signalement ⚠</div><div class="item-detail" style="color:#791F1F;">Photo zoomée + estimation + description</div></div></div>
     <div class="checklist-item" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title">15a · Si Airbnb → AirCover</div><div class="item-detail">Déclaration sous 15 jours · photos · estimation</div></div></div>
     <div class="checklist-item highlight-amber" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title" style="color:#412402;">15b · Si Booking → caution chèque 💰</div><div class="item-detail" style="color:#854F0B;">Encaisser tout ou partie · message Booking · preuves</div></div></div>
-    <div class="checklist-item" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title">16 · Notifier Lidia</div><div class="item-detail">Notification auto avec photos + estimation</div></div></div>
+    <div class="checklist-item" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title">16 · Notifier Camille</div><div class="item-detail">Notification auto avec photos + estimation</div></div></div>
     <div class="checklist-item" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title">17 · Si intervention urgente</div><div class="item-detail">Plombier, électricien, pisciniste · fiche contacts</div></div></div>
     <div class="phase-header checkout">Phase 5 · Restitution & clôture</div>
     <div class="checklist-item highlight-amber" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title" style="color:#412402;">18 · Restituer chèque caution 💰</div><div class="item-detail" style="color:#854F0B;">Si tout OK · rendre · cocher "rendu"</div></div></div>
-    <div class="checklist-item" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title">19 · Marquer le bien "à nettoyer"</div><div class="item-detail">Statut auto · alerte vers Charlotte</div></div></div>
+    <div class="checklist-item" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title">19 · Marquer le bien "à nettoyer"</div><div class="item-detail">Statut auto · alerte vers Sophie</div></div></div>
     <div class="checklist-item" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title">20 · Saisir consommations</div><div class="item-detail">Stock à recharger : draps, serviettes, café, savon</div></div></div>
     <div class="checklist-item" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title">21 · Laisser un avis voyageur</div><div class="item-detail">Note Airbnb/Booking · rappel sous 7 jours</div></div></div>
     <div class="checklist-item" onclick="toggleItem(this,'m-checkout')"><div class="checkbox-circle"></div><div><div class="item-title">22 · Clôturer la réservation</div><div class="item-detail">Archivage automatique · CA mis à jour</div></div></div>
   </div>
   <div class="checklist-footer">
     <button class="footer-btn danger" onclick="showToast('⚠ Signalement de dégât créé')">⚠ Signaler dégât</button>
-    <button class="footer-btn" onclick="showToast('📞 Appel à Lidia')">📞 Lidia</button>
+    <button class="footer-btn" onclick="showToast('📞 Appel à Camille')">📞 Camille</button>
   </div>
 </div>
 
@@ -1008,10 +1008,10 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
     </div>
     <div class="section-title">Prochaines réservations</div>
     <div class="upcoming-resa-list">
-      <div class="resa-card"><div class="resa-date">Aujourd'hui · 29 avril</div><div class="resa-bien">Mas du Cheval Blanc</div><div class="resa-detail">Famille Dupont · Airbnb · 4 nuits · 1 240€</div></div>
-      <div class="resa-card"><div class="resa-date">Demain · 30 avril</div><div class="resa-bien">Le Barroux 2</div><div class="resa-detail">Famille Martin · Booking · 5 nuits · 1 580€</div></div>
-      <div class="resa-card"><div class="resa-date">2 mai</div><div class="resa-bien">Carpentras 3</div><div class="resa-detail">M. et Mme Leroux · Airbnb · 7 nuits · 2 100€</div></div>
-      <div class="resa-card"><div class="resa-date">3 mai</div><div class="resa-bien">Beaumes 2</div><div class="resa-detail">Couple Garnier · Booking · 3 nuits · 720€</div></div>
+      <div class="resa-card"><div class="resa-date">Aujourd'hui · 29 avril</div><div class="resa-bien">Villa des Oliviers</div><div class="resa-detail">Famille Dupont · Airbnb · 4 nuits · 1 240€</div></div>
+      <div class="resa-card"><div class="resa-date">Demain · 30 avril</div><div class="resa-bien">Roquelaine 2</div><div class="resa-detail">Famille Martin · Booking · 5 nuits · 1 580€</div></div>
+      <div class="resa-card"><div class="resa-date">2 mai</div><div class="resa-bien">Beauval 3</div><div class="resa-detail">M. et Mme Mercier · Airbnb · 7 nuits · 2 100€</div></div>
+      <div class="resa-card"><div class="resa-date">3 mai</div><div class="resa-bien">Bellerive 2</div><div class="resa-detail">Couple Garnier · Booking · 3 nuits · 720€</div></div>
     </div>
   </div>
   <div class="bottom-nav">
@@ -1035,13 +1035,13 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
   <div class="scroll-area">
     <div class="section-title">En cours</div>
     <div class="signal-list">
-      <div class="signal-card urgent" onclick="showToast('Détail du signalement')"><div class="signal-title">Pompe piscine en panne</div><div class="signal-meta">Le Barroux 2 · signalé par Charlotte · 28 avril</div><div class="signal-status urgent">URGENT</div></div>
-      <div class="signal-card normal" onclick="showToast('Détail du signalement')"><div class="signal-title">Verre cassé sur terrasse</div><div class="signal-meta">Carpentras 4 · check-out · estimation 25€</div><div class="signal-status normal">EN ATTENTE</div></div>
+      <div class="signal-card urgent" onclick="showToast('Détail du signalement')"><div class="signal-title">Pompe piscine en panne</div><div class="signal-meta">Roquelaine 2 · signalé par Sophie · 28 avril</div><div class="signal-status urgent">URGENT</div></div>
+      <div class="signal-card normal" onclick="showToast('Détail du signalement')"><div class="signal-title">Verre cassé sur terrasse</div><div class="signal-meta">Beauval 4 · check-out · estimation 25€</div><div class="signal-status normal">EN ATTENTE</div></div>
     </div>
     <div class="section-title">Récemment résolus</div>
     <div class="signal-list">
-      <div class="signal-card resolved" onclick="showToast('Détail du signalement')"><div class="signal-title">Fuite robinet salle de bain</div><div class="signal-meta">Beaumes 1 · résolu le 25 avril · 180€</div><div class="signal-status resolved">RÉSOLU</div></div>
-      <div class="signal-card resolved" onclick="showToast('Détail du signalement')"><div class="signal-title">Lave-vaisselle bruyant</div><div class="signal-meta">Le Barroux 3 · résolu le 22 avril</div><div class="signal-status resolved">RÉSOLU</div></div>
+      <div class="signal-card resolved" onclick="showToast('Détail du signalement')"><div class="signal-title">Fuite robinet salle de bain</div><div class="signal-meta">Bellerive 1 · résolu le 25 avril · 180€</div><div class="signal-status resolved">RÉSOLU</div></div>
+      <div class="signal-card resolved" onclick="showToast('Détail du signalement')"><div class="signal-title">Lave-vaisselle bruyant</div><div class="signal-meta">Roquelaine 3 · résolu le 22 avril</div><div class="signal-status resolved">RÉSOLU</div></div>
     </div>
   </div>
   <button class="fab" onclick="showToast('Nouveau signalement')" style="background:#A32D2D;">+</button>
@@ -1066,23 +1066,23 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
   <div class="scroll-area">
     <div class="section-title">Équipe</div>
     <div class="contacts-list">
-      <div class="contact-row" onclick="showToast('Appel à Charlotte')">
-        <div class="contact-avatar" style="background:#534AB7;">CH</div>
-        <div class="contact-info"><div class="contact-name">Charlotte</div><div class="contact-role">Femme de ménage référente</div></div>
+      <div class="contact-row" onclick="showToast('Appel à Sophie')">
+        <div class="contact-avatar" style="background:#534AB7;">SO</div>
+        <div class="contact-info"><div class="contact-name">Sophie</div><div class="contact-role">Femme de ménage référente</div></div>
         <button class="contact-call">📞</button>
       </div>
     </div>
     <div class="section-title">Prestataires</div>
     <div class="contacts-list">
-      <div class="contact-row" onclick="showToast('Appel à Aqua Sud')"><div class="contact-avatar" style="background:#1D9E75;">AS</div><div class="contact-info"><div class="contact-name">Aqua Sud Piscines</div><div class="contact-role">Pisciniste · Carpentras</div></div><button class="contact-call">📞</button></div>
-      <div class="contact-row" onclick="showToast('Appel au plombier')"><div class="contact-avatar" style="background:#185FA5;">PL</div><div class="contact-info"><div class="contact-name">Plomberie Provençale</div><div class="contact-role">Plombier · 24h/24</div></div><button class="contact-call">📞</button></div>
-      <div class="contact-row" onclick="showToast('Appel à l électricien')"><div class="contact-avatar" style="background:#BA7517;">EL</div><div class="contact-info"><div class="contact-name">Vaucluse Élec</div><div class="contact-role">Électricien · urgences</div></div><button class="contact-call">📞</button></div>
-      <div class="contact-row" onclick="showToast('Appel à Jardin Service')"><div class="contact-avatar" style="background:#639922;">JA</div><div class="contact-info"><div class="contact-name">Jardin Service 84</div><div class="contact-role">Jardinier · entretien</div></div><button class="contact-call">📞</button></div>
+      <div class="contact-row" onclick="showToast('Appel à Bleu Azur')"><div class="contact-avatar" style="background:#1D9E75;">BA</div><div class="contact-info"><div class="contact-name">Bleu Azur Piscines</div><div class="contact-role">Pisciniste · Beauval</div></div><button class="contact-call">📞</button></div>
+      <div class="contact-row" onclick="showToast('Appel au plombier')"><div class="contact-avatar" style="background:#185FA5;">PL</div><div class="contact-info"><div class="contact-name">Plomberie Express</div><div class="contact-role">Plombier · 24h/24</div></div><button class="contact-call">📞</button></div>
+      <div class="contact-row" onclick="showToast('Appel à l électricien')"><div class="contact-avatar" style="background:#BA7517;">EL</div><div class="contact-info"><div class="contact-name">Provence Élec</div><div class="contact-role">Électricien · urgences</div></div><button class="contact-call">📞</button></div>
+      <div class="contact-row" onclick="showToast('Appel à Jardin Service')"><div class="contact-avatar" style="background:#639922;">VE</div><div class="contact-info"><div class="contact-name">Vert & Jardin</div><div class="contact-role">Jardinier · entretien</div></div><button class="contact-call">📞</button></div>
     </div>
     <div class="section-title">Propriétaires</div>
     <div class="contacts-list">
-      <div class="contact-row" onclick="showToast('Appel propriétaire')"><div class="contact-avatar" style="background:#D4537E;">RX</div><div class="contact-info"><div class="contact-name">M. et Mme Roux</div><div class="contact-role">Le Barroux 2 · Le Barroux 3</div></div><button class="contact-call">📞</button></div>
-      <div class="contact-row" onclick="showToast('Appel propriétaire')"><div class="contact-avatar" style="background:#7F77DD;">DP</div><div class="contact-info"><div class="contact-name">M. Dupré</div><div class="contact-role">Carpentras 1 · 2 · 3</div></div><button class="contact-call">📞</button></div>
+      <div class="contact-row" onclick="showToast('Appel propriétaire')"><div class="contact-avatar" style="background:#D4537E;">LA</div><div class="contact-info"><div class="contact-name">M. et Mme Lambert</div><div class="contact-role">Roquelaine 2 · Roquelaine 3</div></div><button class="contact-call">📞</button></div>
+      <div class="contact-row" onclick="showToast('Appel propriétaire')"><div class="contact-avatar" style="background:#7F77DD;">FO</div><div class="contact-info"><div class="contact-name">M. Fontaine</div><div class="contact-role">Beauval 1 · 2 · 3</div></div><button class="contact-call">📞</button></div>
     </div>
   </div>
   <div class="bottom-nav">
@@ -1100,13 +1100,13 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
     <button class="back-btn" onclick="navMobile('home')">←</button>
     <div class="header-content">
       <div class="header-title">Ajouter un document</div>
-      <div class="header-subtitle">Agent Lidia vous écoute</div>
+      <div class="header-subtitle">Agent Camille vous écoute</div>
     </div>
   </div>
   <div class="scroll-area">
     <div class="agent-hero">
       <div class="agent-mic">🎙️</div>
-      <div class="agent-greeting">Bonjour Lidia</div>
+      <div class="agent-greeting">Bonjour Camille</div>
       <div class="agent-instructions">Prenez une photo du document<br>et expliquez-moi de quoi il s'agit.<br>Je m'occupe du reste.</div>
     </div>
     <div class="agent-step-title">Étape 1 · Le document</div>
@@ -1118,17 +1118,17 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
     <button class="agent-record-btn" onclick="showAgentResult()"><span style="font-size:24px;">🎙️</span><span>Appuyer pour parler</span></button>
     <div class="agent-examples">
       <strong>Exemples</strong>
-      "C'est un devis du pisciniste pour Le Barroux 2, il propose de changer la pompe pour 1 240€."<br><br>
-      "Voici la facture du plombier pour Carpentras 3, intervention du 12 avril, 280 euros."
+      "C'est un devis du pisciniste pour Roquelaine 2, il propose de changer la pompe pour 1 240€."<br><br>
+      "Voici la facture du plombier pour Beauval 3, intervention du 12 avril, 280 euros."
     </div>
     <div id="agent-result-block" style="display:none;">
       <div class="agent-result">
         <div class="agent-result-title">Voilà ce que j'ai compris</div>
         <div class="agent-result-card">
           <div class="result-row"><span class="result-label">Type</span><span class="result-value">Devis</span></div>
-          <div class="result-row"><span class="result-label">Bien concerné</span><span class="result-value">Le Barroux 2</span></div>
+          <div class="result-row"><span class="result-label">Bien concerné</span><span class="result-value">Roquelaine 2</span></div>
           <div class="result-row"><span class="result-label">Catégorie</span><span class="result-value">Piscine</span></div>
-          <div class="result-row"><span class="result-label">Fournisseur</span><span class="result-value">Aqua Sud Piscines</span></div>
+          <div class="result-row"><span class="result-label">Fournisseur</span><span class="result-value">Bleu Azur Piscines</span></div>
           <div class="result-row"><span class="result-label">Montant TTC</span><span class="result-value amount">1 240,00 €</span></div>
           <div class="result-row"><span class="result-label">Statut</span><span class="result-value warning">En attente</span></div>
         </div>
@@ -1150,7 +1150,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
   <div class="sidebar">
     <div class="sidebar-header">
       <div class="sidebar-logo">🏡 Conciergerie</div>
-      <div class="sidebar-user" id="d-user">Lidia · admin</div>
+      <div class="sidebar-user" id="d-user">Camille · admin</div>
     </div>
     <div class="sidebar-nav">
       <div class="sidebar-section">Pilotage</div>
@@ -1167,7 +1167,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
       <div class="sidebar-section">Outils</div>
       <div class="sidebar-link" data-screen="contacts" onclick="navDesktop('contacts')"><span class="sidebar-link-icon">📞</span>Contacts</div>
       <div class="sidebar-link" data-screen="equipe" onclick="navDesktop('equipe')"><span class="sidebar-link-icon">👥</span>Équipe</div>
-      <div class="sidebar-link" data-screen="agent" onclick="navDesktop('agent')"><span class="sidebar-link-icon">🎙️</span>Agent Lidia</div>
+      <div class="sidebar-link" data-screen="agent" onclick="navDesktop('agent')"><span class="sidebar-link-icon">🎙️</span>Agent Camille</div>
     </div>
     <div class="sidebar-footer">
       <button class="sidebar-logout" onclick="logout()">Se déconnecter</button>
@@ -1181,7 +1181,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
       <div class="desktop-header">
         <div>
           <div class="desktop-title">Tableau de bord</div>
-          <div class="desktop-subtitle" id="d-greeting">Bonjour Lidia · 29 avril 2026</div>
+          <div class="desktop-subtitle" id="d-greeting">Bonjour Camille · 29 avril 2026</div>
         </div>
         <div class="desktop-actions">
           <button class="desktop-btn" onclick="showToast('Export en cours')">Exporter</button>
@@ -1239,9 +1239,9 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
             <div class="desktop-panel-title">Aujourd'hui</div>
             <div class="desktop-panel-link" onclick="navDesktop('planning')">Tout voir ›</div>
           </div>
-          <div class="desktop-event-row checkin"><div class="event-time">16h00</div><div class="event-content"><div class="event-title">Check-in · Mas du Cheval Blanc</div><div class="event-detail">Famille Dupont · Airbnb · Charlotte</div></div></div>
-          <div class="desktop-event-row checkout"><div class="event-time">11h00</div><div class="event-content"><div class="event-title">Check-out · Beaumes 1</div><div class="event-detail">Caution 500€ Booking à restituer</div></div></div>
-          <div class="desktop-event-row cleaning"><div class="event-time">14h00</div><div class="event-content"><div class="event-title">Ménage · Le Barroux 2</div><div class="event-detail">Charlotte · prêt avant 17h</div></div></div>
+          <div class="desktop-event-row checkin"><div class="event-time">16h00</div><div class="event-content"><div class="event-title">Check-in · Villa des Oliviers</div><div class="event-detail">Famille Dupont · Airbnb · Sophie</div></div></div>
+          <div class="desktop-event-row checkout"><div class="event-time">11h00</div><div class="event-content"><div class="event-title">Check-out · Bellerive 1</div><div class="event-detail">Caution 500€ Booking à restituer</div></div></div>
+          <div class="desktop-event-row cleaning"><div class="event-time">14h00</div><div class="event-content"><div class="event-title">Ménage · Roquelaine 2</div><div class="event-detail">Sophie · prêt avant 17h</div></div></div>
         </div>
       </div>
 
@@ -1251,11 +1251,11 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
             <div class="desktop-panel-title">Top biens · CA avril</div>
             <div class="desktop-panel-link" onclick="navDesktop('biens')">Tous les biens ›</div>
           </div>
-          <div class="desktop-bien-row"><div class="bien-row-name">Mas du Cheval Blanc</div><div class="bien-row-bar"><div class="bien-row-fill" style="width:92%"></div></div><div class="bien-row-value">2 340 €</div></div>
-          <div class="desktop-bien-row"><div class="bien-row-name">Le Barroux 3</div><div class="bien-row-bar"><div class="bien-row-fill" style="width:78%"></div></div><div class="bien-row-value">1 980 €</div></div>
-          <div class="desktop-bien-row"><div class="bien-row-name">Carpentras 3</div><div class="bien-row-bar"><div class="bien-row-fill" style="width:65%"></div></div><div class="bien-row-value">1 650 €</div></div>
-          <div class="desktop-bien-row"><div class="bien-row-name">Beaumes 1</div><div class="bien-row-bar"><div class="bien-row-fill" style="width:54%"></div></div><div class="bien-row-value">1 380 €</div></div>
-          <div class="desktop-bien-row"><div class="bien-row-name">Entraigues 1</div><div class="bien-row-bar"><div class="bien-row-fill" style="width:48%"></div></div><div class="bien-row-value">1 220 €</div></div>
+          <div class="desktop-bien-row"><div class="bien-row-name">Villa des Oliviers</div><div class="bien-row-bar"><div class="bien-row-fill" style="width:92%"></div></div><div class="bien-row-value">2 340 €</div></div>
+          <div class="desktop-bien-row"><div class="bien-row-name">Roquelaine 3</div><div class="bien-row-bar"><div class="bien-row-fill" style="width:78%"></div></div><div class="bien-row-value">1 980 €</div></div>
+          <div class="desktop-bien-row"><div class="bien-row-name">Beauval 3</div><div class="bien-row-bar"><div class="bien-row-fill" style="width:65%"></div></div><div class="bien-row-value">1 650 €</div></div>
+          <div class="desktop-bien-row"><div class="bien-row-name">Bellerive 1</div><div class="bien-row-bar"><div class="bien-row-fill" style="width:54%"></div></div><div class="bien-row-value">1 380 €</div></div>
+          <div class="desktop-bien-row"><div class="bien-row-name">Montclair 1</div><div class="bien-row-bar"><div class="bien-row-fill" style="width:48%"></div></div><div class="bien-row-value">1 220 €</div></div>
         </div>
 
         <div class="desktop-panel">
@@ -1265,12 +1265,12 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
           </div>
           <div style="background:#FCEBEB; border-radius:10px; padding:12px 14px; margin-bottom:8px; border-left:3px solid #A32D2D;">
             <div style="font-size:14px; font-weight:600;">Pompe piscine en panne</div>
-            <div style="font-size:12px; color:#791F1F; margin-top:4px;">Le Barroux 2 · Charlotte · 28 avril</div>
+            <div style="font-size:12px; color:#791F1F; margin-top:4px;">Roquelaine 2 · Sophie · 28 avril</div>
             <div style="display:inline-block; margin-top:6px; background:#A32D2D; color:white; font-size:10px; font-weight:700; padding:3px 8px; border-radius:5px;">URGENT</div>
           </div>
           <div style="background:white; border:1px solid #ECE9E1; border-radius:10px; padding:12px 14px; border-left:3px solid #BA7517;">
             <div style="font-size:14px; font-weight:600;">Verre cassé sur terrasse</div>
-            <div style="font-size:12px; color:#5F5E5A; margin-top:4px;">Carpentras 4 · estimation 25€</div>
+            <div style="font-size:12px; color:#5F5E5A; margin-top:4px;">Beauval 4 · estimation 25€</div>
             <div style="display:inline-block; margin-top:6px; background:#BA7517; color:white; font-size:10px; font-weight:700; padding:3px 8px; border-radius:5px;">EN ATTENTE</div>
           </div>
         </div>
@@ -1282,7 +1282,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
       <div class="desktop-header">
         <div>
           <div class="desktop-title">Mes biens</div>
-          <div class="desktop-subtitle">13 logements · tous avec piscine · Vaucluse</div>
+          <div class="desktop-subtitle">13 logements · tous avec piscine · Provence</div>
         </div>
         <div class="desktop-actions">
           <button class="desktop-btn" onclick="showToast('Filtres')">Filtrer</button>
@@ -1291,19 +1291,19 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
       </div>
 
       <div class="desktop-biens-grid">
-        <div class="bien-card" onclick="showToast('Carpentras 1')"><div class="bien-img gradient-1">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Carpentras 1</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
-        <div class="bien-card" onclick="showToast('Carpentras 2')"><div class="bien-img gradient-2">🏡<div class="bien-status-badge occupe">OCCUPÉ</div></div><div class="bien-info"><div class="bien-name">Carpentras 2</div><div class="bien-meta">Piscine · 4 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
-        <div class="bien-card" onclick="showToast('Carpentras 3')"><div class="bien-img gradient-3">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Carpentras 3</div><div class="bien-meta">Piscine · 8 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
-        <div class="bien-card" onclick="showToast('Carpentras 4')"><div class="bien-img gradient-4">🏡<div class="bien-status-badge checkout">CHECK-OUT</div></div><div class="bien-info"><div class="bien-name">Carpentras 4</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag booking">Booking</span></div></div></div>
-        <div class="bien-card" onclick="showToast('Le Barroux 1')"><div class="bien-img gradient-5">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Le Barroux 1</div><div class="bien-meta">Piscine · 4 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
-        <div class="bien-card" onclick="showToast('Le Barroux 2')"><div class="bien-img gradient-6">🏡<div class="bien-status-badge checkin">CHECK-IN</div></div><div class="bien-info"><div class="bien-name">Le Barroux 2</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
-        <div class="bien-card" onclick="showToast('Le Barroux 3')"><div class="bien-img gradient-1">🏡<div class="bien-status-badge occupe">OCCUPÉ</div></div><div class="bien-info"><div class="bien-name">Le Barroux 3</div><div class="bien-meta">Piscine · 8 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
-        <div class="bien-card" onclick="showToast('Le Barroux 4')"><div class="bien-img gradient-2">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Le Barroux 4</div><div class="bien-meta">Piscine · 5 voyageurs</div><div class="bien-platforms"><span class="platform-tag booking">Booking</span></div></div></div>
-        <div class="bien-card" onclick="showToast('Beaumes 1')"><div class="bien-img gradient-3">🏡<div class="bien-status-badge checkout">CHECK-OUT</div></div><div class="bien-info"><div class="bien-name">Beaumes 1</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
-        <div class="bien-card" onclick="showToast('Beaumes 2')"><div class="bien-img gradient-4">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Beaumes 2</div><div class="bien-meta">Piscine · 4 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
-        <div class="bien-card" onclick="showToast('Mas du Cheval Blanc')"><div class="bien-img gradient-5">🏡<div class="bien-status-badge checkin">CHECK-IN</div></div><div class="bien-info"><div class="bien-name">Mas du Cheval Blanc</div><div class="bien-meta">Le Cheval-Blanc · 8 voy.</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
-        <div class="bien-card" onclick="showToast('Entraigues 1')"><div class="bien-img gradient-6">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Entraigues 1</div><div class="bien-meta">Entraigues-sur-la-Sorgue</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
-        <div class="bien-card" onclick="showToast('Sarrians 1')"><div class="bien-img gradient-1">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Sarrians 1</div><div class="bien-meta">Piscine · 5 voyageurs</div><div class="bien-platforms"><span class="platform-tag booking">Booking</span></div></div></div>
+        <div class="bien-card" onclick="showToast('Beauval 1')"><div class="bien-img gradient-1">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Beauval 1</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
+        <div class="bien-card" onclick="showToast('Beauval 2')"><div class="bien-img gradient-2">🏡<div class="bien-status-badge occupe">OCCUPÉ</div></div><div class="bien-info"><div class="bien-name">Beauval 2</div><div class="bien-meta">Piscine · 4 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
+        <div class="bien-card" onclick="showToast('Beauval 3')"><div class="bien-img gradient-3">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Beauval 3</div><div class="bien-meta">Piscine · 8 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
+        <div class="bien-card" onclick="showToast('Beauval 4')"><div class="bien-img gradient-4">🏡<div class="bien-status-badge checkout">CHECK-OUT</div></div><div class="bien-info"><div class="bien-name">Beauval 4</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag booking">Booking</span></div></div></div>
+        <div class="bien-card" onclick="showToast('Roquelaine 1')"><div class="bien-img gradient-5">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Roquelaine 1</div><div class="bien-meta">Piscine · 4 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
+        <div class="bien-card" onclick="showToast('Roquelaine 2')"><div class="bien-img gradient-6">🏡<div class="bien-status-badge checkin">CHECK-IN</div></div><div class="bien-info"><div class="bien-name">Roquelaine 2</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
+        <div class="bien-card" onclick="showToast('Roquelaine 3')"><div class="bien-img gradient-1">🏡<div class="bien-status-badge occupe">OCCUPÉ</div></div><div class="bien-info"><div class="bien-name">Roquelaine 3</div><div class="bien-meta">Piscine · 8 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
+        <div class="bien-card" onclick="showToast('Roquelaine 4')"><div class="bien-img gradient-2">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Roquelaine 4</div><div class="bien-meta">Piscine · 5 voyageurs</div><div class="bien-platforms"><span class="platform-tag booking">Booking</span></div></div></div>
+        <div class="bien-card" onclick="showToast('Bellerive 1')"><div class="bien-img gradient-3">🏡<div class="bien-status-badge checkout">CHECK-OUT</div></div><div class="bien-info"><div class="bien-name">Bellerive 1</div><div class="bien-meta">Piscine · 6 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
+        <div class="bien-card" onclick="showToast('Bellerive 2')"><div class="bien-img gradient-4">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Bellerive 2</div><div class="bien-meta">Piscine · 4 voyageurs</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
+        <div class="bien-card" onclick="showToast('Villa des Oliviers')"><div class="bien-img gradient-5">🏡<div class="bien-status-badge checkin">CHECK-IN</div></div><div class="bien-info"><div class="bien-name">Villa des Oliviers</div><div class="bien-meta">Le Cheval-Blanc · 8 voy.</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span></div></div></div>
+        <div class="bien-card" onclick="showToast('Montclair 1')"><div class="bien-img gradient-6">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Montclair 1</div><div class="bien-meta">Montclair-sur-Source</div><div class="bien-platforms"><span class="platform-tag airbnb">Airbnb</span><span class="platform-tag booking">Booking</span></div></div></div>
+        <div class="bien-card" onclick="showToast('Valbois 1')"><div class="bien-img gradient-1">🏡<div class="bien-status-badge libre">LIBRE</div></div><div class="bien-info"><div class="bien-name">Valbois 1</div><div class="bien-meta">Piscine · 5 voyageurs</div><div class="bien-platforms"><span class="platform-tag booking">Booking</span></div></div></div>
       </div>
     </div>
 
@@ -1326,39 +1326,39 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
           <div class="desktop-cal-day-name">Lundi</div><div class="desktop-cal-day-name">Mardi</div><div class="desktop-cal-day-name">Mercredi</div><div class="desktop-cal-day-name">Jeudi</div><div class="desktop-cal-day-name">Vendredi</div><div class="desktop-cal-day-name">Samedi</div><div class="desktop-cal-day-name">Dimanche</div>
           <div class="desktop-cal-day muted"><div class="day-num">31</div></div>
           <div class="desktop-cal-day"><div class="day-num">1</div></div>
-          <div class="desktop-cal-day"><div class="day-num">2</div><div class="day-event checkin">↑ Carpentras 1</div></div>
-          <div class="desktop-cal-day"><div class="day-num">3</div><div class="day-event checkin">↑ Beaumes 2</div></div>
-          <div class="desktop-cal-day"><div class="day-num">4</div><div class="day-event checkout">↓ Le Barroux 1</div></div>
+          <div class="desktop-cal-day"><div class="day-num">2</div><div class="day-event checkin">↑ Beauval 1</div></div>
+          <div class="desktop-cal-day"><div class="day-num">3</div><div class="day-event checkin">↑ Bellerive 2</div></div>
+          <div class="desktop-cal-day"><div class="day-num">4</div><div class="day-event checkout">↓ Roquelaine 1</div></div>
           <div class="desktop-cal-day"><div class="day-num">5</div></div>
-          <div class="desktop-cal-day"><div class="day-num">6</div><div class="day-event checkin">↑ Sarrians 1</div></div>
+          <div class="desktop-cal-day"><div class="day-num">6</div><div class="day-event checkin">↑ Valbois 1</div></div>
 
-          <div class="desktop-cal-day"><div class="day-num">7</div><div class="day-event checkin">↑ Carpentras 3</div></div>
+          <div class="desktop-cal-day"><div class="day-num">7</div><div class="day-event checkin">↑ Beauval 3</div></div>
           <div class="desktop-cal-day"><div class="day-num">8</div></div>
-          <div class="desktop-cal-day"><div class="day-num">9</div><div class="day-event checkin">↑ Le Barroux 3</div></div>
-          <div class="desktop-cal-day"><div class="day-num">10</div><div class="day-event checkout">↓ Carpentras 1</div></div>
-          <div class="desktop-cal-day"><div class="day-num">11</div><div class="day-event checkin">↑ Beaumes 1</div></div>
-          <div class="desktop-cal-day"><div class="day-num">12</div><div class="day-event checkin">↑ Entraigues 1</div></div>
+          <div class="desktop-cal-day"><div class="day-num">9</div><div class="day-event checkin">↑ Roquelaine 3</div></div>
+          <div class="desktop-cal-day"><div class="day-num">10</div><div class="day-event checkout">↓ Beauval 1</div></div>
+          <div class="desktop-cal-day"><div class="day-num">11</div><div class="day-event checkin">↑ Bellerive 1</div></div>
+          <div class="desktop-cal-day"><div class="day-num">12</div><div class="day-event checkin">↑ Montclair 1</div></div>
           <div class="desktop-cal-day"><div class="day-num">13</div></div>
 
-          <div class="desktop-cal-day"><div class="day-num">14</div><div class="day-event checkin">↑ Le Barroux 4</div></div>
-          <div class="desktop-cal-day"><div class="day-num">15</div><div class="day-event checkin">↑ Carpentras 2</div></div>
-          <div class="desktop-cal-day"><div class="day-num">16</div><div class="day-event checkout">↓ Beaumes 2</div></div>
+          <div class="desktop-cal-day"><div class="day-num">14</div><div class="day-event checkin">↑ Roquelaine 4</div></div>
+          <div class="desktop-cal-day"><div class="day-num">15</div><div class="day-event checkin">↑ Beauval 2</div></div>
+          <div class="desktop-cal-day"><div class="day-num">16</div><div class="day-event checkout">↓ Bellerive 2</div></div>
           <div class="desktop-cal-day"><div class="day-num">17</div></div>
-          <div class="desktop-cal-day"><div class="day-num">18</div><div class="day-event checkin">↑ Carpentras 4</div></div>
-          <div class="desktop-cal-day"><div class="day-num">19</div><div class="day-event checkin">↑ Le Barroux 1</div></div>
-          <div class="desktop-cal-day"><div class="day-num">20</div><div class="day-event checkout">↓ Sarrians 1</div></div>
+          <div class="desktop-cal-day"><div class="day-num">18</div><div class="day-event checkin">↑ Beauval 4</div></div>
+          <div class="desktop-cal-day"><div class="day-num">19</div><div class="day-event checkin">↑ Roquelaine 1</div></div>
+          <div class="desktop-cal-day"><div class="day-num">20</div><div class="day-event checkout">↓ Valbois 1</div></div>
 
-          <div class="desktop-cal-day"><div class="day-num">21</div><div class="day-event checkin">↑ Le Barroux 2</div></div>
+          <div class="desktop-cal-day"><div class="day-num">21</div><div class="day-event checkin">↑ Roquelaine 2</div></div>
           <div class="desktop-cal-day"><div class="day-num">22</div></div>
-          <div class="desktop-cal-day"><div class="day-num">23</div><div class="day-event checkin">↑ Mas Cheval Blanc</div></div>
-          <div class="desktop-cal-day"><div class="day-num">24</div><div class="day-event checkin">↑ Le Barroux 3</div></div>
-          <div class="desktop-cal-day"><div class="day-num">25</div><div class="day-event checkout">↓ Le Barroux 4</div></div>
-          <div class="desktop-cal-day"><div class="day-num">26</div><div class="day-event checkin">↑ Carpentras 1</div></div>
-          <div class="desktop-cal-day"><div class="day-num">27</div><div class="day-event checkin">↑ Beaumes 2</div></div>
+          <div class="desktop-cal-day"><div class="day-num">23</div><div class="day-event checkin">↑ Villa des Oliviers</div></div>
+          <div class="desktop-cal-day"><div class="day-num">24</div><div class="day-event checkin">↑ Roquelaine 3</div></div>
+          <div class="desktop-cal-day"><div class="day-num">25</div><div class="day-event checkout">↓ Roquelaine 4</div></div>
+          <div class="desktop-cal-day"><div class="day-num">26</div><div class="day-event checkin">↑ Beauval 1</div></div>
+          <div class="desktop-cal-day"><div class="day-num">27</div><div class="day-event checkin">↑ Bellerive 2</div></div>
 
-          <div class="desktop-cal-day"><div class="day-num">28</div><div class="day-event checkin">↑ Sarrians 1</div></div>
-          <div class="desktop-cal-day today"><div class="day-num">29</div><div class="day-event checkout">↓ Beaumes 1</div><div class="day-event checkin">↑ Mas Cheval Blanc</div></div>
-          <div class="desktop-cal-day"><div class="day-num">30</div><div class="day-event checkin">↑ Le Barroux 2</div></div>
+          <div class="desktop-cal-day"><div class="day-num">28</div><div class="day-event checkin">↑ Valbois 1</div></div>
+          <div class="desktop-cal-day today"><div class="day-num">29</div><div class="day-event checkout">↓ Bellerive 1</div><div class="day-event checkin">↑ Villa des Oliviers</div></div>
+          <div class="desktop-cal-day"><div class="day-num">30</div><div class="day-event checkin">↑ Roquelaine 2</div></div>
           <div class="desktop-cal-day muted"><div class="day-num">1</div></div>
           <div class="desktop-cal-day muted"><div class="day-num">2</div></div>
           <div class="desktop-cal-day muted"><div class="day-num">3</div></div>
@@ -1394,15 +1394,15 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
           <tbody>
             <tr style="border-bottom:1px solid #F5F3EE; cursor:pointer;" onclick="showToast('Détail réservation')">
               <td style="padding:14px 18px; font-size:14px; font-weight:600;">Famille Dupont</td>
-              <td style="padding:14px 18px; font-size:14px;">Mas du Cheval Blanc</td>
+              <td style="padding:14px 18px; font-size:14px;">Villa des Oliviers</td>
               <td style="padding:14px 18px;"><span class="platform-tag airbnb">Airbnb</span></td>
               <td style="padding:14px 18px; font-size:13px; color:#5F5E5A;">29 avr → 3 mai</td>
               <td style="padding:14px 18px; font-size:14px; font-weight:600; text-align:right;">1 240 €</td>
               <td style="padding:14px 18px;"><span style="background:#E6F1FB; color:#0C447C; font-size:11px; font-weight:600; padding:4px 8px; border-radius:5px;">À ARRIVER</span></td>
             </tr>
             <tr style="border-bottom:1px solid #F5F3EE; cursor:pointer;" onclick="showToast('Détail réservation')">
-              <td style="padding:14px 18px; font-size:14px; font-weight:600;">M. Bernard</td>
-              <td style="padding:14px 18px; font-size:14px;">Beaumes 1</td>
+              <td style="padding:14px 18px; font-size:14px; font-weight:600;">M. Girard</td>
+              <td style="padding:14px 18px; font-size:14px;">Bellerive 1</td>
               <td style="padding:14px 18px;"><span class="platform-tag booking">Booking</span></td>
               <td style="padding:14px 18px; font-size:13px; color:#5F5E5A;">24 → 29 avr</td>
               <td style="padding:14px 18px; font-size:14px; font-weight:600; text-align:right;">1 580 €</td>
@@ -1410,15 +1410,15 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
             </tr>
             <tr style="border-bottom:1px solid #F5F3EE; cursor:pointer;" onclick="showToast('Détail réservation')">
               <td style="padding:14px 18px; font-size:14px; font-weight:600;">Famille Martin</td>
-              <td style="padding:14px 18px; font-size:14px;">Le Barroux 2</td>
+              <td style="padding:14px 18px; font-size:14px;">Roquelaine 2</td>
               <td style="padding:14px 18px;"><span class="platform-tag booking">Booking</span></td>
               <td style="padding:14px 18px; font-size:13px; color:#5F5E5A;">30 avr → 5 mai</td>
               <td style="padding:14px 18px; font-size:14px; font-weight:600; text-align:right;">1 580 €</td>
               <td style="padding:14px 18px;"><span style="background:#E6F1FB; color:#0C447C; font-size:11px; font-weight:600; padding:4px 8px; border-radius:5px;">À ARRIVER</span></td>
             </tr>
             <tr style="border-bottom:1px solid #F5F3EE; cursor:pointer;" onclick="showToast('Détail réservation')">
-              <td style="padding:14px 18px; font-size:14px; font-weight:600;">M. et Mme Leroux</td>
-              <td style="padding:14px 18px; font-size:14px;">Carpentras 3</td>
+              <td style="padding:14px 18px; font-size:14px; font-weight:600;">M. et Mme Mercier</td>
+              <td style="padding:14px 18px; font-size:14px;">Beauval 3</td>
               <td style="padding:14px 18px;"><span class="platform-tag airbnb">Airbnb</span></td>
               <td style="padding:14px 18px; font-size:13px; color:#5F5E5A;">2 → 9 mai</td>
               <td style="padding:14px 18px; font-size:14px; font-weight:600; text-align:right;">2 100 €</td>
@@ -1426,7 +1426,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
             </tr>
             <tr style="border-bottom:1px solid #F5F3EE; cursor:pointer;" onclick="showToast('Détail réservation')">
               <td style="padding:14px 18px; font-size:14px; font-weight:600;">Couple Garnier</td>
-              <td style="padding:14px 18px; font-size:14px;">Beaumes 2</td>
+              <td style="padding:14px 18px; font-size:14px;">Bellerive 2</td>
               <td style="padding:14px 18px;"><span class="platform-tag booking">Booking</span></td>
               <td style="padding:14px 18px; font-size:13px; color:#5F5E5A;">3 → 6 mai</td>
               <td style="padding:14px 18px; font-size:14px; font-weight:600; text-align:right;">720 €</td>
@@ -1456,7 +1456,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
             <div style="display:flex; justify-content:space-between; align-items:flex-start;">
               <div>
                 <div style="font-size:15px; font-weight:600;">Pompe piscine en panne</div>
-                <div style="font-size:12px; color:#791F1F; margin-top:4px;">Le Barroux 2 · signalé par Charlotte · 28 avril</div>
+                <div style="font-size:12px; color:#791F1F; margin-top:4px;">Roquelaine 2 · signalé par Sophie · 28 avril</div>
               </div>
               <span style="background:#A32D2D; color:white; font-size:10px; font-weight:700; padding:4px 8px; border-radius:5px;">URGENT</span>
             </div>
@@ -1465,7 +1465,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
             <div style="display:flex; justify-content:space-between; align-items:flex-start;">
               <div>
                 <div style="font-size:15px; font-weight:600;">Verre cassé sur terrasse</div>
-                <div style="font-size:12px; color:#5F5E5A; margin-top:4px;">Carpentras 4 · estimation 25€</div>
+                <div style="font-size:12px; color:#5F5E5A; margin-top:4px;">Beauval 4 · estimation 25€</div>
               </div>
               <span style="background:#BA7517; color:white; font-size:10px; font-weight:700; padding:4px 8px; border-radius:5px;">EN ATTENTE</span>
             </div>
@@ -1475,11 +1475,11 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
           <div class="desktop-panel-title" style="margin-bottom:14px;">Récemment résolus</div>
           <div style="background:white; border:1px solid #ECE9E1; border-radius:10px; padding:14px 16px; margin-bottom:10px; border-left:3px solid #0F6E56; opacity:0.75;">
             <div style="font-size:15px; font-weight:600;">Fuite robinet salle de bain</div>
-            <div style="font-size:12px; color:#5F5E5A; margin-top:4px;">Beaumes 1 · résolu le 25 avril · 180€</div>
+            <div style="font-size:12px; color:#5F5E5A; margin-top:4px;">Bellerive 1 · résolu le 25 avril · 180€</div>
           </div>
           <div style="background:white; border:1px solid #ECE9E1; border-radius:10px; padding:14px 16px; border-left:3px solid #0F6E56; opacity:0.75;">
             <div style="font-size:15px; font-weight:600;">Lave-vaisselle bruyant</div>
-            <div style="font-size:12px; color:#5F5E5A; margin-top:4px;">Le Barroux 3 · résolu le 22 avril</div>
+            <div style="font-size:12px; color:#5F5E5A; margin-top:4px;">Roquelaine 3 · résolu le 22 avril</div>
           </div>
         </div>
       </div>
@@ -1494,7 +1494,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
         </div>
         <div class="desktop-actions">
           <button class="desktop-btn" onclick="showToast('Export comptable')">Export Excel</button>
-          <button class="desktop-btn primary" onclick="navDesktop('agent')">+ Document avec Lidia</button>
+          <button class="desktop-btn primary" onclick="navDesktop('agent')">+ Document avec Camille</button>
         </div>
       </div>
 
@@ -1502,7 +1502,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
         <div class="desktop-stat"><div class="desktop-stat-label">Factures du mois</div><div class="desktop-stat-value">2 840 €</div><div class="desktop-stat-trend">9 documents</div></div>
         <div class="desktop-stat"><div class="desktop-stat-label">Devis en attente</div><div class="desktop-stat-value">3 280 €</div><div class="desktop-stat-trend warn">3 à valider</div></div>
         <div class="desktop-stat"><div class="desktop-stat-label">À refacturer aux propriétaires</div><div class="desktop-stat-value">1 460 €</div><div class="desktop-stat-trend">5 documents</div></div>
-        <div class="desktop-stat"><div class="desktop-stat-label">Provisions ménage</div><div class="desktop-stat-value">980 €</div><div class="desktop-stat-trend">Charlotte · avril</div></div>
+        <div class="desktop-stat"><div class="desktop-stat-label">Provisions ménage</div><div class="desktop-stat-value">980 €</div><div class="desktop-stat-trend">Sophie · avril</div></div>
       </div>
 
       <div class="desktop-panel" style="padding:0;">
@@ -1527,10 +1527,10 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom:1px solid #F5F3EE; cursor:pointer;" onclick="showToast('Devis Aqua Sud')">
+            <tr style="border-bottom:1px solid #F5F3EE; cursor:pointer;" onclick="showToast('Devis Bleu Azur')">
               <td style="padding:12px 18px;"><span style="background:#EEEDFE; color:#3C3489; font-size:11px; font-weight:600; padding:3px 8px; border-radius:5px;">DEVIS</span></td>
-              <td style="padding:12px 18px; font-size:14px; font-weight:600;">Aqua Sud Piscines</td>
-              <td style="padding:12px 18px; font-size:14px;">Le Barroux 2</td>
+              <td style="padding:12px 18px; font-size:14px; font-weight:600;">Bleu Azur Piscines</td>
+              <td style="padding:12px 18px; font-size:14px;">Roquelaine 2</td>
               <td style="padding:12px 18px; font-size:13px; color:#5F5E5A;">Piscine</td>
               <td style="padding:12px 18px; font-size:13px; color:#5F5E5A;">29 avril</td>
               <td style="padding:12px 18px; font-size:14px; font-weight:600; text-align:right;">1 240 €</td>
@@ -1538,8 +1538,8 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
             </tr>
             <tr style="border-bottom:1px solid #F5F3EE; cursor:pointer;" onclick="showToast('Facture plombier')">
               <td style="padding:12px 18px;"><span style="background:#E6F1FB; color:#0C447C; font-size:11px; font-weight:600; padding:3px 8px; border-radius:5px;">FACTURE</span></td>
-              <td style="padding:12px 18px; font-size:14px; font-weight:600;">Plomberie Provençale</td>
-              <td style="padding:12px 18px; font-size:14px;">Beaumes 1</td>
+              <td style="padding:12px 18px; font-size:14px; font-weight:600;">Plomberie Express</td>
+              <td style="padding:12px 18px; font-size:14px;">Bellerive 1</td>
               <td style="padding:12px 18px; font-size:13px; color:#5F5E5A;">Plomberie</td>
               <td style="padding:12px 18px; font-size:13px; color:#5F5E5A;">25 avril</td>
               <td style="padding:12px 18px; font-size:14px; font-weight:600; text-align:right;">180 €</td>
@@ -1547,8 +1547,8 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
             </tr>
             <tr style="border-bottom:1px solid #F5F3EE; cursor:pointer;" onclick="showToast('Devis jardinier')">
               <td style="padding:12px 18px;"><span style="background:#EEEDFE; color:#3C3489; font-size:11px; font-weight:600; padding:3px 8px; border-radius:5px;">DEVIS</span></td>
-              <td style="padding:12px 18px; font-size:14px; font-weight:600;">Jardin Service 84</td>
-              <td style="padding:12px 18px; font-size:14px;">Mas du Cheval Blanc</td>
+              <td style="padding:12px 18px; font-size:14px; font-weight:600;">Vert & Jardin</td>
+              <td style="padding:12px 18px; font-size:14px;">Villa des Oliviers</td>
               <td style="padding:12px 18px; font-size:13px; color:#5F5E5A;">Jardin</td>
               <td style="padding:12px 18px; font-size:13px; color:#5F5E5A;">22 avril</td>
               <td style="padding:12px 18px; font-size:14px; font-weight:600; text-align:right;">680 €</td>
@@ -1556,7 +1556,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
             </tr>
             <tr style="border-bottom:1px solid #F5F3EE; cursor:pointer;" onclick="showToast('Facture ménage')">
               <td style="padding:12px 18px;"><span style="background:#E6F1FB; color:#0C447C; font-size:11px; font-weight:600; padding:3px 8px; border-radius:5px;">FACTURE</span></td>
-              <td style="padding:12px 18px; font-size:14px; font-weight:600;">Charlotte (ménage)</td>
+              <td style="padding:12px 18px; font-size:14px; font-weight:600;">Sophie (ménage)</td>
               <td style="padding:12px 18px; font-size:14px;">Multi-biens</td>
               <td style="padding:12px 18px; font-size:13px; color:#5F5E5A;">Ménage</td>
               <td style="padding:12px 18px; font-size:13px; color:#5F5E5A;">20 avril</td>
@@ -1565,8 +1565,8 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
             </tr>
             <tr style="cursor:pointer;" onclick="showToast('Facture électricien')">
               <td style="padding:12px 18px;"><span style="background:#E6F1FB; color:#0C447C; font-size:11px; font-weight:600; padding:3px 8px; border-radius:5px;">FACTURE</span></td>
-              <td style="padding:12px 18px; font-size:14px; font-weight:600;">Vaucluse Élec</td>
-              <td style="padding:12px 18px; font-size:14px;">Carpentras 3</td>
+              <td style="padding:12px 18px; font-size:14px; font-weight:600;">Provence Élec</td>
+              <td style="padding:12px 18px; font-size:14px;">Beauval 3</td>
               <td style="padding:12px 18px; font-size:13px; color:#5F5E5A;">Électricité</td>
               <td style="padding:12px 18px; font-size:13px; color:#5F5E5A;">15 avril</td>
               <td style="padding:12px 18px; font-size:14px; font-weight:600; text-align:right;">340 €</td>
@@ -1602,24 +1602,24 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
           </thead>
           <tbody>
             <tr style="border-bottom:1px solid #F5F3EE;">
-              <td style="padding:14px 18px; font-size:14px; font-weight:600;">M. et Mme Roux</td>
-              <td style="padding:14px 18px; font-size:13px; color:#5F5E5A;">Le Barroux 2, 3</td>
+              <td style="padding:14px 18px; font-size:14px; font-weight:600;">M. et Mme Lambert</td>
+              <td style="padding:14px 18px; font-size:13px; color:#5F5E5A;">Roquelaine 2, 3</td>
               <td style="padding:14px 18px; text-align:right; font-size:14px;">3 580 €</td>
               <td style="padding:14px 18px; text-align:right; font-size:14px; color:#A32D2D;">- 716 €</td>
               <td style="padding:14px 18px; text-align:right; font-size:14px; color:#A32D2D;">- 320 €</td>
               <td style="padding:14px 18px; text-align:right; font-size:15px; font-weight:700; color:#0F6E56;">2 544 €</td>
             </tr>
             <tr style="border-bottom:1px solid #F5F3EE;">
-              <td style="padding:14px 18px; font-size:14px; font-weight:600;">M. Dupré</td>
-              <td style="padding:14px 18px; font-size:13px; color:#5F5E5A;">Carpentras 1, 2, 3</td>
+              <td style="padding:14px 18px; font-size:14px; font-weight:600;">M. Fontaine</td>
+              <td style="padding:14px 18px; font-size:13px; color:#5F5E5A;">Beauval 1, 2, 3</td>
               <td style="padding:14px 18px; text-align:right; font-size:14px;">4 200 €</td>
               <td style="padding:14px 18px; text-align:right; font-size:14px; color:#A32D2D;">- 840 €</td>
               <td style="padding:14px 18px; text-align:right; font-size:14px; color:#A32D2D;">- 480 €</td>
               <td style="padding:14px 18px; text-align:right; font-size:15px; font-weight:700; color:#0F6E56;">2 880 €</td>
             </tr>
             <tr>
-              <td style="padding:14px 18px; font-size:14px; font-weight:600;">Mme Bernard</td>
-              <td style="padding:14px 18px; font-size:13px; color:#5F5E5A;">Beaumes 1, 2</td>
+              <td style="padding:14px 18px; font-size:14px; font-weight:600;">Mme Girard</td>
+              <td style="padding:14px 18px; font-size:13px; color:#5F5E5A;">Bellerive 1, 2</td>
               <td style="padding:14px 18px; text-align:right; font-size:14px;">2 460 €</td>
               <td style="padding:14px 18px; text-align:right; font-size:14px; color:#A32D2D;">- 492 €</td>
               <td style="padding:14px 18px; text-align:right; font-size:14px; color:#A32D2D;">- 180 €</td>
@@ -1644,17 +1644,17 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
       <div class="desktop-grid-2">
         <div class="desktop-panel">
           <div class="desktop-panel-title" style="margin-bottom:14px;">Équipe & prestataires</div>
-          <div class="contact-row" onclick="showToast('Charlotte')"><div class="contact-avatar" style="background:#534AB7;">CH</div><div class="contact-info"><div class="contact-name">Charlotte</div><div class="contact-role">Femme de ménage référente</div></div><button class="contact-call">📞</button></div>
-          <div class="contact-row" onclick="showToast('Aqua Sud')"><div class="contact-avatar" style="background:#1D9E75;">AS</div><div class="contact-info"><div class="contact-name">Aqua Sud Piscines</div><div class="contact-role">Pisciniste · Carpentras</div></div><button class="contact-call">📞</button></div>
-          <div class="contact-row" onclick="showToast('Plomberie')"><div class="contact-avatar" style="background:#185FA5;">PL</div><div class="contact-info"><div class="contact-name">Plomberie Provençale</div><div class="contact-role">Plombier · 24h/24</div></div><button class="contact-call">📞</button></div>
-          <div class="contact-row" onclick="showToast('Vaucluse Élec')"><div class="contact-avatar" style="background:#BA7517;">EL</div><div class="contact-info"><div class="contact-name">Vaucluse Élec</div><div class="contact-role">Électricien · urgences</div></div><button class="contact-call">📞</button></div>
-          <div class="contact-row" onclick="showToast('Jardin Service')"><div class="contact-avatar" style="background:#639922;">JA</div><div class="contact-info"><div class="contact-name">Jardin Service 84</div><div class="contact-role">Jardinier · entretien</div></div><button class="contact-call">📞</button></div>
+          <div class="contact-row" onclick="showToast('Sophie')"><div class="contact-avatar" style="background:#534AB7;">SO</div><div class="contact-info"><div class="contact-name">Sophie</div><div class="contact-role">Femme de ménage référente</div></div><button class="contact-call">📞</button></div>
+          <div class="contact-row" onclick="showToast('Bleu Azur')"><div class="contact-avatar" style="background:#1D9E75;">BA</div><div class="contact-info"><div class="contact-name">Bleu Azur Piscines</div><div class="contact-role">Pisciniste · Beauval</div></div><button class="contact-call">📞</button></div>
+          <div class="contact-row" onclick="showToast('Plomberie')"><div class="contact-avatar" style="background:#185FA5;">PL</div><div class="contact-info"><div class="contact-name">Plomberie Express</div><div class="contact-role">Plombier · 24h/24</div></div><button class="contact-call">📞</button></div>
+          <div class="contact-row" onclick="showToast('Provence Élec')"><div class="contact-avatar" style="background:#BA7517;">EL</div><div class="contact-info"><div class="contact-name">Provence Élec</div><div class="contact-role">Électricien · urgences</div></div><button class="contact-call">📞</button></div>
+          <div class="contact-row" onclick="showToast('Jardin Service')"><div class="contact-avatar" style="background:#639922;">VE</div><div class="contact-info"><div class="contact-name">Vert & Jardin</div><div class="contact-role">Jardinier · entretien</div></div><button class="contact-call">📞</button></div>
         </div>
         <div class="desktop-panel">
           <div class="desktop-panel-title" style="margin-bottom:14px;">Propriétaires</div>
-          <div class="contact-row" onclick="showToast('M. et Mme Roux')"><div class="contact-avatar" style="background:#D4537E;">RX</div><div class="contact-info"><div class="contact-name">M. et Mme Roux</div><div class="contact-role">Le Barroux 2 · Le Barroux 3</div></div><button class="contact-call">📞</button></div>
-          <div class="contact-row" onclick="showToast('M. Dupré')"><div class="contact-avatar" style="background:#7F77DD;">DP</div><div class="contact-info"><div class="contact-name">M. Dupré</div><div class="contact-role">Carpentras 1 · 2 · 3</div></div><button class="contact-call">📞</button></div>
-          <div class="contact-row" onclick="showToast('Mme Bernard')"><div class="contact-avatar" style="background:#EF9F27;">BN</div><div class="contact-info"><div class="contact-name">Mme Bernard</div><div class="contact-role">Beaumes 1 · Beaumes 2</div></div><button class="contact-call">📞</button></div>
+          <div class="contact-row" onclick="showToast('M. et Mme Lambert')"><div class="contact-avatar" style="background:#D4537E;">LA</div><div class="contact-info"><div class="contact-name">M. et Mme Lambert</div><div class="contact-role">Roquelaine 2 · Roquelaine 3</div></div><button class="contact-call">📞</button></div>
+          <div class="contact-row" onclick="showToast('M. Fontaine')"><div class="contact-avatar" style="background:#7F77DD;">FO</div><div class="contact-info"><div class="contact-name">M. Fontaine</div><div class="contact-role">Beauval 1 · 2 · 3</div></div><button class="contact-call">📞</button></div>
+          <div class="contact-row" onclick="showToast('Mme Girard')"><div class="contact-avatar" style="background:#EF9F27;">GI</div><div class="contact-info"><div class="contact-name">Mme Girard</div><div class="contact-role">Bellerive 1 · Bellerive 2</div></div><button class="contact-call">📞</button></div>
         </div>
       </div>
     </div>
@@ -1682,21 +1682,21 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
           </thead>
           <tbody>
             <tr style="border-bottom:1px solid #F5F3EE;">
-              <td style="padding:14px 18px;"><div style="display:flex; align-items:center; gap:10px;"><div class="contact-avatar" style="background:#185FA5; width:36px; height:36px; font-size:13px;">MA</div><div style="font-size:14px; font-weight:600;">Lidia</div></div></td>
+              <td style="padding:14px 18px;"><div style="display:flex; align-items:center; gap:10px;"><div class="contact-avatar" style="background:#185FA5; width:36px; height:36px; font-size:13px;">MA</div><div style="font-size:14px; font-weight:600;">Camille</div></div></td>
               <td style="padding:14px 18px; font-size:14px;">Administratrice</td>
               <td style="padding:14px 18px; font-size:13px; color:#5F5E5A;">Tout</td>
               <td style="padding:14px 18px;"><span style="background:#E1F5EE; color:#085041; font-size:11px; font-weight:600; padding:4px 8px; border-radius:5px;">ACTIF</span></td>
             </tr>
             <tr style="border-bottom:1px solid #F5F3EE;">
-              <td style="padding:14px 18px;"><div style="display:flex; align-items:center; gap:10px;"><div class="contact-avatar" style="background:#534AB7; width:36px; height:36px; font-size:13px;">CH</div><div style="font-size:14px; font-weight:600;">Charlotte</div></div></td>
+              <td style="padding:14px 18px;"><div style="display:flex; align-items:center; gap:10px;"><div class="contact-avatar" style="background:#534AB7; width:36px; height:36px; font-size:13px;">SO</div><div style="font-size:14px; font-weight:600;">Sophie</div></div></td>
               <td style="padding:14px 18px; font-size:14px;">Ménage</td>
               <td style="padding:14px 18px; font-size:13px; color:#5F5E5A;">Check-in / Check-out</td>
               <td style="padding:14px 18px;"><span style="background:#E1F5EE; color:#085041; font-size:11px; font-weight:600; padding:4px 8px; border-radius:5px;">ACTIF</span></td>
             </tr>
             <tr>
-              <td style="padding:14px 18px;"><div style="display:flex; align-items:center; gap:10px;"><div class="contact-avatar" style="background:#D4537E; width:36px; height:36px; font-size:13px;">RX</div><div style="font-size:14px; font-weight:600;">M. et Mme Roux</div></div></td>
+              <td style="padding:14px 18px;"><div style="display:flex; align-items:center; gap:10px;"><div class="contact-avatar" style="background:#D4537E; width:36px; height:36px; font-size:13px;">LA</div><div style="font-size:14px; font-weight:600;">M. et Mme Lambert</div></div></td>
               <td style="padding:14px 18px; font-size:14px;">Propriétaire</td>
-              <td style="padding:14px 18px; font-size:13px; color:#5F5E5A;">Le Barroux 2, 3 · revenus</td>
+              <td style="padding:14px 18px; font-size:13px; color:#5F5E5A;">Roquelaine 2, 3 · revenus</td>
               <td style="padding:14px 18px;"><span style="background:#FAEEDA; color:#854F0B; font-size:11px; font-weight:600; padding:4px 8px; border-radius:5px;">INVITÉ</span></td>
             </tr>
           </tbody>
@@ -1708,7 +1708,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
     <div class="screen" id="d-agent">
       <div class="desktop-header">
         <div>
-          <div class="desktop-title">Agent Lidia</div>
+          <div class="desktop-title">Agent Camille</div>
           <div class="desktop-subtitle">Ajoutez un devis ou une facture en quelques secondes</div>
         </div>
       </div>
@@ -1716,7 +1716,7 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
         <div class="desktop-panel" style="padding:0; overflow:hidden;">
           <div style="background: linear-gradient(135deg, #EEEDFE 0%, #CECBF6 100%); padding: 36px 24px; text-align: center;">
             <div style="width: 100px; height: 100px; background: #534AB7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; font-size: 44px;">🎙️</div>
-            <div style="font-size: 22px; font-weight: 700; color: #26215C;">Bonjour Lidia</div>
+            <div style="font-size: 22px; font-weight: 700; color: #26215C;">Bonjour Camille</div>
             <div style="font-size: 14px; color: #3C3489; margin-top: 8px; line-height: 1.6;">Prenez une photo du document<br>et expliquez-moi de quoi il s'agit.<br>Je m'occupe du reste.</div>
           </div>
           <div style="padding: 22px;">
@@ -1744,19 +1744,19 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
         <div class="desktop-panel">
           <div class="desktop-panel-title" style="margin-bottom:12px;">Exemples de phrases</div>
           <div style="background:#F5F3EE; border-radius:10px; padding:14px 16px; margin-bottom:10px; font-size:14px; color:#5F5E5A; line-height:1.6;">
-            "C'est un devis du pisciniste pour Le Barroux 2, il propose de changer la pompe pour 1 240€."
+            "C'est un devis du pisciniste pour Roquelaine 2, il propose de changer la pompe pour 1 240€."
           </div>
           <div style="background:#F5F3EE; border-radius:10px; padding:14px 16px; margin-bottom:18px; font-size:14px; color:#5F5E5A; line-height:1.6;">
-            "Voici la facture du plombier pour Carpentras 3, intervention du 12 avril, 280 euros."
+            "Voici la facture du plombier pour Beauval 3, intervention du 12 avril, 280 euros."
           </div>
 
           <div id="d-agent-result" style="display:none;">
             <div class="desktop-panel-title" style="margin-bottom:12px; color:#0C447C;">Voilà ce que j'ai compris</div>
             <div style="background:#E6F1FB; border-radius:12px; padding:18px;">
               <div class="result-row"><span class="result-label">Type</span><span class="result-value">Devis</span></div>
-              <div class="result-row"><span class="result-label">Bien concerné</span><span class="result-value">Le Barroux 2</span></div>
+              <div class="result-row"><span class="result-label">Bien concerné</span><span class="result-value">Roquelaine 2</span></div>
               <div class="result-row"><span class="result-label">Catégorie</span><span class="result-value">Piscine</span></div>
-              <div class="result-row"><span class="result-label">Fournisseur</span><span class="result-value">Aqua Sud Piscines</span></div>
+              <div class="result-row"><span class="result-label">Fournisseur</span><span class="result-value">Bleu Azur Piscines</span></div>
               <div class="result-row"><span class="result-label">Montant TTC</span><span class="result-value amount">1 240,00 €</span></div>
               <div class="result-row"><span class="result-label">Statut</span><span class="result-value warning">En attente</span></div>
             </div>
@@ -1778,8 +1778,8 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, BlinkMa
 <script>
 // ========== AUTH ==========
 const USERS = {
-  lidia: { password: 'demo', name: 'Lidia', initials: 'MA', role: 'admin' },
-  charlotte: { password: 'demo', name: 'Charlotte', initials: 'CH', role: 'menage' }
+  camille: { password: 'demo', name: 'Camille', initials: 'MA', role: 'admin' },
+  sophie: { password: 'demo', name: 'Sophie', initials: 'CH', role: 'menage' }
 };
 
 let currentUser = null;
@@ -1811,7 +1811,7 @@ function doLogin(user) {
   document.getElementById('d-user').innerText = currentUser.name + ' · ' + (currentUser.role === 'admin' ? 'admin' : 'ménage');
   document.getElementById('d-greeting').innerText = 'Bonjour ' + currentUser.name + ' · 29 avril 2026';
 
-  // Si Charlotte, masquer les sections admin
+  // Si Sophie, masquer les sections admin
   if (currentUser.role === 'menage') {
     document.querySelectorAll('.sidebar-link').forEach(l => {
       const s = l.getAttribute('data-screen');
@@ -1915,7 +1915,7 @@ function showAgentResult() {
 }
 
 function onAgentValidate() {
-  showToast('✓ Devis enregistré · Le Barroux 2');
+  showToast('✓ Devis enregistré · Roquelaine 2');
   setTimeout(() => {
     if (window.innerWidth >= 768) {
       navDesktop('finances');

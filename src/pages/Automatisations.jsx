@@ -145,7 +145,7 @@ export default function Automatisations() {
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center">On intervient principalement dans ces secteurs.</h2>
           <p className="text-white/50 text-center mb-12">Si ton activité est dans l'un d'eux, on a probablement déjà construit quelque chose pour toi.</p>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {[
               {
                 titre: 'Bien-être',
@@ -160,12 +160,20 @@ export default function Automatisations() {
                 items: ['Alarme', 'Sécurité événementielle', 'Agents de sécurité', 'Maîtres-chiens'],
               },
               {
+                titre: 'Automobile',
+                items: ['Garages automobiles', 'Carrosserie · Covering', 'Location de voitures'],
+              },
+              {
+                titre: 'Psychologie',
+                items: ['Cabinets de psychologie', 'Psychologues & thérapeutes', 'Suivi & bien-être mental'],
+              },
+              {
                 titre: 'Nettoyage & Bâtiment',
                 items: ['Agences de nettoyage', 'Maçons · Plaquistes', 'Paysagistes · Carreleurs', 'Climaticiens · Plombiers'],
               },
               {
-                titre: 'Conciergerie',
-                items: ['Conciergerie immobilière', 'Gestion locative centralisée'],
+                titre: 'Immobilier',
+                items: ['Conciergerie immobilière', 'Agence immobilière', 'Gestion locative centralisée'],
               },
             ].map((secteur, i) => (
               <div key={i} className="bg-white/[0.03] border border-white/10 rounded-2xl p-5">
