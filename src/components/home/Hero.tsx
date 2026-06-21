@@ -103,9 +103,6 @@ export function Hero() {
               <ArrowRight className="ml-1 h-4 w-4 transition group-hover:translate-x-1" />
             </a>
           </Button>
-          <Button asChild variant="ghost" size="lg" className="h-12 rounded-full border border-white/10 px-6 text-base hover:bg-white/5">
-            <a href="#demos">Voir les démos interactives</a>
-          </Button>
         </motion.div>
 
         <motion.div
