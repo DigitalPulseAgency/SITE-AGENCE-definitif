@@ -31,13 +31,13 @@ export function AIInfra() {
             </div>
 
             <h2 className="mt-6 font-display text-3xl font-semibold leading-tight sm:text-5xl">
-              Des <span className="text-gradient-flow">infrastructures d'IA sur-mesure</span> pour les TPE &amp; PME.
+              Des <span className="text-gradient-flow">infrastructures d'IA sur-mesure</span> pour les agences de covering.
             </h2>
 
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Nous développons des infrastructures IA qui <span className="text-foreground">centralisent, dans un seul outil</span>,
-              plusieurs automatisations conçues pour vous <span className="text-foreground">faire gagner du temps</span>.
-              Des solutions entièrement sur-mesure, implémentées au cœur des TPE & PME.
+              Je développe des infrastructures IA qui <span className="text-foreground">centralisent, dans un seul outil</span>,
+              les automatisations qui vous <span className="text-foreground">font gagner du temps</span> : agent IA vocal, prise de rendez-vous de pose,
+              devis et relances. Des solutions entièrement <span className="text-foreground">sur-mesure</span>, pensées pour le covering — et la restauration.
             </p>
 
             {/* Capacités */}
@@ -53,10 +53,10 @@ export function AIInfra() {
             </div>
 
             <p className="mt-8 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Selon votre secteur et vos problématiques, on automatise ce qui vous fait <span className="text-foreground">perdre du temps</span> :
-              tâches administratives, <span className="text-foreground">génération et qualification de leads</span>, facturation,
-              prise de rendez-vous, prise de commande (restauration)… On cible précisément les <span className="text-foreground">tâches répétitives propres à votre métier</span>.
-              Résultat : du temps gagné, des coûts réduits et plus de performance — pour les PME, artisans et entreprises locales.
+              On automatise ce qui vous fait <span className="text-foreground">perdre du temps</span> : appels manqués pendant la pose,
+              <span className="text-foreground"> devis et relances</span>, prise de rendez-vous, suivi client — et, côté restauration, prise de commande et réservations.
+              On cible précisément les <span className="text-foreground">tâches répétitives à faible valeur ajoutée</span> de votre métier.
+              Résultat : 4 à 12h récupérées par semaine, des coûts réduits et des milliers d'euros économisés sur quelques mois.
             </p>
           </div>
         </motion.div>

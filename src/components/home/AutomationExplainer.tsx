@@ -1,18 +1,18 @@
 import { motion } from "framer-motion";
-import { Camera, Mic, Sparkles, Send, MessageSquare, CalendarDays, Home, Smartphone } from "lucide-react";
+import { PhoneCall, Sparkles, CalendarCheck, Repeat, UtensilsCrossed, Star, LayoutDashboard } from "lucide-react";
 
 const steps = [
-  { icon: Camera, title: "Déclencheur", desc: "Au check-out, la femme de ménage constate un dégât et ouvre la partie « Litige »." },
-  { icon: Mic, title: "Photo + voix", desc: "Elle joint une photo et décrit ce qui s'est passé à la voix. C'est tout ce qu'elle a à faire." },
-  { icon: Sparkles, title: "IA", desc: "L'IA transcrit le vocal, structure le litige et rédige le dossier de réclamation." },
-  { icon: Send, title: "Envoi", desc: "Le dossier part vers Airbnb pour récupérer la caution. Le gérant n'a plus qu'à valider." },
+  { icon: PhoneCall, title: "Déclencheur", desc: "Un prospect appelle pendant que vous êtes en pose. Vous ne pouvez pas décrocher — l'agent IA vocal prend l'appel à votre place." },
+  { icon: Sparkles, title: "IA", desc: "Elle renseigne le client, qualifie la demande (type de véhicule, covering total ou partiel) et structure tout proprement." },
+  { icon: CalendarCheck, title: "Rendez-vous de pose", desc: "Le créneau de pose est calé directement dans votre agenda. Aucun aller-retour, aucun appel à rappeler." },
+  { icon: Repeat, title: "Relance auto", desc: "Devis envoyé puis relancé automatiquement s'il reste sans réponse. Vous récupérez le client sans y penser." },
 ];
 
 const steps2 = [
-  { icon: MessageSquare, title: "Messagerie unifiée", desc: "Booking, Airbnb, Abritel : tous les messages voyageurs arrivent au même endroit. Elle répond depuis l'app, sans aller sur chaque plateforme." },
-  { icon: CalendarDays, title: "Calendrier centralisé", desc: "Toutes les réservations, toutes les plateformes, réunies dans un seul calendrier." },
-  { icon: Home, title: "Suivi de chaque bien", desc: "État du logement, interventions et approvisionnement à prévoir pour les femmes de ménage — tout est suivi, bien par bien." },
-  { icon: Smartphone, title: "Tout au même endroit", desc: "Fini de jongler entre 3 sites : elle pilote toute son activité depuis une seule application." },
+  { icon: UtensilsCrossed, title: "Réservation & commande", desc: "Vos clients réservent ou commandent en ligne, sans commission de plateforme, intégré à votre fonctionnement." },
+  { icon: PhoneCall, title: "Agent IA vocal", desc: "En plein coup de feu, l'IA prend les réservations au téléphone et répond aux questions courantes." },
+  { icon: Star, title: "Avis & fidélité", desc: "Collecte automatique des avis Google et relances de fidélité, déclenchées toutes seules." },
+  { icon: LayoutDashboard, title: "Tout centralisé", desc: "Réservations, messages et avis réunis au même endroit. Une seule app au lieu de dix outils." },
 ];
 
 export function AutomationExplainer() {
@@ -27,20 +27,18 @@ export function AutomationExplainer() {
           className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-center"
         >
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--violet-glow)]">Cas client · Conciergerie immobilière</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--violet-glow)]">Cas d'usage · Agence de covering</p>
             <h2 className="mt-3 font-display text-3xl font-semibold sm:text-5xl">
-              Une <span className="text-gradient-violet">automatisation</span>, ça fait quoi pour toi ?
+              Une <span className="text-gradient-violet">automatisation</span>, ça fait quoi pour votre agence ?
             </h2>
             <p className="mt-5 text-muted-foreground">
-              Exemple réel : pour une <span className="text-foreground">conciergerie immobilière</span> (gestion d'Airbnb),
-              j'ai développé une infrastructure sur-mesure. Quand un litige doit être déclaré au départ des voyageurs,
-              la femme de ménage n'a presque rien à faire : depuis l'app (accès restreint), elle ouvre « Litige »,
-              crée un dossier, <span className="text-foreground">prend une photo</span> et <span className="text-foreground">décrit le problème à la voix</span>.
+              Le quotidien d'une <span className="text-foreground">agence de covering</span> : vous êtes en pose, les mains prises,
+              et le téléphone sonne. Chaque appel manqué, c'est un devis qui part chez le concurrent. On construit l'infrastructure
+              qui <span className="text-foreground">répond, qualifie et prend le rendez-vous</span> à votre place.
             </p>
             <p className="mt-4 text-muted-foreground">
-              Derrière, l'IA transcrit, structure le litige et génère un <span className="text-foreground">dossier de réclamation prêt à envoyer à Airbnb</span> —
-              pour récupérer la caution ou un remboursement. Le gérant valide, c'est réglé. Le tout branché à ses outils,
-              sans logiciel générique ni abonnement à 10 apps.
+              Derrière, l'IA structure la demande, cale la pose dans votre agenda et <span className="text-foreground">relance les devis</span> toute seule.
+              Vous restez concentré sur la pose et la vente — la machine gère le reste, 24h/24.
             </p>
           </div>
 
@@ -73,7 +71,7 @@ export function AutomationExplainer() {
           </div>
         </motion.div>
 
-        {/* DEUXIÈME EXEMPLE — layout inversé */}
+        {/* DEUXIÈME EXEMPLE — restauration (client réel) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,18 +105,17 @@ export function AutomationExplainer() {
           </div>
 
           <div className="order-1 lg:order-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--violet-glow)]">Cas client · Conciergerie immobilière</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--violet-glow)]">Cas client · Restauration</p>
             <h2 className="mt-3 font-display text-3xl font-semibold sm:text-5xl">
-              Tout piloté depuis <span className="text-gradient-violet">une seule app</span>.
+              Et en <span className="text-gradient-violet">restauration</span> aussi.
             </h2>
             <p className="mt-5 text-muted-foreground">
-              Pour la même conciergerie, j'ai aussi centralisé toute la gestion. Plus besoin d'aller sur
-              <span className="text-foreground"> Booking, Airbnb ou Abritel</span> pour parler aux voyageurs :
-              tout arrive dans une <span className="text-foreground">messagerie unique</span>, et elle répond directement depuis l'app.
+              On travaille déjà avec des <span className="text-foreground">restaurants</span> et on y a implémenté des solutions concrètes :
+              réservation et prise de commande en ligne, agent IA vocal qui prend les réservations même en plein service.
             </p>
             <p className="mt-4 text-muted-foreground">
-              Réservations, suivi de chaque bien, approvisionnement des femmes de ménage, calendrier… tout est
-              <span className="text-foreground"> réuni au même endroit</span>. Une seule application au lieu de dix outils éparpillés.
+              Avis Google collectés automatiquement, fidélisation relancée toute seule, et <span className="text-foreground">tout centralisé</span> au même endroit.
+              Le restaurateur garde la tête dans son service — le reste tourne sans lui.
             </p>
           </div>
         </motion.div>

@@ -27,11 +27,13 @@ export default function Restaurants() {
 
           <div className="flex flex-wrap gap-4">
             <a
-              href="/demo/restaurant"
+              href={CAL_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-[0_0_25px_rgba(107,63,232,0.45)] hover:shadow-[0_0_40px_rgba(107,63,232,0.7)] hover:scale-[1.02] hover:-translate-y-0.5"
             >
-              Essayer la démo
-              <ExternalLink className="w-5 h-5" />
+              Réserver une démo en direct
+              <ArrowRight className="w-5 h-5" />
             </a>
             <a
               href={CAL_LINK}
@@ -111,18 +113,20 @@ export default function Restaurants() {
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Teste l'app comme si c'était la tienne.
+              Je vous montre l'app en direct.
             </h2>
             <p className="text-lg text-white/70 mb-8 max-w-2xl mx-auto">
-              On a préparé une démo entièrement fonctionnelle. Clique sur les boutons, ajoute des réservations, vois comment ça marche en vrai.
+              Pas de démo en libre-service : ce que je construis est sur-mesure. On prend 15 min ensemble et je vous fais une démonstration live des applications déjà déployées en restauration.
             </p>
 
             <a
-              href="/demo/restaurant"
+              href={CAL_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-[0_0_25px_rgba(107,63,232,0.45)] hover:shadow-[0_0_40px_rgba(107,63,232,0.7)] hover:scale-[1.02] hover:-translate-y-0.5"
             >
-              Lancer la démo
-              <ExternalLink className="w-5 h-5" />
+              Réserver une démo en direct
+              <ArrowRight className="w-5 h-5" />
             </a>
 
             <p className="text-sm text-white/50 mt-4">

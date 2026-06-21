@@ -64,7 +64,7 @@ export function Hero() {
           <span className="grid h-5 w-5 place-items-center rounded-full bg-gradient-to-br from-[var(--violet-glow)] to-[var(--violet)]">
             <Sparkles className="h-3 w-3" />
           </span>
-          Diagnostic gratuit · visio 15 min · <span style={{ background: "linear-gradient(90deg,#34d399,#10b981,#059669)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 700 }}>offert</span>
+          <span style={{ background: "linear-gradient(90deg,#34d399,#10b981,#059669)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 700 }}>Spécialiste</span> des agences de covering &amp; de la restauration
         </motion.div>
 
         <h1 className="mt-7 text-balance font-display text-4xl font-semibold leading-[1.05] sm:text-6xl md:text-7xl">
@@ -82,8 +82,10 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 1.1 }}
           className="mx-auto mt-7 max-w-2xl text-pretty text-base text-muted-foreground sm:text-lg"
         >
-          Sites sur-mesure livrés en 1 à 2 semaines et automatisations IA qui centralisent les tâches chronophages.
-          Une agence pour les pros locaux qui veulent gagner du temps — et des clients.
+          Je développe des <span className="text-foreground">infrastructures IA sur-mesure</span> où j'implémente une solution adaptée à
+          <span className="text-foreground"> chaque problématique de votre métier</span> — pour éliminer les tâches répétitives, chronophages
+          et à faible valeur ajoutée, et vous faire récupérer des heures chaque semaine.
+          <span className="block mt-3 text-foreground font-medium">Spécialisé dans les agences de covering et la restauration.</span>
         </motion.p>
 
         <motion.div
@@ -109,11 +111,12 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6, duration: 0.8 }}
-          className="mx-auto mt-16 grid max-w-2xl grid-cols-2 gap-4 text-left sm:gap-6"
+          className="mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-4 text-left sm:grid-cols-3 sm:gap-6"
         >
           {[
-            { k: "≈ +12h", v: "Gagnées / semaine", to: "/automatisations", cta: "Découvrir" },
-            { k: "0€", v: "Pour démarrer · sans engagement", href: CAL_LINK, cta: "Découvrir" },
+            { k: "4 à 12h", v: "Récupérées chaque semaine sur les tâches répétitives", to: "/automatisations", cta: "Découvrir" },
+            { k: "24/7", v: "Appels & RDV gérés par un agent IA vocal", to: "/automatisations", cta: "Découvrir" },
+            { k: "Des milliers d'€", v: "Économisés en quelques mois", href: CAL_LINK, cta: "Découvrir" },
           ].map((s, i) => {
             const shine = (
               <span

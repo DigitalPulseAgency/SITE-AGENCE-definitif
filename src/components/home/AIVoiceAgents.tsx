@@ -3,16 +3,12 @@ import { PhoneCall, ArrowRight } from "lucide-react";
 import { CAL_LINK } from "@/config/links";
 
 const niches = [
-  "Avocats",
-  "Notaires",
-  "Experts-comptables",
-  "Cabinets dentaires",
-  "Cabinets médicaux",
-  "Kinés",
-  "Ostéopathes",
-  "Agences immobilières",
-  "Agents immobiliers indépendants",
-  "Concessionnaires automobiles",
+  "Agences de covering",
+  "Pose de film & wrapping",
+  "Covering total / partiel",
+  "Restaurants",
+  "Pizzerias",
+  "Brasseries & bistrots",
 ];
 
 export function AIVoiceAgents() {
@@ -40,8 +36,8 @@ export function AIVoiceAgents() {
 
             <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               24h/24, il renseigne vos appelants, <span className="text-foreground">qualifie la demande</span> et
-              <span className="text-foreground"> prend les rendez-vous</span> directement dans votre agenda. Idéal pour les métiers
-              où chaque appel manqué, c'est un client perdu.
+              <span className="text-foreground"> prend les rendez-vous</span> directement dans votre agenda. Idéal quand vous êtes
+              <span className="text-foreground"> en pose ou en plein service</span> : chaque appel manqué, c'est un client perdu.
             </p>
 
             <p className="mt-8 text-xs font-semibold uppercase tracking-widest text-[var(--violet-glow)]">Pensé pour des métiers comme</p>

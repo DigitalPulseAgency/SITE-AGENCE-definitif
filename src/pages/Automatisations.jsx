@@ -1,52 +1,23 @@
-import { ArrowRight, Sparkles, Building2, UtensilsCrossed, Home, Zap, Brain, Clock, ExternalLink, ShoppingBag, Wrench } from 'lucide-react';
+import { ArrowRight, Sparkles, Car, UtensilsCrossed, Clock, PhoneCall, CalendarCheck, FileText, Repeat, LayoutDashboard, Lock, BadgeEuro, Star } from 'lucide-react';
 import { CAL_LINK } from '../config/links';
 
 export default function Automatisations() {
-  const metiers = [
-    {
-      id: 'restaurant',
-      icon: UtensilsCrossed,
-      nom: 'Restaurants',
-      desc: 'Réservations, fidélisation client, gestion des stocks, menus dynamiques.',
-      exemples: 'Pizzeria · Restaurant · Brasserie · Bistrot',
-      url: '/demo/restaurant',
-      image: '/demos-images/restaurant.jpg',
-      glow: '0 0 50px rgba(239,68,68,0.35)',
-      border: 'rgba(239,68,68,0.5)',
-    },
-    {
-      id: 'conciergerie',
-      icon: Home,
-      nom: 'Conciergerie immobilière',
-      desc: 'Gestion des biens, planning ménage, communication propriétaires/voyageurs.',
-      exemples: 'Conciergerie Airbnb · Gestion locative',
-      url: '/demo/conciergerie',
-      image: '/demos-images/conciergerie.jpg',
-      glow: '0 0 50px rgba(16,185,129,0.35)',
-      border: 'rgba(16,185,129,0.5)',
-    },
-    {
-      id: 'btp',
-      icon: Building2,
-      nom: 'Artisans du bâtiment',
-      desc: 'Devis, chantiers, factures, photos, agenda. App pensée pour le terrain.',
-      exemples: 'Maçon · Plombier · Électricien · Carreleur · Paysagiste',
-      url: '/demo/btp',
-      image: '/demos-images/nettoyage.jpg',
-      glow: '0 0 50px rgba(249,115,22,0.35)',
-      border: 'rgba(249,115,22,0.5)',
-    },
-    {
-      id: 'auto',
-      icon: Wrench,
-      nom: 'Mécaniciens & carrossiers',
-      desc: 'Gestion atelier, dossiers sinistres, stock pièces, communication client.',
-      exemples: 'Mécanique · Diagnostic · Carrosserie · Sinistres',
-      url: '/demo/auto',
-      image: '/demos-images/mecanique.jpg',
-      glow: '0 0 50px rgba(245,158,11,0.35)',
-      border: 'rgba(245,158,11,0.5)',
-    },
+  // Ce qu'on automatise pour les agences de covering (spécialité n°1)
+  const coveringFeatures = [
+    { icon: PhoneCall, titre: 'Agent IA vocal', desc: "Pendant que vous posez, l'IA répond au téléphone, renseigne le client, qualifie la demande et fixe les rendez-vous de pose. Plus aucun appel manqué." },
+    { icon: FileText, titre: 'Demandes & devis centralisés', desc: 'Toutes les demandes entrantes arrivent au même endroit, structurées et prêtes à chiffrer. Fini les infos éparpillées entre SMS, DM et appels.' },
+    { icon: CalendarCheck, titre: 'Prise de rendez-vous de pose', desc: 'Vos clients réservent un créneau de pose en autonomie. Votre planning se remplit tout seul, sans aller-retour téléphonique.' },
+    { icon: Repeat, titre: 'Relances & suivi automatisés', desc: 'Devis sans réponse, clients à relancer, suivi après pose : tout part automatiquement au bon moment.' },
+    { icon: LayoutDashboard, titre: 'Tableau de bord centralisé', desc: 'Clients, rendez-vous, demandes en cours, suivi : tout votre quotidien piloté depuis un seul outil sur-mesure.' },
+    { icon: Clock, titre: 'Des heures récupérées', desc: 'On élimine les tâches répétitives à faible valeur ajoutée pour vous rendre 4 à 12h par semaine — du temps que vous remettez sur la pose et la vente.' },
+  ];
+
+  // Ce qu'on déploie en restauration (spécialité n°2, déjà en place chez des clients)
+  const restoFeatures = [
+    { icon: PhoneCall, titre: 'Agent IA vocal de réservation', desc: "L'IA prend les réservations et répond aux questions par téléphone, même en plein coup de feu." },
+    { icon: UtensilsCrossed, titre: 'Prise de commande & réservations', desc: 'Commande et réservation en ligne, intégrées à votre fonctionnement, sans commission de plateforme.' },
+    { icon: Star, titre: 'Avis & fidélisation', desc: 'Collecte automatique des avis Google et relances de fidélité, sans y penser.' },
+    { icon: LayoutDashboard, titre: 'Tout centralisé', desc: 'Réservations, messages et avis réunis au même endroit, pilotés simplement.' },
   ];
 
   return (
@@ -57,15 +28,17 @@ export default function Automatisations() {
         <div className="max-w-5xl mx-auto relative">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#6B3FE8]/30 to-[#6B3FE8]/10 border border-[#6B3FE8]/40 mb-8">
             <Sparkles className="w-4 h-4 text-[#B59FFF]" />
-            <span className="text-sm font-semibold text-[#B59FFF]">Notre service phare</span>
+            <span className="text-sm font-semibold text-[#B59FFF]">Notre spécialité · Agences de covering</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
-            Avant, tu gérais tout à la main.<br />
-            Tu perdais des heures sur des tâches répétitives.<br />
-            <span className="text-[#6B3FE8]">Aujourd'hui, ça tourne tout seul.</span>
+            Spécialiste de l'automatisation<br />
+            pour les <span className="text-[#6B3FE8]">agences de covering</span>.
           </h1>
-          <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-3xl leading-relaxed">
-            On implémente un système sur-mesure qui centralise tout ce qui te prend du temps dans ton activité. Il tourne 24h/24, toute l'année — et te fait récupérer plusieurs heures par semaine dès le premier mois.
+          <p className="text-xl md:text-2xl text-white/70 mb-6 max-w-3xl leading-relaxed">
+            Je développe des infrastructures IA sur-mesure où j'implémente une solution adaptée à <strong className="text-white">chaque problématique de votre métier</strong> — pour éliminer les tâches répétitives, chronophages et à faible valeur ajoutée.
+          </p>
+          <p className="text-lg text-white/55 mb-10 max-w-3xl leading-relaxed">
+            Une infrastructure pensée pour le covering : agent IA vocal, prise de rendez-vous de pose, devis centralisés, relances automatiques. Le tout tourne 24h/24 et vous fait récupérer plusieurs heures chaque semaine.
           </p>
           <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-[0_0_25px_rgba(107,63,232,0.45)] hover:shadow-[0_0_40px_rgba(107,63,232,0.7)] hover:scale-[1.02] hover:-translate-y-0.5">
             Réserver mon diagnostic gratuit
@@ -74,117 +47,112 @@ export default function Automatisations() {
         </div>
       </section>
 
-      {/* DÉMOS MÉTIERS */}
+      {/* COVERING — spécialité n°1 */}
       <section className="py-20 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 max-w-3xl mx-auto leading-tight">
-              Des apps pensées pour votre activité.
-            </h2>
-            <p className="text-lg text-white/65 max-w-2xl mx-auto mb-6 leading-relaxed">
-              On implémente une solution unique à chaque problématique ou tâche répétitive à faible valeur ajoutée que tu peux rencontrer au quotidien. Le résultat est instantané.
-            </p>
-            <p className="text-base font-semibold text-[#B59FFF]">
-              Essaye la démo dans ton domaine directement par toi-même en cliquant en dessous.
-            </p>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-3 rounded-xl bg-[#6B3FE8]/15">
+              <Car className="w-7 h-7 text-[#B59FFF]" />
+            </div>
+            <span className="text-sm font-bold text-[#B59FFF] uppercase tracking-widest">Notre cœur de métier</span>
           </div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+            Conçu pour les agences de covering.
+          </h2>
+          <p className="text-lg text-white/65 max-w-3xl mb-12 leading-relaxed">
+            On connaît votre quotidien : le téléphone qui sonne pendant que vous êtes en pose, les devis à relancer, les rendez-vous à caler. On construit l'infrastructure qui prend tout ça en charge à votre place.
+          </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {metiers.map((metier) => {
-              const Icon = metier.icon;
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {coveringFeatures.map((f, i) => {
+              const Icon = f.icon;
               return (
-                <a
-                  key={metier.id}
-                  href={metier.url}
-                  className="group flex flex-col rounded-2xl overflow-hidden border border-white/10 bg-[#0c0c14] cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1"
-                  style={{ '--glow': metier.glow, '--border': metier.border }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.boxShadow = metier.glow;
-                    e.currentTarget.style.borderColor = metier.border;
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.boxShadow = 'none';
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
-                  }}
-                >
-                  {/* Header photo */}
-                  <div className="relative overflow-hidden h-48">
-                    <img
-                      src={metier.image}
-                      alt={metier.nom}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-3 left-4">
-                      <Icon className="w-8 h-8 text-white drop-shadow-lg" />
-                    </div>
+                <div key={i} className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 hover:border-[#6B3FE8]/40 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-[#6B3FE8]/15 flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-[#B59FFF]" />
                   </div>
-
-                  {/* Contenu */}
-                  <div className="flex flex-col flex-grow p-6">
-                    <h3 className="text-lg font-bold mb-2 text-white">{metier.nom}</h3>
-                    <p className="text-white/60 text-sm leading-relaxed flex-grow mb-4">{metier.desc}</p>
-                    <div className="text-xs text-white/30 mb-5 leading-relaxed">{metier.exemples}</div>
-                    <div className="flex items-center gap-2 text-sm font-semibold text-white/80 group-hover:text-white transition-colors duration-200">
-                      Essayer la démo
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-                    </div>
-                  </div>
-                </a>
+                  <h3 className="font-bold text-lg mb-2">{f.titre}</h3>
+                  <p className="text-white/60 text-sm leading-relaxed">{f.desc}</p>
+                </div>
               );
             })}
           </div>
-
         </div>
       </section>
 
-      {/* SECTEURS */}
+      {/* RESTAURANTS — spécialité n°2 */}
       <section className="py-20 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center">On intervient principalement dans ces secteurs.</h2>
-          <p className="text-white/50 text-center mb-12">Si ton activité est dans l'un d'eux, on a probablement déjà construit quelque chose pour toi.</p>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-3 rounded-xl bg-[#6B3FE8]/15">
+              <UtensilsCrossed className="w-7 h-7 text-[#B59FFF]" />
+            </div>
+            <span className="text-sm font-bold text-[#B59FFF] uppercase tracking-widest">Déjà déployé chez nos clients</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+            Et aussi : la restauration.
+          </h2>
+          <p className="text-lg text-white/65 max-w-3xl mb-12 leading-relaxed">
+            On travaille déjà avec des restaurants et on y a implémenté des solutions concrètes. Prise de commande, réservations, avis, fidélisation : on automatise ce qui fait perdre du temps en plein service.
+          </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[
-              {
-                titre: 'Bien-être',
-                items: ['Instituts de beauté', 'Massage · Spa', 'Manucure · Coiffure'],
-              },
-              {
-                titre: 'Restauration',
-                items: ['Restaurants', 'Pizzerias', 'Brasseries'],
-              },
-              {
-                titre: 'Sécurité',
-                items: ['Alarme', 'Sécurité événementielle', 'Agents de sécurité', 'Maîtres-chiens'],
-              },
-              {
-                titre: 'Automobile',
-                items: ['Garages automobiles', 'Carrosserie · Covering', 'Location de voitures'],
-              },
-              {
-                titre: 'Psychologie',
-                items: ['Cabinets de psychologie', 'Psychologues & thérapeutes', 'Suivi & bien-être mental'],
-              },
-              {
-                titre: 'Nettoyage & Bâtiment',
-                items: ['Agences de nettoyage', 'Maçons · Plaquistes', 'Paysagistes · Carreleurs', 'Climaticiens · Plombiers'],
-              },
-              {
-                titre: 'Immobilier',
-                items: ['Conciergerie immobilière', 'Agence immobilière', 'Gestion locative centralisée'],
-              },
-            ].map((secteur, i) => (
-              <div key={i} className="bg-white/[0.03] border border-white/10 rounded-2xl p-5">
-                <h3 className="font-bold text-[#B59FFF] mb-3 text-sm uppercase tracking-widest">{secteur.titre}</h3>
-                <ul className="space-y-1.5">
-                  {secteur.items.map((item, j) => (
-                    <li key={j} className="text-white/70 text-sm">{item}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {restoFeatures.map((f, i) => {
+              const Icon = f.icon;
+              return (
+                <div key={i} className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 hover:border-[#6B3FE8]/40 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-[#6B3FE8]/15 flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-[#B59FFF]" />
+                  </div>
+                  <h3 className="font-bold text-base mb-2">{f.titre}</h3>
+                  <p className="text-white/60 text-sm leading-relaxed">{f.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* RÉSULTAT — temps & argent */}
+      <section className="py-20 px-6 border-t border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-5">
+            <div className="bg-gradient-to-br from-[#6B3FE8]/20 to-transparent border border-[#6B3FE8]/30 rounded-2xl p-7">
+              <Clock className="w-7 h-7 text-[#B59FFF] mb-3" />
+              <div className="text-4xl font-black mb-1">4 à 12h</div>
+              <p className="text-white/60 text-sm">récupérées chaque semaine sur les tâches répétitives.</p>
+            </div>
+            <div className="bg-gradient-to-br from-[#6B3FE8]/20 to-transparent border border-[#6B3FE8]/30 rounded-2xl p-7">
+              <BadgeEuro className="w-7 h-7 text-[#B59FFF] mb-3" />
+              <div className="text-4xl font-black mb-1">Des milliers d'€</div>
+              <p className="text-white/60 text-sm">économisés sur quelques mois, rien qu'en temps gagné.</p>
+            </div>
+            <div className="bg-gradient-to-br from-[#6B3FE8]/20 to-transparent border border-[#6B3FE8]/30 rounded-2xl p-7">
+              <PhoneCall className="w-7 h-7 text-[#B59FFF] mb-3" />
+              <div className="text-4xl font-black mb-1">24/7</div>
+              <p className="text-white/60 text-sm">appels et rendez-vous gérés par l'agent IA vocal, sans interruption.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PORTFOLIO SUR RENDEZ-VOUS (remplace les démos) */}
+      <section className="py-20 px-6 border-t border-white/5">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white/[0.03] border border-white/10 rounded-3xl p-8 md:p-12 text-center">
+            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#6B3FE8]/15 mb-6">
+              <Lock className="w-7 h-7 text-[#B59FFF]" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Mes applications, je vous les montre en vrai.
+            </h2>
+            <p className="text-lg text-white/65 max-w-2xl mx-auto mb-8 leading-relaxed">
+              Je ne mets pas mes applications en démo libre sur le site. Ce que je construis est sur-mesure, et ça se présente bien mieux en direct. Réservez un appel : je vous fais une démonstration live des infrastructures déjà déployées, et on voit ce qu'on peut bâtir pour votre agence.
+            </p>
+            <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-[0_0_25px_rgba(107,63,232,0.45)] hover:shadow-[0_0_40px_rgba(107,63,232,0.7)] hover:scale-[1.02] hover:-translate-y-0.5">
+              Voir une démo en direct
+              <ArrowRight className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </section>
@@ -193,10 +161,10 @@ export default function Automatisations() {
       <section className="py-24 px-6 border-t border-white/5">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Et si on commençait<br />par <span className="text-[#6B3FE8]">comprendre tes besoins</span> ?
+            Votre agence de covering<br />mérite de <span className="text-[#6B3FE8]">tourner toute seule</span>.
           </h2>
           <p className="text-xl text-white/70 mb-10">
-            Réserve un diagnostic gratuit. On regarde ensemble ce que tu fais à la main, et on te dit ce qui pourrait être automatisé.
+            Réserve un diagnostic gratuit. On regarde ensemble ce qui vous prend du temps au quotidien, et on définit l'infrastructure IA qui vous le rend.
           </p>
           <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-[0_0_25px_rgba(107,63,232,0.45)] hover:shadow-[0_0_40px_rgba(107,63,232,0.7)] hover:scale-[1.02] hover:-translate-y-0.5">
             Je réserve mon diagnostic
