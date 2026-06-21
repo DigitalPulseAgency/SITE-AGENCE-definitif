@@ -3,24 +3,16 @@ import { CAL_LINK } from '../config/links';
 
 const RESEAUX = [
   {
-    nom: "Meta — Facebook & Instagram",
-    desc: "Le couteau suisse. Le ciblage le plus fin du marché : idéal pour la conversion locale, le retargeting et les offres qui transforment.",
+    nom: "Google Search",
+    desc: "Capter la demande chaude. Ceux qui tapent déjà exactement ce que tu proposes te trouvent en premier, au moment précis où ils cherchent.",
   },
   {
-    nom: "TikTok Ads",
-    desc: "L'explosion de portée. Parfait pour toucher une audience large avec du contenu natif qui ne ressemble pas à de la pub.",
+    nom: "Google Maps / Local",
+    desc: "Apparaître en tête des recherches locales. Idéal pour générer des appels et des visites depuis ta zone géographique.",
   },
   {
-    nom: "Snapchat Ads",
-    desc: "Hyper local et jeune. Des formats immersifs pour rester dans la tête de ta clientèle de proximité.",
-  },
-  {
-    nom: "Pinterest Ads",
-    desc: "L'intention d'achat. Les gens y viennent pour se projeter — redoutable en déco, beauté, food, événementiel, mariage.",
-  },
-  {
-    nom: "Google Ads",
-    desc: "Capter la demande chaude. Ceux qui tapent déjà exactement ce que tu vends — tu apparais en premier, au bon moment.",
+    nom: "Retargeting Google",
+    desc: "Recibler ceux qui t'ont déjà vu sans passer à l'action. On reste devant leurs yeux jusqu'à ce qu'ils reviennent.",
   },
 ];
 
@@ -40,17 +32,17 @@ export default function Publicite() {
         <div className="max-w-5xl mx-auto relative">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#6B3FE8]/10 border border-[#6B3FE8]/30 mb-8">
             <Megaphone className="w-4 h-4 text-[#B59FFF]" />
-            <span className="text-sm font-semibold text-[#B59FFF]">Gestion de tes publicités · Ads</span>
+            <span className="text-sm font-semibold text-[#B59FFF]">Spécialiste Google Ads</span>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight mb-6">
-            La publicité,<br />
-            c'est le levier <span className="text-[#6B3FE8]">le plus puissant.</span><br />
-            Et le plus rapide.
+            Google Ads.<br />
+            Apparaissez <span className="text-[#6B3FE8]">en premier</span><br />
+            au moment où on vous cherche.
           </h1>
 
           <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-3xl leading-relaxed">
-            Facebook, TikTok, Snapchat, Pinterest, Google. On cible exactement les bonnes personnes — et tu vois des résultats en quelques jours, pas en quelques mois.
+            On est spécialisé sur un seul levier, et on le maîtrise : <strong className="text-white">Google Ads</strong>. On capte les gens qui tapent déjà ce que vous proposez — résultats en quelques jours, pas en quelques mois.
           </p>
 
           <a
@@ -96,9 +88,9 @@ export default function Publicite() {
       {/* LES 5 RÉSEAUX */}
       <section className="py-20 px-6 border-t border-white/5">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">5 réseaux, 5 stratégies différentes</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Google Ads, plusieurs leviers</h2>
           <p className="text-xl text-white/60 mb-12 max-w-3xl">
-            Chaque plateforme a sa logique. On choisit la (ou les) bonne(s) selon ton métier, ta cible et ton objectif.
+            On reste 100% concentré sur Google — et on active les bons leviers selon ton métier, ta cible et ton objectif.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -151,9 +143,18 @@ export default function Publicite() {
       <section className="py-20 px-6 border-t border-white/5">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Chaque projet est unique. Donc sur-mesure.</h2>
-          <p className="text-xl text-white/60 mb-12 max-w-3xl">
-            Pas de prix tout fait : ça dépend de tes objectifs, de ton marché et de ton budget média. On construit la stratégie ensemble, après s'être parlé.
+          <p className="text-xl text-white/60 mb-8 max-w-3xl">
+            Chaque cas est différent : ça dépend de tes objectifs, de ton marché et de ton budget. On construit la stratégie ensemble, après s'être parlé.
           </p>
+
+          <div className="mb-12 inline-flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 rounded-2xl border border-[#6B3FE8]/40 bg-[#6B3FE8]/10 px-6 py-5">
+            <div>
+              <span className="text-3xl md:text-4xl font-black text-white">à partir de 300 €</span>
+            </div>
+            <span className="text-white/70 text-sm leading-relaxed max-w-sm">
+              de gestion de ta campagne Google Ads. Le budget publicitaire dépensé sur Google vient en plus, et reste 100% le tien.
+            </span>
+          </div>
 
           <div className="grid md:grid-cols-4 gap-6">
             {[
@@ -172,7 +173,7 @@ export default function Publicite() {
 
           <div className="mt-8 rounded-2xl border border-[#B59FFF]/25 bg-[#6B3FE8]/10 px-6 py-5">
             <p className="text-white/85 leading-relaxed">
-              <strong className="text-white">Le prix se discute après le rendez-vous, jamais avant</strong> — parce qu'il est propre à chacun. D'abord on regarde ton projet sérieusement, ensuite on parle chiffres. C'est plus honnête, et bien plus efficace.
+              <strong className="text-white">300 €, c'est le point de départ</strong> — le tarif exact se cale après le rendez-vous, selon ton projet et tes objectifs. D'abord on regarde ton activité sérieusement, ensuite on parle chiffres. C'est plus honnête, et bien plus efficace.
             </p>
           </div>
         </div>

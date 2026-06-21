@@ -20,10 +20,10 @@ const services = [
   },
   {
     icon: Megaphone,
-    title: "Ads publicité",
+    title: "Google Ads",
     href: "/publicite",
-    desc: "Facebook, TikTok, Snap, Pinterest, Google. Des campagnes ciblées pour des résultats quasi immédiats — là où le SEO prend des mois.",
-    bullets: ["Ciblage précis de ta clientèle", "Résultats quasi instantanés", "Sur-mesure · sur devis après diagnostic"],
+    desc: "Spécialiste Google Ads. On vous place en haut de Google pour générer des appels et des devis — là où le SEO prend des mois.",
+    bullets: ["100% Google Ads (Search & Maps)", "Résultats quasi instantanés", "Gestion à partir de 300 € · sur-mesure"],
     highlight: true,
   },
   {
