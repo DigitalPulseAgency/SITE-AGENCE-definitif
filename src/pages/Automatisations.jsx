@@ -171,7 +171,7 @@ export default function Automatisations() {
             <div className="bg-gradient-to-br from-[#6B3FE8]/20 to-transparent border border-[#6B3FE8]/30 rounded-2xl p-7">
               <PhoneCall className="w-7 h-7 text-[#B59FFF] mb-3" />
               <div className="text-4xl font-black mb-1">24/7</div>
-              <p className="text-white/60 text-sm">appels et rendez-vous gérés par le réceptionniste IA vocal, sans interruption.</p>
+              <p className="text-white/60 text-sm">appels et rendez-vous gérés par votre réceptionniste IA vocal, sans interruption.</p>
             </div>
           </div>
         </div>
