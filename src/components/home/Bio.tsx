@@ -27,17 +27,22 @@ export function Bio() {
           </h2>
           <div className="mt-6 space-y-4 text-muted-foreground">
             <p>
-              Ça fait déjà <span className="text-foreground font-medium">2 ans</span> que je suis dans le digital.
-              En <span className="text-foreground font-medium">2023</span>, je lançais mes propres marques en dropshipping :
-              je créais les sites et je gérais les <span className="text-foreground">publicités TikTok et Google</span>.
-              Avant ça, je faisais déjà des visuels, je gérais des pubs Google et Instagram, et je construisais des sites
-              sur <span className="text-foreground">WordPress et Shopify</span> — bien avant que des outils comme Lovable existent.
+              En novembre, ça fera <span className="text-foreground font-medium">4 ans</span> que je suis tombé dans le digital.
+              Je me suis lancé pour de bon en <span className="text-foreground font-medium">mars 2023</span> : pendant
+              <span className="text-foreground"> un an et demi</span>, j'ai créé des sites internet — pour mon entourage comme pour
+              mes propres boutiques en ligne — sur <span className="text-foreground">WordPress et Shopify</span>, bien avant que
+              des outils comme Lovable existent.
             </p>
             <p>
-              En <span className="text-foreground font-medium">novembre 2024</span>, je me suis plongé à fond dans les
-              <span className="text-foreground"> agents IA</span> : agents vocaux, automatisation des tâches répétitives
-              pour faire gagner du temps aux entreprises. C'est là que je me suis vraiment
-              <span className="text-foreground font-medium"> spécialisé dans l'IA</span>.
+              À côté, je faisais des <span className="text-foreground">visuels et des formats publicitaires</span>, et je gérais les
+              <span className="text-foreground"> publicités sur Google, TikTok et Facebook</span>. J'ai lancé
+              <span className="text-foreground"> deux marques</span> en e-commerce.
+            </p>
+            <p>
+              En <span className="text-foreground font-medium">novembre 2024</span>, je me suis lancé dans les
+              <span className="text-foreground"> agents IA vocaux</span>. Aujourd'hui, je suis vraiment
+              <span className="text-foreground font-medium"> spécialisé dans l'intelligence artificielle</span> et dans le fait de
+              faire gagner du temps aux entreprises.
             </p>
             <p>
               Aujourd'hui, ce qui me passionne, c'est de bosser avec les <span className="text-foreground">agences de covering</span> —
