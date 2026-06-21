@@ -25,7 +25,7 @@ const stats = [
   { v: 100, s: "%", label: "Chaque projet est conçu entièrement sur mesure." },
   { v: 87, s: "%", label: "D'appels et messages évités grâce aux automatisations" },
   { v: 27, s: "", p: "+", label: "Entreprises accompagnées sur les automatisations" },
-  { v: 1, s: "", label: "Un associé chargé du développement et du codage, que je mobilise au cas par cas." },
+  { v: 2, s: "", label: "Deux associés chargés du développement et du codage, que je mobilise au cas par cas." },
 ];
 
 export function Stats() {
