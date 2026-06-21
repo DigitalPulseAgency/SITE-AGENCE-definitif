@@ -8,6 +8,8 @@ import { AutomationExplainer } from '../components/home/AutomationExplainer';
 import { Bio } from '../components/home/Bio';
 import { Process } from '../components/home/Process';
 import { MonthlyOffer } from '../components/home/MonthlyOffer';
+import { RestaurantTeaser } from '../components/home/RestaurantTeaser';
+import { ClosingNote } from '../components/home/ClosingNote';
 import { FinalCTA } from '../components/home/FinalCTA';
 import FAQ from '../components/FAQ';
 
@@ -24,7 +26,9 @@ export default function Home() {
       <Bio />
       <Process />
       <MonthlyOffer />
+      <RestaurantTeaser />
       <FAQ />
+      <ClosingNote />
       <FinalCTA />
     </div>
   );

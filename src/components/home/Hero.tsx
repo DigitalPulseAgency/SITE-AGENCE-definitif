@@ -64,7 +64,7 @@ export function Hero() {
           <span className="grid h-5 w-5 place-items-center rounded-full bg-gradient-to-br from-[var(--violet-glow)] to-[var(--violet)]">
             <Sparkles className="h-3 w-3" />
           </span>
-          <span style={{ background: "linear-gradient(90deg,#34d399,#10b981,#059669)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 700 }}>Spécialiste</span> des agences de covering &amp; de la restauration
+          <span style={{ background: "linear-gradient(90deg,#34d399,#10b981,#059669)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 700 }}>Spécialiste</span> des agences de covering
         </motion.div>
 
         <h1 className="mt-7 text-balance font-display text-4xl font-semibold leading-[1.05] sm:text-6xl md:text-7xl">
@@ -85,7 +85,7 @@ export function Hero() {
           Je développe des <span className="text-foreground">infrastructures IA sur-mesure</span> où j'implémente une solution adaptée à
           <span className="text-foreground"> chaque problématique de votre métier</span> — pour éliminer les tâches répétitives, chronophages
           et à faible valeur ajoutée, et vous faire récupérer des heures chaque semaine.
-          <span className="block mt-3 text-foreground font-medium">Spécialisé dans les agences de covering et la restauration.</span>
+          <span className="block mt-3 text-foreground font-medium">Spécialisé dans les agences de covering.</span>
         </motion.p>
 
         <motion.div

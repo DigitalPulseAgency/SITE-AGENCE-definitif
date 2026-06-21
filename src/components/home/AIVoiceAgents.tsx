@@ -6,9 +6,9 @@ const niches = [
   "Agences de covering",
   "Pose de film & wrapping",
   "Covering total / partiel",
-  "Restaurants",
-  "Pizzerias",
-  "Brasseries & bistrots",
+  "Covering déco & perso",
+  "Lettrage & enseigne",
+  "Esthétique automobile",
 ];
 
 export function AIVoiceAgents() {

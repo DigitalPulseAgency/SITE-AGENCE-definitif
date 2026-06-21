@@ -37,7 +37,7 @@ export function AIInfra() {
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Je développe des infrastructures IA qui <span className="text-foreground">centralisent, dans un seul outil</span>,
               les automatisations qui vous <span className="text-foreground">font gagner du temps</span> : agent IA vocal, prise de rendez-vous de pose,
-              devis et relances. Des solutions entièrement <span className="text-foreground">sur-mesure</span>, pensées pour le covering — et la restauration.
+              devis et relances. Des solutions entièrement <span className="text-foreground">sur-mesure</span>, pensées pour les agences de covering.
             </p>
 
             {/* Capacités */}
@@ -54,7 +54,7 @@ export function AIInfra() {
 
             <p className="mt-8 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               On automatise ce qui vous fait <span className="text-foreground">perdre du temps</span> : appels manqués pendant la pose,
-              <span className="text-foreground"> devis et relances</span>, prise de rendez-vous, suivi client — et, côté restauration, prise de commande et réservations.
+              <span className="text-foreground"> devis et relances</span>, prise de rendez-vous de pose, suivi client.
               On cible précisément les <span className="text-foreground">tâches répétitives à faible valeur ajoutée</span> de votre métier.
               Résultat : 4 à 12h récupérées par semaine, des coûts réduits et des milliers d'euros économisés sur quelques mois.
             </p>
