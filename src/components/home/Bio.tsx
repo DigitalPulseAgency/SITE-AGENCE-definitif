@@ -51,7 +51,7 @@ export function Bio() {
             </p>
             <p>
               J'ai les compétences pour faire gagner énormément de <span className="text-foreground">temps et d'argent</span> aux entreprises.
-              Je travaille avec un développeur à mes côtés : je suis le <span className="text-foreground font-medium">CIO</span>,
+              Je travaille avec un développeur à mes côtés : je suis le <span className="text-foreground font-medium">CEO</span>,
               et je reste votre seul interlocuteur, de la création au suivi.
             </p>
           </div>
