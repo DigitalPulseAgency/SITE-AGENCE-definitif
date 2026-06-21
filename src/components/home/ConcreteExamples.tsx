@@ -44,14 +44,14 @@ export function ConcreteExamples() {
             </h3>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4 pr-5">
                 <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Une secrétaire</p>
-                <p className="mt-1 font-display text-2xl font-bold text-foreground sm:text-3xl whitespace-nowrap">≈ 48 000 €</p>
+                <p className="mt-1 font-display text-xl font-bold text-foreground sm:text-2xl whitespace-nowrap">≈ 48 000 €</p>
                 <p className="text-xs text-muted-foreground">par an · ~4 000 €/mois charges comprises</p>
               </div>
-              <div className="rounded-2xl border border-[var(--mint)]/30 bg-[var(--mint)]/5 p-4">
+              <div className="rounded-2xl border border-[var(--mint)]/30 bg-[var(--mint)]/5 p-4 pr-5">
                 <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Un agent IA vocal</p>
-                <p className="mt-1 font-display text-2xl font-bold text-[var(--mint)] sm:text-3xl whitespace-nowrap">3 000 – 5 000 €</p>
+                <p className="mt-1 font-display text-xl font-bold text-[var(--mint)] sm:text-2xl whitespace-nowrap">3 000 – 5 000 €</p>
                 <p className="text-xs text-muted-foreground">installation unique, sur-mesure</p>
               </div>
             </div>
