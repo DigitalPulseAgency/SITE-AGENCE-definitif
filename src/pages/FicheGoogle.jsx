@@ -321,7 +321,7 @@ export default function FicheGoogle() {
             <span className="text-[#6B3FE8]">ton concurrent reçoit tes appels.</span>
           </h2>
           <p className="text-xl text-white/70 mb-10">
-            Un diagnostic de 15 minutes suffit pour savoir exactement où tu en es sur Google et ce qu'on peut améliorer. C'est offert, sans engagement.
+            Un diagnostic de 15 minutes suffit pour savoir exactement où tu en es sur Google et ce qu'on peut améliorer. C'est offert.
           </p>
           <a
             href={CAL_LINK}
@@ -332,7 +332,7 @@ export default function FicheGoogle() {
             Je réserve mon diagnostic gratuit
             <ArrowRight className="w-5 h-5" />
           </a>
-          <p className="text-white/40 text-sm mt-4">15 min en visio · Sans engagement · Résultats concrets</p>
+          <p className="text-white/40 text-sm mt-4">15 min en visio · Résultats concrets</p>
         </div>
       </section>
     </div>

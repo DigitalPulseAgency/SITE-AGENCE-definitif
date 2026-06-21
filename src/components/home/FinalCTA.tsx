@@ -50,7 +50,7 @@ export function FinalCTA() {
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
           </Button>
-          <p className="mt-4 text-xs text-muted-foreground">Visio 15 min · offert · sans engagement</p>
+          <p className="mt-4 text-xs text-muted-foreground">Réserve un appel stratégique pour réaliser un audit de ta situation.</p>
         </motion.div>
       </div>
     </section>

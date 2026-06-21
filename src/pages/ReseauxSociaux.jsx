@@ -159,7 +159,7 @@ export default function ReseauxSociaux() {
           </div>
 
           <p className="text-center text-white/50 text-sm mt-8 max-w-2xl mx-auto">
-            💡 On commence toujours par un <strong className="text-white/80">diagnostic gratuit</strong> : on regarde ton activité, tes objectifs, et on construit l'offre qui te correspond — sans engagement pour en parler.
+            💡 On commence toujours par un <strong className="text-white/80">diagnostic gratuit</strong> : on regarde ton activité, tes objectifs, et on construit l'offre qui te correspond.
           </p>
         </div>
       </section>

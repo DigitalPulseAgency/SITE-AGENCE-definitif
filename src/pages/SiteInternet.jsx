@@ -45,7 +45,7 @@ export default function SiteInternet() {
             <ArrowRight className="w-5 h-5" />
           </a>
           <p className="text-sm text-white/50 mt-4">
-            ✓ 15 min en visio &nbsp;·&nbsp; ✓ Sans engagement &nbsp;·&nbsp; ✓ 100% offert
+            ✓ 15 min en visio &nbsp;·&nbsp; ✓ 100% offert
           </p>
         </div>
       </section>
@@ -149,7 +149,7 @@ export default function SiteInternet() {
               </a>
 
               <p className="text-zinc-500 text-sm text-center mt-4">
-                Diagnostic offert · 15 min en visio · Sans engagement
+                Diagnostic offert · 15 min en visio
               </p>
             </div>
 
@@ -335,7 +335,7 @@ export default function SiteInternet() {
             <ArrowRight className="w-5 h-5" />
           </a>
           <p className="text-sm text-white/50 mt-6">
-            Diagnostic 100% offert · 15 min en visio · Sans engagement
+            Diagnostic 100% offert · 15 min en visio
           </p>
         </div>
       </section>
