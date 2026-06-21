@@ -43,17 +43,22 @@ export function ConcreteExamples() {
               Une secrétaire au téléphone vous coûte une fortune.
             </h3>
 
-            <div className="mt-6 flex items-end gap-4">
-              <div>
-                <p className="text-xs uppercase tracking-wider text-muted-foreground">Une secrétaire</p>
-                <p className="font-display text-3xl font-bold text-foreground sm:text-4xl">≈ 48 000 €<span className="text-base font-medium text-muted-foreground"> /an</span></p>
-                <p className="text-xs text-muted-foreground">~4 000 €/mois, charges comprises</p>
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4">
+                <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Une secrétaire</p>
+                <p className="mt-1 font-display text-2xl font-bold text-foreground sm:text-3xl whitespace-nowrap">≈ 48 000 €</p>
+                <p className="text-xs text-muted-foreground">par an · ~4 000 €/mois charges comprises</p>
               </div>
-              <div className="pb-2 text-2xl font-black text-[var(--violet-glow)]">→</div>
-              <div>
-                <p className="text-xs uppercase tracking-wider text-muted-foreground">Un agent IA vocal</p>
-                <p className="font-display text-3xl font-bold text-[var(--mint)] sm:text-4xl">jusqu'à 10× moins cher</p>
+              <div className="rounded-2xl border border-[var(--mint)]/30 bg-[var(--mint)]/5 p-4">
+                <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Un agent IA vocal</p>
+                <p className="mt-1 font-display text-2xl font-bold text-[var(--mint)] sm:text-3xl whitespace-nowrap">3 000 – 5 000 €</p>
+                <p className="text-xs text-muted-foreground">installation unique, sur-mesure</p>
               </div>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="rounded-full bg-[var(--violet)]/15 border border-[var(--violet-glow)]/30 px-3 py-1.5 text-xs font-semibold text-[var(--violet-glow)]">10 à 13× moins cher qu'un salarié</span>
+              <span className="rounded-full bg-[var(--mint)]/10 border border-[var(--mint)]/30 px-3 py-1.5 text-xs font-semibold text-[var(--mint)]">≈ 42 000 € économisés sur l'année</span>
             </div>
 
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
