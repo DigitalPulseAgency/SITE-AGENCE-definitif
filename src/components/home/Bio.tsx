@@ -27,18 +27,27 @@ export function Bio() {
           </h2>
           <div className="mt-6 space-y-4 text-muted-foreground">
             <p>
-              9 ans dans le bâtiment, sur les chantiers, à voir des patrons compétents perdre leurs soirées
-              dans la paperasse au lieu de les passer avec leur famille.
+              Ça fait déjà <span className="text-foreground font-medium">2 ans</span> que je suis dans le digital.
+              En <span className="text-foreground font-medium">2023</span>, je lançais mes propres marques en dropshipping :
+              je créais les sites et je gérais les <span className="text-foreground">publicités TikTok et Google</span>.
+              Avant ça, je faisais déjà des visuels, je gérais des pubs Google et Instagram, et je construisais des sites
+              sur <span className="text-foreground">WordPress et Shopify</span> — bien avant que des outils comme Lovable existent.
             </p>
             <p>
-              On est en 2026, et la façon de travailler n'a plus rien à voir avec celle d'il y a 2 ans.
-              <span className="text-foreground font-medium"> L'IA change tout — maintenant.</span> Les entreprises
-              qui s'y mettent dès aujourd'hui prennent une avance que les autres ne rattraperont pas.
+              En <span className="text-foreground font-medium">novembre 2024</span>, je me suis plongé à fond dans les
+              <span className="text-foreground"> agents IA</span> : agents vocaux, automatisation des tâches répétitives
+              pour faire gagner du temps aux entreprises. C'est là que je me suis vraiment
+              <span className="text-foreground font-medium"> spécialisé dans l'IA</span>.
             </p>
             <p>
-              Spécialisé en intelligence artificielle et en développement d'applications sur-mesure, je conçois des
-              sites qui convertissent vraiment et des automatisations qui te font gagner des heures chaque semaine.
-              Un seul interlocuteur, de la création au suivi.
+              Aujourd'hui, ce qui me passionne, c'est de bosser avec les <span className="text-foreground">agences de covering</span> —
+              l'automobile, c'est une passion depuis tout petit, et j'ai d'ailleurs pour projet d'ouvrir ma propre
+              agence de location de voitures.
+            </p>
+            <p>
+              J'ai les compétences pour faire gagner énormément de <span className="text-foreground">temps et d'argent</span> aux entreprises.
+              Je travaille avec un développeur à mes côtés : je suis le <span className="text-foreground font-medium">CIO</span>,
+              et je reste votre seul interlocuteur, de la création au suivi.
             </p>
           </div>
         </motion.div>
