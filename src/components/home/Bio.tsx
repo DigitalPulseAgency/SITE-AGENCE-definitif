@@ -31,7 +31,7 @@ export function Bio() {
               Je me suis lancé pour de bon en <span className="text-foreground font-medium">mars 2023</span> : pendant
               <span className="text-foreground"> un an et demi</span>, j'ai créé des sites internet — pour mon entourage comme pour
               mes propres boutiques en ligne — sur <span className="text-foreground">WordPress et Shopify</span>, bien avant que
-              des outils comme Lovable existent.
+              les <span className="text-foreground">outils no-code assistés par l'IA</span> n'existent.
             </p>
             <p>
               À côté, je faisais des <span className="text-foreground">visuels et des formats publicitaires</span>, et je gérais les
