@@ -13,7 +13,7 @@ export default function Restaurants() {
 
   const solutions = [
     { icon: ShoppingBag, titre: "Prise de commande & réservation en ligne 24/7", desc: "Tes clients commandent et réservent à toute heure, même resto fermé, sans avoir à t'appeler. Tu captes la demande pendant que tu dors. Sans commission de plateforme." },
-    { icon: PhoneCall, titre: "Agent IA vocal", desc: "Il répond au téléphone à ta place, même en plein coup de feu : il prend les réservations, répond aux questions (horaires, menu, allergènes) et ne rate aucun appel." },
+    { icon: PhoneCall, titre: "Réceptionniste IA vocal", desc: "Il répond au téléphone à ta place, même en plein coup de feu : il prend les réservations, répond aux questions (horaires, menu, allergènes) et ne rate aucun appel." },
     { icon: Leaf, titre: "Anti-gaspillage & stocks", desc: "Suivi de ce que tu vends vraiment, alertes sur les stocks, aide à commander juste. Moins de pertes, plus de marge." },
     { icon: Star, titre: "Avis & fidélisation automatisés", desc: "Collecte automatique des avis Google après le repas, et relances de fidélité pour faire revenir tes habitués — sans y penser." },
   ];
@@ -36,7 +36,7 @@ export default function Restaurants() {
           </h1>
 
           <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-3xl leading-relaxed">
-            Un site avec <strong className="text-white">prise de commande et réservation en ligne 24/7</strong>, un <strong className="text-white">agent IA vocal</strong> qui répond au téléphone à ta place, et des automatisations qui t'enlèvent les tâches répétitives. Tu récupères du temps — et tu vends même quand tu es fermé.
+            Un site avec <strong className="text-white">prise de commande et réservation en ligne 24/7</strong>, un <strong className="text-white">réceptionniste IA vocal</strong> qui répond au téléphone à ta place, et des automatisations qui t'enlèvent les tâches répétitives. Tu récupères du temps — et tu vends même quand tu es fermé.
           </p>
 
           <a
@@ -101,19 +101,19 @@ export default function Restaurants() {
         </div>
       </section>
 
-      {/* AGENT VOCAL — ARGENT & TEMPS */}
+      {/* RÉCEPTIONNISTE IA VOCAL — ARGENT & TEMPS */}
       <section className="py-20 px-6 border-t border-white/5">
         <div className="max-w-5xl mx-auto">
           <div className="bg-gradient-to-br from-[#6B3FE8]/20 to-transparent border border-[#6B3FE8]/30 rounded-3xl p-8 md:p-12">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#6B3FE8]/20 border border-[#B59FFF]/30 mb-6">
               <PhoneCall className="w-4 h-4 text-[#B59FFF]" />
-              <span className="text-xs font-bold text-[#B59FFF] uppercase tracking-widest">L'agent IA vocal</span>
+              <span className="text-xs font-bold text-[#B59FFF] uppercase tracking-widest">L'réceptionniste IA vocal</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 max-w-3xl">
               Chaque appel manqué, c'est un couvert perdu.
             </h2>
             <p className="text-lg text-white/70 mb-8 max-w-3xl leading-relaxed">
-              En plein service, tu ne peux pas tout gérer. L'agent vocal décroche à ta place, prend les réservations et répond aux questions courantes — 24h/24. Tu ne perds plus une seule réservation, et tu remplis ta salle sans lever le petit doigt.
+              En plein service, tu ne peux pas tout gérer. L'réceptionniste IA vocal décroche à ta place, prend les réservations et répond aux questions courantes — 24h/24. Tu ne perds plus une seule réservation, et tu remplis ta salle sans lever le petit doigt.
             </p>
             <div className="grid sm:grid-cols-3 gap-5">
               <div>
@@ -148,7 +148,7 @@ export default function Restaurants() {
             {[
               { n: "1", t: "On échange 15 min", d: "On regarde ton resto, ce qui te bouffe ton temps et ce qui te fait perdre des clients." },
               { n: "2", t: "Je te montre & je construis", d: "Je te présente des exemples concrets, puis je développe ton site + tes automatisations sur-mesure." },
-              { n: "3", t: "On installe", d: "Prise de commande, agent vocal, avis, fidélité : tout est mis en place et testé avec toi." },
+              { n: "3", t: "On installe", d: "Prise de commande, réceptionniste IA vocal, avis, fidélité : tout est mis en place et testé avec toi." },
               { n: "4", t: "Tu encaisses le temps gagné", d: "Ça tourne. On ajuste si besoin, et tu te concentres sur ton métier : cuisiner et recevoir." },
             ].map((s, i) => (
               <div key={i} className="bg-white/[0.03] border border-white/10 rounded-2xl p-6">

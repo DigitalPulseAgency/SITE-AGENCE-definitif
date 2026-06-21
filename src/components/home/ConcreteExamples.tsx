@@ -27,7 +27,7 @@ export function ConcreteExamples() {
         </motion.div>
 
         <div className="grid gap-5 lg:grid-cols-2">
-          {/* EXEMPLE 1 — Agent IA vocal vs secrétaire */}
+          {/* EXEMPLE 1 — Réceptionniste IA vocal vs secrétaire */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export function ConcreteExamples() {
             className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8"
           >
             <div className="inline-flex items-center gap-2 rounded-full bg-[var(--violet)]/15 border border-[var(--violet-glow)]/30 px-3 py-1 text-xs font-semibold text-[var(--violet-glow)]">
-              <PhoneCall className="h-3.5 w-3.5" /> Agent IA vocal
+              <PhoneCall className="h-3.5 w-3.5" /> Réceptionniste IA vocal Premium
             </div>
 
             <h3 className="mt-5 font-display text-2xl font-semibold leading-snug">
@@ -50,7 +50,7 @@ export function ConcreteExamples() {
                 <p className="text-xs text-muted-foreground">par an · ~4 000 €/mois charges comprises</p>
               </div>
               <div className="rounded-2xl border border-[var(--mint)]/30 bg-[var(--mint)]/5 p-4 pr-5">
-                <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Un agent IA vocal</p>
+                <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Un réceptionniste IA vocal</p>
                 <p className="mt-1 font-display text-xl font-bold text-[var(--mint)] sm:text-2xl whitespace-nowrap">3 000 – 5 000 €</p>
                 <p className="text-xs text-muted-foreground">installation unique, sur-mesure</p>
               </div>

@@ -40,7 +40,7 @@ export function Bio() {
             </p>
             <p>
               En <span className="text-foreground font-medium">novembre 2024</span>, je me suis lancé dans les
-              <span className="text-foreground"> agents IA vocaux</span>. Aujourd'hui, je suis vraiment
+              <span className="text-foreground"> réceptionnistes IA vocaux</span>. Aujourd'hui, je suis vraiment
               <span className="text-foreground font-medium"> spécialisé dans l'intelligence artificielle</span> et dans le fait de
               faire gagner du temps aux entreprises.
             </p>

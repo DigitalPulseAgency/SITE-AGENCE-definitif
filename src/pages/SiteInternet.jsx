@@ -242,7 +242,7 @@ export default function SiteInternet() {
 
             <div className="grid md:grid-cols-2 gap-4 mb-8">
               {[
-                { icon: ShieldCheck, titre: "Surveillance & sécurité", desc: "Un agent me notifie immédiatement en cas d'anomalie : tentative d'intrusion, cyberattaque, panne. On agit avant que ça pose problème." },
+                { icon: ShieldCheck, titre: "Surveillance & sécurité", desc: "Un système me notifie immédiatement en cas d'anomalie : tentative d'intrusion, cyberattaque, panne. On agit avant que ça pose problème." },
                 { icon: RefreshCw, titre: "Mises à jour proactives", desc: "Photos ou contenus qui datent de plus de 6 mois ? On te le signale et on rafraîchit pour garder un site impeccable." },
                 { icon: FileText, titre: "SEO + articles de blog chaque mois", desc: "Mon plus gros atout : chaque mois, de nouveaux articles avec des mots-clés à jour pour faire grimper ton site sur Google — naturellement." },
                 { icon: PencilLine, titre: "1 modification incluse / mois", desc: "Tu veux changer ou mettre à jour un module du site ? Une modification est comprise chaque mois, sans frais." },

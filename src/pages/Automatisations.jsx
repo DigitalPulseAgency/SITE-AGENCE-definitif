@@ -4,7 +4,7 @@ import { CAL_LINK } from '../config/links';
 export default function Automatisations() {
   // Ce qu'on automatise pour les agences de covering (spécialité n°1)
   const coveringFeatures = [
-    { icon: PhoneCall, titre: 'Agent IA vocal', desc: "Pendant que vous posez, l'IA répond au téléphone, renseigne le client, qualifie la demande et fixe les rendez-vous de pose. Plus aucun appel manqué." },
+    { icon: PhoneCall, titre: 'Réceptionniste IA vocal', desc: "Pendant que vous posez, l'IA répond au téléphone, renseigne le client, qualifie la demande et fixe les rendez-vous de pose. Plus aucun appel manqué." },
     { icon: FileText, titre: 'Demandes & devis centralisés', desc: 'Toutes les demandes entrantes arrivent au même endroit, structurées et prêtes à chiffrer. Fini les infos éparpillées entre SMS, DM et appels.' },
     { icon: CalendarCheck, titre: 'Prise de rendez-vous de pose', desc: 'Vos clients réservent un créneau de pose en autonomie. Votre planning se remplit tout seul, sans aller-retour téléphonique.' },
     { icon: Repeat, titre: 'Relances & suivi automatisés', desc: 'Devis sans réponse, clients à relancer, suivi après pose : tout part automatiquement au bon moment.' },
@@ -14,7 +14,7 @@ export default function Automatisations() {
 
   // Ce qu'on déploie en restauration (spécialité n°2, déjà en place chez des clients)
   const restoFeatures = [
-    { icon: PhoneCall, titre: 'Agent IA vocal de réservation', desc: "L'IA prend les réservations et répond aux questions par téléphone, même en plein coup de feu." },
+    { icon: PhoneCall, titre: 'Réceptionniste IA vocal de réservation', desc: "L'IA prend les réservations et répond aux questions par téléphone, même en plein coup de feu." },
     { icon: UtensilsCrossed, titre: 'Prise de commande & réservations', desc: 'Commande et réservation en ligne, intégrées à votre fonctionnement, sans commission de plateforme.' },
     { icon: Star, titre: 'Avis & fidélisation', desc: 'Collecte automatique des avis Google et relances de fidélité, sans y penser.' },
     { icon: LayoutDashboard, titre: 'Tout centralisé', desc: 'Réservations, messages et avis réunis au même endroit, pilotés simplement.' },
@@ -38,7 +38,7 @@ export default function Automatisations() {
             Je développe des infrastructures IA sur-mesure où j'implémente une solution adaptée à <strong className="text-white">chaque problématique de votre métier</strong> — pour éliminer les tâches répétitives, chronophages et à faible valeur ajoutée.
           </p>
           <p className="text-lg text-white/55 mb-10 max-w-3xl leading-relaxed">
-            Une infrastructure pensée pour le covering : agent IA vocal, prise de rendez-vous de pose, devis centralisés, relances automatiques. Le tout tourne 24h/24 et vous fait récupérer plusieurs heures chaque semaine.
+            Une infrastructure pensée pour le covering : réceptionniste IA vocal, prise de rendez-vous de pose, devis centralisés, relances automatiques. Le tout tourne 24h/24 et vous fait récupérer plusieurs heures chaque semaine.
           </p>
           <a href={CAL_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#6B3FE8] hover:bg-[#5a32d4] text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 ease-out shadow-[0_0_25px_rgba(107,63,232,0.45)] hover:shadow-[0_0_40px_rgba(107,63,232,0.7)] hover:scale-[1.02] hover:-translate-y-0.5">
             Réserver mon diagnostic gratuit
@@ -96,7 +96,7 @@ export default function Automatisations() {
           <div className="space-y-3">
             {[
               { h: '21h00', t: 'Un prospect demande un devis sur Instagram', d: 'Pendant que vous posez ou après la fermeture. Avant, ce message attendait le lendemain — souvent trop tard.' },
-              { h: '21h00', t: "L'agent IA répond en 30 secondes", d: 'Il pose les 3 bonnes questions : modèle du véhicule, covering total ou partiel, type de finition. La demande est qualifiée.' },
+              { h: '21h00', t: "Le réceptionniste IA répond en 30 secondes", d: 'Il pose les 3 bonnes questions : modèle du véhicule, covering total ou partiel, type de finition. La demande est qualifiée.' },
               { h: '21h01', t: 'Pré-chiffrage + créneau de pose proposé', d: 'Une fourchette de prix est donnée et un créneau de pose est proposé directement dans votre agenda.' },
               { h: '21h02', t: "Acompte encaissé pour bloquer le créneau", d: 'Fini les no-show : le créneau n\'est réservé qu\'une fois l\'acompte versé.' },
               { h: 'J+2', t: 'Relance automatique si pas de réponse', d: 'Le devis sans suite est relancé tout seul. Le client ne file plus chez le concurrent par oubli.' },
@@ -171,7 +171,7 @@ export default function Automatisations() {
             <div className="bg-gradient-to-br from-[#6B3FE8]/20 to-transparent border border-[#6B3FE8]/30 rounded-2xl p-7">
               <PhoneCall className="w-7 h-7 text-[#B59FFF] mb-3" />
               <div className="text-4xl font-black mb-1">24/7</div>
-              <p className="text-white/60 text-sm">appels et rendez-vous gérés par l'agent IA vocal, sans interruption.</p>
+              <p className="text-white/60 text-sm">appels et rendez-vous gérés par l'réceptionniste IA vocal, sans interruption.</p>
             </div>
           </div>
         </div>

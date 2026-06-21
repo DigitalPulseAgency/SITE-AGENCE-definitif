@@ -124,7 +124,7 @@ export function Hero() {
         >
           {[
             { k: "4 à 12h", v: "Récupérées chaque semaine sur les tâches répétitives", to: "/automatisations", cta: "Découvrir" },
-            { k: "24/7", v: "Appels & RDV gérés par un agent IA vocal", to: "/automatisations", cta: "Découvrir" },
+            { k: "24/7", v: "Appels & RDV gérés par un réceptionniste IA vocal", to: "/automatisations", cta: "Découvrir" },
             { k: "Des milliers d'€", v: "Économisés en quelques mois", href: CAL_LINK, cta: "Découvrir" },
           ].map((s, i) => {
             const shine = (

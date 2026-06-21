@@ -21,7 +21,7 @@ export function RestaurantTeaser() {
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--violet-glow)]">Vous êtes un restaurant ?</p>
               <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
                 Je reçois aussi beaucoup de demandes côté <span className="text-foreground">restauration</span> : je crée un site avec
-                <span className="text-foreground"> prise de commande et réservation en ligne 24/7</span>, et j'automatise vos tâches répétitives (agent vocal, avis, anti-gaspillage…).
+                <span className="text-foreground"> prise de commande et réservation en ligne 24/7</span>, et j'automatise vos tâches répétitives (réceptionniste IA vocal, avis, anti-gaspillage…).
                 Snacks compris.
               </p>
             </div>

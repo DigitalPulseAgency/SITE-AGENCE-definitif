@@ -36,7 +36,7 @@ export function AIInfra() {
 
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Je développe des infrastructures IA qui <span className="text-foreground">centralisent, dans un seul outil</span>,
-              les automatisations qui vous <span className="text-foreground">font gagner du temps</span> : agent IA vocal, prise de rendez-vous de pose,
+              les automatisations qui vous <span className="text-foreground">font gagner du temps</span> : réceptionniste IA vocal, prise de rendez-vous de pose,
               devis et relances. Des solutions entièrement <span className="text-foreground">sur-mesure</span>, pensées pour les agences de covering.
             </p>
 

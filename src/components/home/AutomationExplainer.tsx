@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { PhoneCall, Sparkles, CalendarCheck, Repeat } from "lucide-react";
 
 const steps = [
-  { icon: PhoneCall, title: "Déclencheur", desc: "Un prospect appelle pendant que vous êtes en pose. Vous ne pouvez pas décrocher — l'agent IA vocal prend l'appel à votre place." },
+  { icon: PhoneCall, title: "Déclencheur", desc: "Un prospect appelle pendant que vous êtes en pose. Vous ne pouvez pas décrocher — l'réceptionniste IA vocal prend l'appel à votre place." },
   { icon: Sparkles, title: "IA", desc: "Elle renseigne le client, qualifie la demande (type de véhicule, covering total ou partiel) et structure tout proprement." },
   { icon: CalendarCheck, title: "Rendez-vous de pose", desc: "Le créneau de pose est calé directement dans votre agenda. Aucun aller-retour, aucun appel à rappeler." },
   { icon: Repeat, title: "Relance auto", desc: "Devis envoyé puis relancé automatiquement s'il reste sans réponse. Vous récupérez le client sans y penser." },
