@@ -27,8 +27,7 @@ export function Bio() {
           </h2>
           <div className="mt-6 space-y-4 text-muted-foreground">
             <p>
-              En novembre, ça fera <span className="text-foreground font-medium">4 ans</span> que je suis tombé dans le digital.
-              Je me suis lancé pour de bon en <span className="text-foreground font-medium">mars 2023</span> : pendant
+              En <span className="text-foreground font-medium">juin 2023</span>, je me suis lancé dans le digital : pendant
               <span className="text-foreground"> un an et demi</span>, j'ai créé des sites internet — pour mon entourage comme pour
               mes propres boutiques en ligne — sur <span className="text-foreground">WordPress et Shopify</span>, bien avant que
               les <span className="text-foreground">outils no-code assistés par l'IA</span> n'existent.
@@ -41,8 +40,8 @@ export function Bio() {
             <p>
               En <span className="text-foreground font-medium">novembre 2024</span>, je me suis lancé dans les
               <span className="text-foreground"> réceptionnistes IA vocaux</span>. Aujourd'hui, je suis vraiment
-              <span className="text-foreground font-medium"> spécialisé dans l'intelligence artificielle</span> et dans le fait de
-              faire gagner du temps aux entreprises.
+              <span className="text-foreground font-medium"> spécialisé dans le fait de faire gagner du temps aux entreprises</span> sur
+              diverses tâches — selon les problématiques qu'elles rencontrent.
             </p>
             <p>
               Aujourd'hui, ce qui me passionne, c'est de bosser avec les <span className="text-foreground">agences de covering</span> —

@@ -107,13 +107,13 @@ export default function Restaurants() {
           <div className="bg-gradient-to-br from-[#6B3FE8]/20 to-transparent border border-[#6B3FE8]/30 rounded-3xl p-8 md:p-12">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#6B3FE8]/20 border border-[#B59FFF]/30 mb-6">
               <PhoneCall className="w-4 h-4 text-[#B59FFF]" />
-              <span className="text-xs font-bold text-[#B59FFF] uppercase tracking-widest">L'réceptionniste IA vocal</span>
+              <span className="text-xs font-bold text-[#B59FFF] uppercase tracking-widest">Le réceptionniste IA vocal</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 max-w-3xl">
               Chaque appel manqué, c'est un couvert perdu.
             </h2>
             <p className="text-lg text-white/70 mb-8 max-w-3xl leading-relaxed">
-              En plein service, tu ne peux pas tout gérer. L'réceptionniste IA vocal décroche à ta place, prend les réservations et répond aux questions courantes — 24h/24. Tu ne perds plus une seule réservation, et tu remplis ta salle sans lever le petit doigt.
+              En plein service, tu ne peux pas tout gérer. Le réceptionniste IA vocal décroche à ta place, prend les réservations et répond aux questions courantes — 24h/24. Tu ne perds plus une seule réservation, et tu remplis ta salle sans lever le petit doigt.
             </p>
             <div className="grid sm:grid-cols-3 gap-5">
               <div>
