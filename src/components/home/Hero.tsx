@@ -107,11 +107,20 @@ export function Hero() {
           </Button>
         </motion.div>
 
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.45 }}
+          className="mx-auto mt-6 max-w-2xl text-sm text-muted-foreground"
+        >
+          <span className="text-[var(--violet-glow)]">Exemple :</span> un devis covering demandé à 21h sur Instagram — <span className="text-foreground">répondu, chiffré et créneau de pose calé</span> pendant que vous posez.
+        </motion.p>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6, duration: 0.8 }}
-          className="mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-4 text-left sm:grid-cols-3 sm:gap-6"
+          className="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-4 text-left sm:grid-cols-3 sm:gap-6"
         >
           {[
             { k: "4 à 12h", v: "Récupérées chaque semaine sur les tâches répétitives", to: "/automatisations", cta: "Découvrir" },

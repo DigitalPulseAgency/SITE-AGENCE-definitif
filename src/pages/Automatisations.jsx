@@ -80,6 +80,47 @@ export default function Automatisations() {
         </div>
       </section>
 
+      {/* SCÉNARIO CONCRET — COVERING */}
+      <section className="py-20 px-6 border-t border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="text-sm font-bold text-[#B59FFF] uppercase tracking-widest">Un cas concret</span>
+            <h2 className="text-3xl md:text-5xl font-bold mt-3 leading-tight">
+              Un devis demandé à 21h, signé pendant que vous posez.
+            </h2>
+            <p className="text-lg text-white/65 max-w-2xl mx-auto mt-4 leading-relaxed">
+              Voilà ce que votre infrastructure fait toute seule, pendant que vous êtes sous un véhicule ou fermé.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            {[
+              { h: '21h00', t: 'Un prospect demande un devis sur Instagram', d: 'Pendant que vous posez ou après la fermeture. Avant, ce message attendait le lendemain — souvent trop tard.' },
+              { h: '21h00', t: "L'agent IA répond en 30 secondes", d: 'Il pose les 3 bonnes questions : modèle du véhicule, covering total ou partiel, type de finition. La demande est qualifiée.' },
+              { h: '21h01', t: 'Pré-chiffrage + créneau de pose proposé', d: 'Une fourchette de prix est donnée et un créneau de pose est proposé directement dans votre agenda.' },
+              { h: '21h02', t: "Acompte encaissé pour bloquer le créneau", d: 'Fini les no-show : le créneau n\'est réservé qu\'une fois l\'acompte versé.' },
+              { h: 'J+2', t: 'Relance automatique si pas de réponse', d: 'Le devis sans suite est relancé tout seul. Le client ne file plus chez le concurrent par oubli.' },
+              { h: 'Demain matin', t: 'Vous découvrez un RDV confirmé et payé', d: "Vous n'avez rien fait. La machine a travaillé toute la nuit à votre place." },
+            ].map((step, i) => (
+              <div key={i} className="flex items-start gap-4 bg-white/[0.03] border border-white/10 rounded-2xl p-5 hover:border-[#6B3FE8]/40 transition-all duration-300">
+                <div className="flex-shrink-0 w-20 text-right">
+                  <span className="text-sm font-bold text-[#B59FFF] mono">{step.h}</span>
+                </div>
+                <div className="flex-shrink-0 w-px self-stretch bg-[#6B3FE8]/30" />
+                <div>
+                  <h3 className="font-bold text-white mb-1">{step.t}</h3>
+                  <p className="text-white/60 text-sm leading-relaxed">{step.d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-white/50 text-sm mt-8 max-w-2xl mx-auto">
+            Chaque agence est différente : on construit le scénario exact selon <span className="text-white/80">votre façon de travailler</span>.
+          </p>
+        </div>
+      </section>
+
       {/* RESTAURANTS — spécialité n°2 */}
       <section className="py-20 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
