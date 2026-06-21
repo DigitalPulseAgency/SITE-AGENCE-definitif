@@ -1,4 +1,5 @@
 import { Hero } from '../components/home/Hero';
+import { ConcreteExamples } from '../components/home/ConcreteExamples';
 import { Stats } from '../components/home/Stats';
 import { AIInfra } from '../components/home/AIInfra';
 import { AIVoiceAgents } from '../components/home/AIVoiceAgents';
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <div className="home-v2">
       <Hero />
+      <ConcreteExamples />
       <Stats />
       <AIInfra />
       <AIVoiceAgents />
