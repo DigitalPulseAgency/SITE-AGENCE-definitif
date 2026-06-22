@@ -27,18 +27,18 @@ const services = [
     highlight: true,
   },
   {
-    icon: Instagram,
-    title: "Réseaux sociaux",
-    href: "/reseaux-sociaux",
-    desc: "Focus Instagram pour toucher ton audience locale. Planning mensuel + réponses aux DM.",
-    bullets: ["Planning de contenu", "Stories & reels", "Modération comm."],
-  },
-  {
     icon: Globe,
     title: "Site sur-mesure",
     href: "/sites-internet",
     desc: "Un site dans ta charte, pensé pour convertir tes visiteurs locaux. Livré en 1 à 2 semaines.",
     bullets: ["Design unique (pas de template)", "Mobile-first", "SEO local de base inclus"],
+  },
+  {
+    icon: Instagram,
+    title: "Réseaux sociaux",
+    href: "/reseaux-sociaux",
+    desc: "Focus Instagram pour toucher ton audience locale. Planning mensuel + réponses aux DM.",
+    bullets: ["Planning de contenu", "Stories & reels", "Modération comm."],
   },
   {
     icon: Star,
