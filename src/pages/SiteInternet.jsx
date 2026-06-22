@@ -95,9 +95,6 @@ export default function SiteInternet() {
 
               {/* Prix */}
               <div className="mb-6 text-center">
-                <div className="inline-flex items-center gap-2 bg-[#6B3FE8]/15 border border-[#6B3FE8]/40 rounded-full px-4 py-1.5 mb-4">
-                  <span className="text-xs font-semibold uppercase tracking-widest text-[#B59FFF]">Tarif de lancement</span>
-                </div>
                 <div className="flex items-baseline justify-center gap-3">
                   <span className="text-2xl md:text-3xl font-semibold text-white/35 line-through decoration-2">700€</span>
                   <span className="text-5xl md:text-7xl font-bold text-white">399€</span>
