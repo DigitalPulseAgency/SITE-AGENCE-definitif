@@ -226,7 +226,7 @@ export default function SiteInternet() {
 
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#6B3FE8]/20 border border-[#6B3FE8]/40 mb-6">
               <ShieldCheck className="w-4 h-4 text-[#B59FFF]" />
-              <span className="text-sm font-semibold text-[#B59FFF]">Maintenance & SEO — 59€/mois</span>
+              <span className="text-sm font-semibold text-[#B59FFF]">Maintenance & SEO — 79€/mois</span>
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -274,7 +274,7 @@ export default function SiteInternet() {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <div>
-                <span className="text-3xl font-bold text-[#B59FFF]">59€</span>
+                <span className="text-3xl font-bold text-[#B59FFF]">79€</span>
                 <span className="text-white/60 ml-1">/mois · SEO, sécurité & 1 modif inclus</span>
               </div>
               <a
@@ -302,7 +302,7 @@ export default function SiteInternet() {
               { n: "02", titre: "Création du site sur-mesure", desc: "On code ton site dans ta charte. Compter 1 à 2 semaines pour une landing page, 3 semaines à 1 mois pour un site multi-pages. Pas de template moche réutilisé." },
               { n: "03", titre: "Validation et ajustements", desc: "Tu donnes ton avis, on ajuste les textes, couleurs, photos." },
               { n: "04", titre: "Mise en ligne", desc: "Site déployé, nom de domaine configuré, Google informé." },
-              { n: "05", titre: "Maintenance : SEO & blog (option 59€/mois)", desc: "Si tu actives la maintenance, on surveille, on sécurise, et chaque mois on publie de nouveaux articles SEO pour te faire monter sur Google. Une modification de module est aussi incluse chaque mois." }
+              { n: "05", titre: "Maintenance : SEO & blog (option 79€/mois)", desc: "Si tu actives la maintenance, on surveille, on sécurise, et chaque mois on publie de nouveaux articles SEO pour te faire monter sur Google. Une modification de module est aussi incluse chaque mois." }
             ].map((item, i) => (
               <div key={i} className="flex gap-6 items-start">
                 <div className="text-5xl font-bold text-[#6B3FE8] flex-shrink-0 w-20">{item.n}</div>
